@@ -1,0 +1,18 @@
+.siteheader {
+	background-color: #eee;
+}
+
+.siteheader-inner {
+	max-width: $maxWidth;
+	margin: 0 auto;
+	padding: $padding;
+	@include clearfix();
+}
+
+.siteheader-logo {
+	float: left;
+	margin: 0;
+}
+.siteheader-usernav {
+	float: right;
+}
