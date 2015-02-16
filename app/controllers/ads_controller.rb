@@ -22,8 +22,14 @@ class AdsController < ApplicationController
 
   def create
     @ad = Ad.new(ad_params)
-    @ad.save
-    respond_with(@ad)
+    @ad.user = current_user
+
+    if @ad.save
+      respond_with(@ad)
+    else
+      render "new"
+    end
+
   end
 
   def update
