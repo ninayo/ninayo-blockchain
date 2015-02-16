@@ -1,18 +1,33 @@
+$siteheaderHeight: 60px;
+$usernavBackgroundColor: #666;
+
 .siteheader {
 	background-color: #eee;
 }
 
 .siteheader-inner {
+	position: relative;
 	max-width: $maxWidth;
 	margin: 0 auto;
-	padding: $padding;
-	@include clearfix();
+	padding: 0 $padding;
+	height: $siteheaderHeight;
 }
 
 .siteheader-logo {
-	float: left;
 	margin: 0;
+	line-height: $siteheaderHeight;
 }
-.siteheader-usernav {
-	float: right;
+
+.siteheader-toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline-block;
+	padding: 12px 15px;
+}
+
+.siteheader-new-ad {
+	position: absolute;
+	top: ($siteheaderHeight - $controlHeight) / 2;
+	right: 70px;
 }

@@ -1,0 +1,20 @@
+.button {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0 $padding;
+	text-decoration: none;
+	height: $controlHeight;
+	line-height: $controlHeight;
+	background-color: $accentColor;
+	color: white;
+	text-transform: uppercase;
+
+	&:hover,
+	&:focus {
+		background-color: darken($accentColor, 10%);
+	}
+
+	&:active {
+		background-color: darken($accentColor, 20%);
+	}
+}

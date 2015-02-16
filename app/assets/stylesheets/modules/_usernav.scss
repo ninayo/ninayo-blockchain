@@ -1,0 +1,55 @@
+.usernav {
+	position: absolute;
+	top: $siteheaderHeight;
+	right: 0;
+	width: 300px;
+	display: none;
+	padding-top: 8px;
+
+	&.is-active {
+		display: block;
+	}
+}
+
+.usernav-inner {
+	background-color: #666;
+}
+
+.usernav-item {
+	display: block;
+	padding: 0 $padding;
+	height: $siteheaderHeight;
+	line-height: $siteheaderHeight;
+	color: white;
+	border-top: 1px solid white;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:first-child {
+		border-top: none;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: darken($usernavBackgroundColor, 5%);
+	}
+
+	&:active {
+		background-color: darken($usernavBackgroundColor, 10%);
+	}
+}
+
+.usernav-caret {
+	position: absolute;
+	width: 0;
+	height: 0;
+	top: 0;
+	right: 22px;
+	border-width: 0 5px 5px;
+	border-bottom-color: #000;
+	border-color: $usernavBackgroundColor;
+	border-style: solid;
+	border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid $usernavBackgroundColor;
+}
