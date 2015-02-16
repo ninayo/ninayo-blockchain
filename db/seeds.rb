@@ -10,20 +10,37 @@ user.email = 'gabriel@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
 user.role = 'admin'
-user.authentication_token = '1G8_s7P-V-4MGojaKD7a'
-user.first_name = 'Gabriel'
-user.last_name = 'Svennerberg'
-user.language = 'se'
+user.name = 'Gabriel Svennerberg'
+user.language = 'en'
 user.save!
+
+1.upto(100) do |i|
+	ad = Ad.new
+	ad.title = "20 sacks of maize"
+	ad.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, impedit ipsam laborum nostrum illum nihil, id qui maiores voluptates aperiam animi quisquam, deserunt cupiditate maxime commodi placeat enim, autem quas!"
+	ad.price = 50000
+	ad.user = user
+	ad.save!
+end
+puts 'CREATED 100 ADS by ' << user.email
 
 user = User.new
 user.email = 'gordon@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
-user.authentication_token = 'gZzQWqzmsQ_iu3uhiiFT'
-user.first_name = 'Gordon'
-user.last_name = 'Freeman'
-user.language = 'se'
+user.name = 'Gordon Freeman'
+user.language = 'en'
 user.save!
 
 puts 'CREATED REGULAR USER: ' << user.email
+
+
+1.upto(100) do |i|
+	ad = Ad.new
+	ad.title = "20 sacks of maize"
+	ad.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, impedit ipsam laborum nostrum illum nihil, id qui maiores voluptates aperiam animi quisquam, deserunt cupiditate maxime commodi placeat enim, autem quas!"
+	ad.price = 50000
+	ad.user = user
+	ad.save!
+end
+puts 'CREATED 100 ADS by ' << user.email
