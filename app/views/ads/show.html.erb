@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
+<%= link_to '< Back', ads_path %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @ad.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @ad.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @ad.price %>
-</p>
-
-<%= link_to 'Edit', edit_ad_path(@ad) %> |
-<%= link_to 'Back', ads_path %>
+<div class="ad">
+	<h1><%= @ad.title %></h1>
+	<div class="description">
+		<%= simple_format(@ad.description) %>
+	</div>
+	<p>
+		<strong>Price:</strong>
+		<%= @ad.price.round(0) %>/=
+	</p>
+</div>
