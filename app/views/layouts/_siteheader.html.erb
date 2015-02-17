@@ -1,8 +1,8 @@
 <div class="siteheader">
 	<div class="siteheader-inner">
-		<h1 class="siteheader-logo">
-			<%=link_to "Ninayo", root_path %>
-		</h1>
+		<a href="<%=root_path%>" class="siteheader-logo">
+			<%= image_tag("ninayo-logo.png", alt: "NINAYO") %>
+		</a>
 
 		<%= link_to("New ad", new_ad_path, :class => "button siteheader-new-ad") if user_signed_in? %>
 		<a href="" class="siteheader-toggle">
