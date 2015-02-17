@@ -9,6 +9,9 @@
 	color: white;
 	text-transform: uppercase;
 
+	border: none;
+	cursor: pointer;
+
 	&:hover,
 	&:focus {
 		background-color: darken($accentColor, 10%);

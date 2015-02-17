@@ -1,0 +1,27 @@
+input,
+textarea {
+	display: block;
+	width: 100%;
+	height: $controlHeight;
+	font-family: $bodyFont;
+	font-size: $baseFontSize;
+	padding: 5px;
+	border: 1px solid #ccc;
+
+	&:focus {
+		border-color: #666;
+		outline: none;
+	}
+}
+
+textarea {
+	height: 100px;
+}
+
+.field {
+	margin-bottom: $halfPadding;
+}
+
+.field-label {
+	display: block;
+}
