@@ -1,29 +1,51 @@
 <%= form_for(@ad) do |f| %>
-  <% if @ad.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+	<% if @ad.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
 
-      <ul>
-      <% @ad.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+			<ul>
+			<% @ad.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
 
-  <div class="field">
-    <%= f.label :title, :class => 'field-label' %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description, :class => 'field-label' %>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :price, :class => 'field-label' %>
-    <%= f.text_field :price %>
-  </div>
-  <div class="actions">
-    <%= f.submit("Create Ad", :class  => "button is-primary") %>
-  </div>
+	<h3>Crop</h3>
+	<div class="field">
+		<%= select("ad", "crop_type_id", @crop_types.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Crop Type"})%>
+	</div>
+	<div class="field">
+		<%= f.label :price, :class => 'field-label' %>
+		<%= f.text_field :price, :class => "is-inline" %>
+	</div>
+	<div class="field">
+		<%= f.label :volume, :class => 'field-label' %>
+		<%= f.text_field :volume, :class => "is-inline" %>
+		<select name="ad[volume_unit]" id="ad_volume_unit" class="is-inline">
+			<option value="bucket">Buckets</option>
+			<option value="sack">Sacks</option>
+		</select>
+	</div>
+	<div class="field">
+		<%= f.label :description, :class => 'field-label' %>
+		<%= f.text_area :description %>
+	</div>
+
+
+
+	<h3>Location</h3>
+	<div class="field">
+		<%= f.label :village, :class => 'field-label' %>
+		<%= f.text_field :village %>
+	</div>
+	<div class="field">
+		<%= f.label :region, :class => 'field-label' %>
+		<%= f.text_field :region %>
+	</div>
+
+
+	<div class="field-actions">
+		<%= f.submit("Create Ad", :class  => "button is-primary") %>
+	</div>
 <% end %>
