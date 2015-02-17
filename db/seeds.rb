@@ -32,7 +32,6 @@ user.save!
 
 1.upto(100) do |i|
 	ad = Ad.new
-	ad.title = i.to_s + " sacks of maize"
 	ad.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, impedit ipsam laborum nostrum illum nihil, id qui maiores voluptates aperiam animi quisquam, deserunt cupiditate maxime commodi placeat enim, autem quas!"
 	ad.price = 5000 * i
 	ad.volume = i
@@ -58,7 +57,6 @@ puts 'CREATED REGULAR USER: ' << user.email
 
 1.upto(100) do |i|
 	ad = Ad.new
-	ad.title = i.to_s + " sacks of maize"
 	ad.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, impedit ipsam laborum nostrum illum nihil, id qui maiores voluptates aperiam animi quisquam, deserunt cupiditate maxime commodi placeat enim, autem quas!"
 	ad.price = 5000 * i
 	ad.volume = i
