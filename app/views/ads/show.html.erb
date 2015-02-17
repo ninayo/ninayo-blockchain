@@ -6,7 +6,27 @@
 		<%= simple_format(@ad.description) %>
 	</div>
 	<p>
+		<strong>Volume:</strong>
+		<%= pluralize(@ad.volume, @ad.volume_unit) %><br>
 		<strong>Price:</strong>
-		<%= @ad.price.round(0) %>/=
+		<%= @ad.price.round(0) %>/=<br>
 	</p>
+
+	<h3>Location</h3>
+	<p>
+		<%= @ad.village %><br>
+		<%= @ad.region %><br>
+	</p>
+
+	<h3>Seller</h3>
+	<p><%=@ad.user.name%></p>
+
+	<div class="ad-actions">
+		<a href="" class="button is-block">
+			Show Contact Information
+		</a>
+		<a href="" class="button is-block">
+			Add to favorites
+		</a>
+	</div>
 </div>
