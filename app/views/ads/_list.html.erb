@@ -1,0 +1,14 @@
+<div class="ads">
+<% ads.each do |ad| %>
+	<a href="<%= ad_path(ad) %>" class="ads-item">
+		<h2 class="ads-heading"><%= ad.title %></h2>
+		<div class="ads-meta">
+			Published
+			<span class="ads-published_at"><%= ad.created_at %></span>
+			by
+			<span class="ads-owner"><%= ad.user.name %></span>
+		</div>
+		<span class="ads-price"><%= ad.price.round(0) %>/=</span>
+	</a>
+<% end %>
+</div>

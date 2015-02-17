@@ -1,0 +1,22 @@
+.ads {
+
+}
+
+.ads-item {
+	position: relative;
+	display: block;
+	text-decoration: none;
+	color: black;
+	margin-bottom: $halfPadding;
+}
+
+.ads-heading {
+	margin: 0 0 5px;
+}
+
+.ads-price {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 18px;
+}
