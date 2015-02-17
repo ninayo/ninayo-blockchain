@@ -1,12 +1,12 @@
 .button {
 	display: inline-block;
 	vertical-align: middle;
-	padding: 0 $padding;
+	padding: 0 20px;
 	text-decoration: none;
 	height: $controlHeight;
 	line-height: $controlHeight;
 	background-color: $accentColor;
-	color: white;
+	color: $white;
 	text-transform: uppercase;
 
 	border: none;

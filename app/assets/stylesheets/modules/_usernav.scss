@@ -1,8 +1,9 @@
 .usernav {
 	position: absolute;
 	top: $siteheaderHeight;
-	right: 0;
-	width: 300px;
+	right: 10px;
+	left: 10px;
+	z-index: 999;
 	display: none;
 	padding-top: 8px;
 
@@ -44,7 +45,7 @@
 	width: 0;
 	height: 0;
 	top: 0;
-	right: 22px;
+	right: 12px;
 	border-width: 0 5px 5px;
 	border-bottom-color: #000;
 	border-color: $usernavBackgroundColor;

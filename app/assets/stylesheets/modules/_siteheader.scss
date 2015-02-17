@@ -15,15 +15,15 @@
 .siteheader-logo {
 	display: inline-block;
 	margin: 0;
-	padding: 10px 0;
+	padding: 20px 0;
 	width: auto;
 	line-height: $siteheaderHeight;
-	color: black;
+	color: $black;
 	text-decoration: none;
 
 	img {
 		display: block;
-		max-height: 100%;
+		max-height: 20px;
 		height: $siteheaderHeight - 20px;
 		width: auto;
 	}
