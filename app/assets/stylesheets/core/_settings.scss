@@ -1,7 +1,9 @@
 $maxWidth: 1280px;
 $minWidth: 320px;
-$padding: 10px;
+
+$padding: 20px;
 $halfPadding: $padding / 2;
+$negativePadding: $padding * -1;
 
 $bodyFont: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 $headingFont: $bodyFont;

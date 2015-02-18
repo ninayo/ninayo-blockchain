@@ -1,5 +1,5 @@
 .ads {
-
+	margin: 0 $negativePadding;
 }
 
 .ads-item {
@@ -7,16 +7,34 @@
 	display: block;
 	text-decoration: none;
 	color: $black;
-	margin-bottom: $halfPadding;
+	padding: $padding;
+	border-bottom: 1px solid #ccc;
+
+	&:hover, 
+	&:focus {
+		background-color: rgba(black, .1);
+	}
 }
 
 .ads-heading {
+	font-size: $baseFontSize * 1.1;
 	margin: 0 0 5px;
 }
 
 .ads-price {
 	position: absolute;
-	top: 0;
-	right: 0;
-	font-size: 18px;
+	top: $padding;
+	right: $padding;
+	font-size: $baseFontSize * 1.1;
+}
+
+.ads-published_at {
+	
+}
+.ads-meta {
+	span {
+		display: inline-block;
+		vertical-align: middle;
+		//margin-right: 10px;
+	}
 }
