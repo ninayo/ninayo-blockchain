@@ -14,6 +14,10 @@
 	&:focus {
 		background-color: rgba(black, .05);
 	}
+
+	&:first-child {
+		border-top: 1px solid #ccc;
+	}
 }
 
 .ads-heading {
@@ -24,9 +28,10 @@
 
 .ads-price {
 	position: absolute;
-	top: $padding + $baseFontSize + 2;
+	bottom: $padding;
 	right: $padding;
 	font-size: $baseFontSize * 1.1;
+	font-weight: bold;
 
 }
 

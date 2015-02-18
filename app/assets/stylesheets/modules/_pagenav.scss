@@ -1,0 +1,49 @@
+.pagenav {
+	padding: $padding 0;
+	@include clearfix();
+}
+
+.pagenav-group {
+	float: left;
+
+	&.is-right {
+		float: right;
+	}
+}
+
+.pagenav-buttongroup {
+	.pagenav-item  {
+		&:first-child {
+			@include border-radius($borderRadius 0 0 $borderRadius);
+		}
+		&:last-child {
+			@include border-radius(0 $borderRadius $borderRadius 0);
+		}
+	}
+}
+
+.pagenav-item {
+	@extend .button;
+	background-color: $grey;
+	float: left;
+
+	&.is-active {
+		background-color: $mediumGrey;
+
+		&:hover,
+		&:focus {
+			background-color: darken($mediumGrey, 10%);
+		}
+		&:active {
+			background-color: $darkGrey;
+		}
+	}
+	&:hover,
+	&:focus {
+		background-color: darken($grey, 10%);
+	}
+	&:active {
+		background-color: $darkGrey;
+	}
+
+}

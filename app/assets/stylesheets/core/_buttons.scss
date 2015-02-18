@@ -1,7 +1,7 @@
 .button {
 	display: inline-block;
 	vertical-align: middle;
-	padding: 0 20px;
+	padding: 0 25px;
 	text-decoration: none;
 	height: $controlHeight;
 	line-height: $controlHeight;
@@ -12,6 +12,8 @@
 
 	border: none;
 	cursor: pointer;
+
+	@include border-radius($borderRadius);
 
 	&:hover,
 	&:focus {
