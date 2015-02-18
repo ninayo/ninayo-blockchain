@@ -13,7 +13,7 @@ body {
 .wrapper {
 	max-width: $maxWidth;
 	min-width: $minWidth;
-	padding: 0 $padding;
+	padding: $padding;
 	margin: 0 auto;
 	background-color: $white;
 }

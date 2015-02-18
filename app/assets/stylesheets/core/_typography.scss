@@ -7,8 +7,13 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $headingFont;
+	margin: 0 0 $margin;
 }
 
 h1 {
-	margin: 0 0 $padding;
+
+}
+
+p {
+	margin: 0 0 $margin;
 }

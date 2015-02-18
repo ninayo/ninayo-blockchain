@@ -15,7 +15,7 @@ $baseFontSize: 14px;
 // colors
 
 $primaryColor: #CCC;
-$accentColor: #1B809E;
+$accentColor: #337AB7;
 $backgroundColor: #EFEBEC;
 $black: #111;
 $white: white;
@@ -24,7 +24,12 @@ $mediumGrey: #666;
 $grey: #999;
 $lightGrey: #f6f6f6;
 
-$linkTextColor: #1B809E;
+$infoColor: #D9EDF7;
+$successColor: #DFF0D8;
+$warningColor: #FCF8E3;
+$alertColor: #F2DEDE;
+
+$linkTextColor: $accentColor;
 
 $controlHeight: 44px;
 $borderRadius: 2px;//$controlHeight;

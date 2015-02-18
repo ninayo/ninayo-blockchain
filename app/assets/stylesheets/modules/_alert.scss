@@ -1,0 +1,37 @@
+.alert {
+	position: relative;
+	margin: 0 0 $margin;
+	padding: $padding;
+
+	background-color: $infoColor;
+	color: $black;
+
+	&.is-success {
+		background-color: $successColor;
+	}
+
+	&.is-warning {
+		background-color: $warningColor;
+	}
+
+	&.is-error {
+		background-color: $alertColor;
+	}
+
+}
+
+
+
+.alert-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	padding: 5px 10px 20px 20px;
+
+	color: $black;
+	text-decoration: none;
+	line-height: 1;
+	margin: 0;
+	font-size: 24px;
+}
