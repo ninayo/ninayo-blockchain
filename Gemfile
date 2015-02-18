@@ -40,6 +40,7 @@ gem 'puma'
 
 group :development do
   gem 'meta_request'
+  gem 'bullet'
 end
 
 group :development, :test do
