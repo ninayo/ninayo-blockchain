@@ -4,7 +4,7 @@ class AdsController < ApplicationController
 	respond_to :html
 
 	def index
-		@ads = Ad.all.order("created_at desc")
+		@ads = Ad.all.order("id desc").includes(:crop_type).includes(:user)
 		respond_with(@ads)
 	end
 
