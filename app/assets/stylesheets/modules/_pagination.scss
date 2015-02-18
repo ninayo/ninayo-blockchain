@@ -1,0 +1,10 @@
+.pagination {
+	margin: 0 0 $margin;
+	text-align: center;
+}
+
+.pagination-item {
+	display: inline-block;
+	padding: $halfPadding;
+	vertical-align: middle;
+}
