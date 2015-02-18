@@ -12,26 +12,31 @@
 
 	&:hover, 
 	&:focus {
-		background-color: rgba(black, .1);
+		background-color: rgba(black, .05);
 	}
 }
 
 .ads-heading {
 	font-size: $baseFontSize * 1.1;
 	margin: 0 0 5px;
+	color: $linkTextColor;
 }
 
 .ads-price {
 	position: absolute;
-	top: $padding;
+	top: $padding + $baseFontSize + 2;
 	right: $padding;
 	font-size: $baseFontSize * 1.1;
+
 }
 
 .ads-published_at {
 	
 }
 .ads-meta {
+	font-size: 12px;
+	color: #999;
+
 	span {
 		display: inline-block;
 		vertical-align: middle;

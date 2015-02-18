@@ -1,12 +1,15 @@
 <div class="ads">
 <% ads.each do |ad| %>
 	<a href="<%= ad_path(ad) %>" class="ads-item">
-		<h2 class="ads-heading"><%= ad.title %></h2>
 		<div class="ads-meta">
 			<span class="ads-published_at">Published <%= l ad.created_at, format: :short %></span>
 			<span class="ads-owner">by <%= ad.user.name %></span>
 		</div>
-		<span class="ads-price"><%= ad.price.round(0) %>/=</span>
+		<h2 class="ads-heading"><%= ad.title %></h2>
+		<div class="ads-location">
+			<%= ad.village %>, <%= ad.region %>
+		</div>
+		<span class="ads-price"><%= number_to_currency(ad.price) %></span>
 	</a>
 <% end %>
 </div>
