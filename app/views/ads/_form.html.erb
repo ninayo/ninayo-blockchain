@@ -22,10 +22,11 @@
 	<div class="field">
 		<%= f.label :volume, :class => 'field-label' %>
 		<%= f.text_field :volume, :class => "is-inline" %>
-		<select name="ad[volume_unit]" id="ad_volume_unit" class="is-inline">
+		<%= f.select :volume_unit, Ad.volume_units.keys.to_a.map { |w| [w.humanize.pluralize, w] }, {}, {:class => "is-inline"}  %>
+		<!-- <select name="ad[volume_unit]" id="ad_volume_unit" class="is-inline">
 			<option value="bucket">Buckets</option>
 			<option value="sack">Sacks</option>
-		</select>
+		</select> -->
 	</div>
 	<div class="field">
 		<%= f.label :description, :class => 'field-label' %>
