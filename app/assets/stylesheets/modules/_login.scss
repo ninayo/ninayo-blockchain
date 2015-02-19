@@ -1,0 +1,28 @@
+.login {
+	@include mq($from: tablet) {
+		margin: 0 $negativePadding;
+		@include clearfix();
+	}
+}
+
+.login-column {
+
+	&:first-child {
+		margin-bottom: $padding;
+		padding-bottom: $padding;
+		border-bottom: 1px solid $lightGrey;
+	}
+
+	@include mq($from: tablet) {
+		float: left;
+		width: 50%;
+		padding: 0 $padding;
+
+		&:first-child {
+			border-bottom: none;
+			border-right: 1px solid $lightGrey;
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+}

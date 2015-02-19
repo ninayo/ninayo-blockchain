@@ -27,6 +27,9 @@ en:
     are_you_sure?: "Are you sure?"
 
   views:
+    create_account:
+      heading: "Create an account"
+      heading_2: "Already have an account?"
     edit_profile:
       heading: "Edit Profile"
       waiting_for_confirmation: "Currently waiting for confirmation for:"
