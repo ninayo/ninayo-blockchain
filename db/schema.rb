@@ -23,14 +23,17 @@ ActiveRecord::Schema.define(version: 20150219200140) do
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
     t.integer  "volume"
-    t.string   "volume_unit"
+    t.integer  "volume_unit"
     t.string   "village"
     t.string   "region"
     t.integer  "crop_type_id"
+    t.integer  "status"
   end
 
   add_index "ads", ["crop_type_id"], name: "index_ads_on_crop_type_id", using: :btree
+  add_index "ads", ["status"], name: "index_ads_on_status", using: :btree
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
+  add_index "ads", ["volume"], name: "index_ads_on_volume", using: :btree
 
   create_table "crop_types", force: :cascade do |t|
     t.string   "name"

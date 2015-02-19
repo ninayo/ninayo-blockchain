@@ -8,7 +8,11 @@ class Ad < ActiveRecord::Base
 	validates :volume_unit, presence: true
 	validates :village, presence: true
 	validates :region, presence: true
+
 	validates :user, presence: true
+
+	enum volume_unit: [:bucket, :sack]
+	enum status: [:draft, :published, :archived]
 
 	def title
 		if self.volume && self.crop_type

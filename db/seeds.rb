@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+CropType.delete_all
+User.delete_all
+Ad.delete_all
 
 
 1.upto(10) do |i|
@@ -21,7 +24,10 @@ crop_type.save!
 puts 'CREATED 11 CROP_TYPES'
 
 
+
+
 user = User.new
+user.username = 'svennerberg'
 user.email = 'gabriel@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
@@ -40,11 +46,13 @@ user.save!
 	ad.crop_type = crop_type
 	ad.village = 'Mbola'
 	ad.region = 'Uyui'
+	ad.status = 'published'
 	ad.save!
 end
 puts 'CREATED 100 ADS by ' << user.email
 
 user = User.new
+user.username = 'gordon'
 user.email = 'gordon@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
@@ -65,6 +73,7 @@ puts 'CREATED REGULAR USER: ' << user.email
 	ad.crop_type = crop_type
 	ad.village = 'Mbola'
 	ad.region = 'Uyui'
+	ad.status = 'published'
 	ad.save!
 end
 puts 'CREATED 100 ADS by ' << user.email

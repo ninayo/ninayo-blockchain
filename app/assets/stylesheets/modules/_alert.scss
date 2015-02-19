@@ -6,6 +6,8 @@
 	background-color: $infoColor;
 	color: $black;
 
+	@include border-radius($borderRadius);
+
 	&.is-success {
 		background-color: $successColor;
 	}
@@ -19,8 +21,6 @@
 	}
 
 }
-
-
 
 .alert-close {
 	position: absolute;

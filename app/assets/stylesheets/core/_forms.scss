@@ -13,7 +13,6 @@ select {
 	font-size: $baseFontSize;
 	padding: 5px;
 	border: 1px solid #ccc;
-	-webkit-appearance: none;
 	@include border-radius($borderRadius);
 
 	&:focus {
@@ -27,6 +26,17 @@ select {
 		width: auto;
 	}
 }
+
+input[type=text],
+input[type=password],
+input[type=number],
+input[type=email],
+input[type=tel],
+input[type=date],
+textarea {
+	-webkit-appearance: none;
+}
+
 
 textarea {
 	height: 100px;
