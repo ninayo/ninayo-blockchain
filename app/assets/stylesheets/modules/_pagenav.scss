@@ -2,6 +2,19 @@
 	padding: $padding 0;
 	margin-top: $negativePadding;
 	@include clearfix();
+
+	&.is-floating {
+		position: absolute;
+		top: $padding;
+		right: $halfPadding;
+		left: $halfPadding;
+		z-index: 100;
+
+		@include mq($from: tablet) {
+			right: $padding;
+		left: $padding;
+		}
+	}
 }
 
 .pagenav-group {

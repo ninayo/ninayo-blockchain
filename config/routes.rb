@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :ads
   get 'ads/:id/preview' => 'ads#preview'
+  get 'map' => 'ads#map'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

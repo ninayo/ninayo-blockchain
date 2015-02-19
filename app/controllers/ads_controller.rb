@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
 	before_action :set_ad, only: [:show, :edit, :preview, :update, :destroy]
-	before_action :authenticate_user!, :except => [:index, :show]
+	before_action :authenticate_user!, :except => [:index, :map, :show]
 
 	respond_to :html
 
