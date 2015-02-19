@@ -2,6 +2,9 @@ class Ad < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :crop_type
 
+	before_save	:set_published_at
+	after_initialize :set_default_status, :if => :new_record?
+
 	validates :crop_type, presence: true
 	validates :price, presence: true
 	validates :volume, presence: true
@@ -14,8 +17,6 @@ class Ad < ActiveRecord::Base
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived]
 
-	# scope :published, -> { where(status: [:published]).order("id desc") }
-	# scope :archived, -> { where(status: [:archived]).order("id desc") }
 
 	def title
 		if self.volume && self.crop_type
@@ -25,5 +26,11 @@ class Ad < ActiveRecord::Base
 
 	def set_default_status
 		self.status ||= :draft
+	end
+
+	def set_published_at
+		if self.published? && !self.published_at
+			self.published_at = Time.new
+		end
 	end
 end
