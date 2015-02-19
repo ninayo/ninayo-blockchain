@@ -22,7 +22,19 @@
 en:
   hello: "Hello world"
 
+  common:
+    back: "Back"
+    are_you_sure?: "Are you sure?"
+
   views:
+    edit_profile:
+      heading: "Edit Profile"
+      waiting_for_confirmation: "Currently waiting for confirmation for:"
+      leave_blank: "leave blank if you don't want to change it"
+      need_password_for: "we need your current password to confirm your changes"
+      cancel_account: "Cancel my account"
+      unhappy?: "Unhappy?"
+
     pagination:
       first: "&laquo; First"
       last: "Last &raquo;"

@@ -27,3 +27,10 @@ a {
 		color: darken($linkTextColor, 10%);
 	}
 }
+
+
+hr {
+	border: none;
+	border-top: 1px solid $lightGrey;
+	margin: $margin 0;
+}

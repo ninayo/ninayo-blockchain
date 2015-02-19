@@ -10,6 +10,12 @@
 	&.is-active {
 		display: block;
 	}
+
+	@include mq($from: tablet) {
+		left: auto;
+		width: 320px;
+
+	}
 }
 
 .usernav-inner {
@@ -33,11 +39,20 @@
 	&:hover,
 	&:focus {
 		background-color: darken($usernavBackgroundColor, 5%);
+		color: $white;
 	}
 
 	&:active {
 		background-color: darken($usernavBackgroundColor, 10%);
+		color: $white;
 	}
+}
+
+.usernav-separator {
+	display: none;
+	height: 1px;
+	border-top: 1px solid $white;
+	margin: 10px 0;
 }
 
 .usernav-caret {
