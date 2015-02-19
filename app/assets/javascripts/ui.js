@@ -14,4 +14,11 @@
 		}
 	});
 
+	$(document).on('click', '.alert-close', function(e) {
+		e.preventDefault();
+		$(this).closest('.alert').fadeOut(function() {
+			$(this).remove();
+		})
+	});
+
 })(jQuery);

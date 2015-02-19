@@ -1,7 +1,7 @@
 .alert {
 	position: relative;
 	margin: 0 0 $margin;
-	padding: $padding;
+	padding: $halfPadding $padding;
 
 	background-color: $infoColor;
 	color: $black;
@@ -24,8 +24,8 @@
 
 .alert-close {
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: -4px;
+	right: -1px;
 	display: block;
 	padding: 5px 10px 20px 20px;
 
@@ -33,5 +33,7 @@
 	text-decoration: none;
 	line-height: 1;
 	margin: 0;
-	font-size: 24px;
+	font-size: 20px;
+
+	opacity: .75;
 }

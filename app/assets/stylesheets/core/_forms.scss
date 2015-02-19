@@ -42,3 +42,35 @@ textarea {
 .field-label {
 	display: block;
 }
+
+.field-hint {
+	color: $mediumGrey;
+	font-size: $smallFontSize;
+}
+
+// Validation
+
+.field_with_errors {
+	input {
+		border-color: $dangerColor;
+		background-color: $alertColor;
+
+		&:focus {
+			border-color: darken($dangerColor, 20%);
+		}
+	}
+
+	label {
+		color: $dangerColor;
+	}
+}
+
+#error_explanation {
+	margin: 0 0 $margin;
+	background-color: $alertColor;
+	padding: $padding;
+
+	h2, li {
+		color: $dangerColor;
+	}
+}
