@@ -1,0 +1,6 @@
+.preview {
+	margin-bottom: $margin;
+	padding: $padding;
+	border: 1px solid $grey;
+	@include border-radius($borderRadius);
+}

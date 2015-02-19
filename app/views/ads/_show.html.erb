@@ -1,0 +1,20 @@
+<h1><%= @ad.title %></h1>
+<div class="description">
+	<%= simple_format(@ad.description) %>
+</div>
+<p>
+	<strong>Volume:</strong>
+	<%= pluralize(@ad.volume, @ad.volume_unit) %><br>
+	<strong>Price:</strong>
+	<%= number_to_currency(@ad.price)%><br>
+</p>
+
+<h3>Location</h3>
+<p>
+	<%= @ad.village %><br>
+	<%= @ad.region %><br>
+</p>
+
+<h3>Seller</h3>
+<p><%=@ad.user.name%></p>
+

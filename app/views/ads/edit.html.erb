@@ -1,6 +1,11 @@
-<h1>Editing Ad</h1>
+<h1><%= t "views.ad.edit.heading" %></h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @ad %> |
-<%= link_to 'Back', ads_path %>
+<div class="newad">
+	<div class="newad-form">
+		<%= render 'form' %>
+	</div>
+	<div class="newad-content">
+		<h2>Help</h2>
+		<p>Here we could put some information that helps the user fill out the form.</p>
+	</div>
+</div>

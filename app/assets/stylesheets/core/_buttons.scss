@@ -20,6 +20,7 @@
 	&:hover,
 	&:focus {
 		background-color: darken($grey, 10%);
+		outline: none;
 	}
 
 	&:active {

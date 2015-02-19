@@ -52,6 +52,11 @@
 
 
 	<div class="field-actions">
-		<%= f.submit("Preview the Ad", :class  => "button is-primary") %>
+		<%= link_to "Cancel", root_path, :class => "button" %>
+		<% if @ad.published? %>
+			<%= f.submit("Save changes", :class  => "button is-primary") %>
+		<% else %>
+			<%= f.submit("Preview the Ad", :class  => "button is-primary") %>
+		<% end %>
 	</div>
 <% end %>

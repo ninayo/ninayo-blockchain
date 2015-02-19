@@ -1,1 +1,13 @@
-<h1>Preview ad</h1>
+<h4 class="">Preview ad</h4>
+
+<div class="preview">
+	<%= render "show" %>
+</div>
+
+<%= form_for(@ad) do |f| %>
+	<%= f.text_field :status, :value => "published" %>
+	<div class="field-actions">
+		<%= link_to "Edit", edit_ad_path(@ad), :class => "button" %>
+		<%= f.submit("Publish", :class  => "button is-primary") %>
+	</div>
+<% end %>
