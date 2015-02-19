@@ -5,10 +5,11 @@
 	text-decoration: none;
 	height: $controlHeight;
 	line-height: $controlHeight;
-	background-color: $accentColor;
+	background-color: $grey;
 	color: $white !important;
 	text-transform: uppercase;
 	text-align: center;
+	font-size: $buttonFontSize;
 
 	border: none;
 	cursor: pointer;
@@ -17,16 +18,49 @@
 
 	&:hover,
 	&:focus {
-		background-color: darken($accentColor, 10%);
+		background-color: darken($grey, 10%);
 	}
 
 	&:active {
-		background-color: darken($accentColor, 20%);
+		background-color: darken($grey, 20%);
 	}
 
 	&.is-block {
 		display: block;
 		width: 100%;
 		margin-bottom: $halfPadding;
+
+		@include mq($from: tablet) {
+			display: inline-block;
+			width: auto;
+		}
+
+	}
+
+
+	&.is-primary {
+		background-color: $accentColor;
+
+		&:hover,
+		&:focus {
+			background-color: darken($accentColor, 10%);
+		}
+
+		&:active {
+			background-color: darken($accentColor, 20%);
+		}
+	}
+
+	&.is-danger {
+		background-color: $dangerColor;
+
+		&:hover,
+		&:focus {
+			background-color: darken($dangerColor, 10%);
+		}
+
+		&:active {
+			background-color: darken($dangerColor, 20%);
+		}
 	}
 }

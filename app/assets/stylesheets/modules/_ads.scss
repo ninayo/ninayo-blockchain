@@ -1,5 +1,9 @@
 .ads {
-	margin: 0 $negativePadding;
+	margin: 0 $negativeHalfPadding;
+
+	@include mq($from: tablet) {
+		margin: 0 $negativePadding;
+	}
 }
 
 .ads-item {
@@ -7,8 +11,12 @@
 	display: block;
 	text-decoration: none;
 	color: $black;
-	padding: $padding;
+	padding: $padding $halfPadding;
 	border-bottom: 1px solid #ccc;
+
+	@include mq($from: tablet) {
+		padding: $padding;
+	}
 
 	&:hover, 
 	&:focus {
@@ -29,10 +37,14 @@
 .ads-price {
 	position: absolute;
 	bottom: $padding;
-	right: $padding;
+	right: $halfPadding;
 	font-size: $baseFontSize * 1.1;
 	font-weight: bold;
 	color: $black;
+
+	@include mq($from: tablet) {
+		padding-right: $padding;
+	}
 
 }
 

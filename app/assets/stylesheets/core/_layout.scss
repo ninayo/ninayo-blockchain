@@ -13,7 +13,11 @@ body {
 .wrapper {
 	max-width: $maxWidth;
 	min-width: $minWidth;
-	padding: $padding;
+	padding: $padding $halfPadding;
 	margin: 0 auto;
 	background-color: $white;
+
+	@include mq($from: tablet) {
+		padding: $padding;
+	}
 }

@@ -4,6 +4,8 @@ $minWidth: 320px;
 $padding: 20px;
 $halfPadding: $padding / 2;
 $negativePadding: $padding * -1;
+$negativeHalfPadding: $halfPadding * -1;
+
 
 $margin: 20px;
 
@@ -25,6 +27,8 @@ $grey: #999;
 $lightGrey: #ddd;
 $lighterGrey: #f6f6f6;
 
+$dangerColor: #d9534f;
+
 $infoColor: #D9EDF7;
 $successColor: #DFF0D8;
 $warningColor: #FCF8E3;
@@ -41,6 +45,12 @@ $borderRadius: 2px;//$controlHeight;
 $usernavBackgroundColor: #666;
 
 $siteheaderHeight: 60px;
+
+
+
+// Buttons
+
+$buttonFontSize: 12px;
 
 
 
