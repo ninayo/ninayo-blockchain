@@ -13,6 +13,8 @@ select {
 	font-size: $baseFontSize;
 	padding: 5px;
 	border: 1px solid #ccc;
+	-webkit-appearance: none;
+	@include border-radius($borderRadius);
 
 	&:focus {
 		border-color: #666;

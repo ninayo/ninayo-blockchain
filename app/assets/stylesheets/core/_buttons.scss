@@ -14,6 +14,7 @@
 	border: none;
 	cursor: pointer;
 
+	-webkit-appearance: none;
 	@include border-radius($borderRadius);
 
 	&:hover,
