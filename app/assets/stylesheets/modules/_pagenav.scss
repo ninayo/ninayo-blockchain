@@ -1,5 +1,6 @@
 .pagenav {
 	padding: $padding 0;
+	margin-top: $negativePadding;
 	@include clearfix();
 }
 

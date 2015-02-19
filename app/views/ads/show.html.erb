@@ -1,4 +1,4 @@
-<%= link_to '< Back', ads_path %>
+<a href="<%= ads_path %>" class="back-link">&larr; Back</a>
 
 <div class="ad">
 	<h1><%= @ad.title %></h1>
@@ -9,7 +9,7 @@
 		<strong>Volume:</strong>
 		<%= pluralize(@ad.volume, @ad.volume_unit) %><br>
 		<strong>Price:</strong>
-		<%= @ad.price.round(0) %>/=<br>
+		<%= number_to_currency(@ad.price)%><br>
 	</p>
 
 	<h3>Location</h3>

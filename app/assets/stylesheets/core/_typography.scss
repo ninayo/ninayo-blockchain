@@ -17,3 +17,13 @@ h1 {
 p {
 	margin: 0 0 $margin;
 }
+
+a {
+	color: $linkTextColor;
+	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		color: darken($linkTextColor, 10%);
+	}
+}
