@@ -1,0 +1,31 @@
+.newad {
+	@include clearfix();
+}
+
+.newad-form {
+	border-bottom: 1px solid $lightGrey;
+	padding-bottom: $padding;
+	margin-bottom: $padding;
+
+
+	@include mq($from: tablet) {
+		float: left;
+		width: 70%;
+		border-right: 1px solid $lightGrey;
+		padding-right: $padding;
+
+		border-bottom: none;
+		margin-bottom: 0;
+		padding-bottom: 0;
+	}
+}
+
+.newad-content {
+	@include mq($from: tablet) {
+		float: left;
+		width: 30%;
+		border-left: 1px solid $lightGrey;
+		padding-left: $padding;
+		margin-left: -1px;
+	}
+}

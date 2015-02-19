@@ -38,6 +38,10 @@ en:
       cancel_account: "Cancel my account"
       unhappy?: "Unhappy?"
 
+    ad:
+      new:
+        heading: "Create an ad"
+
     pagination:
       first: "&laquo; First"
       last: "Last &raquo;"

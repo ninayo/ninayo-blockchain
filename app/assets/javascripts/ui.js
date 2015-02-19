@@ -21,4 +21,12 @@
 		})
 	});
 
+	$(document).on('focusin', 'input', function(e) {
+		$(this).parent('.input').addClass('has-focus');
+	});
+
+	$(document).on('focusout', 'input', function(e) {
+		$(this).parent('.input').removeClass('has-focus');
+	});
+
 })(jQuery);

@@ -1,4 +1,11 @@
-<h1>Create a new ad</h1>
-<%= render 'form' %>
+<h1><%= t "views.ad.new.heading" %></h1>
 
-
+<div class="newad">
+	<div class="newad-form">
+		<%= render 'form' %>
+	</div>
+	<div class="newad-content">
+		<h2>Help</h2>
+		<p>Here we could put some information that helps the user fill out the form.</p>
+	</div>
+</div>
