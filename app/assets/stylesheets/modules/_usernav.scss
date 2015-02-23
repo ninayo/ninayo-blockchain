@@ -60,7 +60,7 @@
 	width: 0;
 	height: 0;
 	top: 0;
-	right: $padding;
+	right: $halfPadding;
 	border-width: 0 5px 5px;
 	border-bottom-color: #000;
 	border-color: $usernavBackgroundColor;
@@ -68,4 +68,8 @@
 	border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 8px solid $usernavBackgroundColor;
+
+    @include mq($from: tablet) {
+		right: $padding;
+	}
 }

@@ -1,4 +1,5 @@
 (function($) {
+	'use strict'
 
 	$(document).on('click', '.siteheader-toggle', function(e) {
 		e.preventDefault();
