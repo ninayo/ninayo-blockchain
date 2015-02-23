@@ -28,6 +28,7 @@ en:
     update: "Update"
     save: "Save"
     cancel: "Cancel"
+    edit: "Edit"
 
   views:
     create_account:
