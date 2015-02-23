@@ -38,5 +38,7 @@ module Ninayo
         '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
       ]
     end)
+
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
   end
 end

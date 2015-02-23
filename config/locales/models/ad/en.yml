@@ -1,0 +1,17 @@
+en:
+  activerecord:
+    models:
+      ad: Ad
+    attributes:
+      ad:
+        description: "Description"
+        price: "Price"
+        volume: "Volume"
+        volume_unit: "Volume unit"
+        village: "Village"
+        region: "Region"
+        crop_type: "Crop type"
+        status: "Status"
+        published_at: "Published"
+
+

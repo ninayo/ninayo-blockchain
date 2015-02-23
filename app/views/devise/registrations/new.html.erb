@@ -20,7 +20,7 @@
 				<%= f.label :password, class: "field-label" %>
 				<%= f.password_field :password, autocomplete: "off" %>
 				<% if @validatable %>
-				<span class="field-hint">(<%= @minimum_password_length %> characters minimum)</span>
+				<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
 				<% end %>
 			</div>
 
@@ -30,7 +30,7 @@
 			</div>
 
 			<div class="field-actions">
-				<%= f.submit "Sign up", class: "button is-primary is-block" %>
+				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-primary is-block" %>
 			</div>
 		<% end %>
 	</div>

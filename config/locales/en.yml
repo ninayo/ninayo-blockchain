@@ -33,6 +33,8 @@ en:
     create_account:
       heading: "Create an account"
       heading_2: "Already have an account?"
+      sign_up: "Sign up"
+      characters_minimum: "characters minimum"
     edit_profile:
       heading: "Edit Profile"
       waiting_for_confirmation: "Currently waiting for confirmation for:"
