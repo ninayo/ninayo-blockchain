@@ -1,6 +1,11 @@
 (function($) {
 	'use strict'
 
+	$(document).on('click', '.not-implemented', function(e) {
+		e.preventDefault();
+		alert('Not implemented');
+	});
+
 	$(document).on('click', '.siteheader-toggle', function(e) {
 		e.preventDefault();
 		var usernav = $('.usernav');
