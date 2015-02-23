@@ -25,6 +25,9 @@ en:
   common:
     back: "Back"
     are_you_sure?: "Are you sure?"
+    update: "Update"
+    save: "Save"
+    cancel: "Cancel"
 
   views:
     create_account:
@@ -33,10 +36,14 @@ en:
     edit_profile:
       heading: "Edit Profile"
       waiting_for_confirmation: "Currently waiting for confirmation for:"
-      leave_blank: "leave blank if you don't want to change it"
-      need_password_for: "we need your current password to confirm your changes"
+      leave_blank: "Leave blank if you don't want to change it"
+      need_password_for: "We need your current password to confirm your changes"
       cancel_account: "Cancel my account"
       unhappy?: "Unhappy?"
+      address: "Address"
+      change_password: "Change password"
+      confirm_your_changes: "Confirm your changes"
+      save_changes: "Save changes"
 
     ad:
       new:
