@@ -19,7 +19,7 @@
 }
 
 .usernav-inner {
-	background-color: #666;
+	background-color: $usernavBackgroundColor;
 }
 
 .usernav-item {
@@ -27,8 +27,8 @@
 	padding: 0 $padding;
 	height: $siteheaderHeight;
 	line-height: $siteheaderHeight;
-	color: white;
-	border-top: 1px solid white;
+	color: $white;
+	border-top: 1px solid $white;
 	text-decoration: none;
 	text-transform: uppercase;
 
@@ -49,7 +49,7 @@
 }
 
 .usernav-separator {
-	display: none;
+
 	height: 1px;
 	border-top: 1px solid $white;
 	margin: 10px 0;
