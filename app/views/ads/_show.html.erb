@@ -3,10 +3,10 @@
 	<%= simple_format(@ad.description) %>
 </div>
 <p>
-	<strong>Volume:</strong>
-	<%= pluralize(@ad.volume, @ad.volume_unit) %><br>
 	<strong>Price:</strong>
 	<%= number_to_currency(@ad.price)%><br>
+	<strong>Volume:</strong>
+	<%= pluralize(@ad.volume, @ad.volume_unit) %><br>
 </p>
 
 <h3>Location</h3>

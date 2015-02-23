@@ -49,11 +49,18 @@ class AdsController < ApplicationController
 	def update
 		@ad.update(ad_params)
 
-		if @ad.published?
-			redirect_to root_path
+		if @ad.save
+			if @ad.published?
+				redirect_to root_path
+			else
+				redirect_to :action => "preview", :id => @ad.id
+			end
 		else
-			redirect_to :action => "preview", :id => @ad.id
+			@crop_types = CropType.all
+			render "edit"
 		end
+
+		
 	end
 
 	def destroy

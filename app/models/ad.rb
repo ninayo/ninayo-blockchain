@@ -5,14 +5,9 @@ class Ad < ActiveRecord::Base
 	before_save	:set_published_at
 	after_initialize :set_default_status, :if => :new_record?
 
-	validates :crop_type, presence: true
-	validates :price, presence: true
-	validates :volume, presence: true
-	validates :volume_unit, presence: true
-	validates :village, presence: true
-	validates :region, presence: true
+	validates :crop_type, :price, :volume, :volume_unit, :village, :region, :user, presence: true
+	validates :price, :volume, numericality: true
 
-	validates :user, presence: true
 
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived]
