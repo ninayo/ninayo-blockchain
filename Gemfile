@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 gem 'devise'
 gem 'puma'
+gem 'client_side_validations'
 
 
 # Use ActiveModel has_secure_password
