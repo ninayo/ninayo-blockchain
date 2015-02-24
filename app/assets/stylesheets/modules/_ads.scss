@@ -1,9 +1,21 @@
+.ads-wrapper {
+	position: relative;
+	padding-right: 0;
+	@include transition(padding 300ms ease-in-out);
+
+	&.show-filter {
+		padding-right: $filterWidth;
+	}
+}
+
 .ads {
 	margin: 0 $negativeHalfPadding;
 
 	@include mq($from: tablet) {
 		margin: 0 $negativeDoublePadding;
 	}
+
+
 }
 
 .ads-item {

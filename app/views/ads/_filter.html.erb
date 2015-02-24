@@ -1,0 +1,7 @@
+<div class="filter">
+	<h4>Filter</h4>
+	<a href="" class="filter-close filter-toggle">&times;</a>
+	<div class="field">
+		<%= select("ad", "crop_type_id", CropType.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Crop Type"})%>
+	</div>
+</div>

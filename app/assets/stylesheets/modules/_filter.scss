@@ -1,0 +1,38 @@
+.filter {
+	position: absolute;
+	right: $negativeDoublePadding;
+	top: 0;
+	bottom: 0;
+	width: $filterWidth;
+	background-color: $filterBackgroundColor;
+	color: $filterTextColor;
+	padding: $padding;
+	margin-right: -1 * $filterWidth;
+	@include transition(margin 300ms ease-in-out);
+}
+
+.ads-wrapper {
+	&.show-filter {
+		.filter {
+			margin-right: 0;
+		}
+	}
+}
+
+.filter-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	padding: $halfPadding $padding;
+	font-size: 24px;
+	color: $white;
+	line-height: 1;
+	opacity: .7;
+
+	&:hover,
+	&:focus {
+		color: $white;
+		opacity: 1;
+	}
+}
