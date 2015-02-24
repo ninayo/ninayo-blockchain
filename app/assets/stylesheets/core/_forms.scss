@@ -52,6 +52,17 @@ fieldset {
 	margin: 0 0 $margin;
 }
 
+.input-wrapper {
+	display: inline-block;
+	@include clearfix();
+
+}
+
+.input-field,
+.input-label {
+	float: left;
+}
+
 .input {
 	@include clearfix();
 	input {
@@ -70,12 +81,10 @@ fieldset {
 	float: left;
 	display: inline-block;
 	vertical-align: middle;
-	background-color: $lightGrey;
 	margin-left: -1px;
 	height: $controlHeight;
 	line-height: $controlHeight;
-	padding: 0 20px;
-	@include border-radius(0 $borderRadius $borderRadius 0);
+	padding: 0 10px;
 }
 
 .field {

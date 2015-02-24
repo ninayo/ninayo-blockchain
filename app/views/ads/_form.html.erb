@@ -16,21 +16,28 @@
 		<div class="field">
 			<%= select("ad", "crop_type_id", @crop_types.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Crop Type"})%>
 		</div>
+
 		<div class="field">
 			<%= f.label :price, :class => 'field-label' %>
-			<div class="input">
-				<%= f.text_field :price, :class => "is-inline" %>
-				<span class="input-post">/=</span>
+			<div class="input-wrapper">
+				<div class="input-field">
+					<%= f.text_field :price, :class => "is-inline" %>
+				</div>
+				<div class="input-label">
+					<span class="input-post">/=</span>
+				</div>
 			</div>
 		</div>
 		<div class="field">
 			<%= f.label :volume, :class => 'field-label' %>
-			<%= f.number_field :volume, :class => "is-inline" %>
-			<%= f.select :volume_unit, Ad.volume_units.keys.to_a.map { |w| [w.humanize.pluralize, w] }, {}, {:class => "is-inline"}  %>
-			<!-- <select name="ad[volume_unit]" id="ad_volume_unit" class="is-inline">
-				<option value="bucket">Buckets</option>
-				<option value="sack">Sacks</option>
-			</select> -->
+			<div class="input-wrapper">
+				<div class="input-field">
+					<%= f.number_field :volume, :class => "is-inline" %>
+				</div>
+				<div class="input-label">
+					<%= f.select :volume_unit, Ad.volume_units.keys.to_a.map { |w| [w.humanize.pluralize, w] }, {}, {:class => "is-inline"}  %>
+				</div>
+			</div>
 		</div>
 		<div class="field">
 			<%= f.label :description, :class => 'field-label' %>
