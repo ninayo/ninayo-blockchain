@@ -5,6 +5,7 @@
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
+
 html, body {
 	height: 100%;
 }
@@ -15,11 +16,21 @@ body {
 }
 
 .wrapper {
+	min-height: 100%;
+	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+	height: 100%;
 	max-width: $maxWidth;
 	min-width: $minWidth;
 	padding: $padding $halfPadding;
 	margin: 0 auto;
 	background-color: $white;
+	margin-bottom: (-1 * $siteFooterHeight);
+
+	&:after {
+		content: "";
+  		display: block;
+		height: $siteFooterHeight;
+	}
 
 	@include mq($from: tablet) {
 		padding: $padding;

@@ -3,6 +3,7 @@ $minWidth: 320px;
 
 $padding: 20px;
 $halfPadding: $padding / 2;
+$doublePadding: $padding * 2;
 $negativePadding: $padding * -1;
 $negativeHalfPadding: $halfPadding * -1;
 
@@ -46,7 +47,7 @@ $borderRadius: 2px;//$controlHeight;
 $usernavBackgroundColor: #666;
 
 $siteheaderHeight: 60px;
-
+$siteFooterHeight: 300px;
 
 
 // Buttons
