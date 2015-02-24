@@ -1,12 +1,17 @@
 .map {
 	position: absolute;
+	overflow: hidden;
 	top: $siteheaderHeight;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	@include transition(padding 300ms ease-in-out);
 
-
+	&.show-filter {
+		padding-right: $filterWidth;
+	}
 }
+
 #admap {
 	height: 100%;
 }

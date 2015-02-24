@@ -9,7 +9,7 @@
 		<a href="" class="button is-block not-implemented">
 			Add to favorites
 		</a>
-		<%= link_to(t("common.edit"), edit_ad_path(@ad), :class => "button is-block") if (current_user.id == @ad.user.id || current_user.admin?) %>
-		<%= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if  current_user.admin?%>
+		<%= link_to(t("common.edit"), edit_ad_path(@ad), :class => "button is-block") if current_user && (current_user.id == @ad.user.id || current_user.admin?) %>
+		<%= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
 	</div>
 </div>

@@ -18,6 +18,13 @@
 		}
 	}
 }
+.map {
+	&.show-filter {
+		.filter {
+			margin-right: $doublePadding;
+		}
+	}
+}
 
 .filter-close {
 	position: absolute;

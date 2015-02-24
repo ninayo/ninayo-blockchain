@@ -1,13 +1,5 @@
 <div class="map">
 	<div id="admap"></div>
-
-	<div class="pagenav is-floating">
-		<div class="pagenav-group pagenav-buttongroup">
-			<%= link_to "List", ads_path, :class => "pagenav-item" %>
-			<%= link_to "Map", map_path, :class => "pagenav-item is-active" %>
-		</div>
-		<div class="pagenav-group is-right">
-			<a href="" class="pagenav-item">Filter</a>
-		</div>
-	</div>
+	<%= render "pagenav", :is_floating => true %>
+	<%= render "filter", :ads => @ads %>
 </div>

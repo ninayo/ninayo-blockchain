@@ -1,16 +1,8 @@
 <div class="ads-wrapper">
-	<div class="pagenav">
-		<div class="pagenav-group pagenav-buttongroup">
-			<%= link_to "List", ads_path, :class => "pagenav-item is-active" %>
-			<%= link_to "Map", map_path, :class => "pagenav-item" %>
-		</div>
-		<div class="pagenav-group is-right">
-			<a href="" class="filter-toggle pagenav-item">Filter</a>
-		</div>
-	</div>
+	<%= render "pagenav", :is_floating => false %>
 
 	<%= render "list", :ads => @ads %>
-	<%= render "filter", :ads => @ads %>
 	<%= paginate @ads %>
+	<%= render "filter", :ads => @ads %>
 </div>
 

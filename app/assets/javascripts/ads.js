@@ -5,6 +5,7 @@
 		console.log('show-filter')
 
 		$('.ads-wrapper').toggleClass('show-filter');
+		$('.map').toggleClass('show-filter');
 	});
 
 })(jQuery);
