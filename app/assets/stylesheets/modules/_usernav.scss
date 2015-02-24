@@ -14,6 +14,7 @@
 	@include mq($from: tablet) {
 		left: auto;
 		width: 320px;
+		right: $padding;
 
 	}
 }
@@ -70,6 +71,6 @@
     border-bottom: 8px solid $usernavBackgroundColor;
 
     @include mq($from: tablet) {
-		right: $padding;
+		right: $padding + $halfPadding;
 	}
 }

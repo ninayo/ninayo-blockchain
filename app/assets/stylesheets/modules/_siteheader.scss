@@ -39,7 +39,7 @@
 	padding: 12px $halfPadding;
 
 	@include mq($from: tablet) {
-		padding: 12px $padding;
+		padding: 12px $doublePadding 12px ($padding - 2px);
 	}
 }
 
@@ -47,4 +47,8 @@
 	position: absolute;
 	top: ($siteheaderHeight - $controlHeight) / 2;
 	right: 70px;
+
+	@include mq($from: tablet) {
+		right: 90px;
+	}
 }
