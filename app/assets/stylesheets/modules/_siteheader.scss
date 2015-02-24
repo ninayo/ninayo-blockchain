@@ -10,7 +10,7 @@
 	height: $siteheaderHeight;
 
 	@include mq($from: tablet) {
-		padding: 0 $padding;
+		padding: 0 $doublePadding;
 	}
 }
 
