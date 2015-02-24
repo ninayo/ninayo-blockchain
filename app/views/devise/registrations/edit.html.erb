@@ -3,23 +3,23 @@
 
 		<h2><%= t "views.edit_profile.heading" %></h2>
 
-		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), validate: true, html: { method: :put }) do |f| %>
 			<%= devise_error_messages! %>
 			<fieldset>
 
 				<div class="field">
 					<%= f.label :name, class: "field-label" %>
-					<%= f.text_field :name, autofocus: true %>
+					<%= f.text_field :name, autofocus: true, :validate => true %>
 				</div>
 
 				<div class="field">
 					<%= f.label :username, class: "field-label" %>
-					<%= f.text_field :username, autofocus: true %>
+					<%= f.text_field :username, :validate => true %>
 				</div>
 
 				<div class="field">
 					<%= f.label :email, class: "field-label" %>
-					<%= f.email_field :email %>
+					<%= f.email_field :email, :validate => true %>
 				</div>
 
 				<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -32,17 +32,17 @@
 
 				<div class="field">
 					<%= f.label :village, class: "field-label" %>
-					<%= f.text_field :village %>
+					<%= f.text_field :village, :validate => true %>
 				</div>
 
 				<div class="field">
 					<%= f.label :region, class: "field-label" %>
-					<%= f.text_field :region %>
+					<%= f.text_field :region, :validate => true %>
 				</div>
 
 				<div class="field">
 					<%= f.label :phone_number, class: "field-label" %>
-					<%= f.telephone_field :phone_number, class: "is-small" %>
+					<%= f.telephone_field :phone_number, :validate => true, class: "is-small" %>
 				</div>
 
 			</fieldset>
@@ -70,7 +70,7 @@
 				<h4><%= t "views.edit_profile.confirm_your_changes" %></h4>
 				<div class="field">
 					<%= f.label :current_password, class: "field-label" %>
-					<%= f.password_field :current_password, autocomplete: "off" %>
+					<%= f.password_field :current_password, :validate => true, autocomplete: "off" %>
 					<span class="field-hint"><%=t "views.edit_profile.need_password_for"%></span>
 				</div>
 
