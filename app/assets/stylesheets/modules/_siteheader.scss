@@ -10,6 +10,10 @@
 	height: $siteheaderHeight;
 
 	@include mq($from: tablet) {
+		padding: 0 $padding;
+	}
+
+	@include mq($from: wide) {
 		padding: 0 $doublePadding;
 	}
 }
@@ -39,6 +43,10 @@
 	padding: 12px $halfPadding;
 
 	@include mq($from: tablet) {
+		padding: 12px $padding 12px ($padding - 2px);
+	}
+
+	@include mq($from: wide) {
 		padding: 12px $doublePadding 12px ($padding - 2px);
 	}
 }

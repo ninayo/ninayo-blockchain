@@ -1,8 +1,8 @@
 .usernav {
 	position: absolute;
 	top: $siteheaderHeight;
-	right: $halfPadding;
-	left: $halfPadding;
+	right: 8px;
+	left: 8px;
 	z-index: 999;
 	display: none;
 	padding-top: 8px;
@@ -14,8 +14,11 @@
 	@include mq($from: tablet) {
 		left: auto;
 		width: 320px;
-		right: $padding;
+		//right: $padding;
+	}
 
+	@include mq($from: wide) {
+		right: $padding;
 	}
 }
 
@@ -71,6 +74,9 @@
     border-bottom: 8px solid $usernavBackgroundColor;
 
     @include mq($from: tablet) {
+		right: $padding;
+	}
+	@include mq($from: wide) {
 		right: $padding + $halfPadding;
 	}
 }

@@ -10,6 +10,10 @@
 	padding: $padding $halfPadding;
 
 	@include mq($from: tablet) {
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
 		padding: $padding $doublePadding;
 	}
 }

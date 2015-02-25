@@ -12,6 +12,10 @@
 	margin: 0 $negativeHalfPadding;
 
 	@include mq($from: tablet) {
+		margin: 0 $negativePadding;
+	}
+
+	@include mq($from: wide) {
 		margin: 0 $negativeDoublePadding;
 	}
 
@@ -27,6 +31,10 @@
 	border-bottom: 1px solid #ccc;
 
 	@include mq($from: tablet) {
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
 		padding: $padding $doublePadding;
 	}
 
@@ -55,7 +63,11 @@
 	color: $black;
 
 	@include mq($from: tablet) {
-		padding-right: $padding;
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
+		padding: $padding $doublePadding;
 	}
 
 }
