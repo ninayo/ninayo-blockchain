@@ -1,7 +1,17 @@
 <div class="filter">
-	<h4>Filter</h4>
-	<a href="" class="filter-close filter-toggle">&times;</a>
-	<div class="field">
-		<%= select("ad", "crop_type_id", CropType.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Crop Type"})%>
-	</div>
+	<%#= form_tag(ads_path, method: :get, remote: true) do %>
+	<form action="<%= ads_path %>" method="get">
+		<h4>Filter</h4>
+		<a href="" class="filter-close filter-toggle">&times;</a>
+		<div class="field">
+			<%= select_tag "crop_type_id", options_from_collection_for_select(CropType.all, "id", "name"), prompt: "Select a crop type" %>
+		</div>
+
+		<div class="field-actions">
+			<button class="button is-primary is-block">
+				Filter
+			</button>
+		</div>
+	<%# end %>
+	</form>
 </div>

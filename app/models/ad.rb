@@ -1,4 +1,5 @@
 class Ad < ActiveRecord::Base
+	include Filterable
 	belongs_to :user
 	belongs_to :crop_type
 
@@ -9,9 +10,10 @@ class Ad < ActiveRecord::Base
 	validates :crop_type_id, numericality: { greater_than: 0 }
 	validates :price, :volume, numericality: true
 
-
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived]
+
+	scope :crop_type_id, -> (crop_type_id) { where crop_type_id: crop_type_id }
 
 
 	def title

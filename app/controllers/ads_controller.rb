@@ -5,7 +5,21 @@ class AdsController < ApplicationController
 	respond_to :html
 
 	def index
-		@ads = Ad.published.order("published_at desc").includes(:crop_type).includes(:user).page(params[:page])
+		@ads = Ad.published
+			.filter(params.slice(:crop_type_id))
+			.order("published_at desc")
+			.includes(:crop_type)
+			.includes(:user)
+			.page(params[:page])
+		# @ads = @ads.crop_type(params[:crop_type_id]) if params[:crop_type_id].present?
+
+		# @ads = @ads.order("published_at desc")
+		# 	.includes(:crop_type)
+		# 	.includes(:user)
+		# 	.page(params[:page])
+
+		@crop_type_id = params[:crop_type_id]
+
 		respond_with(@ads)
 	end
 
@@ -60,7 +74,6 @@ class AdsController < ApplicationController
 			render "edit"
 		end
 
-		
 	end
 
 	def destroy
