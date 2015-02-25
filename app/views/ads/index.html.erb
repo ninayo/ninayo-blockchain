@@ -1,5 +1,5 @@
 <div class="ads-wrapper">
-	<%= render "pagenav", :is_floating => false %>
+	<%= render "pagenav", :is_floating => false, :current => "list" %>
 
 	<%= render "list", :ads => @ads %>
 	<%= paginate @ads %>

@@ -2,7 +2,10 @@
 	'use strict'
 
 	var map,
-		mapDiv;
+		mapDiv,
+		isInitialized = false;
+
+	window.admap = map;
 
 	$(document).on('ready page:load', function() {
 

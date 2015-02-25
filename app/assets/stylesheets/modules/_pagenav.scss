@@ -2,6 +2,7 @@
 	padding: $padding 0;
 	margin-top: $negativePadding;
 	@include clearfix();
+	@include transition(right 300ms ease-in-out);
 
 	&.is-floating {
 		position: absolute;
@@ -12,8 +13,20 @@
 
 		@include mq($from: tablet) {
 			right: $padding;
-		left: $padding;
+			left: $padding;
 		}
+	}
+}
+.map {
+	&.show-filter {
+		.filter {
+			margin-right: $doublePadding;
+		}
+	}
+}
+.map.show-filter {
+	.pagenav {
+		right: $filterWidth + $padding;
 	}
 }
 
