@@ -4,7 +4,9 @@
 	@include transition(padding 300ms ease-in-out);
 
 	&.show-filter {
-		padding-right: $filterWidth;
+		@include mq($from: tablet) {
+			padding-right: $filterWidth;
+		}
 	}
 }
 

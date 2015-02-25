@@ -9,7 +9,7 @@
 		top: $padding;
 		right: $halfPadding;
 		left: $halfPadding;
-		z-index: 100;
+		z-index: 10;
 
 		@include mq($from: tablet) {
 			right: $padding;
@@ -20,13 +20,6 @@
 		// 	right: $doublePadding;
 		// 	left: $doublePadding;
 		// }
-	}
-}
-.map {
-	&.show-filter {
-		.filter {
-			margin-right: $doublePadding;
-		}
 	}
 }
 .map.show-filter {

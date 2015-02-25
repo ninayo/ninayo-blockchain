@@ -1,27 +1,53 @@
 .filter {
 	position: absolute;
-	right: $negativeDoublePadding;
+	z-index: 20;
 	top: 0;
 	bottom: 0;
+	//right: $negativeHalfPadding;
+	right: 0;
 	width: $filterWidth;
+	max-width: 100%;
 	background-color: $filterBackgroundColor;
+	margin-right: (-1 * $filterWidth) - $halfPadding - 20px;
 	color: $filterTextColor;
 	padding: $padding;
-	margin-right: -1 * $filterWidth;
-	@include transition(margin 300ms ease-in-out);
+	@include transition(margin left 300ms ease-in-out);
+	@include box-shadow(0 0 20px rgba(black, .6));
+
+	@include mq($from: tablet) {
+		margin-right: (-1 * $filterWidth) - $padding;
+		@include box-shadow(0 0 0 transparent);
+	}
+
+	@include mq($from: wide) {
+		margin-right: (-1 * $filterWidth) - $doublePadding;
+	}
 }
 
 .ads-wrapper {
 	&.show-filter {
 		.filter {
-			margin-right: 0;
+			margin-right: $negativeHalfPadding;
+
+			@include mq($from: tablet) {
+				margin-right: $negativePadding;
+			}
+			@include mq($from: wide) {
+				margin-right: $negativeDoublePadding;
+			}
 		}
 	}
 }
 .map {
 	&.show-filter {
 		.filter {
-			margin-right: $doublePadding;
+			margin-right: 0;
+
+			@include mq($from: tablet) {
+				margin-right: 0;
+				right: 0;
+			}
+			
 		}
 	}
 }
