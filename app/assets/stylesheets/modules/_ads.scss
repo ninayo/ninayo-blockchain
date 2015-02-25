@@ -2,11 +2,11 @@
 	position: relative;
 	padding-right: 0;
 	@include transition(padding 300ms ease-in-out);
+}
 
-	&.show-filter {
-		@include mq($from: tablet) {
-			padding-right: $filterWidth;
-		}
+.wrapper.show-filter .ads-wrapper {
+	@include mq($from: tablet) {
+		padding-right: $filterWidth;
 	}
 }
 

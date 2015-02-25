@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require rails.validations
+//= require lib/jquery.cookie.js
 //= require_tree .

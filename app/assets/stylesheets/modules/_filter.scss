@@ -24,31 +24,24 @@
 	}
 }
 
-.ads-wrapper {
-	&.show-filter {
-		.filter {
-			margin-right: $negativeHalfPadding;
+.wrapper.show-filter .ads-wrapper .filter {
 
-			@include mq($from: tablet) {
-				margin-right: $negativePadding;
-			}
-			@include mq($from: wide) {
-				margin-right: $negativeDoublePadding;
-			}
-		}
+	margin-right: $negativeHalfPadding;
+
+	@include mq($from: tablet) {
+		margin-right: $negativePadding;
+	}
+	@include mq($from: wide) {
+		margin-right: $negativeDoublePadding;
 	}
 }
-.map {
-	&.show-filter {
-		.filter {
-			margin-right: 0;
 
-			@include mq($from: tablet) {
-				margin-right: 0;
-				right: 0;
-			}
-			
-		}
+.wrapper.show-filter .map .filter {
+	margin-right: 0;
+
+	@include mq($from: tablet) {
+		margin-right: 0;
+		right: 0;
 	}
 }
 

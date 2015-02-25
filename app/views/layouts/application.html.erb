@@ -10,7 +10,7 @@
 </head>
 <body>
 	<%= render "layouts/siteheader" %>
-	<div class="wrapper">
+	<div class="wrapper <%="show-filter" if @show_filter == 'true' %>">
 
 		<% if notice %>
 			<div class="alert is-success">

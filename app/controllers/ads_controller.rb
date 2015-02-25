@@ -2,7 +2,7 @@ class AdsController < ApplicationController
 	before_action :set_ad, only: [:show, :edit, :preview, :update, :destroy]
 	before_action :authenticate_user!, :except => [:index, :map, :show]
 
-	respond_to :html
+	respond_to :html, :js
 
 	def index
 		@ads = Ad.published
@@ -11,16 +11,9 @@ class AdsController < ApplicationController
 			.includes(:crop_type)
 			.includes(:user)
 			.page(params[:page])
-		# @ads = @ads.crop_type(params[:crop_type_id]) if params[:crop_type_id].present?
-
-		# @ads = @ads.order("published_at desc")
-		# 	.includes(:crop_type)
-		# 	.includes(:user)
-		# 	.page(params[:page])
 
 		@crop_type_id = params[:crop_type_id]
-
-		respond_with(@ads)
+		@show_filter = cookies[:show_filter]
 	end
 
 	def show

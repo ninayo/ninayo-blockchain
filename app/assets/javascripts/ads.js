@@ -2,14 +2,12 @@
 
 	$(document).on('click', '.filter-toggle', function(e) {
 		e.preventDefault();
-		console.log('show-filter')
+		$('.wrapper').toggleClass('show-filter');
 
-		$('.ads-wrapper').toggleClass('show-filter');
-		$('.map').toggleClass('show-filter');
+		$.cookie('show_filter', $('.wrapper').hasClass('show-filter'), { expires: 365, path: '/' });
 
 		if(window.admap) {
 			google.maps.event.trigger(window.admap, 'resize');
-			
 		}
 	});
 

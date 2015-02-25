@@ -4,9 +4,8 @@
 		<h4>Filter</h4>
 		<a href="" class="filter-close filter-toggle">&times;</a>
 		<div class="field">
-			<%= select_tag "crop_type_id", options_from_collection_for_select(CropType.all, "id", "name"), prompt: "Select a crop type" %>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(CropType.all, "id", "name", @crop_type_id), prompt: "Select a crop type" %>
 		</div>
-
 		<div class="field-actions">
 			<button class="button is-primary is-block">
 				Filter
