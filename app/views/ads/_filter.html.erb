@@ -4,7 +4,26 @@
 		<h4>Filter</h4>
 		<a href="" class="filter-close filter-toggle">&times;</a>
 		<div class="field">
-			<%= select_tag "crop_type_id", options_from_collection_for_select(CropType.all, "id", "name", @crop_type_id), prompt: "Select a crop type" %>
+			<label for="crop_type_id">Crop type</label>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(CropType.all, "id", "name", @crop_type_id), prompt: "All" %>
+		</div>
+		<div class="field">
+			<label for="region">Region</label>
+			<%= select_tag "region", options_for_select([ "", "Uyui", "xczv"], @region) %>
+		</div>
+		<div class="field">
+			<label for="volume_min">Volume</label>
+			<div class="field-row">
+				<div class="field-col"><%= select_tag "volume_min", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_min) %></div>
+				<div class="field-col"><%= select_tag "volume_max", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_max) %></div>
+			</div>
+		</div>
+		<div class="field">
+			<label for="price_min">Price</label>
+			<div class="field-row">
+				<div class="field-col"><%= select_tag "price_min", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @price_min) %></div>
+				<div class="field-col"><%= select_tag "price_max", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @price_max) %></div>
+			</div>
 		</div>
 		<div class="field-actions">
 			<button class="button is-primary is-block">

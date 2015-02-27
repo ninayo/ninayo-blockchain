@@ -1,6 +1,7 @@
 .ads-wrapper {
 	position: relative;
 	padding-right: 0;
+	min-height: 100%;
 	@include transition(padding 300ms ease-in-out);
 }
 

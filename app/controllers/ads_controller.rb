@@ -7,12 +7,22 @@ class AdsController < ApplicationController
 	def index
 		@ads = Ad.published
 			.filter(params.slice(:crop_type_id))
+			.filter(params.slice(:volume_min))
+			.filter(params.slice(:volume_max))
+			.filter(params.slice(:price_min))
+			.filter(params.slice(:price_max))
+			.filter(params.slice(:region))
 			.order("published_at desc")
 			.includes(:crop_type)
 			.includes(:user)
 			.page(params[:page])
 
 		@crop_type_id = params[:crop_type_id]
+		@volume_min = params[:volume_min]
+		@volume_max = params[:volume_max]
+		@price_min = params[:price_min]
+		@price_max = params[:price_max]
+		@region = params[:region]
 		@show_filter = cookies[:show_filter]
 	end
 

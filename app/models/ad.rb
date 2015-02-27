@@ -14,6 +14,11 @@ class Ad < ActiveRecord::Base
 	enum status: [:draft, :published, :archived]
 
 	scope :crop_type_id, -> (crop_type_id) { where crop_type_id: crop_type_id }
+	scope :volume_min, -> (volume_min) { where("volume > ?", volume_min) }
+	scope :volume_max, -> (volume_max) { where("volume < ?", volume_max) }
+	scope :price_min, -> (price_min) { where("price > ?", price_min) }
+	scope :price_max, -> (price_max) { where("price < ?", price_max) }
+	scope :region, -> (region) { where region: region }
 
 
 	def title

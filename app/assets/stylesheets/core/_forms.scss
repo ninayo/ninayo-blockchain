@@ -103,6 +103,21 @@ fieldset {
 	font-size: $smallFontSize;
 }
 
+.field-row {
+	@include clearfix();
+}
+.field-col {
+	float: left;
+	width: 50%;
+
+	&:first-child {
+		padding-right: 10px;
+	}
+	&:last-child {
+		padding-left: 10px;
+	}
+}
+
 // Validation
 
 .field_with_errors {
