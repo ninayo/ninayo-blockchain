@@ -6,9 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-CropType.delete_all
-User.delete_all
 Ad.delete_all
+User.delete_all
+CropType.delete_all
+EventType.delete_all
+
+
 
 
 1.upto(10) do |i|
@@ -23,8 +26,15 @@ crop_type.save!
 
 puts 'CREATED 11 CROP_TYPES'
 
+event_type = EventType.new
+event_type.name = 'Show ad'
+event_type.save!
 
+event_type = EventType.new
+event_type.name = 'Show contact info'
+event_type.save!
 
+puts 'CREATED 2 EVENT_TYPES'
 
 user = User.new
 user.username = 'svennerberg'

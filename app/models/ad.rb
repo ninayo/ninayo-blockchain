@@ -1,7 +1,9 @@
 class Ad < ActiveRecord::Base
 	include Filterable
+
 	belongs_to :user
 	belongs_to :crop_type
+	has_many :ad_logs
 
 	before_save	:set_published_at
 	after_initialize :set_default_status, :if => :new_record?

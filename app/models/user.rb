@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	has_many :ads
+	has_many :ad_logs
 
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?

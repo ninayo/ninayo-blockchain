@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150219223847) do
+ActiveRecord::Schema.define(version: 20150228095222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ad_logs", force: :cascade do |t|
+    t.integer  "ad_id"
+    t.integer  "user_id"
+    t.integer  "event_type_id"
+    t.string   "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "ad_logs", ["ad_id"], name: "index_ad_logs_on_ad_id", using: :btree
+  add_index "ad_logs", ["event_type_id"], name: "index_ad_logs_on_event_type_id", using: :btree
+  add_index "ad_logs", ["user_id"], name: "index_ad_logs_on_user_id", using: :btree
 
   create_table "ads", force: :cascade do |t|
     t.string   "description"
@@ -38,6 +51,12 @@ ActiveRecord::Schema.define(version: 20150219223847) do
   add_index "ads", ["volume"], name: "index_ads_on_volume", using: :btree
 
   create_table "crop_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "event_types", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -70,6 +89,9 @@ ActiveRecord::Schema.define(version: 20150219223847) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
+  add_foreign_key "ad_logs", "ads"
+  add_foreign_key "ad_logs", "event_types"
+  add_foreign_key "ad_logs", "users"
   add_foreign_key "ads", "crop_types"
   add_foreign_key "ads", "users"
 end
