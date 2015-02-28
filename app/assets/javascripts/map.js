@@ -3,9 +3,9 @@
 
 	var map,
 		mapDiv,
-		isInitialized = false;
+		isInitialized = false,
+		resizeTimeout;
 
-	window.admap = map;
 
 	$(document).on('ready page:load', function() {
 
@@ -18,6 +18,7 @@
 			initMap();
 	 	}
 	});
+
 
 	var initMap = function() {
 		map = new google.maps.Map(document.getElementById('admap'), {
@@ -32,6 +33,17 @@
 		// 	}
 		// });
 		isInitialized = true;
-	}
+
+		$(window).on('resize', function() {
+
+			if (resizeTimeout) {
+				clearTimeout(resizeTimeout);
+			}
+
+			resizeTimeout = setTimeout(function() {
+				google.maps.event.trigger(map, 'resize');
+			}, 500);
+		});
+	};
 
 })(jQuery);
