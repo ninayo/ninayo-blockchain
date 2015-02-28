@@ -7,14 +7,11 @@
 	bottom: 0;
 	@include transition(padding 300ms ease-in-out);
 
-	
+	@include mq($from: tablet) {
+		padding-right: $filterWidth;
+	}
 }
 
-// .wrapper.show-filter .map {
-// 	@include mq($from: tablet) {
-// 		padding-right: $filterWidth;
-// 	}
-// }
 #admap {
 	height: 100%;
 }

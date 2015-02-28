@@ -33,9 +33,14 @@
 	}
 
 }
+ .map .filter {
+ 	@include mq($from: tablet) {
+		right: 0;
+	}
+ }
 
 .wrapper.show-filter .map .filter {
-
+	right: 0;
 }
 
 .filter-toggle {
