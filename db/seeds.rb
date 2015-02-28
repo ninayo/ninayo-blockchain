@@ -12,9 +12,6 @@ User.delete_all
 CropType.delete_all
 EventType.delete_all
 
-
-
-
 1.upto(10) do |i|
 	crop_type = CropType.new
 	crop_type.name = 'Crop Type ' + i.to_s

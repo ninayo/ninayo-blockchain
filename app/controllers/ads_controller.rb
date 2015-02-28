@@ -27,7 +27,17 @@ class AdsController < ApplicationController
 	end
 
 	def show
-		respond_with(@ad)
+		unless @ad
+			not_found
+		else
+			ad_log = AdLog.new
+			ad_log.ad = @ad
+			ad_log.user = current_user || nil
+			ad_log.event_type = EventType.first
+			ad_log.save!
+
+			respond_with(@ad)
+		end
 	end
 
 	def preview
