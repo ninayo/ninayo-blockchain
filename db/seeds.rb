@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+AdLog.delete_all
 Ad.delete_all
 User.delete_all
 CropType.delete_all
@@ -87,3 +88,24 @@ puts 'CREATED REGULAR USER: ' << user.email
 	ad.save!
 end
 puts 'CREATED 100 ADS by ' << user.email
+
+
+log_entry = AdLog.new
+log_entry.user = user
+log_entry.ad = Ad.first
+log_entry.event_type = EventType.first
+log_entry.save!
+
+log_entry = AdLog.new
+log_entry.user = user
+log_entry.ad = Ad.first
+log_entry.event_type = EventType.last
+log_entry.save!
+
+log_entry = AdLog.new
+log_entry.user = User.first
+log_entry.ad = Ad.first
+log_entry.event_type = EventType.first
+log_entry.save!
+
+puts 'CREATED 3 AD_LOGS ENTRIES'
