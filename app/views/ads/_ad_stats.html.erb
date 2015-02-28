@@ -13,7 +13,7 @@
 		<% @ad_logs.each do |a| %>
 			<tr>
 				<td><%= a.event_type.name %></td>
-				<td><%= a.user.name || a.user.email %></td>
+				<td><%= (a.user.name || a.user.email) if a.user %></td>
 				<td><%= l(a.created_at, format: :short) %></td>
 			</tr>
 		<% end %>
