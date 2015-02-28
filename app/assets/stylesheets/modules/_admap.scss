@@ -10,11 +10,11 @@
 	
 }
 
-wrapper.show-filter .map {
-	@include mq($from: tablet) {
-		padding-right: $filterWidth;
-	}
-}
+// .wrapper.show-filter .map {
+// 	@include mq($from: tablet) {
+// 		padding-right: $filterWidth;
+// 	}
+// }
 #admap {
 	height: 100%;
 }

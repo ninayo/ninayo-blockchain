@@ -3,45 +3,44 @@
 	z-index: 20;
 	top: 0;
 	bottom: 0;
-	//right: $negativeHalfPadding;
-	right: 0;
-	width: $filterWidth;
-	max-width: 100%;
-	background-color: $filterBackgroundColor;
-	margin-right: (-1 * $filterWidth) - $halfPadding - 20px;
-	color: $filterTextColor;
+	//right: (-1 * $filterWidth) - $halfPadding;
+	right: -100%;
+	width: 95%;
 	padding: $padding;
-	@include transition(margin left 300ms ease-in-out);
-	@include box-shadow(0 0 20px rgba(black, .6));
+	background-color: $mediumGrey;
+	color: $white;
+	@include transition(right 300ms ease-in-out);
+	@include box-shadow(0 0 20px rgba(black, .7));
 
 	@include mq($from: tablet) {
-		margin-right: (-1 * $filterWidth) - $padding;
-		@include box-shadow(0 0 0 transparent);
+		width: $filterWidth;
+		right: $negativePadding;
+		@include box-shadow(none);
 	}
-
 	@include mq($from: wide) {
-		margin-right: (-1 * $filterWidth) - $doublePadding;
+		right: $negativeDoublePadding;
 	}
 }
 
 .wrapper.show-filter .ads-wrapper .filter {
-
-	margin-right: $negativeHalfPadding;
+	right: $negativeHalfPadding;
 
 	@include mq($from: tablet) {
-		margin-right: $negativePadding;
+		right: $negativePadding;
 	}
 	@include mq($from: wide) {
-		margin-right: $negativeDoublePadding;
+		right: $negativeDoublePadding;
 	}
+
 }
 
 .wrapper.show-filter .map .filter {
-	margin-right: 0;
 
+}
+
+.filter-toggle {
 	@include mq($from: tablet) {
-		margin-right: 0;
-		right: 0;
+		display: none;
 	}
 }
 
@@ -60,5 +59,9 @@
 	&:focus {
 		color: $white;
 		opacity: 1;
+	}
+
+	@include mq($from: tablet) {
+		display: none;
 	}
 }
