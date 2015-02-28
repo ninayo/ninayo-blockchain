@@ -4,6 +4,19 @@ table {
 	}
 }
 
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 0 0 $margin;
+
+	td, th {
+		border-bottom: 1px solid $lightGrey;
+		padding: $halfPadding;
+	}
+}
+
+
+
 .back-link {
 	display: inline-block;
 	padding: 10px;

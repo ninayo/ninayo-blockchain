@@ -1,0 +1,23 @@
+<% if @ad_logs %>
+	<h3>Stats</h3>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Event</th>
+				<th>User</th>
+				<th>Time</th>
+			</tr>
+		</thead>
+		<tbody>
+		<% @ad_logs.each do |a| %>
+			<tr>
+				<td><%= a.event_type.name %></td>
+				<td><%= a.user.name || a.user.email %></td>
+				<td><%= l(a.created_at, format: :short) %></td>
+			</tr>
+		<% end %>
+		</tbody>
+	</table>
+
+<% end %>
