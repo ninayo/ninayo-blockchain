@@ -2,13 +2,23 @@
 
 <div class="ad">
 	<%= render "show" %>
-
 	<%= render "ad_stats" %>
+	
+	<div class="ads-contactinfo">
+		<% if @show_contact_info %>
+			<%= render "contact_info", :user => @ad.user if @show_contact_info %>
+		<% else %>
+			<h3>Seller</h3>
+			<p>
+				<%=@ad.user.name ? @ad.user.name : @ad.user.email %>
+			</p>
+			<%= form_tag(show_contact_info_path) do %>
+				<button class="button is-primary">Show Contact Information</button>
+			<% end %>
+		<% end %>
+	</div>
 
 	<div class="ad-actions">
-		<a href="" class="button is-block is-primary not-implemented">
-			Show Contact Information
-		</a>
 		<a href="" class="button is-block not-implemented">
 			Add to favorites
 		</a>

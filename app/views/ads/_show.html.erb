@@ -14,9 +14,9 @@
 	<%= @ad.village %><br>
 	<%= @ad.region %><br>
 </p>
-
-<h3>Seller</h3>
-<p>
-	<%=@ad.user.name ? @ad.user.name : @ad.user.email %>
-</p>
+<% if @ad.lat && @ad.lng %>
+<div class="ads-staticmap">
+	<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">
+</div>
+<% end %>
 

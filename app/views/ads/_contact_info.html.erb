@@ -1,0 +1,14 @@
+<table>
+	<tr>
+		<th>Seller:</th>
+		<td><%= user.name %></td>
+	</tr>
+	<tr>
+		<th>Phonenumber:</th>
+		<td><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></td>
+	</tr>
+	<tr>
+		<th>Email:</th>
+		<td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+	</tr>
+</table>
