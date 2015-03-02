@@ -1,5 +1,4 @@
 <!-- <a href="<%= ads_path %>" class="back-link">&larr; Back</a> -->
-
 <div class="ad">
 	<%= render "show" %>
 	<%= render "ad_stats" %>
@@ -9,9 +8,7 @@
 			<%= render "contact_info", :user => @ad.user if @show_contact_info %>
 		<% else %>
 			<h3>Seller</h3>
-			<p>
-				<%=@ad.user.name ? @ad.user.name : @ad.user.email %>
-			</p>
+			<p><%=@ad.user.name %></p>
 			<%= form_tag(show_contact_info_path) do %>
 				<button class="button is-primary">Show Contact Information</button>
 			<% end %>

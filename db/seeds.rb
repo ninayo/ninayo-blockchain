@@ -35,7 +35,6 @@ event_type.save!
 puts 'CREATED 2 EVENT_TYPES'
 
 user = User.new
-user.username = 'svennerberg'
 user.email = 'gabriel@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
@@ -45,7 +44,6 @@ user.language = 'en'
 user.save!
 
 user = User.new
-user.username = 'gordon'
 user.email = 'gordon@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
@@ -55,9 +53,7 @@ user.save!
 
 1.upto(200) do |i|
 	user = User.new
-	email = Faker::Internet.email
-	user.username = email
-	user.email = email
+	user.email = Faker::Internet.email
 	user.phone_number = Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
 	user.password = 'thug4life'
 	user.password_confirmation = 'thug4life'

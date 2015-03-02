@@ -5,7 +5,7 @@
 		<a href="<%= ad_path(ad) %>" class="ads-item">
 			<div class="ads-meta">
 				<span class="ads-published_at">Published <%= l(ad.published_at, format: :short) if ad.published_at %></span>
-				<span class="ads-owner">by <%= ad.user.name ? ad.user.name : ad.user.email %></span>
+				<span class="ads-owner">by <%= ad.user.name %></span>
 			</div>
 			<h2 class="ads-heading"><%= ad.title %></h2>
 			<div class="ads-location">
