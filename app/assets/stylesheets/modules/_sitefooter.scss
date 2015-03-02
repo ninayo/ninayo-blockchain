@@ -4,6 +4,10 @@
 	height: $siteFooterHeight;
 }
 
+.ads-map .sitefooter {
+	display: none;
+}
+
 .sitefooter-inner {
 	margin: 0 auto;
 	max-width: $maxWidth;
@@ -37,3 +41,4 @@
 		width: 30%;
 	}
 }
+
