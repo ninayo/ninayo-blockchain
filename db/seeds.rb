@@ -58,6 +58,7 @@ user.save!
 	email = Faker::Internet.email
 	user.username = email
 	user.email = email
+	user.phone_number = Faker::PhoneNumber.cell_phone #=> "(186)285-7925"
 	user.password = 'thug4life'
 	user.password_confirmation = 'thug4life'
 	user.name = Faker::Name.name

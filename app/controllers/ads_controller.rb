@@ -33,6 +33,7 @@ class AdsController < ApplicationController
 		unless @ad
 			not_found
 		else
+
 			if request.post?
 				# Todo: break out into method
 				# note: Potential performance issue
@@ -42,23 +43,22 @@ class AdsController < ApplicationController
 				# todo: Find a better way to assign event_type (use enum instead?)
 				ad_log.event_type = EventType.last
 				ad_log.save!
-				
+
 				@show_contact_info = true
-			end
-
-			if current_user && (current_user.id == @ad.user.id || current_user.admin?)
-				@ad_logs = @ad.ad_logs
 			else
-				# Todo: break out into method
-				# note: Potential performance issue
-				ad_log = AdLog.new
-				ad_log.ad = @ad
-				ad_log.user = current_user || nil
-				# todo: Find a better way to assign event_type (use enum instead?)
-				ad_log.event_type = EventType.first
-				ad_log.save!
+				if current_user && (current_user.id == @ad.user.id || current_user.admin?)
+					@ad_logs = @ad.ad_logs
+				else
+					# Todo: break out into method
+					# note: Potential performance issue
+					ad_log = AdLog.new
+					ad_log.ad = @ad
+					ad_log.user = current_user || nil
+					# todo: Find a better way to assign event_type (use enum instead?)
+					ad_log.event_type = EventType.first
+					ad_log.save!
+				end
 			end
-
 			respond_with(@ad)
 		end
 	end
