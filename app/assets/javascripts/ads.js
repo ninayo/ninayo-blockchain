@@ -8,6 +8,9 @@
 		$.cookie('show_filter', $('.wrapper').hasClass('show-filter'), { expires: 365, path: '/' });
 	});
 
+	
+
+
 	// $(window).off('resize.ads').on('resize.ads', setAdsWrapperHeight);
 
 	// $(document).on('ready page:load', function() {

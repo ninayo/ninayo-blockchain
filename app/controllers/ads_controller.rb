@@ -1,21 +1,14 @@
 class AdsController < ApplicationController
 	before_action :set_ad, only: [:show, :edit, :preview, :update, :destroy]
+	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show]
 
-	respond_to :html, :js
+	respond_to :html, :json
 
 	def index
-		@ads = Ad.published
-			.filter(params.slice(:crop_type_id))
-			.filter(params.slice(:volume_min))
-			.filter(params.slice(:volume_max))
-			.filter(params.slice(:price_min))
-			.filter(params.slice(:price_max))
-			.filter(params.slice(:region))
-			.order("published_at desc")
-			.includes(:crop_type)
-			.includes(:user)
-			.page(params[:page])
+		@ads = @ads.includes(:crop_type)
+					.includes(:user)
+					.page(params[:page])
 
 		@crop_type_id = params[:crop_type_id]
 		@volume_min = params[:volume_min]
@@ -24,6 +17,16 @@ class AdsController < ApplicationController
 		@price_max = params[:price_max]
 		@region = params[:region]
 		@show_filter = cookies[:show_filter]
+
+		respond_to do |format|
+			format.html # index.html.erb
+			format.js { render json: @ads }
+			format.json { render json: @ads }
+		end
+	end
+
+	def map
+		
 	end
 
 	def show
@@ -105,6 +108,17 @@ class AdsController < ApplicationController
 
 	def set_ad
 		@ad = Ad.find(params[:id])
+	end
+
+	def get_ads
+		@ads = Ad.published
+			.filter(params.slice(:crop_type_id))
+			.filter(params.slice(:volume_min))
+			.filter(params.slice(:volume_max))
+			.filter(params.slice(:price_min))
+			.filter(params.slice(:price_max))
+			.filter(params.slice(:region))
+			.order("published_at desc")
 	end
 
 	def ad_params

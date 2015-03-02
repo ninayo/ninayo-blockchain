@@ -1,6 +1,6 @@
 <div class="filter">
 	<%#= form_tag(ads_path, method: :get, remote: true) do %>
-	<form action="<%= request.path %>" method="get">
+	<form action="<%= request.path %>" id="filter-form" method="get">
 		<h3 class="filter-heading">Filter ads <a href="<%=request.path%>" class="filter-reset">Reset filter</a></h3>
 
 		<a href="" class="filter-close filter-toggle">&times;</a>
