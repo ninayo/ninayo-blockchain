@@ -32,7 +32,7 @@
 
 	var initMap = function() {
 		map = new google.maps.Map(document.getElementById('admap'), {
-			zoom: 8,
+			zoom: 6,
 			center: new google.maps.LatLng(-7.458111, 35.991116),
 			mapTypeId: google.maps.MapTypeId.TERRAIN
 		});
@@ -93,8 +93,27 @@
 		if (!infoWindow) {
 			infoWindow = new google.maps.InfoWindow();
 		};
-		infoWindow.setContent(marker.ad.title);
+		infoWindow.setContent(createInfoWindowContent(marker.ad));
 		infoWindow.open(map, marker);
+
+		$.getJSON(marker.ad.url, function(data) {
+			infoWindow.setContent(createInfoWindowContent(data));
+		});
+	};
+
+	var createInfoWindowContent = function(ad) {
+		var html = '<div class="infowindow-content">';
+			html = html + '<h4>' + ad.title + '</h4>';
+			if (ad.description) {
+				html = html + '<p>' + ad.description + '</p>';
+			};
+			html = html + '<p>Price: ' + ad.price + ' /=</p>';
+			if (ad.html_url) {
+				html = html + '<p><a href="' + ad.html_url + '" class="button button-block">Show ad</a></p>';
+			}
+			html = html + '</div>';
+
+		return html;
 	};
 
 	function postFilterForm() {
