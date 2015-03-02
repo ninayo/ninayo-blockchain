@@ -21,7 +21,7 @@ class Ad < ActiveRecord::Base
 	#scope :price_min, -> (price_min) { where("price > ?", price_min) }
 	scope :price_min, -> (price_min) { where("price > " + price_min) }
 	scope :price_max, -> (price_max) { where("price < " + price_max) }
-	scope :region, -> (region) { where region: region }
+	scope :region_id, -> (region) { where region_id: region_id }
 
 
 	def title

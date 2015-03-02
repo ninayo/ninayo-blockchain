@@ -8,12 +8,12 @@
 			<!-- <label for="crop_type_id">Crop type</label> -->
 			<h4 class="filter-field-heading">Crop type</h4>
 
-			<%= select_tag "crop_type_id", options_from_collection_for_select(CropType.all, "id", "name", @crop_type_id), prompt: "Display all" %>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), prompt: "Display all" %>
 		</div>
 		<div class="field filter-field">
 			<!-- <label for="region">Region</label> -->
 			<h4 class="filter-field-heading">Region</h4>
-			<%= select_tag "region", options_for_select([ "Uyui", "xczv"], @region), prompt: "Display all" %>
+			<%= select_tag "region_id", options_from_collection_for_select(@regions, "id", "name", @region_id), prompt: "Display all" %>
 		</div>
 		<div class="field filter-field">
 			<h4 class="filter-field-heading">Volume</h4>

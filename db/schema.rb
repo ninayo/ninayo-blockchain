@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302181555) do
+ActiveRecord::Schema.define(version: 20150302184904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,10 +44,12 @@ ActiveRecord::Schema.define(version: 20150302181555) do
     t.datetime "published_at"
     t.float    "lat"
     t.float    "lng"
+    t.integer  "region_id"
   end
 
   add_index "ads", ["crop_type_id"], name: "index_ads_on_crop_type_id", using: :btree
   add_index "ads", ["published_at"], name: "index_ads_on_published_at", using: :btree
+  add_index "ads", ["region_id"], name: "index_ads_on_region_id", using: :btree
   add_index "ads", ["status"], name: "index_ads_on_status", using: :btree
   add_index "ads", ["user_id"], name: "index_ads_on_user_id", using: :btree
   add_index "ads", ["volume"], name: "index_ads_on_volume", using: :btree
@@ -99,5 +101,6 @@ ActiveRecord::Schema.define(version: 20150302181555) do
   add_foreign_key "ad_logs", "event_types"
   add_foreign_key "ad_logs", "users"
   add_foreign_key "ads", "crop_types"
+  add_foreign_key "ads", "regions"
   add_foreign_key "ads", "users"
 end

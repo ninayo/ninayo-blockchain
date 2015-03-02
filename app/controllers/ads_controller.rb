@@ -18,6 +18,9 @@ class AdsController < ApplicationController
 		@region = params[:region]
 		@show_filter = cookies[:show_filter]
 
+		@crop_types = CropType.all.order("name")
+		@regions = Region.all.order("name")
+
 		respond_to do |format|
 			format.html # index.html.erb
 			format.js { render json: @ads }
@@ -27,6 +30,8 @@ class AdsController < ApplicationController
 
 	def map
 		@ads = @ads.includes(:crop_type)
+		@crop_types = CropType.all.order("name")
+		@regions = Region.all.order("name")
 	end
 
 	def show
