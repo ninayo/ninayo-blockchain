@@ -13,7 +13,7 @@
 		<div class="field filter-field">
 			<!-- <label for="region">Region</label> -->
 			<h4 class="filter-field-heading">Region</h4>
-			<%= select_tag "region", options_for_select([ "Display all", "Uyui", "xczv"], @region) %>
+			<%= select_tag "region", options_for_select([ "Uyui", "xczv"], @region), prompt: "Display all" %>
 		</div>
 		<div class="field filter-field">
 			<h4 class="filter-field-heading">Volume</h4>
