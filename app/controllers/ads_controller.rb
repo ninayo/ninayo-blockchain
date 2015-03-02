@@ -15,7 +15,7 @@ class AdsController < ApplicationController
 		@volume_max = params[:volume_max]
 		@price_min = params[:price_min]
 		@price_max = params[:price_max]
-		@region = params[:region]
+		@region_id = params[:region_id]
 		@show_filter = cookies[:show_filter]
 
 		@crop_types = CropType.all.order("name")
@@ -108,7 +108,7 @@ class AdsController < ApplicationController
 
 		if @ad.save
 			if @ad.published?
-				redirect_to root_path
+				redirect_to ad_path(@ad)
 			else
 				redirect_to :action => "preview", :id => @ad.id
 			end
@@ -137,11 +137,11 @@ class AdsController < ApplicationController
 			.filter(params.slice(:volume_max))
 			.filter(params.slice(:price_min))
 			.filter(params.slice(:price_max))
-			.filter(params.slice(:region))
+			.filter(params.slice(:region_id))
 			.order("published_at desc")
 	end
 
 	def ad_params
-		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region, :position, :status)
+		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng)
 	end
 end
