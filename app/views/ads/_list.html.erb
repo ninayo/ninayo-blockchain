@@ -1,15 +1,23 @@
+<% if ads.length > 0 %>
 <div class="ads">
-<% ads.each do |ad| %>
-	<a href="<%= ad_path(ad) %>" class="ads-item">
-		<div class="ads-meta">
-			<span class="ads-published_at">Published <%= l(ad.published_at, format: :short) if ad.published_at %></span>
-			<span class="ads-owner">by <%= ad.user.name %></span>
-		</div>
-		<h2 class="ads-heading"><%= ad.title %></h2>
-		<div class="ads-location">
-			<%= ad.village %>, <%= ad.region %>
-		</div>
-		<span class="ads-price"><%= number_to_currency(ad.price) %></span>
-	</a>
-<% end %>
+
+	<% ads.each do |ad| %>
+		<a href="<%= ad_path(ad) %>" class="ads-item">
+			<div class="ads-meta">
+				<span class="ads-published_at">Published <%= l(ad.published_at, format: :short) if ad.published_at %></span>
+				<span class="ads-owner">by <%= ad.user.name %></span>
+			</div>
+			<h2 class="ads-heading"><%= ad.title %></h2>
+			<div class="ads-location">
+				<%= ad.village %>, <%= ad.region %>
+			</div>
+			<span class="ads-price"><%= number_to_currency(ad.price) %></span>
+		</a>
+	<% end %>
 </div>
+
+<% else %>
+	<h3>Couldn't find any ads that match your criterias.</h3>
+	<p>Try to remove any of your filters.</p>
+<% end %>
+
