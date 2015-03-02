@@ -11,6 +11,7 @@ Ad.delete_all
 User.delete_all
 CropType.delete_all
 EventType.delete_all
+Region.delete_all
 
 1.upto(10) do |i|
 	crop_type = CropType.new
@@ -24,13 +25,41 @@ crop_type.save!
 
 puts 'CREATED 11 CROP_TYPES'
 
-event_type = EventType.new
-event_type.name = 'Show ad'
-event_type.save!
+Region.create!(:name => 'Arusha')
+Region.create!(:name => 'Dar es Salaam')
+Region.create!(:name => 'Dodoma')
+Region.create!(:name => 'Geita')
+Region.create!(:name => 'Iringa')
+Region.create!(:name => 'Kagera')
+Region.create!(:name => 'Katavi')
+Region.create!(:name => 'Kigoma')
+Region.create!(:name => 'Kilimanjaro')
+Region.create!(:name => 'Lindi')
+Region.create!(:name => 'Manyara')
+Region.create!(:name => 'Mara')
+Region.create!(:name => 'Mbeya')
+Region.create!(:name => 'Morogoro')
+Region.create!(:name => 'Mtwara')
+Region.create!(:name => 'Mwanza')
+Region.create!(:name => 'Njombe')
+Region.create!(:name => 'Pemba North')
+Region.create!(:name => 'Pemba South')
+Region.create!(:name => 'Pwani')
+Region.create!(:name => 'Rukwa')
+Region.create!(:name => 'Ruvuma')
+Region.create!(:name => 'Shinyanga')
+Region.create!(:name => 'Simiyu')
+Region.create!(:name => 'Singida')
+Region.create!(:name => 'Tabora')
+Region.create!(:name => 'Tanga')
+Region.create!(:name => 'Zanzibar North')
+Region.create!(:name => 'Zanzibar South and Central')
+Region.create!(:name => 'Zanzibar West')
 
-event_type = EventType.new
-event_type.name = 'Show contact info'
-event_type.save!
+puts 'CREATED 30 REGIONS'
+
+EventType.create!(:name => 'Show ad')
+EventType.create!(:name => 'Show contact info')
 
 puts 'CREATED 2 EVENT_TYPES'
 
@@ -61,7 +90,7 @@ user.save!
 	user.language = 'en'
 	user.save!
 end
-puts 'CREATED 500 FAKE USERS '
+puts 'CREATED 200 FAKE USERS '
 
 1.upto(1000) do |i|
 	ad = Ad.new
@@ -70,13 +99,19 @@ puts 'CREATED 500 FAKE USERS '
 	ad.volume = Faker::Number.number(2)
 	ad.volume_unit = 'sack'
 	ad.user = User.find(rand(2..202))
-	ad.crop_type = CropType.find(rand(1..10))
+	ad.crop_type = CropType.find(rand(1..11))
 	ad.village = Faker::Address.city
 	ad.region = Faker::Address.state
-	ad.lat = Faker::Address.latitude
-	ad.lng = Faker::Address.longitude
+	# ad.lat = Faker::Address.latitude
+	# ad.lng = Faker::Address.longitude
+	# nw -1.112499, 31.420803
+	# ne -4.634119, 39.012356
+	# sw -8.486156, 31.179104
+	# se -10.404279, 40.143948
+	ad.lat = rand(-10.4..-1.1)
+	ad.lng = rand(31.2..40.1)
 	ad.status = 'published'
-	ad.published_at = Faker::Time.between(20.days.ago, Time.now, :all) #=> "2014-09-19 07:03:30 -0700"
+	ad.published_at = Faker::Time.between(30.days.ago, Time.now, :all) #=> "2014-09-19 07:03:30 -0700"
 	ad.save!
 end
 puts 'CREATED 1000 ADS'

@@ -26,7 +26,7 @@ class AdsController < ApplicationController
 	end
 
 	def map
-
+		@ads = @ads.includes(:crop_type)
 	end
 
 	def show
