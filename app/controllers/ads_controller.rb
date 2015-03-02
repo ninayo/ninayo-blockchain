@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-	before_action :set_ad, only: [:show, :edit, :preview, :update, :destroy]
+	before_action :set_ad, only: [:show, :contact_info, :edit, :preview, :update, :destroy]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show]
 
@@ -34,33 +34,35 @@ class AdsController < ApplicationController
 			not_found
 		else
 
-			if request.post?
+			if current_user && (current_user.id == @ad.user.id || current_user.admin?)
+				@ad_logs = @ad.ad_logs
+			else
 				# Todo: break out into method
 				# note: Potential performance issue
 				ad_log = AdLog.new
 				ad_log.ad = @ad
 				ad_log.user = current_user || nil
 				# todo: Find a better way to assign event_type (use enum instead?)
-				ad_log.event_type = EventType.last
+				ad_log.event_type = EventType.first
 				ad_log.save!
-
-				@show_contact_info = true
-			else
-				if current_user && (current_user.id == @ad.user.id || current_user.admin?)
-					@ad_logs = @ad.ad_logs
-				else
-					# Todo: break out into method
-					# note: Potential performance issue
-					ad_log = AdLog.new
-					ad_log.ad = @ad
-					ad_log.user = current_user || nil
-					# todo: Find a better way to assign event_type (use enum instead?)
-					ad_log.event_type = EventType.first
-					ad_log.save!
-				end
 			end
-			respond_with(@ad)
+			#respond_with(@ad)
 		end
+	end
+
+	def contact_info
+			# Todo: break out into method
+			# note: Potential performance issue
+			ad_log = AdLog.new
+			ad_log.ad = @ad
+			ad_log.user = current_user || nil
+			# todo: Find a better way to assign event_type (use enum instead?)
+			ad_log.event_type = EventType.last
+			ad_log.save!
+
+			@show_contact_info = true
+
+			render "show"
 	end
 
 	def preview

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :ads
   get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
-  post 'ads/:id/contact-info' => 'ads#show', as: :show_contact_info
+  post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
   get 'map' => 'ads#map'
 
   devise_for :users
