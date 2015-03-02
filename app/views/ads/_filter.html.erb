@@ -20,11 +20,11 @@
 			<div class="field-row">
 				<div class="field-col">
 					<label for="volume_min" class="filter-label">Min</label>
-					<%= select_tag "volume_min", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_min) %>
+					<%= select_tag "volume_min", options_for_select([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_min), prompt: "-"  %>
 				</div>
 				<div class="field-col">
 					<label for="volume_max" class="filter-label">Max</label>
-					<%= select_tag "volume_max", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_max) %>
+					<%= select_tag "volume_max", options_for_select([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_max), prompt: "-"  %>
 				</div>
 			</div>
 		</div>
@@ -33,11 +33,11 @@
 			<div class="field-row">
 				<div class="field-col">
 					<label for="price_min" class="filter-label">Min</label>
-					<%= select_tag "price_min", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @price_min) %>
+					<%= select_tag "price_min", options_for_select([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 3000000, 4000000, 500000, 1000000], @price_min), prompt: "-" %>
 				</div>
 				<div class="field-col">
 					<label for="price_max" class="filter-label">Max</label>
-					<%= select_tag "price_max", options_for_select([ "", 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @price_max) %>
+					<%= select_tag "price_max", options_for_select([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 3000000, 4000000, 500000, 1000000], @price_max), prompt: "-"  %>
 				</div>
 			</div>
 		</div>
