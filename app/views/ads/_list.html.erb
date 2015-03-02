@@ -9,7 +9,7 @@
 			</div>
 			<h2 class="ads-heading"><%= ad.title %></h2>
 			<div class="ads-location">
-				<%= ad.village %>, <%= ad.region %>
+				<%= ad.village %>, <%= ad.region.name %>
 			</div>
 			<span class="ads-price"><%= number_to_currency(ad.price) %></span>
 		</a>

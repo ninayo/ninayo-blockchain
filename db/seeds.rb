@@ -101,7 +101,7 @@ puts 'CREATED 200 FAKE USERS '
 	ad.user = User.find(rand(2..202))
 	ad.crop_type = CropType.find(rand(1..11))
 	ad.village = Faker::Address.city
-	ad.region = Faker::Address.state
+	ad.region = Region.find(rand(1..30))
 	# ad.lat = Faker::Address.latitude
 	# ad.lng = Faker::Address.longitude
 	# nw -1.112499, 31.420803

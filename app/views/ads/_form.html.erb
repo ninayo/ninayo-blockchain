@@ -52,8 +52,8 @@
 			<%= f.text_field :village %>
 		</div>
 		<div class="field">
-			<%= f.label :region, :class => 'field-label' %>
-			<%= f.text_field :region %>
+			<%= f.label :region_id, :class => 'field-label' %>
+			<%= select("ad", "region_id", Region.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Region"})%>
 		</div>
 		<div class="field row">
 			<div class="field field-col">

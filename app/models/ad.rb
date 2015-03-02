@@ -3,6 +3,7 @@ class Ad < ActiveRecord::Base
 
 	belongs_to :user
 	belongs_to :crop_type
+	belongs_to :region
 	has_many :ad_logs
 
 	before_save	:set_published_at

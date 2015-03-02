@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302184904) do
+ActiveRecord::Schema.define(version: 20150302185028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150302184904) do
     t.integer  "volume"
     t.integer  "volume_unit"
     t.string   "village"
-    t.string   "region"
     t.integer  "crop_type_id"
     t.integer  "status"
     t.datetime "published_at"
