@@ -44,21 +44,6 @@ user.name = 'Gabriel Svennerberg'
 user.language = 'en'
 user.save!
 
-1.upto(100) do |i|
-	ad = Ad.new
-	ad.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, impedit ipsam laborum nostrum illum nihil, id qui maiores voluptates aperiam animi quisquam, deserunt cupiditate maxime commodi placeat enim, autem quas!"
-	ad.price = 5000 * i
-	ad.volume = i
-	ad.volume_unit = 'sack'
-	ad.user = user
-	ad.crop_type = crop_type
-	ad.village = 'Mbola'
-	ad.region = 'Uyui'
-	ad.status = 'published'
-	ad.save!
-end
-puts 'CREATED 100 ADS by ' << user.email
-
 user = User.new
 user.username = 'gordon'
 user.email = 'gordon@svennerberg.com'
@@ -68,41 +53,51 @@ user.name = 'Gordon Freeman'
 user.language = 'en'
 user.save!
 
-puts 'CREATED REGULAR USER: ' << user.email
+1.upto(200) do |i|
+	user = User.new
+	email = Faker::Internet.email
+	user.username = email
+	user.email = email
+	user.password = 'thug4life'
+	user.password_confirmation = 'thug4life'
+	user.name = Faker::Name.name
+	user.language = 'en'
+	user.save!
+end
+puts 'CREATED 500 FAKE USERS '
 
-
-1.upto(100) do |i|
+1.upto(1000) do |i|
 	ad = Ad.new
-	ad.description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, impedit ipsam laborum nostrum illum nihil, id qui maiores voluptates aperiam animi quisquam, deserunt cupiditate maxime commodi placeat enim, autem quas!"
-	ad.price = 5000 * i
-	ad.volume = i
+	ad.description = Faker::Lorem.sentence(20, false, 4)
+	ad.price = Faker::Number.number(5)
+	ad.volume = Faker::Number.number(2)
 	ad.volume_unit = 'sack'
-	ad.user = user
-	ad.crop_type = crop_type
-	ad.village = 'Mbola'
-	ad.region = 'Uyui'
+	ad.user = User.find(rand(2..202))
+	ad.crop_type = CropType.find(rand(1..10))
+	ad.village = Faker::Address.city
+	ad.region = Faker::Address.state
+	ad.lat = Faker::Address.latitude
+	ad.lng = Faker::Address.longitude
 	ad.status = 'published'
+	ad.published_at = Faker::Time.between(20.days.ago, Time.now, :all) #=> "2014-09-19 07:03:30 -0700"
 	ad.save!
 end
-puts 'CREATED 100 ADS by ' << user.email
+puts 'CREATED 1000 ADS'
 
+1.upto(3000) do |i|
+	log_entry = AdLog.new
+	log_entry.user = User.find(rand(2..202))
+	log_entry.ad = Ad.find(rand(1..1000))
+	log_entry.event_type = EventType.first
+	log_entry.save!
+end
 
-log_entry = AdLog.new
-log_entry.user = user
-log_entry.ad = Ad.first
-log_entry.event_type = EventType.first
-log_entry.save!
+1.upto(1000) do |i|
+	log_entry = AdLog.new
+	log_entry.user = User.find(rand(2..202))
+	log_entry.ad = Ad.find(rand(1..1000))
+	log_entry.event_type = EventType.last
+	log_entry.save!
+end
 
-log_entry = AdLog.new
-log_entry.user = user
-log_entry.ad = Ad.first
-log_entry.event_type = EventType.last
-log_entry.save!
-
-log_entry = AdLog.new
-log_entry.user = User.first
-log_entry.ad = Ad.first
-log_entry.event_type = EventType.first
-log_entry.save!
-
-puts 'CREATED 3 AD_LOGS ENTRIES'
+puts 'CREATED 4000 AD_LOGS ENTRIES'

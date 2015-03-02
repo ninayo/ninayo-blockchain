@@ -39,6 +39,8 @@ gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'faker'
+
 group :development do
   gem 'meta_request'
   gem 'bullet'
