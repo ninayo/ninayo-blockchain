@@ -9,6 +9,9 @@
 	});
 
 	
+	$(document).on('change', '.ads-index #filter-form', function(e) {
+		$(this).submit();
+	});
 
 
 	// $(window).off('resize.ads').on('resize.ads', setAdsWrapperHeight);
