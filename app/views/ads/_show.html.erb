@@ -16,5 +16,7 @@
 </p>
 
 <h3>Seller</h3>
-<p><%=@ad.user.name%></p>
+<p>
+	<%=@ad.user.name ? @ad.user.name : @ad.user.email %>
+</p>
 
