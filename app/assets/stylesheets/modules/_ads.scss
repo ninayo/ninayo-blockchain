@@ -1,7 +1,7 @@
 .ads-wrapper {
 	position: relative;
 	padding-right: 0;
-	min-height: 100%;
+	min-height: 640px;
 	@include transition(padding 300ms ease-in-out);
 
 	@include mq($from: tablet) {

@@ -1,7 +1,7 @@
 <div class="pagenav <%= "is-floating" if is_floating %>">
 	<div class="pagenav-group pagenav-buttongroup">
-		<%= link_to "List", ads_path, :class => "pagenav-item is-active" %>
-		<%= link_to "Map", map_path, :class => "pagenav-item" %>
+		<%= link_to "List", ads_path, :class => controller.action_name == "index" ? "pagenav-item is-active" : "pagenav-item" %>
+		<%= link_to "Map", map_path, :class => controller.action_name == "map" ? "pagenav-item is-active" : "pagenav-item" %>
 	</div>
 	<div class="pagenav-group is-right">
 		<a href="" class="filter-toggle pagenav-item">Filter</a>
