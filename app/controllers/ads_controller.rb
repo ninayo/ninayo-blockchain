@@ -56,18 +56,21 @@ class AdsController < ApplicationController
 	end
 
 	def contact_info
-			# Todo: break out into method
-			# note: Potential performance issue
-			ad_log = AdLog.new
-			ad_log.ad = @ad
-			ad_log.user = current_user || nil
-			# todo: Find a better way to assign event_type (use enum instead?)
-			ad_log.event_type = EventType.last
-			ad_log.save!
+		# Todo: break out into method
+		# note: Potential performance issue
+		ad_log = AdLog.new
+		ad_log.ad = @ad
+		ad_log.user = current_user || nil
+		# todo: Find a better way to assign event_type (use enum instead?)
+		ad_log.event_type = EventType.last
+		ad_log.save!
 
-			@show_contact_info = true
+		@show_contact_info = true
 
-			render "show"
+		respond_to do |format|
+			format.html { render "show" }
+			format.js
+		end
 	end
 
 	def preview

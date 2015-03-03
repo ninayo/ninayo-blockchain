@@ -1,21 +1,26 @@
 <!-- <a href="<%= ads_path %>" class="back-link">&larr; Back</a> -->
 <div class="ad">
 	<%= render "show" %>
-	<%= render "ad_stats" %>
 	
-	<div class="ads-contactinfo">
+	
+	<div class="ad-contactinfo">
+		<h3>Seller</h3>
+		<h4 class="ad-seller-name"><%=@ad.user.name %></h4>
+		<div id="contact-info"></div>
 		<% if @show_contact_info %>
-			<%= render "contact_info", :user => @ad.user if @show_contact_info %>
+			<%= render "contact_info", :user => @ad.user %>
 		<% else %>
-			<h3>Seller</h3>
-			<p><%=@ad.user.name %></p>
-			<%= form_tag(show_contact_info_path) do %>
-				<button class="button is-primary">Show Contact Information</button>
+			<%= form_tag(show_contact_info_path, :remote => true, :authenticity_token => true) do %>
+				<button id="contact-info-toggle" class="button is-primary">Show Contact Information</button>
 			<% end %>
 		<% end %>
 	</div>
 
-	<div class="ad-actions">
+	<hr>
+
+	<%= render "ad_stats" %>
+
+	<div class="ad-actions text-right">
 		<a href="" class="button is-block not-implemented">
 			Add to favorites
 		</a>
@@ -23,3 +28,12 @@
 		<%= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
 	</div>
 </div>
+
+<script>
+	$(document).on('ajaxError', function(event, xhr) {
+		if (xhr.status === 401 || xhr.status === 403) {
+			alert('<%= t "common.you_need_to_login_first" %>');
+			window.location.href = '<%= new_user_session_path %>';
+		}
+	});
+</script>

@@ -8,7 +8,6 @@
 		$.cookie('show_filter', $('.wrapper').hasClass('show-filter'), { expires: 365, path: '/' });
 	});
 
-	
 	$(document).on('change', '.ads-index #filter-form', function(e) {
 		$(this).submit();
 	});
