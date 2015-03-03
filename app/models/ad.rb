@@ -5,6 +5,8 @@ class Ad < ActiveRecord::Base
 	belongs_to :crop_type
 	belongs_to :region
 	has_many :ad_logs
+	has_many :favorite_ads
+	has_many :favorited_by, through: :favorite_ads, source: :user
 
 	before_save	:set_published_at
 	after_initialize :set_default_status, :if => :new_record?
