@@ -133,3 +133,8 @@ end
 end
 
 puts 'CREATED 4000 AD_LOGS ENTRIES'
+
+1.upto(1000) do |i|
+	User.find(rand(2..202)).favorites << Ad.find(rand(1..1000))
+end
+puts 'CREATED 1000 FAVORITES'
