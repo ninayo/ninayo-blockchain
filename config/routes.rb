@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :ads
+  resources :ads do
+    put :favorite
+  end
+
   get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
   post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
   get 'map' => 'ads#map'

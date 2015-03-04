@@ -127,7 +127,25 @@ class AdsController < ApplicationController
 		respond_with(@ad)
 	end
 
-	private
+	# Add and remove favorite recipes
+	# for current_user
+	def favorite
+		type = params[:type]
+		if type == "favorite"
+			current_user.favorites << @ad
+			redirect_to :back, notice: 'You favorited #{@ad.title}'
+
+		elsif type == "unfavorite"
+			current_user.favorites.delete(@ad)
+			redirect_to :back, notice: 'Unfavorited #{@ad.title}'
+
+		else
+			# Type missing, nothing happens
+			redirect_to :back, notice: 'Nothing happened.'
+		end
+	end
+
+private
 
 	def set_ad
 		@ad = Ad.find(params[:id])
