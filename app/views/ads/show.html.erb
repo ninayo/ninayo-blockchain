@@ -1,27 +1,37 @@
 <div class="ad">
 	<div class="ad-main">
 		<%= render "show" %>
+
 		<div class="ad-actions">
-	<%# if current_user %>
-		<% link_to "Favorite",   ad_favorite_path(@ad, type: "favorite"), method: :put %>
-		<% link_to "Unfavorite", ad_favorite_path(@ad, type: "unfavorite"), method: :put %>
-	<%# end %>
-		<a href="" class="button is-block not-implemented">
-			Add to favorites
-		</a>
-		<%= link_to(t("common.edit"), edit_ad_path(@ad), :class => "button is-block") if current_user && (current_user.id == @ad.user.id || current_user.admin?) %>
-		<%= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
-	</div>
+		<%# if current_user %>
+			<% link_to "Favorite",   ad_favorite_path(@ad, type: "favorite"), method: :put %>
+			<% link_to "Unfavorite", ad_favorite_path(@ad, type: "unfavorite"), method: :put %>
+		<%# end %>
+			<a href="" class="button is-block not-implemented">
+				Add to favorites
+			</a>
+			<%= link_to(t("common.edit"), edit_ad_path(@ad), :class => "button is-block") if current_user && (current_user.id == @ad.user.id || current_user.admin?) %>
+			<%= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
+		</div>
 	</div>
 	<div class="ad-sidebar">
+
+		<h3>Facts</h3>
+		<table class="datatable">
+			<tr>
+				<th>Price:</th>
+				<td><%= number_to_currency(@ad.price)%></td>
+			</tr>
+			<tr>
+				<th>Volume:</th>
+				<td><%= pluralize(@ad.volume, @ad.volume_unit) %></td>
+			</tr>
+			<tr>
+				<th>Published:</th>
+				<td><%= l(@ad.published_at, format: :short) %></td>
+			</tr>
+		</table>
 		<%#= render "ad_stats" %>
-		<h3>Location</h3>
-		<% if @ad.lat && @ad.lng %>
-		<div class="ad-staticmap">
-			<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">
-		</div>
-		<% end %>
-		<p class="ad-address"><%= @ad.village %>, <%= @ad.region.name %></p>
 
 		<hr>
 
@@ -37,10 +47,18 @@
 				<% end %>
 			<% end %>
 		</div>
+		<div class="ad-location">
+			<h3>Location</h3>
+			<% if @ad.lat && @ad.lng %>
+			<div class="ad-staticmap">
+				<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">
+			</div>
+			<% end %>
+			<p class="ad-address"><%= @ad.village %>, <%= @ad.region.name %></p>
+		</div>
+
 	</div>
 </div>
-
-	
 
 
 <script>
