@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 	has_many :favorite_ads
 	has_many :favorites, through: :favorite_ads, source: :ad
 
+	has_many :ratings
+
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?
 

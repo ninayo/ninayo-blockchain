@@ -12,6 +12,8 @@ class Ad < ActiveRecord::Base
 	has_many :favorite_ads
 	has_many :favorited_by, through: :favorite_ads, source: :user
 
+	has_many :ratings
+
 	before_save	:set_published_at
 	before_save	:set_archived_at
 

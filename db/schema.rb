@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150305084359) do
+ActiveRecord::Schema.define(version: 20150305084804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,20 @@ ActiveRecord::Schema.define(version: 20150305084359) do
   add_index "favorite_ads", ["ad_id"], name: "index_favorite_ads_on_ad_id", using: :btree
   add_index "favorite_ads", ["user_id"], name: "index_favorite_ads_on_user_id", using: :btree
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "score"
+    t.integer  "rater_id"
+    t.integer  "user_id"
+    t.integer  "ad_id"
+    t.integer  "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["ad_id"], name: "index_ratings_on_ad_id", using: :btree
+  add_index "ratings", ["rater_id"], name: "index_ratings_on_rater_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
+
   create_table "regions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -119,4 +133,7 @@ ActiveRecord::Schema.define(version: 20150305084359) do
   add_foreign_key "ads", "users"
   add_foreign_key "favorite_ads", "ads"
   add_foreign_key "favorite_ads", "users"
+  add_foreign_key "ratings", "ads"
+  add_foreign_key "ratings", "users"
+  add_foreign_key "ratings", "users", column: "rater_id"
 end

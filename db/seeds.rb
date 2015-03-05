@@ -138,3 +138,14 @@ puts 'CREATED 4000 AD_LOGS ENTRIES'
 	User.find(rand(2..202)).favorites << Ad.find(rand(1..1000))
 end
 puts 'CREATED 1000 FAVORITES'
+
+
+1.upto(1000) do |i|
+	Rating.create!(:user => User.find(rand(2..202)), :rater_id => User.find(rand(2..202)).id, :ad => Ad.find(rand(1..1000)), :score=> rand(1..5), :role => "buyer")
+end
+puts 'CREATED 1000 RATINGS FOR BUYERS'
+
+1.upto(1000) do |i|
+	Rating.create!(:user => User.find(rand(2..202)), :rater_id => User.find(rand(2..202)).id, :ad => Ad.find(rand(1..1000)), :score=> rand(1..5), :role => "seller")
+end
+puts 'CREATED 1000 RATINGS FOR SELLERS'
