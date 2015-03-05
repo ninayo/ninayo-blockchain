@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303223839) do
+ActiveRecord::Schema.define(version: 20150304222900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,9 @@ ActiveRecord::Schema.define(version: 20150303223839) do
     t.float    "lat"
     t.float    "lng"
     t.integer  "region_id"
+    t.float    "final_price"
+    t.datetime "archived_at"
+    t.integer  "buyer_id"
   end
 
   add_index "ads", ["crop_type_id"], name: "index_ads_on_crop_type_id", using: :btree
@@ -111,6 +114,7 @@ ActiveRecord::Schema.define(version: 20150303223839) do
   add_foreign_key "ad_logs", "users"
   add_foreign_key "ads", "crop_types"
   add_foreign_key "ads", "regions"
+  add_foreign_key "ads", "users"
   add_foreign_key "ads", "users"
   add_foreign_key "favorite_ads", "ads"
   add_foreign_key "favorite_ads", "users"

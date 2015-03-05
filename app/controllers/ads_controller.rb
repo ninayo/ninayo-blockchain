@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-	before_action :set_ad, only: [:show, :contact_info, :edit, :preview, :update, :destroy]
+	before_action :set_ad, only: [:show, :contact_info, :edit, :preview, :archive, :update, :destroy]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show]
 
@@ -35,7 +35,9 @@ class AdsController < ApplicationController
 	end
 
 	def show
-		unless @ad
+		if !@ad
+			not_found
+		elsif @ad.archived?
 			not_found
 		else
 
@@ -112,6 +114,9 @@ class AdsController < ApplicationController
 		if @ad.save
 			if @ad.published?
 				redirect_to ad_path(@ad)
+			elsif @ad.archived?
+				# todo: redirect to the archive on mypage once that is created
+				redirect_to root_path, notice: "Your ad have been archived!"
 			else
 				redirect_to :action => "preview", :id => @ad.id
 			end
@@ -145,6 +150,23 @@ class AdsController < ApplicationController
 		end
 	end
 
+	def archive
+		if @ad.archived?
+			redirect_to root_path, notice: "This ad is already archived"
+		end
+
+		arr = []
+		AdLog.where(:ad => @ad, :event_type_id => 2).each do |a|
+			arr.push(a.user)
+		end
+		@buyers = arr.uniq{|u| u.id}
+		@buyers = @buyers.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+	end
+
+	def archived
+
+	end
+
 private
 
 	def set_ad
@@ -163,6 +185,6 @@ private
 	end
 
 	def ad_params
-		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng)
+		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer)
 	end
 end

@@ -91,7 +91,9 @@ fieldset {
 	margin-bottom: $halfPadding;
 }
 .field-actions {
-	//margin-top: $padding;
+	margin-top: $padding;
+	padding-top: $padding;
+	border-top: 1px solid $lightGrey;
 }
 
 .field-label {

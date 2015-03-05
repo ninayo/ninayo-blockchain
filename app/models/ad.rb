@@ -2,13 +2,19 @@ class Ad < ActiveRecord::Base
 	include Filterable
 
 	belongs_to :user
+	belongs_to :buyer, :class_name => "User", :foreign_key => "buyer_id"
+	accepts_nested_attributes_for :buyer
+
 	belongs_to :crop_type
 	belongs_to :region
 	has_many :ad_logs
+	has_many :speculators, through: :ad_logs, source: :user
 	has_many :favorite_ads
 	has_many :favorited_by, through: :favorite_ads, source: :user
 
 	before_save	:set_published_at
+	before_save	:set_archived_at
+
 	after_initialize :set_default_status, :if => :new_record?
 
 	validates :crop_type, :price, :volume, :volume_unit, :village, :region, :user, presence: true
@@ -40,6 +46,12 @@ class Ad < ActiveRecord::Base
 	def set_published_at
 		if self.published? && !self.published_at
 			self.published_at = Time.new
+		end
+	end
+
+	def set_archived_at
+		if self.archived? && !self.archived_at
+			self.archived_at = Time.new
 		end
 	end
 end

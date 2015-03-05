@@ -30,6 +30,7 @@ en:
     cancel: "Cancel"
     edit: "Edit"
     delete: "Delete"
+    archive: "Archive"
     destroy: "Destroy"
     you_need_to_login_first: "You need to login first to perform this action"
 

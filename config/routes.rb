@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
+  get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
   post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
   get 'map' => 'ads#map'
 
