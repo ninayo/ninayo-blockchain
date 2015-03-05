@@ -121,8 +121,14 @@ class AdsController < ApplicationController
 				redirect_to :action => "preview", :id => @ad.id
 			end
 		else
-			@crop_types = CropType.all
-			render "edit"
+
+			if @ad.archived?
+				@buyers = buyers(@ad)
+				render "archive"
+			else
+				@crop_types = CropType.all
+				render "edit"
+			end
 		end
 
 	end
@@ -151,23 +157,26 @@ class AdsController < ApplicationController
 	end
 
 	def archive
-		if @ad.archived?
-			redirect_to root_path, notice: "This ad is already archived"
+		if current_user && current_user.id == @ad.user_id
+			if @ad.archived?
+				redirect_to root_path, notice: "This ad is already archived"
+			end
+			@buyers = buyers(@ad)
+		else
+			not_found
 		end
-
-		arr = []
-		AdLog.where(:ad => @ad, :event_type_id => 2).each do |a|
-			arr.push(a.user)
-		end
-		@buyers = arr.uniq{|u| u.id}
-		@buyers = @buyers.sort! { |a,b| a.name.downcase <=> b.name.downcase }
 	end
 
-	def archived
-
-	end
 
 private
+	def buyers(ad)
+		arr = []
+		AdLog.where(:ad => ad, :event_type_id => 2).each do |a|
+			arr.push(a.user)
+		end
+		buyers = arr.uniq{|u| u.id}
+		buyers = buyers.sort! { |a,b| a.name.downcase <=> b.name.downcase }
+	end
 
 	def set_ad
 		@ad = Ad.find(params[:id])

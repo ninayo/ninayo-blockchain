@@ -20,6 +20,7 @@ class Ad < ActiveRecord::Base
 	validates :crop_type, :price, :volume, :volume_unit, :village, :region, :user, presence: true
 	validates :crop_type_id, numericality: { greater_than: 0 }
 	validates :price, :volume, numericality: true
+	validates :final_price, presence: true, if: "archived?"
 
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived]
