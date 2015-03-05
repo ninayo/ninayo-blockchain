@@ -8,6 +8,7 @@ class AdsController < ApplicationController
 	def index
 		@ads = @ads.includes(:crop_type)
 					.includes(:user)
+					.includes(:region)
 					.page(params[:page])
 
 		@crop_type_id = params[:crop_type_id]
@@ -194,6 +195,6 @@ private
 	end
 
 	def ad_params
-		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer)
+		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id)
 	end
 end
