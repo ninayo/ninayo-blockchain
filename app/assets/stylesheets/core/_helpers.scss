@@ -7,3 +7,14 @@
 .text-right {
 	text-align: right;
 }
+
+.is-hidden {
+	display: none;
+}
+.is-invisible {
+	visibility: hidden;
+}
+.is-visible {
+	visibility: visible;
+	display: block;
+}

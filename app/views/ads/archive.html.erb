@@ -32,7 +32,11 @@
 
 			<div class="field">
 				<%= f.label :buyer_id, :value => "Please see if you can find the buyer in the list below", :class => "field-label" %>
-				<%= f.select :buyer_id, @buyers.collect {|b| [ b.name, b.id ] }, { include_blank: "Please select the buyer"}, {:class => "is-inline"} %>
+				<%= f.select :buyer_id, @buyers.collect {|b| [ b.name, b.id ] }, { include_blank: "Please select the buyer"}, {:class => "is-inline" } %>
+			</div>
+			
+			<div id="rate-buyer" class="<%= "is-hidden" unless @ad.buyer %>">
+				<%= render "rate" %>
 			</div>
 
 			<div class="field-actions">
@@ -43,7 +47,7 @@
 		<% end %>
 	</div>
 	<div class="newad-content">
-		<h2>Help</h2>
-		<p>Here we could put some information that helps the user fill out the form.</p>
+		<h2>Why do we need this information?</h2>
+		<p>[A text that explains why]</p>
 	</div>
 </div>
