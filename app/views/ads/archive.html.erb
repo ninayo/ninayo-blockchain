@@ -34,7 +34,7 @@
 				<%= f.label :buyer_id, :value => "Please see if you can find the buyer in the list below", :class => "field-label" %>
 				<%= f.select :buyer_id, @buyers.collect {|b| [ b.name, b.id ] }, { include_blank: "Please select the buyer"}, {:class => "is-inline" } %>
 			</div>
-			
+
 			<div id="rate-buyer" class="<%= "is-hidden" unless @ad.buyer %>">
 				<%= render "rate" %>
 			</div>
