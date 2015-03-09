@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
 	has_many :ads
+	accepts_nested_attributes_for :ads
+
 	has_many :ad_logs
 	has_many :favorite_ads
 	has_many :favorites, through: :favorite_ads, source: :ad

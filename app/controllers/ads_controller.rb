@@ -80,6 +80,8 @@ class AdsController < ApplicationController
 		if current_user.id != @ad.user.id
 			not_found
 		end
+		@show_contact_info = true;
+		@preview = true;
 	end
 
 	def new
@@ -111,6 +113,7 @@ class AdsController < ApplicationController
 
 	def update
 		@ad.update(ad_params)
+		@ad.user.update(user_params)
 
 		if @ad.save
 			if @ad.published?
@@ -198,5 +201,8 @@ private
 
 	def ad_params
 		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :rating)
+	end
+	def user_params
+		params.require(:user).permit(:name, :email, :phone_number)
 	end
 end

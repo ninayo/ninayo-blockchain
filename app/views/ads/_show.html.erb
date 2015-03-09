@@ -5,6 +5,7 @@
 			<%= simple_format(@ad.description) %>
 		</div>
 
+		<% unless @preview %>
 		<div class="ad-actions">
 		<%# if current_user %>
 			<% link_to "Favorite",   ad_favorite_path(@ad, type: "favorite"), method: :put %>
@@ -18,6 +19,7 @@
 
 			<%= link_to "#{t "common.archive"}", archive_ad_path(@ad), :class => "button is-block is-danger" if @ad.published? && current_user && current_user.id == @ad.user.id %>
 		</div>
+		<% end %>
 	</div>
 	<div class="ad-sidebar">
 		<%= render "ad_stats" %>

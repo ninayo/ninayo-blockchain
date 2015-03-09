@@ -2,6 +2,8 @@ class Ad < ActiveRecord::Base
 	include Filterable
 
 	belongs_to :user
+	accepts_nested_attributes_for :user
+
 	belongs_to :buyer, :class_name => "User", :foreign_key => "buyer_id"
 	accepts_nested_attributes_for :buyer
 
