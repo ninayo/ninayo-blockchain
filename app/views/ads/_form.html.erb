@@ -72,7 +72,7 @@
 		<p>Please review your contact information.</p>
 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<div class="field">
-			<%= user_fields.label :name, class: "field-label" %>
+				<%= user_fields.label :name, class: "field-label" %>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<div class="field">

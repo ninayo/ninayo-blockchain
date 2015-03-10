@@ -1,7 +1,7 @@
 class Ad < ActiveRecord::Base
 	include Filterable
 
-	belongs_to :user
+	belongs_to :user, autosave: true
 	accepts_nested_attributes_for :user
 
 
@@ -28,7 +28,7 @@ class Ad < ActiveRecord::Base
 	validates :final_price, presence: true, if: "archived?"
 
 	enum volume_unit: [:bucket, :sack]
-	enum status: [:draft, :published, :archived]
+	enum status: [:draft, :published, :archived, :pending_review, :rejected, :spam]
 
 	scope :crop_type_id, -> (crop_type_id) { where crop_type_id: crop_type_id }
 	scope :volume_min, -> (volume_min) { where("volume > ?", volume_min) }

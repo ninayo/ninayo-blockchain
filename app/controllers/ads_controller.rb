@@ -80,7 +80,7 @@ class AdsController < ApplicationController
 		if current_user.id != @ad.user.id
 			not_found
 		end
-		@ad.user = current_user
+		#@ad.user = current_user
 		@show_contact_info = true;
 		@preview = true;
 	end
@@ -100,13 +100,14 @@ class AdsController < ApplicationController
 	end
 
 	def create
+		current_user.update(user_params)
 		@ad = Ad.new(ad_params)
-		
-		#raise ad_params.to_y
+		@ad.user = current_user
+		#@ad.user.update(user_params)
 		@ad.crop_type_id = ad_params[:crop_type_id]
 
 		if @ad.save
-			@ad.user.update(user_params)
+			
 			if @ad.save
 				redirect_to :action => "preview", :id => @ad.id
 			else
@@ -121,22 +122,6 @@ class AdsController < ApplicationController
 		end
 	end
 
-	def update_user_location
-		if !@ad.user.lat && @ad.lat
-			@ad.user.lat = @ad.lat
-		end
-		if !@ad.user.lng && @ad.lng
-			@ad.user.lng = @ad.lng
-		end
-		if !@ad.user.region_id && @ad.region_id
-			@ad.user.region_id = @ad.region_id
-		end
-		if !@ad.user.village && @ad.village
-			@ad.user.village = @ad.village
-		end
-
-		@ad.user.save
-	end
 
 	def update
 		@ad.update(ad_params)
@@ -205,6 +190,24 @@ class AdsController < ApplicationController
 
 
 private
+
+	def update_user_location
+		if !@ad.user.lat && @ad.lat
+			@ad.user.lat = @ad.lat
+		end
+		if !@ad.user.lng && @ad.lng
+			@ad.user.lng = @ad.lng
+		end
+		if !@ad.user.region_id && @ad.region_id
+			@ad.user.region_id = @ad.region_id
+		end
+		if !@ad.user.village && @ad.village
+			@ad.user.village = @ad.village
+		end
+
+		@ad.user.save
+	end
+
 	def buyers(ad)
 		arr = []
 		AdLog.where(:ad => ad, :event_type_id => 2).each do |a|
