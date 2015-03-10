@@ -41,6 +41,9 @@
 
 			<div class="field-actions">
 				<%= f.hidden_field :status, :value => "archived"%>
+				<%= fields_for :user, @ad.user do |user_fields| %>
+					<%= user_fields.hidden_field :name %>
+				<% end %>
 				<%= link_to "Cancel", @ad, :class => "button is-block" %>
 				<%= f.submit("Archive", :class  => "button is-primary is-block") %>
 			</div>

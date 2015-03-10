@@ -4,13 +4,16 @@ class User < ActiveRecord::Base
 	accepts_nested_attributes_for :ads
 
 	has_many :ad_logs
+	has_many :ratings
+	belongs_to :region
+
 	has_many :favorite_ads
 	has_many :favorites, through: :favorite_ads, source: :ad
 
-	has_many :ratings
-
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?
+
+	validates :name, :email, :phone_number, presence: true, on: :save_ad
 
 	accepts_nested_attributes_for :ratings, allow_destroy: true
 

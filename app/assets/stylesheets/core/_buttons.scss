@@ -10,6 +10,7 @@
 	text-transform: uppercase;
 	text-align: center;
 	font-size: $buttonFontSize;
+	margin-bottom: $halfPadding;
 
 	border: none;
 	cursor: pointer;
@@ -30,7 +31,6 @@
 	&.is-block {
 		display: block;
 		width: 100%;
-		margin-bottom: $halfPadding;
 
 		@include mq($from: tablet) {
 			display: inline-block;

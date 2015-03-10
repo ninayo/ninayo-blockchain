@@ -4,6 +4,7 @@ class Ad < ActiveRecord::Base
 	belongs_to :user
 	accepts_nested_attributes_for :user
 
+
 	belongs_to :buyer, :class_name => "User", :foreign_key => "buyer_id"
 	accepts_nested_attributes_for :buyer
 
@@ -41,6 +42,14 @@ class Ad < ActiveRecord::Base
 	def title
 		if self.volume && self.crop_type
 			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} of #{self.crop_type.name}"
+		end
+	end
+
+	def favorite?(user = nil)
+		if user
+			self.favorited_by.where(:id => user.id).exists?
+		else
+			false
 		end
 	end
 

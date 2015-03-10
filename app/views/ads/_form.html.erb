@@ -69,11 +69,11 @@
 
 	<fieldset>
 		<h3>Contact information</h3>
-		<p>Please review your contact information</p>
-		<%= fields_for :user, current_user do |user_fields| %>
+		<p>Please review your contact information.</p>
+		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<div class="field">
 			<%= user_fields.label :name, class: "field-label" %>
-				<%= user_fields.text_field :name %>
+				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<div class="field">
 				<%= user_fields.label :email, class: "field-label" %>
@@ -83,7 +83,6 @@
 				<%= user_fields.label :phone_number, class: "field-label" %>
 				<%= user_fields.telephone_field :phone_number, :validate => true, class: "is-small" %>
 			</div>
-			
 		<% end %>
 	</fieldset>
 

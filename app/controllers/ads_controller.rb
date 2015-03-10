@@ -80,12 +80,14 @@ class AdsController < ApplicationController
 		if current_user.id != @ad.user.id
 			not_found
 		end
+		@ad.user = current_user
 		@show_contact_info = true;
 		@preview = true;
 	end
 
 	def new
 		@ad = Ad.new
+		@ad.user = current_user
 		@crop_types = CropType.all
 		respond_with(@ad)
 	end
@@ -99,24 +101,51 @@ class AdsController < ApplicationController
 
 	def create
 		@ad = Ad.new(ad_params)
+		
 		#raise ad_params.to_y
-		@ad.user = current_user
 		@ad.crop_type_id = ad_params[:crop_type_id]
 
 		if @ad.save
-			redirect_to :action => "preview", :id => @ad.id
+			@ad.user.update(user_params)
+			if @ad.save
+				redirect_to :action => "preview", :id => @ad.id
+			else
+				@crop_types = CropType.all
+				@ad.user = current_user
+				render "new"
+			end
 		else
+			@ad.user = current_user
 			@crop_types = CropType.all
 			render "new"
 		end
+	end
+
+	def update_user_location
+		if !@ad.user.lat && @ad.lat
+			@ad.user.lat = @ad.lat
+		end
+		if !@ad.user.lng && @ad.lng
+			@ad.user.lng = @ad.lng
+		end
+		if !@ad.user.region_id && @ad.region_id
+			@ad.user.region_id = @ad.region_id
+		end
+		if !@ad.user.village && @ad.village
+			@ad.user.village = @ad.village
+		end
+
+		@ad.user.save
 	end
 
 	def update
 		@ad.update(ad_params)
 		@ad.user.update(user_params)
 
-		if @ad.save
+		if @ad.save(context: :save_ad)
 			if @ad.published?
+				# if user have no location info, update with the ads
+				update_user_location
 				redirect_to ad_path(@ad)
 			elsif @ad.archived?
 				# todo: redirect to the archive on mypage once that is created
@@ -148,13 +177,14 @@ class AdsController < ApplicationController
 	# for current_user
 	def favorite
 		type = params[:type]
+		@ad = Ad.find(params[:ad_id])
 		if type == "favorite"
 			current_user.favorites << @ad
-			redirect_to :back, notice: 'You favorited #{@ad.title}'
+			redirect_to :back, notice: "You added #{@ad.title} to your favorites"
 
 		elsif type == "unfavorite"
 			current_user.favorites.delete(@ad)
-			redirect_to :back, notice: 'Unfavorited #{@ad.title}'
+			redirect_to :back, notice: "You removed #{@ad.title} from favorites"
 
 		else
 			# Type missing, nothing happens

@@ -6,6 +6,9 @@
 
 <%= form_for(@ad) do |f| %>
 	<%= f.hidden_field :status, :value => "published" %>
+	<%= fields_for :user, @ad.user do |user_fields| %>
+		<%= user_fields.hidden_field :name %>
+	<% end %>
 	<div class="field-actions">
 		<%= link_to "Go back and change", edit_ad_path(@ad), :class => "button is-block" %>
 		<%= f.submit("Publish", :class  => "button is-primary is-block") %>

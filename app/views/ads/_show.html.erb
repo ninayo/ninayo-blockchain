@@ -5,21 +5,7 @@
 			<%= simple_format(@ad.description) %>
 		</div>
 
-		<% unless @preview %>
-		<div class="ad-actions">
-		<%# if current_user %>
-			<% link_to "Favorite",   ad_favorite_path(@ad, type: "favorite"), method: :put %>
-			<% link_to "Unfavorite", ad_favorite_path(@ad, type: "unfavorite"), method: :put %>
-		<%# end %>
-			<a href="" class="button is-block not-implemented">
-				Add to favorites
-			</a>
-			<%= link_to(t("common.edit"), edit_ad_path(@ad), :class => "button is-block") if current_user && (current_user.id == @ad.user.id || current_user.admin?) %>
-			<%#= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
-
-			<%= link_to "#{t "common.archive"}", archive_ad_path(@ad), :class => "button is-block is-danger" if @ad.published? && current_user && current_user.id == @ad.user.id %>
-		</div>
-		<% end %>
+		<%= render "actions" unless @preview %>
 	</div>
 	<div class="ad-sidebar">
 		<%= render "ad_stats" %>
