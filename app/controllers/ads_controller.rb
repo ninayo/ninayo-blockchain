@@ -41,9 +41,10 @@ class AdsController < ApplicationController
 		elsif @ad.archived?
 			not_found
 		else
-
 			if current_user && (current_user.id == @ad.user.id || current_user.admin?)
 				@ad_logs = @ad.ad_logs
+							.includes(:event_type)
+							.includes(:user)
 			else
 				# Todo: break out into method
 				# note: Potential performance issue
@@ -107,7 +108,6 @@ class AdsController < ApplicationController
 		@ad.crop_type_id = ad_params[:crop_type_id]
 
 		if @ad.save
-			
 			if @ad.save
 				redirect_to :action => "preview", :id => @ad.id
 			else
