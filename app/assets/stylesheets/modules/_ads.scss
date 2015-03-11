@@ -53,6 +53,12 @@
 	&:first-child {
 		border-top: 1px solid #ccc;
 	}
+
+	&.has-actions {
+		.ads-price {
+			right: 100px;
+		}
+	}
 }
 
 .ads-heading {
@@ -77,6 +83,16 @@
 		padding: $padding $doublePadding;
 	}
 
+}
+
+.ads-actions {
+	position: absolute;
+	top: $padding;
+	right: $halfPadding;
+}
+
+.ads-actions-item {
+	
 }
 
 .ads-published_at {

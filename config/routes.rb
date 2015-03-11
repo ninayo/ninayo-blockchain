@@ -8,6 +8,11 @@ Rails.application.routes.draw do
   post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
   get 'map' => 'ads#map'
 
+  get 'mypage' => 'mypage#index', as: :mypage
+  get 'mypage/current' => 'mypage#index', as: :mypage_current
+  get 'mypage/favorites' => 'mypage#favorites', as: :mypage_favorites
+  get 'mypage/archive' => 'mypage#archive', as: :mypage_archive
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

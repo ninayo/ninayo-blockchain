@@ -14,9 +14,7 @@
 		}
 
 		var watchID = navigator.geolocation.watchPosition(function(pos) {
-			console.log(pos.coords.latitude, pos.coords.longitude);
 			position = pos;
-
 			$('#ad_lat').val(pos.coords.latitude);
 			$('#ad_lng').val(pos.coords.longitude);
 		});

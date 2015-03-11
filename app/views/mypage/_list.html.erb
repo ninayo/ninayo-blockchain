@@ -1,0 +1,23 @@
+<% if ads.length > 0 %>
+<div class="ads is-current">
+	<% ads.each do |ad| -%>
+		<div data-url="<%= ad_path(ad) %>" class="ads-item has-actions">
+
+			<h2 class="ads-heading">
+				<%= link_to ad.title, ad_path(ad) %>
+			</h2>
+			<div class="ads-location">
+				<%= number_to_currency(ad.price) %>
+			</div>
+			<div class="ads-actions">
+				<%= link_to("Sold", archive_ad_path(ad), :class => "ads-actions-item button is-primary") %>
+			</div>
+		</div>
+	<% end -%>
+</div>
+
+<% else -%>
+	<% if current_view = "current" -%>
+		
+	<% end -%>
+<% end -%>

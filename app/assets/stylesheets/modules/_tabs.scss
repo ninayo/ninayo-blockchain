@@ -1,0 +1,45 @@
+$tabBackgroundColor: #eee;
+$tabActiveBackgroundColor: #ccc;
+
+.tabs {
+	margin: 0 $negativeHalfPadding;
+	@include clearfix();
+
+	@include mq($from: tablet) {
+		margin: 0 $negativePadding;
+	}
+}
+
+.tab {
+	display: inline-block;
+	float: left;
+	width: 33%;
+	border-left: 2px solid white;
+	height: $controlHeight;
+	line-height: $controlHeight;
+	padding: 0 $padding;
+	text-align: center;
+	background-color: $tabBackgroundColor;
+
+	@include mq($from: tablet) {
+		width: auto;
+	}
+
+	&:first-child {
+		border-left: none;
+	}
+
+	&:hover,
+	&:focus {
+		background-color: darken($tabBackgroundColor, 10%);
+	}
+
+	&.is-active {
+		background-color: $tabActiveBackgroundColor;
+
+		&:hover,
+		&:focus {
+			background-color: darken($tabActiveBackgroundColor, 10%);
+		}
+	}
+}
