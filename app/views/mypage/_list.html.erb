@@ -35,14 +35,24 @@
 				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
 			<td class="text-right">
-				<% ad.ad_logs.where(:event_type_id => 1).group(:event_type).count.each do |s| %>
-					<%=  s[1] %>
-				<% end %>
+				<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
+				<% if displayed.length > 0 %>
+					<% displayed.each do |s| %>
+						<%=  s[1] %>
+					<% end -%>
+				<% else -%>
+					0
+				<% end -%>
 			</td>
 			<td class="text-right">
-				<% ad.ad_logs.where(:event_type_id => 2).group(:event_type).count.each do |s| %>
-					<%=  s[1] %>
-				<% end %>
+				<% contact_displayed = ad.ad_logs.where(:event_type_id => 2).group(:event_type).count %>
+				<% if contact_displayed.length > 0 %>
+					<% contact_displayed.each do |s| %>
+						<%=  s[1] %>
+					<% end -%>
+				<% else -%>
+					0
+				<% end -%>
 			</td>
 			<td class="text-right">
 				<%= ad.favorited_by.count%>
