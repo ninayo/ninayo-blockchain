@@ -11,7 +11,7 @@
 	</div>
 	<div class="ad-sidebar">
 		
-		<%= render "stats" %>
+		<%= render "stats" if current_user && (current_user.id == @ad.user_id || current_user.admin?) %>
 		<%= render "facts" %>
 		<hr>
 		<%= render "seller", :user => @ad.user %>
