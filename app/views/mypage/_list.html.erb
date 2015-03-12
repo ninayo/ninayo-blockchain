@@ -4,16 +4,27 @@
 	<thead>
 		<th>Title</th>
 		<th class="text-right">Price</th>
+		<% if current_view == "archive" -%>
+			<th class="text-right">Final Price</th>
+			<th>Buyer</th>
+		<% end -%>
 		<th class="text-right">Displayed</th>
 		<th class="text-right">Displayed contact info</th>
 		<th class="text-right">Favorites</th>
-		<th></th>
+		<% if current_view == "current" -%>
+			<th></th>
+		<% end -%>
+		
 	</thead>
 	<tbody>
 	<% ads.each do |ad| -%>
 		<tr>
 			<td><%= link_to ad.title, ad_path(ad) %></td>
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
+			<% if current_view == "archive" -%>
+				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
+				<td><%= ad.buyer.name %></td>
+			<% end -%>
 			<td class="text-right">
 				<% ad.ad_logs.where(:event_type_id => 1).group(:event_type).count.each do |s| %>
 					<%=  s[1] %>
@@ -27,7 +38,9 @@
 			<td class="text-right">
 				<%= ad.favorited_by.count%>
 			</td>
+			<% if current_view == "current" -%>
 			<td class="text-right"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary") %></td>
+			<% end -%>
 		</tr>
 	<% end -%>
 	</tbody>
