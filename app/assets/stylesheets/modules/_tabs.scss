@@ -2,11 +2,12 @@ $tabBackgroundColor: #eee;
 $tabActiveBackgroundColor: #ccc;
 
 .tabs {
-	margin: 0 $negativeHalfPadding;
+	margin: 0 $negativeHalfPadding $margin;
 	@include clearfix();
+	border-bottom: 3px solid $tabActiveBackgroundColor;
 
 	@include mq($from: tablet) {
-		margin: 0 $negativePadding;
+		margin: 0 0 $margin;
 	}
 }
 

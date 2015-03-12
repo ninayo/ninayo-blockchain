@@ -2,7 +2,8 @@ class MypageController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@ads = current_user.ads.where(:status => "published")
+		#@ads = current_user.ads.where(:status => "published")
+		@ads = current_user.ads.published
 		@view = "current"
 
 		respond_to do |format|
@@ -20,7 +21,7 @@ class MypageController < ApplicationController
 	end
 
 	def archive
-		@ads = current_user.ads.where(:status => "archived")
+		@ads = current_user.ads.archived
 		@view = "archived"
 
 		respond_to do |format|

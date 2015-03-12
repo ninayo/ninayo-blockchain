@@ -19,11 +19,11 @@
 	margin: 0 $negativeHalfPadding;
 
 	@include mq($from: tablet) {
-		margin: 0 $negativePadding;
+		margin: 0;
 	}
 
 	@include mq($from: wide) {
-		margin: 0 $negativeDoublePadding;
+		margin: 0;
 	}
 
 
@@ -42,7 +42,7 @@
 	}
 
 	@include mq($from: wide) {
-		padding: $padding $doublePadding;
+		//padding: $padding $doublePadding;
 	}
 
 	&:hover, 
@@ -76,19 +76,18 @@
 	color: $black;
 
 	@include mq($from: tablet) {
+		right: 0;
 		padding: $padding;
 	}
 
 	@include mq($from: wide) {
-		padding: $padding $doublePadding;
+		//padding: $padding $doublePadding;
 	}
 
 }
 
 .ads-actions {
-	position: absolute;
-	top: $padding;
-	right: $halfPadding;
+
 }
 
 .ads-actions-item {
@@ -109,3 +108,17 @@
 	}
 }
 
+
+
+.ads-table {
+	width: 100%;
+	border-collapse: collapse;
+
+	tr {
+		border-bottom: 1px solid $lightGrey;
+	}
+
+	th, td {
+		padding: 10px;
+	}
+}
