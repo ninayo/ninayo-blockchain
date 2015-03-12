@@ -1,5 +1,6 @@
-<% if @ad_logs %>
-	<h3>Stats</h3>
+<% if @ad_logs -%>
+	<hr>
+	<h3>Logs</h3>
 
 	<table class="table">
 		<thead>
@@ -10,14 +11,13 @@
 			</tr>
 		</thead>
 		<tbody>
-		<% @ad_logs.each do |a| %>
+		<% @ad_logs.each do |a| -%>
 			<tr>
 				<td><%= a.event_type.name %></td>
 				<td><%= (a.user.name || a.user.email) if a.user %></td>
 				<td><%= l(a.created_at, format: :short) %></td>
 			</tr>
-		<% end %>
+		<% end -%>
 		</tbody>
 	</table>
-
-<% end %>
+<% end -%>

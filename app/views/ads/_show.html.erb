@@ -1,15 +1,17 @@
 <div class="ad">
 	<div class="ad-main">
 		<h1><%= @ad.title %></h1>
-		<p>Status: <%=@ad.status%></p>
 		<div class="description">
 			<%= simple_format(@ad.description) %>
 		</div>
 
 		<%= render "actions" unless @preview %>
+
+		<%= render "logs" if current_user && current_user.admin? %>
 	</div>
 	<div class="ad-sidebar">
-		<%= render "ad_stats" %>
+		
+		<%= render "stats" %>
 		<%= render "facts" %>
 		<hr>
 		<%= render "seller", :user => @ad.user %>

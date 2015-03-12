@@ -53,6 +53,8 @@ class Ad < ActiveRecord::Base
 		end
 	end
 
+protected
+
 	def set_default_status
 		self.status ||= :draft
 	end
