@@ -58,7 +58,7 @@
 				<%= ad.favorited_by.count%>
 			</td>
 			<% if current_view == "current" -%>
-			<td class="text-right"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary") %></td>
+			<td class="text-right"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") %></td>
 			<% end -%>
 		</tr>
 	<% end -%>
