@@ -119,8 +119,12 @@
 	}
 
 	th, td {
-		padding: 10px;
+		padding: 5px 10px;
 		vertical-align: top;
+
+		@include mq($from: tablet) {
+			padding: 10px;
+		}
 
 		&.text-right {
 			text-align: right;
