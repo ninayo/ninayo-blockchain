@@ -21,6 +21,18 @@
 		// 	left: $doublePadding;
 		// }
 	}
+
+	&.is-block {
+		@include mq($until: tablet) {
+			.pagenav-buttongroup {
+				float: none;
+			}
+			.pagenav-item{
+				display: block;
+				width: 33.333333333%;
+			}
+		}
+	}
 }
 .map.show-filter {
 	.pagenav {
@@ -38,6 +50,7 @@
 
 .pagenav-buttongroup {
 	.pagenav-item  {
+		@include border-radius(0);
 		&:first-child {
 			@include border-radius($borderRadius 0 0 $borderRadius);
 		}
@@ -51,6 +64,12 @@
 	@extend .button;
 	background-color: $grey;
 	float: left;
+	border-left: 1px solid #aaa;
+
+	&:first-child {
+		border-left: none;
+	}
+
 
 	&.is-active {
 		background-color: $mediumGrey;
