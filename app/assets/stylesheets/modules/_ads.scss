@@ -119,11 +119,25 @@
 	}
 
 	th, td {
-		padding: 5px 10px;
+		padding: 5px 0;
 		vertical-align: top;
+
+		&:first-of-type {
+			padding-top: $padding;
+		}
+		&:last-of-type {
+			padding-bottom: $padding;
+		}
 
 		@include mq($from: tablet) {
 			padding: 10px;
+
+			&:first-of-type {
+				padding-top: 10px;
+			}
+			&:last-of-type {
+				padding-bottom: 10px;
+			}
 		}
 
 		&.text-right {
