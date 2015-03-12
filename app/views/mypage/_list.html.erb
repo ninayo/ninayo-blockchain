@@ -1,6 +1,6 @@
 <% if ads.length > 0 %>
 
-<table class="ads-table">
+<table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
 		<th>Title</th>
 		<th class="text-right">Price</th>
@@ -8,22 +8,31 @@
 			<th class="text-right">Final Price</th>
 			<th>Buyer</th>
 		<% end -%>
+		<th>Published</th>
+		<% if current_view == "archive" -%>
+			<th>Archived</th>
+		<% end -%>
 		<th class="text-right">Displayed</th>
 		<th class="text-right">Displayed contact info</th>
 		<th class="text-right">Favorites</th>
 		<% if current_view == "current" -%>
 			<th></th>
 		<% end -%>
-		
 	</thead>
 	<tbody>
 	<% ads.each do |ad| -%>
 		<tr>
-			<td><%= link_to ad.title, ad_path(ad) %></td>
+			<td>
+				<h4 class="ads-table-heading"><%= link_to ad.title, ad_path(ad) %></h4>
+			</td>
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
 			<% if current_view == "archive" -%>
 				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
 				<td><%= ad.buyer.name %></td>
+			<% end -%>
+			<td><%= l(ad.published_at, format: :short) %></td>
+			<% if current_view == "archive" -%>
+				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
 			<td class="text-right">
 				<% ad.ad_logs.where(:event_type_id => 1).group(:event_type).count.each do |s| %>

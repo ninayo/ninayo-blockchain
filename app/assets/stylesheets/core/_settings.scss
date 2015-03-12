@@ -72,7 +72,7 @@ $mq-responsive: true;
 // stakeholders, designers, developers, and testers.
 $mq-breakpoints: (
     mobile:  320px,
-    tablet:  740px,
+    tablet:  640px,
     desktop: 980px,
     wide:    1300px,
 
@@ -89,5 +89,5 @@ $mq-static-breakpoint: desktop;
 // If you want to display the currently active breakpoint in the top
 // right corner of your site during development, add the breakpoints
 // to this list, ordered by width, e.g. (mobile, tablet, desktop).
-//$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
+$mq-show-breakpoints: (mobile, mobileLandscape, tablet, desktop, wide);
 

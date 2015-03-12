@@ -120,5 +120,18 @@
 
 	th, td {
 		padding: 10px;
+		vertical-align: top;
+
+		&.text-right {
+			text-align: right;
+
+			@include mq($until: tablet) {
+				text-align: left;
+			}
+		}
 	}
+}
+
+.ads-table-heading {
+	margin: 0;
 }

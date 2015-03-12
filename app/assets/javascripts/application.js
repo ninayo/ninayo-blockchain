@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require rails.validations
 //= require lib/jquery.cookie.js
+//= require lib/tablesaw.js
 //= require_tree .
