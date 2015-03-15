@@ -135,7 +135,16 @@
 		map = new google.maps.Map(mapDiv[0], {
 			zoom: 6,
 			center: new google.maps.LatLng(-7.458111, 35.991116),
-			mapTypeId: google.maps.MapTypeId.TERRAIN
+			mapTypeId: google.maps.MapTypeId.TERRAIN,
+			disableDefaultUI: true,
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+
+			},
+			zoomControl: true,
+			zoomControlOptions: {},
+			scaleControl: true,
+			scaleControlOptions: {}
 		});
 
 		google.maps.event.addListener(map, 'click', function(e) {

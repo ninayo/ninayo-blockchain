@@ -1,3 +1,5 @@
+$positionMapBarHeight: $controlHeight + 20px;
+
 .positionmap {
 	position: relative;
 	height: 0;
@@ -41,6 +43,10 @@
 		.positionmap-actions {
 			margin-bottom: 0;
 		}
+
+		#positionmap-canvas {
+			bottom: $positionMapBarHeight;
+		}
 	}
 }
 
@@ -48,7 +54,7 @@
 	position: relative;
 	background-color: $mediumGrey;
 	padding: $padding;
-	height: $controlHeight + 20px;
+	height: $positionMapBarHeight;
 
 	.positionmap-toggle {
 		position: absolute;
@@ -85,7 +91,11 @@
 }
 
 #positionmap-canvas {
-	height: 100%;
+	position: absolute;
+	top: $positionMapBarHeight;
+	left: 0;
+	right: 0;
+	bottom: 0;
 }
 
 .positionmap-toggle {
@@ -110,13 +120,16 @@
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: $darkGrey;
-	background-color: rgba(black, .7);
+	background-color: $mediumGrey;
 	padding: $halfPadding;
 	padding-left: $padding;
 	margin-bottom: (-1 * $controlHeight) - 20px;
 	@include transition(margin 300ms ease-in-out);
 	@include clearfix();
+
+	@include mq($from: tablet) {
+		height: $positionMapBarHeight;
+	}
 
 	.button {
 		&:last-of-type {
@@ -127,18 +140,30 @@
 			margin: 0;
 		}
 	}
+
+	#positionmap-canvas {
+		margin-bottom: $controlHeight + 20px;
+	}
 }
 
 .positionmap-actions-text {
-	width: 70%;
-	float: left;
 	color: white;
-	line-height: $controlHeight;
+	margin-bottom: $margin;
+	text-align: center;
+
+	@include mq($from: tablet) {
+		width: 70%;
+		float: left;
+		line-height: $controlHeight;
+		text-align: left;
+	}
 }
 .positionmap-actions-button {
-	width: 30%;
-	float: right;
-	text-align: right;
+	@include mq($from: tablet) {
+		width: 30%;
+		float: right;
+		text-align: right;
+	}
 
 	.button {
 		margin-right: 0;
