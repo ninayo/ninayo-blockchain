@@ -7,14 +7,14 @@
 		isInitialized = false,
 		resizeTimeout,
 		marker,
-		infoWindow;
+		hasPosition = false;
 
 	$(document).on('ready page:load', function() {
 		if ($('body').hasClass('ads-new')) {
 			findPosition();
 		}
 
-		mapDiv = $('#positionmap');
+		mapDiv = $('#positionmap-canvas ');
 	 	if (!mapDiv.length) {
 	 		return;
 	 	}
@@ -22,6 +22,54 @@
 	 	if (typeof google != 'undefined' && google.maps) {
 			initMap();
 	 	}
+	});
+
+	$(document).on('click', '.positionmap-toggle', function(e) {
+		e.preventDefault();
+		openModal();
+	});
+
+	function openModal() {
+		$('.positionmap').addClass('is-active');
+
+		setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+
+			if (marker) {
+				map.panTo(marker.getPosition());
+			}
+		}, 100)
+	}
+
+	function closeModal() {
+		$('.positionmap').removeClass('is-active');
+		setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+
+			if (marker) {
+				map.panTo(marker.getPosition());
+			}
+		}, 100)
+	}
+
+	$(document).on('keyup', function(e) {
+		if (e.keyCode == 27) {
+			closeModal();
+		};
+	});
+
+	$(document).on('click', '.positionmap-confirm', function(e) {
+		e.preventDefault();
+
+		var latLng = marker.getPosition();
+		updatePosition(latLng.lat(), latLng.lng());
+
+		closeModal();
+	});
+
+	$(document).on('click', '.positionmap-close', function(e) {
+		e.preventDefault();
+		closeModal();
 	});
 
 	var findPosition = function() {
@@ -33,6 +81,7 @@
 			position = pos;
 			updatePosition(pos.coords.latitude, pos.coords.longitude);
 			updateMarkerPosition(pos.coords.latitude, pos.coords.longitude);
+			$('.positionmap').addClass('has-position');
 		}
 
 		function geo_error(error) {
@@ -55,11 +104,10 @@
 		} else {
 			marker.setPosition(new google.maps.LatLng(lat, lng));
 		}
-
-
 	};
 
 	var updatePosition = function(lat, lng) {
+		hasPosition = true;
 		$('#ad_lat').val(lat);
 		$('#ad_lng').val(lng);
 	}
@@ -74,7 +122,7 @@
 		});
 
 		google.maps.event.addListener(marker, 'dragend', function(e) {
-			updatePosition(e.latLng.lat(), e.latLng.lng());
+			//updatePosition(e.latLng.lat(), e.latLng.lng());
 		});
 
 		map.panTo(latLng);
@@ -91,7 +139,7 @@
 		});
 
 		google.maps.event.addListener(map, 'click', function(e) {
-			updatePosition(e.latLng.lat(), e.latLng.lng());
+			//updatePosition(e.latLng.lat(), e.latLng.lng());
 			updateMarkerPosition(e.latLng.lat(), e.latLng.lng());
 		});
 

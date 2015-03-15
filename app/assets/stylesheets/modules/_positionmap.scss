@@ -1,4 +1,146 @@
-#positionmap {
-	height: 320px;
-	margin: 0 0 $margin;
+.positionmap {
+	position: relative;
+	height: 0;
+	opacity: 0;
+	overflow: hidden;
+	@include transition(opacity 300ms ease-in-out);
+
+	@include mq($from: desktop) {
+		height: 400px;
+		margin: 0 0 $margin;
+		opacity: 1;
+	}
+
+	.positionmap-cancel {
+		display: none;
+	}
+
+	&.is-active {
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		margin: 0;
+		z-index: 100;
+		background-color: rgba(red, .2);
+		opacity: 1;
+		height: auto;
+
+		.positionmap-close {
+			display: block;
+		}
+
+		.positionmap-toggle {
+			display: none;
+		}
+	}
+
+	&.has-position {
+		.positionmap-actions {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.positionmap-header {
+	position: relative;
+	background-color: $mediumGrey;
+	padding: $padding;
+	height: $controlHeight + 20px;
+
+	.positionmap-toggle {
+		position: absolute;
+		top: 10px;
+		right: $halfPadding;
+		margin: 0;
+	}
+}
+
+.positionmap-heading {
+	color: white;
+	margin: 0;
+}
+
+.positionmap-close {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: $padding;
+	padding-top: 3px;
+	padding-right: 15px;
+	color: white;
+	font-size: 32px;
+	line-height: 1;
+	margin: 0;
+	opacity: .75;
+
+	&:hover,
+	&:focus {
+		color: white;
+		opacity: 1;
+	}
+}
+
+#positionmap-canvas {
+	height: 100%;
+}
+
+.positionmap-toggle {
+
+	&.is-mobile {
+		@include mq($from: desktop) {
+			display: none !important;
+		}
+	}
+
+	&.is-desktop {
+		display: none !important;
+
+		@include mq($from: desktop) {
+			display: inline-block !important;
+		}
+	}
+}
+
+.positionmap-actions {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: $darkGrey;
+	background-color: rgba(black, .7);
+	padding: $halfPadding;
+	padding-left: $padding;
+	margin-bottom: (-1 * $controlHeight) - 20px;
+	@include transition(margin 300ms ease-in-out);
+	@include clearfix();
+
+	.button {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+
+		@include mq($from: tablet) {
+			margin: 0;
+		}
+	}
+}
+
+.positionmap-actions-text {
+	width: 70%;
+	float: left;
+	color: white;
+	line-height: $controlHeight;
+}
+.positionmap-actions-button {
+	width: 30%;
+	float: right;
+	text-align: right;
+
+	.button {
+		margin-right: 0;
+	}
 }

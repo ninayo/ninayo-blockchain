@@ -67,9 +67,30 @@
 		</div>
 	</fieldset>
 
-	<div id="positionmap">
-		
+	<div class="positionmap">
+		<div class="positionmap-header">
+			<h4 class="positionmap-heading">Pick your location</h4>
+			<a href="" class="button positionmap-toggle">
+				Big map
+			</a>
+			<a href="" class="positionmap-close">&times;</a>
+		</div>
+		<div id="positionmap-canvas"></div>
+		<div class="positionmap-actions">
+			<div class="positionmap-actions-text is-second">
+				Drag the marker to the location of your crop
+			</div>
+			<div class="positionmap-actions-button">
+				<button class="button is-primary is-block positionmap-confirm">Confirm location</button>
+			</div>
+		</div>
 	</div>
+
+	<p>
+		<a href="" class="button is-block positionmap-toggle is-mobile">
+			Pick your location
+		</a>
+	</p>
 
 	<fieldset>
 		<h3>Contact information</h3>
