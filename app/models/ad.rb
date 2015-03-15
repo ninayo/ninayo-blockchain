@@ -27,6 +27,7 @@ class Ad < ActiveRecord::Base
 	validates :crop_type_id, numericality: { greater_than: 0 }
 	validates :price, :volume, numericality: true
 	validates :final_price, presence: true, if: "archived?"
+	validates :other_crop_type, presence: true, if: "crop_type.id == 10"
 
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived, :pending_review, :rejected, :spam]
@@ -41,8 +42,14 @@ class Ad < ActiveRecord::Base
 
 
 	def title
+		if self.crop_type.id == 10
+			crop_type = self.other_crop_type
+		else
+			crop_type = self.crop_type.name
+		end
+
 		if self.volume && self.crop_type
-			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} of #{self.crop_type.name}"
+			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} of #{crop_type}"
 		end
 	end
 

@@ -16,6 +16,10 @@
 		<div class="field">
 			<%= select("ad", "crop_type_id", @crop_types.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Crop Type"})%>
 		</div>
+		<div class="field other_crop_type <%= "is-hidden"  unless @ad.crop_type_id == 10 %>">
+			<%= f.label :other_crop_type, "Name of other crop type", :class => 'field-label' %>
+			<%= f.text_field :other_crop_type %>
+		</div>
 
 		<div class="field">
 			<%= f.label :price, :class => 'field-label' %>

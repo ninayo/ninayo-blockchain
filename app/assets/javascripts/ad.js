@@ -7,7 +7,8 @@
 		isInitialized = false,
 		resizeTimeout,
 		marker,
-		hasPosition = false;
+		hasPosition = false,
+		hasMovedMarker = false;
 
 	$(document).on('ready page:load', function() {
 		if ($('body').hasClass('ads-new')) {
@@ -22,6 +23,11 @@
 	 	if (typeof google != 'undefined' && google.maps) {
 			initMap();
 	 	}
+	});
+
+	$(document).on('change', '#ad_crop_type_id', function(e) {
+		console.log($(this).val() != 10);
+		$('.other_crop_type').toggleClass('is-hidden', $(this).val() != 10);
 	});
 
 	$(document).on('click', '.positionmap-toggle', function(e) {
@@ -79,8 +85,10 @@
 
 		function geo_success(pos) {
 			position = pos;
-			updatePosition(pos.coords.latitude, pos.coords.longitude);
-			updateMarkerPosition(pos.coords.latitude, pos.coords.longitude);
+			if (!hasMovedMarker) {
+				updatePosition(pos.coords.latitude, pos.coords.longitude);
+				updateMarkerPosition(pos.coords.latitude, pos.coords.longitude);
+			};
 			$('.positionmap').addClass('has-position');
 		}
 
@@ -99,6 +107,7 @@
 	};
 
 	var updateMarkerPosition = function(lat, lng) {
+
 		if (!marker) {
 			createMarker(lat, lng);
 		} else {
@@ -123,6 +132,7 @@
 
 		google.maps.event.addListener(marker, 'dragend', function(e) {
 			//updatePosition(e.latLng.lat(), e.latLng.lng());
+			hasMovedMarker = true;
 		});
 
 		map.panTo(latLng);
@@ -150,6 +160,7 @@
 		google.maps.event.addListener(map, 'click', function(e) {
 			//updatePosition(e.latLng.lat(), e.latLng.lng());
 			updateMarkerPosition(e.latLng.lat(), e.latLng.lng());
+			hasMovedMarker = true;
 		});
 
 		isInitialized = true;

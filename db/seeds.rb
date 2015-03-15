@@ -13,17 +13,18 @@ CropType.delete_all
 EventType.delete_all
 Region.delete_all
 
-1.upto(10) do |i|
-	crop_type = CropType.new
-	crop_type.name = 'Crop Type ' + i.to_s
-	crop_type.save!
-end
+CropType.create!(:name => "Maize", :name_sw => "Mahindi")
+CropType.create!(:name => "Potatoes", :name_sw => "Viazi")
+CropType.create!(:name => "Rice", :name_sw => "Mchele")
+CropType.create!(:name => "Casava", :name_sw => "Muhogo")
+CropType.create!(:name => "Beans", :name_sw => "Maharage")
+CropType.create!(:name => "Avocadoes", :name_sw => "Maparachichi")
+CropType.create!(:name => "Mangoes", :name_sw => "Maembe")
+CropType.create!(:name => "Tomatoes", :name_sw => "Nyanya")
+CropType.create!(:name => "Bananas", :name_sw => "Ndizi")
+CropType.create!(:name => "Other", :name_sw => "Nyingine")
 
-crop_type = CropType.new
-crop_type.name = 'Maize'
-crop_type.save!
-
-puts 'CREATED 11 CROP_TYPES'
+puts 'CREATED 10 CROP_TYPES'
 
 Region.create!(:name => 'Arusha')
 Region.create!(:name => 'Dar es Salaam')
@@ -99,7 +100,10 @@ puts 'CREATED 200 FAKE USERS '
 	ad.volume = Faker::Number.number(2)
 	ad.volume_unit = 'sack'
 	ad.user = User.find(rand(2..202))
-	ad.crop_type = CropType.find(rand(1..11))
+	ad.crop_type = CropType.find(rand(1..10))
+	if ad.crop_type.id == 10
+		ad.other_crop_type = Faker::Lorem.word
+	end
 	ad.village = Faker::Address.city
 	ad.region = Region.find(rand(1..30))
 	# ad.lat = Faker::Address.latitude

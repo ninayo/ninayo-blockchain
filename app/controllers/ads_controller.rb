@@ -19,7 +19,7 @@ class AdsController < ApplicationController
 		@region_id = params[:region_id]
 		@show_filter = cookies[:show_filter]
 
-		@crop_types = CropType.all.order("name")
+		@crop_types = CropType.all.order("id")
 		@regions = Region.all.order("name")
 
 		respond_to do |format|
@@ -233,7 +233,7 @@ private
 	end
 
 	def ad_params
-		params.require(:ad).permit(:user, :crop_type_id, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :rating)
+		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :rating)
 	end
 	def user_params
 		params.require(:user).permit(:name, :email, :phone_number)
