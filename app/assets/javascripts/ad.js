@@ -159,8 +159,10 @@
 
 		google.maps.event.addListener(map, 'click', function(e) {
 			//updatePosition(e.latLng.lat(), e.latLng.lng());
-			updateMarkerPosition(e.latLng.lat(), e.latLng.lng());
-			hasMovedMarker = true;
+			if (!marker) {
+				updateMarkerPosition(e.latLng.lat(), e.latLng.lng());
+				hasMovedMarker = true;
+			}
 		});
 
 		isInitialized = true;
