@@ -1,17 +1,18 @@
-<h3>Statistics</h3>
-<table class="datatable">
-	<tbody>
-		<% @ad_logs.group(:event_type).count().each do |s| -%>
-		<tr>
-			<th><%= s[0].name %></th>
-			<td><%=pluralize(s[1], "time")%></td>
-		</tr>
-		<% end -%>
-		<tr>
-			<th>Favorites</th>
-			<td><%= pluralize(@ad.favorite_ads.count, "time") %></td>
-		</tr>
-	</tbody>
-</table>
-
-<hr>
+<% if @ad_logs -%>
+	<h3>Statistics</h3>
+	<table class="datatable">
+		<tbody>
+			<% @ad_logs.group(:event_type).count().each do |s| -%>
+			<tr>
+				<th><%= s[0].name %></th>
+				<td><%=pluralize(s[1], "time")%></td>
+			</tr>
+			<% end -%>
+			<tr>
+				<th>Favorites</th>
+				<td><%= pluralize(@ad.favorite_ads.count, "time") %></td>
+			</tr>
+		</tbody>
+	</table>
+	<hr>
+<% end -%>

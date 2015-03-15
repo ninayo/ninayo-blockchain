@@ -22,6 +22,7 @@ class Ad < ActiveRecord::Base
 
 	after_initialize :set_default_status, :if => :new_record?
 
+	validates :lat, :lng, presence: { message: "The location of your crop is required" }
 	validates :crop_type, :price, :volume, :volume_unit, :village, :region, :user, presence: true
 	validates :crop_type_id, numericality: { greater_than: 0 }
 	validates :price, :volume, numericality: true
