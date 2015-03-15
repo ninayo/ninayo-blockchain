@@ -117,11 +117,11 @@
 
 
 	<div class="field-actions">
-		<%= link_to "Cancel", root_path, :class => "button is-block" %>
 		<% if @ad.published? %>
 			<%= f.submit("Save changes", :class  => "button is-primary is-block") %>
 		<% else %>
 			<%= f.submit("Preview the Ad", :class  => "button is-primary is-block") %>
 		<% end %>
+		<%= link_to "Cancel", root_path, :class => "button is-block" %>
 	</div>
 <% end %>
