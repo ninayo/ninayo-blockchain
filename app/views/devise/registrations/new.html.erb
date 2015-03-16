@@ -2,7 +2,7 @@
 	<div class="login-column">
 		<h1><%= t "views.create_account.heading" %></h1>
 
-		<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { novalidate: true } ) do |f| %>
 			<%= devise_error_messages! %>
 
 			<div class="field">

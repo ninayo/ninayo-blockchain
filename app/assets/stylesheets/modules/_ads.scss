@@ -62,7 +62,7 @@
 }
 
 .ads-heading {
-	font-size: $baseFontSize * 1.1;
+	@extend .h5;
 	margin: 0 0 5px;
 	color: $linkTextColor;
 }
@@ -100,6 +100,7 @@
 .ads-meta {
 	font-size: 12px;
 	color: #999;
+	margin-bottom: 2px;
 
 	span {
 		display: inline-block;

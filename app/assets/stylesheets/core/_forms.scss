@@ -155,6 +155,10 @@ fieldset {
 	h2, li {
 		color: $dangerColor;
 	}
+
+	h2 {
+		@extend .h3;
+	}
 }
 
 

@@ -24,6 +24,7 @@
 
 .usernav-inner {
 	background-color: $usernavBackgroundColor;
+	@include box-shadow(0 0 20px rgba(black, .4));
 }
 
 .usernav-item {
@@ -31,10 +32,11 @@
 	padding: 0 $padding;
 	height: $siteheaderHeight;
 	line-height: $siteheaderHeight;
-	color: $white;
-	border-top: 1px solid $white;
+	//color: $white;
+	border-top: 1px solid $lightGrey;
 	text-decoration: none;
 	text-transform: uppercase;
+	font-size: 14px;
 
 	&:first-child {
 		border-top: none;
@@ -43,12 +45,12 @@
 	&:hover,
 	&:focus {
 		background-color: darken($usernavBackgroundColor, 5%);
-		color: $white;
+		//color: $white;
 	}
 
 	&:active {
 		background-color: darken($usernavBackgroundColor, 10%);
-		color: $white;
+		//color: $white;
 	}
 }
 
