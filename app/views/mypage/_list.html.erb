@@ -16,7 +16,7 @@
 		<th class="text-right">Displayed contact info</th>
 		<th class="text-right">Favorites</th>
 		<% if current_view == "current"  || current_view == "favorites" -%>
-			<th></th>
+			<th class="is-buttonrow"></th>
 		<% end -%>
 	</thead>
 	<tbody>
@@ -61,7 +61,7 @@
 			<td class="text-right"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button ") %></td>
 			<% end -%>
 			<% if current_view == "favorites" -%>
-			<td class="text-right">
+			<td class="text-right is-buttonrow">
 				<div class="button-group is-stacked">
 					<%= link_to("Favorite", ad_favorite_path(ad, type: "favorite"), :class => "button is-block ads-table-button", :method => :put) unless ad.favorite?(current_user) -%><%= link_to("Unfavorite", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
 					<%= link_to("I bought this", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") -%>

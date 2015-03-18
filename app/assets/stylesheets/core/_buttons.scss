@@ -89,8 +89,8 @@
 	&.is-stacked {
 		.button {
 			@include border-radius(0);
+			display: block;
 			width: 100%;
-			max-width: 150px;
 			border-bottom: 1px solid $white;
 
 			&:first-child {
