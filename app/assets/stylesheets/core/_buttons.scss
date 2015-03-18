@@ -66,3 +66,41 @@
 		}
 	}
 }
+
+.button-group {
+	@include clearfix();
+
+	&.is-horizontal {
+		.button {
+			float: left;
+			@include border-radius(0);
+			border-right: 1px solid $white;
+
+			&:first-child {
+				@include border-radius($borderRadius 0 0 $borderRadius);
+			}
+
+			&:last-child {
+				@include border-radius(0 $borderRadius $borderRadius 0);
+				border-right: none;
+			}
+		}
+	}
+	&.is-stacked {
+		.button {
+			@include border-radius(0);
+			width: 100%;
+			max-width: 150px;
+			border-bottom: 1px solid $white;
+
+			&:first-child {
+				@include border-radius($borderRadius $borderRadius 0 0);
+			}
+
+			&:last-child {
+				@include border-radius(0 0 $borderRadius $borderRadius);
+				border-bottom: none;
+			}
+		}
+	}
+}
