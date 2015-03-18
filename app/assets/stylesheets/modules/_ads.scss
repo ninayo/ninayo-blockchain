@@ -115,14 +115,19 @@
 	width: 100%;
 	border-collapse: collapse;
 
-	tr {
+	tbody tr {
 		border-bottom: 1px solid $lightGrey;
+
+		&:first-of-type {
+			border-top: 1px solid $lightGrey;
+		}
 	}
 
 	th, td {
 		padding: 5px 0;
 		vertical-align: middle;
 		line-height: 18px;
+
 
 		&:first-of-type {
 			padding-top: $padding;
@@ -132,13 +137,13 @@
 		}
 
 		@include mq($from: tablet) {
-			padding: 10px;
+			padding: $padding $halfPadding;
 
 			&:first-of-type {
-				padding-top: 10px;
+				padding-top: $padding;
 			}
 			&:last-of-type {
-				padding-bottom: 10px;
+				padding-bottom: $padding;
 			}
 		}
 
@@ -158,8 +163,7 @@
 			width: 190px;
 			max-width: 190px;
 			min-width: 190px;
-			padding-top: $halfPadding;
-			padding-left: $doublePadding;
+			padding: $halfPadding $halfPadding $halfPadding $doublePadding !important;
 		}
 	}
 }
