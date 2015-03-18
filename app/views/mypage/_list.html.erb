@@ -28,7 +28,7 @@
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
 			<% if current_view == "archive" -%>
 				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
-				<td><%= ad.buyer.name %></td>
+				<td><%= ad.buyer ? ad.buyer.name : "-" %></td>
 			<% end -%>
 			<td><%= l(ad.published_at, format: :short) %></td>
 			<% if current_view == "archive" -%>
@@ -58,13 +58,13 @@
 				<%= ad.favorited_by.count%>
 			</td>
 			<% if current_view == "current" -%>
-			<td class="text-right"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button ") %></td>
+			<td class="text-right is-buttonrow"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button ") %></td>
 			<% end -%>
 			<% if current_view == "favorites" -%>
 			<td class="text-right is-buttonrow">
 				<div class="button-group is-stacked">
 					<%= link_to("Favorite", ad_favorite_path(ad, type: "favorite"), :class => "button is-block ads-table-button", :method => :put) unless ad.favorite?(current_user) -%><%= link_to("Unfavorite", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
-					<%= link_to("I bought this", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") -%>
+					<%#= link_to("I bought this", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") -%>
 				</div>
 			</td>
 			<% end -%>

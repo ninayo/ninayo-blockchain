@@ -134,9 +134,12 @@ class AdsController < ApplicationController
 				redirect_to ad_path(@ad)
 			elsif @ad.archived?
 				# todo: redirect to the archive on mypage once that is created
-				rating = Rating.create!(:rater_id => @ad.user_id, :ad => @ad, :score => params[:rating], :role => "buyer", :user_id => @ad.buyer_id)
+				if @ad.buyer_id
+					rating = Rating.create!(:rater_id => @ad.user_id, :ad => @ad, :score => params[:rating], :role => "buyer", :user_id => @ad.buyer_id)
+				end
+				
 
-				redirect_to root_path, notice: "Your ad have been archived!"
+				redirect_to mypage_archive_path, notice: "Your ad have been archived!"
 			else
 				redirect_to :action => "preview", :id => @ad.id
 			end
