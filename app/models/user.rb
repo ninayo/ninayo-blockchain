@@ -30,10 +30,18 @@ class User < ActiveRecord::Base
 	end
 
 	def seller_score
-		self.ratings.seller.average(:score).round
+		if self.ratings.seller.exists?
+			self.ratings.seller.average(:score).round
+		else
+			0
+		end
 	end
 
 	def buyer_score
-		ratings.buyer.average(:score).round
+		if self.ratings.buyer.exists?
+			self.ratings.buyer.average(:score).round
+		else
+			0
+		end
 	end
 end

@@ -4,8 +4,18 @@
 	<% ads.each do |ad| %>
 		<a href="<%= ad_path(ad) %>" class="ads-item">
 			<div class="ads-meta">
-				<span class="ads-published_at">Published <%= l(ad.published_at, format: :short) if ad.published_at %></span>
-				<span class="ads-owner">by <%= ad.user.name %></span>
+				<span class="ads-published_at">Published <%= l(ad.published_at, format: :short) if ad.published_at %>
+				</span>
+				
+					<span class="rating" data-score="<%= ad.user.seller_score %>">
+						<span class="rating-user">
+							by <%= ad.user.name %>
+						</span>
+						<span class="rating-score">
+		    				<span class="rating-score-inner"></span>
+						</span>
+					</span>
+				
 			</div>
 			<h2 class="ads-heading"><%= ad.title %></h2>
 			<div class="ads-location">

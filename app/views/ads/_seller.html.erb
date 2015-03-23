@@ -1,6 +1,13 @@
 <div class="ad-contactinfo">
 	<h3>Seller</h3>
 	<h4 class="ad-seller-name"><%=@ad.user.name %></h4>
+	<p class="ad-seller-scire">
+		<span class="rating" data-score="<%= @ad.user.seller_score %>">
+			<span class="rating-score">
+				<span class="rating-score-inner"></span>
+			</span>
+		</span>
+	</p>
 	<div id="contact-info"></div>
 	<% if @show_contact_info %>
 		<%= render "contact_info", :user => @ad.user %>
