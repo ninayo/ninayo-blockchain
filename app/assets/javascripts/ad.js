@@ -26,8 +26,13 @@
 	});
 
 	$(document).on('change', '#ad_crop_type_id', function(e) {
-		console.log($(this).val() != 10);
+		//console.log($(this).val() != 10);
+		var otherCropType = $('.other_crop_type');
 		$('.other_crop_type').toggleClass('is-hidden', $(this).val() != 10);
+
+		if (!otherCropType.hasClass('is-hidden')) {
+			otherCropType.find('input').focus();
+		};
 	});
 
 	$(document).on('click', '.positionmap-toggle', function(e) {

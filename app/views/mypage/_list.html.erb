@@ -3,6 +3,9 @@
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
 		<th>Title</th>
+		<% if current_view == "favorites" -%>
+			<th>Seller</th>
+		<% end -%>
 		<th class="text-right">Price</th>
 		<% if current_view == "archive" -%>
 			<th class="text-right">Final Price</th>
@@ -12,9 +15,11 @@
 		<% if current_view == "archive" -%>
 			<th>Archived</th>
 		<% end -%>
-		<th class="text-right">Displayed</th>
-		<th class="text-right">Displayed contact info</th>
-		<th class="text-right">Favorites</th>
+		<% if current_view != "favorites" -%>
+			<th class="text-right">Displayed</th>
+			<th class="text-right">Displayed contact info</th>
+			<th class="text-right">Favorites</th>
+		<% end -%>
 		<% if current_view == "current"  || current_view == "favorites" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
@@ -25,6 +30,9 @@
 			<td>
 				<h4 class="ads-table-heading"><%= link_to ad.title, ad_path(ad) %></h4>
 			</td>
+			<% if current_view == "favorites" -%>
+				<td><%= ad.user.name %></td>
+			<% end -%>
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
 			<% if current_view == "archive" -%>
 				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
@@ -34,29 +42,31 @@
 			<% if current_view == "archive" -%>
 				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
-			<td class="text-right">
-				<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
-				<% if displayed.length > 0 %>
-					<% displayed.each do |s| %>
-						<%=  s[1] %>
+			<% if current_view != "favorites" -%>
+				<td class="text-right">
+					<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
+					<% if displayed.length > 0 %>
+						<% displayed.each do |s| %>
+							<%=  s[1] %>
+						<% end -%>
+					<% else -%>
+						0
 					<% end -%>
-				<% else -%>
-					0
-				<% end -%>
-			</td>
-			<td class="text-right">
-				<% contact_displayed = ad.ad_logs.where(:event_type_id => 2).group(:event_type).count %>
-				<% if contact_displayed.length > 0 %>
-					<% contact_displayed.each do |s| %>
-						<%=  s[1] %>
+				</td>
+				<td class="text-right">
+					<% contact_displayed = ad.ad_logs.where(:event_type_id => 2).group(:event_type).count %>
+					<% if contact_displayed.length > 0 %>
+						<% contact_displayed.each do |s| %>
+							<%=  s[1] %>
+						<% end -%>
+					<% else -%>
+						0
 					<% end -%>
-				<% else -%>
-					0
-				<% end -%>
-			</td>
-			<td class="text-right">
-				<%= ad.favorited_by.count%>
-			</td>
+				</td>
+				<td class="text-right">
+					<%= ad.favorited_by.count%>
+				</td>
+			<% end -%>
 			<% if current_view == "current" -%>
 			<td class="text-right is-buttonrow"><%= link_to("Archive", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button ") %></td>
 			<% end -%>
@@ -64,7 +74,7 @@
 			<td class="text-right is-buttonrow">
 				<div class="button-group is-stacked">
 					<%= link_to("Favorite", ad_favorite_path(ad, type: "favorite"), :class => "button is-block ads-table-button", :method => :put) unless ad.favorite?(current_user) -%><%= link_to("Unfavorite", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
-					<%#= link_to("I bought this", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") -%>
+					<%= link_to("I bought this", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") -%>
 				</div>
 			</td>
 			<% end -%>
