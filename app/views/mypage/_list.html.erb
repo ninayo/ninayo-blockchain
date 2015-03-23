@@ -3,7 +3,7 @@
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
 		<th>Title</th>
-		<% if current_view == "favorites" -%>
+		<% if current_view == "favorites" || current_view == "bought" -%>
 			<th>Seller</th>
 		<% end -%>
 		<th class="text-right">Price</th>
@@ -11,11 +11,14 @@
 			<th class="text-right">Final Price</th>
 			<th>Buyer</th>
 		<% end -%>
+		<% if current_view == "bought" -%>
+			<th class="text-right">Final Price</th>
+		<% end -%>
 		<th>Published</th>
 		<% if current_view == "archive" -%>
 			<th>Archived</th>
 		<% end -%>
-		<% if current_view != "favorites" -%>
+		<% if current_view != "favorites" && current_view != "bought" -%>
 			<th class="text-right">Displayed</th>
 			<th class="text-right">Displayed contact info</th>
 			<th class="text-right">Favorites</th>
@@ -28,9 +31,15 @@
 	<% ads.each do |ad| -%>
 		<tr>
 			<td>
-				<h4 class="ads-table-heading"><%= link_to ad.title, ad_path(ad) %></h4>
+				<h4 class="ads-table-heading">
+					<% if ad.published? %>
+						<%= link_to ad.title, ad_path(ad) %>
+					<% else %>
+						<%= ad.title %>
+					<% end %>
+				</h4>
 			</td>
-			<% if current_view == "favorites" -%>
+			<% if current_view == "favorites" || current_view == "bought" -%>
 				<td>
 					<span class="rating" data-score="<%= ad.user.seller_score %>">
 						<span class="rating-user">
@@ -47,11 +56,14 @@
 				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
 				<td><%= ad.buyer ? ad.buyer.name : "-" %></td>
 			<% end -%>
+			<% if current_view == "bought" -%>
+				<td class="text-right"><%= number_to_currency(ad.ad_buyers.where(:user_id => current_user.id).first.price) %></td>
+			<% end -%>
 			<td><%= l(ad.published_at, format: :short) %></td>
 			<% if current_view == "archive" -%>
 				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
-			<% if current_view != "favorites" -%>
+			<% if current_view != "favorites" && current_view != "bought" -%>
 				<td class="text-right">
 					<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
 					<% if displayed.length > 0 %>

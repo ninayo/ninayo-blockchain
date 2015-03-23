@@ -12,7 +12,8 @@ class MypageController < ApplicationController
 	end
 
 	def favorites
-		@ads = current_user.favorites
+		# todo: filter out ads the user marked as bought
+		@ads = current_user.favorites.published
 		@view = "favorites"
 
 		respond_to do |format|
@@ -23,6 +24,15 @@ class MypageController < ApplicationController
 	def archive
 		@ads = current_user.ads.archived
 		@view = "archived"
+
+		respond_to do |format|
+			format.html
+		end
+	end
+
+	def bought
+		@ads = current_user.bought_ads
+		@view = "bought"
 
 		respond_to do |format|
 			format.html

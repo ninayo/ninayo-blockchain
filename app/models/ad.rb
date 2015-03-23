@@ -63,6 +63,7 @@ class Ad < ActiveRecord::Base
 		end
 	end
 
+
 	def favorite?(user = nil)
 		if user
 			self.favorited_by.where(:id => user.id).exists?

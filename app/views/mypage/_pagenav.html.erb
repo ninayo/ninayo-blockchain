@@ -1,7 +1,9 @@
 <div class="pagenav is-block">
 	<div class="pagenav-group pagenav-buttongroup">
 		<%= link_to "Current", mypage_path, :class => current_view == "current" ? "pagenav-item is-active" : "pagenav-item" %>
-		<%= link_to "Favorites", mypage_favorites_path, :class => current_view == "favorites" ? "pagenav-item is-active" : "pagenav-item" %>
 		<%= link_to "Archive", mypage_archive_path, :class => current_view == "archive" ? "pagenav-item is-active" : "pagenav-item" %>
+		<%= link_to "Favorites", mypage_favorites_path, :class => current_view == "favorites" ? "pagenav-item is-active" : "pagenav-item" %>
+		<%= link_to "Bought ads", mypage_bought_path, :class => current_view == "bought" ? "pagenav-item is-active" : "pagenav-item" %>
+		
 	</div>
 </div>

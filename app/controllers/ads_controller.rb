@@ -196,11 +196,7 @@ class AdsController < ApplicationController
 	end
 
 	def save_buy_info
-		puts @ad.user
-		puts current_user
-		puts params[:rating]
-		puts ad_params[:final_price]
-
+		
 		# Save buyer and final price
 		buyer = AdBuyer.create!(:user => current_user, :ad => @ad, :price => ad_params[:final_price])
 
