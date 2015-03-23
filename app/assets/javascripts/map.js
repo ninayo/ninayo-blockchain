@@ -103,11 +103,24 @@
 
 	var createInfoWindowContent = function(ad) {
 		var html = '<div class="infowindow-content">';
-			html = html + '<h4>' + ad.title + '</h4>';
+			html = html + '<h3>' + ad.title + '</h3>';
 			if (ad.description) {
 				html = html + '<p>' + ad.description + '</p>';
 			};
-			html = html + '<p>Price: ' + ad.price + ' /=</p>';
+			html = html + '<p>Price: ' + ad.price + ' /=<br>';
+			html = html + 'Volume: ' + ad.volume + ' ' + ad.volume_unit + 's</p>';
+			html = html + '<h4>Seller</h4>';
+
+			if (ad.user) {
+				html = html + '<p>';
+				html = html + '<span class="rating" data-score="' + ad.seller_score +  '">';
+				html = html + '<span class="rating-user">' + ad.user.name + '</span>';
+				html = html + '<span class="rating-score">';
+    			html = html + '<span class="rating-score-inner"></span>';
+				html = html + '</span>';
+			html = html + '</span>';
+			html = html + '</p>';
+			}
 			if (ad.html_url) {
 				html = html + '<p><a href="' + ad.html_url + '" class="button button-block">Show ad</a></p>';
 			}
