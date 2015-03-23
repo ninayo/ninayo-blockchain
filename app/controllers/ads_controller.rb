@@ -11,14 +11,6 @@ class AdsController < ApplicationController
 					.includes(:region)
 					.page(params[:page])
 
-		@crop_type_id = params[:crop_type_id]
-		@volume_min = params[:volume_min]
-		@volume_max = params[:volume_max]
-		@price_min = params[:price_min]
-		@price_max = params[:price_max]
-		@region_id = params[:region_id]
-		@show_filter = cookies[:show_filter]
-
 		@crop_types = CropType.all.order("id")
 		@regions = Region.all.order("name")
 
@@ -240,6 +232,14 @@ private
 	end
 
 	def get_ads
+		@crop_type_id = params[:crop_type_id]
+		@volume_min = params[:volume_min]
+		@volume_max = params[:volume_max]
+		@price_min = params[:price_min]
+		@price_max = params[:price_max]
+		@region_id = params[:region_id]
+		@show_filter = cookies[:show_filter]
+
 		@ads = Ad.published
 			.filter(params.slice(:crop_type_id))
 			.filter(params.slice(:volume_min))
