@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-	before_action :set_ad, only: [:show, :contact_info, :edit, :preview, :archive, :update, :destroy]
+	before_action :set_ad, only: [:show, :contact_info, :edit, :preview, :archive, :update, :destroy, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show]
 
@@ -189,6 +189,25 @@ class AdsController < ApplicationController
 		else
 			not_found
 		end
+	end
+
+	def rate_seller
+
+	end
+
+	def save_buy_info
+		puts @ad.user
+		puts current_user
+		puts params[:rating]
+		puts ad_params[:final_price]
+
+		# Save buyer and final price
+		buyer = AdBuyer.create!(:user => current_user, :ad => @ad, :price => ad_params[:final_price])
+
+		# Save rating
+		rating = Rating.create!(:rater_id => current_user.id, :ad => @ad, :score => params[:rating], :role => "seller", :user_id => @ad.user_id)
+
+		redirect_to root_path, notice: "Thank you for rating the seller!"
 	end
 
 

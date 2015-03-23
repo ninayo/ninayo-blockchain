@@ -37,7 +37,7 @@
 							<%= ad.user.name %>
 						</span>
 						<span class="rating-score">
-		    				<span class="rating-score-inner"></span>
+							<span class="rating-score-inner"></span>
 						</span>
 					</span>
 				</td>
@@ -83,7 +83,7 @@
 			<td class="text-right is-buttonrow">
 				<div class="button-group is-stacked">
 					<%= link_to("Favorite", ad_favorite_path(ad, type: "favorite"), :class => "button is-block ads-table-button", :method => :put) unless ad.favorite?(current_user) -%><%= link_to("Unfavorite", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
-					<%= link_to("I bought this", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button") -%>
+					<%= link_to("I bought this", rate_seller_path(ad), :class => "button is-block is-primary ads-table-button") -%>
 				</div>
 			</td>
 			<% end -%>

@@ -17,6 +17,8 @@ class Ad < ActiveRecord::Base
 
 	has_many :ratings
 
+	has_many :ad_buyers
+
 	before_save	:set_published_at
 	before_save	:set_archived_at
 
@@ -50,6 +52,14 @@ class Ad < ActiveRecord::Base
 
 		if self.volume && self.crop_type
 			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} of #{crop_type}"
+		end
+	end
+
+	def crop_type_name
+		if self.crop_type_id == 10
+			self.other_crop_type
+		else
+			self.crop_type.name
 		end
 	end
 

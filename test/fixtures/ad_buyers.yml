@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ad_id: 
+  user: 
+  price: 1.5
+
+two:
+  ad_id: 
+  user: 
+  price: 1.5
