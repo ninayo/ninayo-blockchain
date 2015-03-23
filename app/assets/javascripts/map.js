@@ -122,7 +122,7 @@
 			html = html + '</p>';
 			}
 			if (ad.html_url) {
-				html = html + '<p><a href="' + ad.html_url + '" class="button button-block">Show ad</a></p>';
+				html = html + '<div class="infowindow-buttons"><a href="' + ad.html_url + '" class="button button-block">Show ad</a></div>';
 			}
 			html = html + '</div>';
 
