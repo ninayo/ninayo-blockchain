@@ -1,0 +1,45 @@
+.rating-user {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+.rating-score {
+	display: inline-block;
+	vertical-align: middle;
+	width: 65px;
+	height: 13px;
+	background: image-url("star-rating-sprite.png") 0 0;
+}
+
+.rating-score-inner {
+	display: block;
+	width: 0;
+	height: 13px;
+	background: image-url("star-rating-sprite.png") 0 -13px;
+}
+[data-score="1"] {
+	.rating-score-inner {
+		width: 20%;
+	}
+}
+[data-score="2"] {
+	.rating-score-inner {
+		width: 40%;
+	}
+}
+[data-score="3"] {
+	.rating-score-inner {
+		width: 60%;
+	}
+}
+[data-score="4"] {
+	.rating-score-inner {
+		width: 80%;
+	}
+}
+[data-score="5"] {
+	.rating-score-inner {
+		width: 100%;
+	}
+}

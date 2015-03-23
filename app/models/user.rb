@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
 
 	accepts_nested_attributes_for :ratings, allow_destroy: true
 
+	scope :seller_rating, -> { ratings.seller }
+
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
@@ -25,5 +27,13 @@ class User < ActiveRecord::Base
 
 	def set_default_role
 		self.role ||= :user
+	end
+
+	def seller_score
+		self.ratings.seller.average(:score).round
+	end
+
+	def buyer_score
+		ratings.buyer.average(:score).round
 	end
 end

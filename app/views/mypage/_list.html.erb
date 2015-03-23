@@ -31,7 +31,16 @@
 				<h4 class="ads-table-heading"><%= link_to ad.title, ad_path(ad) %></h4>
 			</td>
 			<% if current_view == "favorites" -%>
-				<td><%= ad.user.name %></td>
+				<td>
+					<span class="rating" data-score="<%= ad.user.seller_score %>">
+						<span class="rating-user">
+							<%= ad.user.name %>
+						</span>
+						<span class="rating-score">
+		    				<span class="rating-score-inner"></span>
+						</span>
+					</span>
+				</td>
 			<% end -%>
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
 			<% if current_view == "archive" -%>
