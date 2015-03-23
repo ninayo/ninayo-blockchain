@@ -44,7 +44,6 @@ gem 'faker'
 group :development do
   gem 'meta_request'
   gem 'bullet'
-  gem 'byebug'
 end
 
 group :development, :test do
