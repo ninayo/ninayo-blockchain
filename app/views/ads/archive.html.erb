@@ -18,6 +18,18 @@
 				</div>
 			<% end %>
 
+			<% if @rating &&  @rating.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@rating.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+					<ul>
+					<% @rating.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+					</ul>
+				</div>
+			<% end %>
+
 			<div class="field">
 				<%= f.label :final_price, :class => "field-label"%>
 				<div class="input-wrapper">

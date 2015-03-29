@@ -1,14 +1,27 @@
 <h4>Rate</h4>
 <p>How would you rate the buyer?</p>
-<div>
-	<%= radio_button_tag(:rating, "1") %>
-	<%= label_tag(:rating, "1") %>
-	<%= radio_button_tag(:rating, "2") %>
-	<%= label_tag(:rating, "2") %>
-	<%= radio_button_tag(:rating, "3") %>
-	<%= label_tag(:rating, "3") %>
-	<%= radio_button_tag(:rating, "4") %>
-	<%= label_tag(:rating, "4") %>
-	<%= radio_button_tag(:rating, "5") %>
-	<%= label_tag(:rating, "5") %>
+
+<div class="rate <%= "field_with_errors" if @rating && @rating.errors.any? %>">
+	<span class="rate-label is-legend">Aweful</span>
+	<label for="score_1" class="rate-label">
+		<%= radio_button_tag(:score, "1") %>
+		1
+	</label>
+	<label for="score_2" class="rate-label">
+		<%= radio_button_tag(:score, "2") %>
+		2
+	</label>
+	<label for="score_3" class="rate-label">
+		<%= radio_button_tag(:score, "3") %>
+		3
+	</label>
+	<label for="score_4" class="rate-label">
+		<%= radio_button_tag(:score, "4") %>
+		4
+	</label>
+	<label for="score_5" class="rate-label">
+		<%= radio_button_tag(:score, "5") %>
+		5
+	</label>
+	<span class="rate-label is-legend">Excellent</span>
 </div>

@@ -125,12 +125,17 @@ class AdsController < ApplicationController
 				update_user_location
 				redirect_to ad_path(@ad)
 			elsif @ad.archived?
-				# todo: redirect to the archive on mypage once that is created
-				if @ad.buyer_id
-					rating = Rating.create!(:rater_id => @ad.user_id, :ad => @ad, :score => params[:rating], :role => "buyer", :user_id => @ad.buyer_id)
-				end
 
-				redirect_to mypage_archive_path, notice: "Your ad have been archived!"
+				if @ad.buyer_id
+					@rating = Rating.new(:rater_id => @ad.user_id, :ad => @ad, :score => params[:score], :role => "buyer", :user_id => @ad.buyer_id)
+
+					if @rating.save
+						redirect_to mypage_archive_path, notice: "Your ad have been archived!"
+					else
+						@buyers = buyers(@ad)
+						render "archive"
+					end
+				end
 			else
 				redirect_to :action => "preview", :id => @ad.id
 			end
@@ -197,7 +202,6 @@ class AdsController < ApplicationController
 			if @rating.save
 				redirect_to root_path, notice: "Thanks for rating the seller!"
 			else
-				puts @rating.valid?
 				render "rate_seller"
 			end
 		else
