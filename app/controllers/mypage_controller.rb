@@ -13,7 +13,7 @@ class MypageController < ApplicationController
 
 	def favorites
 		# todo: filter out ads the user marked as bought
-		@ads = current_user.favorites.published
+		@ads = current_user.favorites.published.includes(:user).includes(:crop_type)
 		@bought_ads = Ad.where(:buyer_id => current_user.id, :buyer_price => nil)
 
 		@view = "favorites"

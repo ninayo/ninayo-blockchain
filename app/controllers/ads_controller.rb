@@ -129,7 +129,6 @@ class AdsController < ApplicationController
 				if @ad.buyer_id
 					rating = Rating.create!(:rater_id => @ad.user_id, :ad => @ad, :score => params[:rating], :role => "buyer", :user_id => @ad.buyer_id)
 				end
-				
 
 				redirect_to mypage_archive_path, notice: "Your ad have been archived!"
 			else
@@ -184,18 +183,26 @@ class AdsController < ApplicationController
 	end
 
 	def rate_seller
-
+		@rating = Rating.new
 	end
 
 	def save_buy_info
-		
-		# Save buyer and final price
-		buyer = AdBuyer.create!(:user => current_user, :ad => @ad, :price => ad_params[:final_price])
+		@ad.update(ad_params)
 
-		# Save rating
-		rating = Rating.create!(:rater_id => current_user.id, :ad => @ad, :score => params[:rating], :role => "seller", :user_id => @ad.user_id)
+		if @ad.save(context: :save_buyer_info)
 
-		redirect_to root_path, notice: "Thank you for rating the seller!"
+			# Save rating
+			@rating = Rating.new(:rater_id => current_user.id, :ad => @ad, :score => params[:score], :role => "seller", :user_id => @ad.user_id)
+
+			if @rating.save
+				redirect_to root_path, notice: "Thanks for rating the seller!"
+			else
+				puts @rating.valid?
+				render "rate_seller"
+			end
+		else
+			render "rate_seller"
+		end
 	end
 
 
@@ -251,7 +258,7 @@ private
 	end
 
 	def ad_params
-		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :rating)
+		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :buyer_price, :rating)
 	end
 	def user_params
 		params.require(:user).permit(:name, :email, :phone_number)

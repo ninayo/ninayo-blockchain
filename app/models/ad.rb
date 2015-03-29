@@ -29,6 +29,8 @@ class Ad < ActiveRecord::Base
 	validates :final_price, presence: true, if: "archived?"
 	validates :other_crop_type, presence: true, if: "crop_type.id == 10"
 
+	validates :buyer_price, presence: true, on: :save_buyer_info
+
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived, :pending_review, :rejected, :spam]
 

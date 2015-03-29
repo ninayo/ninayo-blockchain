@@ -15,14 +15,26 @@
 		</div>
 	<% end %>
 
+	<% if @rating &&  @rating.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@rating.errors.count, "error") %> prohibited this ad from being saved:</h2>
+
+			<ul>
+			<% @rating.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
 	<h4>What did you eventually pay for the <%= @ad.crop_type_name%>?</h4>
 
 	<fieldset>
 		<div class="field">
-			<%= f.label :final_price, :class => "field-label"%>
+			<%= f.label :buyer_price, :class => "field-label"%>
 			<div class="input-wrapper">
 				<div class="input-field">
-					<%= f.number_field :final_price, :class => "is-small", :value => @ad.final_price || @ad.price , autofocus: true %>
+					<%= f.number_field :buyer_price, :class => "is-small", :value => @ad.buyer_price || @ad.price , autofocus: true %>
 				</div>
 				<div class="input-label">
 					<span class="input-post">/=</span>
@@ -33,19 +45,29 @@
 
 	<fieldset>
 		<h4>How would you rate <%= @ad.user.name%>?</h4>
-		<div class="rate">
-			<span class="rate-label">Aweful</span>
-			<%= radio_button_tag(:rating, "1") %>
-			<%= label_tag(:rating, "1") %>
-			<%= radio_button_tag(:rating, "2") %>
-			<%= label_tag(:rating, "2") %>
-			<%= radio_button_tag(:rating, "3") %>
-			<%= label_tag(:rating, "3") %>
-			<%= radio_button_tag(:rating, "4") %>
-			<%= label_tag(:rating, "4") %>
-			<%= radio_button_tag(:rating, "5") %>
-			<%= label_tag(:rating, "5") %>
-			<span class="rate-label">Excellent</span>
+		<div class="rate <%= "field_with_errors" if @rating && @rating.errors.any? %>">
+			<span class="rate-label is-legend">Aweful</span>
+			<label for="score_1" class="rate-label">
+				<%= radio_button_tag(:score, "1") %>
+				1
+			</label>
+			<label for="score_2" class="rate-label">
+				<%= radio_button_tag(:score, "2") %>
+				2
+			</label>
+			<label for="score_3" class="rate-label">
+				<%= radio_button_tag(:score, "3") %>
+				3
+			</label>
+			<label for="score_4" class="rate-label">
+				<%= radio_button_tag(:score, "4") %>
+				4
+			</label>
+			<label for="score_5" class="rate-label">
+				<%= radio_button_tag(:score, "5") %>
+				5
+			</label>
+			<span class="rate-label is-legend">Excellent</span>
 		</div>
 	</fieldset>
 

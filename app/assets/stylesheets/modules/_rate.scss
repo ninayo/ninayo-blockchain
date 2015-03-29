@@ -1,0 +1,25 @@
+.rate {
+	display: inline-block;
+	margin: 0 $negativeHalfPadding $margin;
+
+	&.field_with_errors {
+		background-color: #D9534F;
+		margin: 0 0 $margin;
+
+		.rate-label {
+			color: white;
+		}
+	}
+}
+
+.rate-label {
+	display: inline-block;
+	vertical-align: middle;
+	padding: $halfPadding 5px;
+
+	&.is-legend {
+		padding: $halfPadding;
+	}
+}
+
+
