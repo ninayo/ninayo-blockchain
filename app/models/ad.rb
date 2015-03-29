@@ -44,6 +44,8 @@ class Ad < ActiveRecord::Base
 	scope :price_max, -> (price_max) { where("price < " + price_max) }
 	scope :region_id, -> (region_id) { where region_id: region_id }
 
+	scope :bought, -> { where.not(:buyer_price => nil) }
+
 
 	def title
 		if self.crop_type.id == 10
@@ -55,6 +57,10 @@ class Ad < ActiveRecord::Base
 		if self.volume && self.crop_type
 			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} of #{crop_type}"
 		end
+	end
+
+	def self.bought_ads user
+		self.where(:user => user).where.not(:buyer_price => nil)
 	end
 
 	def crop_type_name

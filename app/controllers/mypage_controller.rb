@@ -25,20 +25,11 @@ class MypageController < ApplicationController
 
 	def archive
 		@ads = current_user.ads.archived
+		@bought_ads = current_user.ads.bought
 		@view = "archived"
 
 		respond_to do |format|
 			format.html
 		end
 	end
-
-	def bought
-		@ads = current_user.bought_ads
-		@view = "bought"
-
-		respond_to do |format|
-			format.html
-		end
-	end
-
 end
