@@ -53,7 +53,7 @@
 		<h3>Location</h3>
 		<div class="field">
 			<%= f.label :region_id, :class => 'field-label' %>
-			<%= select("ad", "region_id", Region.all.collect {|c| [ c.name, c.id ]}, {prompt: "Select a Region"})%>
+			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "Select a Region"} %>
 		</div>
 		<div class="field">
 			<%= f.label :village, :class => 'field-label' %>

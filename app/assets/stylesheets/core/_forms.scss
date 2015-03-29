@@ -9,11 +9,13 @@ select {
 	display: block;
 	width: 100%;
 	height: $controlHeight;
+	background-color: white;
 	font-family: $bodyFont;
 	font-size: $baseFontSize;
 	padding: 5px;
 	border: 1px solid $lightGrey;
 	@include border-radius($borderRadius);
+
 
 	&:focus {
 		border-color: $grey;
@@ -30,6 +32,45 @@ select {
 		width: 180px;
 	}
 }
+
+// Custom Select Input
+// ======================================
+
+select {
+	// @include appearance(none);
+	-webkit-appearance: none;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 auto;
+	padding: 10px;
+	width: 100%;
+	color: #666;
+
+	
+}
+
+// Custom Select Styling for Webkit
+// ======================================
+// Allows us to use a custom arrow and avoid
+// the browsers that dont support it.
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select {
+		padding-right: 32px;
+		background: white image-url("select-arrow.png") 100% 50% no-repeat;
+    }
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #000;
+}
+
+
+
 
 input[type=text],
 input[type=password],
@@ -123,7 +164,8 @@ fieldset {
 // Validation
 
 .field_with_errors {
-	input {
+	input, select, textarea {
+
 		border-color: $dangerColor;
 		background-color: $alertColor;
 		@include border-radius($borderRadius $borderRadius 0 0 );
