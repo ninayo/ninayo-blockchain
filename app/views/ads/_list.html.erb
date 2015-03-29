@@ -1,21 +1,18 @@
 <% if ads.length > 0 %>
 <div class="ads">
-
 	<% ads.each do |ad| %>
 		<a href="<%= ad_path(ad) %>" class="ads-item">
 			<div class="ads-meta">
-				<span class="ads-published_at">Published <%= l(ad.published_at, format: :short) if ad.published_at %>
+				<span class="ads-published_at"><%= t "common.published" %> <%= l(ad.published_at, format: :short) if ad.published_at %>
 				</span>
-				
-					<span class="rating" data-score="<%= ad.user.seller_score %>">
-						<span class="rating-user">
-							by <%= ad.user.name %>
-						</span>
-						<span class="rating-score">
-		    				<span class="rating-score-inner"></span>
-						</span>
+				<span class="rating" data-score="<%= ad.user.seller_score %>">
+					<span class="rating-user">
+						<%= t "common.by" %> <%= ad.user.name %>
 					</span>
-				
+					<span class="rating-score">
+						<span class="rating-score-inner"></span>
+					</span>
+				</span>
 			</div>
 			<h2 class="ads-heading"><%= ad.title %></h2>
 			<div class="ads-location">
@@ -27,7 +24,6 @@
 </div>
 
 <% else %>
-	<h3>Couldn't find any ads that match your criterias.</h3>
-	<p>Try to remove any of your filters.</p>
+	<h3><%= t "views.ad.list.could_not_find_heading" %></h3>
+	<p><%= t "views.ad.list.could_not_find_body" %></p>
 <% end %>
-

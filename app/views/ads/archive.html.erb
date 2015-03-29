@@ -1,15 +1,14 @@
 
 <div class="newad">
 	<div class="newad-form">
-		<h1>Archive ad</h1>
+		<h1><%= t "views.ad.archive.heading" %></h1>
 
-		<p>Please tell us what the final price for your crop was.</p>
+		<p><%= t "views.ad.archive.tell_us_final_price" %></p>
 
 		<%= form_for @ad, validate: true do |f| %>
 			<% if @ad.errors.any? %>
 				<div id="error_explanation">
-					<h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
-
+					<h2><%= t("common.errors", :count => @ad.errors.count) %> <%= t "views.ad.error_heading" %>:</h2>
 					<ul>
 					<% @ad.errors.full_messages.each do |message| %>
 						<li><%= message %></li>
@@ -20,8 +19,7 @@
 
 			<% if @rating &&  @rating.errors.any? %>
 				<div id="error_explanation">
-					<h2><%= pluralize(@rating.errors.count, "error") %> prohibited this ad from being saved:</h2>
-
+					<h2><%= t("common.errors", :count => @rating.errors.count) %> <%= t "views.ad.error_heading" %>:</h2>
 					<ul>
 					<% @rating.errors.full_messages.each do |message| %>
 						<li><%= message %></li>
@@ -31,7 +29,7 @@
 			<% end %>
 
 			<div class="field">
-				<%= f.label :final_price, :class => "field-label"%>
+				<%= f.label :final_price, :value => "#{t "active_record.attributes.ad.final_price"}", :class => "field-label"%>
 				<div class="input-wrapper">
 					<div class="input-field">
 						<%= f.number_field :final_price, :class => "is-small", :value => @ad.final_price || @ad.price , autofocus: true %>
@@ -43,8 +41,8 @@
 			</div>
 
 			<div class="field">
-				<%= f.label :buyer_id, :value => "Please see if you can find the buyer in the list below", :class => "field-label" %>
-				<%= f.select :buyer_id, @buyers.collect {|b| [ b.name, b.id ] }, { include_blank: "Please select the buyer"}, {:class => "is-inline" } %>
+				<%= f.label :buyer_id, :value => "#{t "views.ad.archive.pick_buyer"}", :class => "field-label" %>
+				<%= f.select :buyer_id, @buyers.collect {|b| [ b.name, b.id ] }, { include_blank: "#{t "views.ad.archive.please_select_the_buyer"}"}, {:class => "is-inline" } %>
 			</div>
 
 			<div id="rate-buyer" class="<%= "is-hidden" unless @ad.buyer %>">
@@ -56,8 +54,8 @@
 				<%= fields_for :user, @ad.user do |user_fields| %>
 					<%= user_fields.hidden_field :name %>
 				<% end %>
-				<%= link_to "Cancel", mypage_current_path, :class => "button is-block" %>
-				<%= f.submit("Archive", :class  => "button is-primary is-block") %>
+				<%= link_to "#{t "common.cancel"}", mypage_current_path, :class => "button is-block" %>
+				<%= f.submit("#{t "common.archive"}", :class  => "button is-primary is-block") %>
 			</div>
 		<% end %>
 	</div>

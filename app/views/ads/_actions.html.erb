@@ -1,7 +1,7 @@
 <div class="ad-actions">
 <%# if current_user %>
-	<%= link_to("Favorite", ad_favorite_path(@ad, type: "favorite"), :class => "button is-block", :method => :put) unless @ad.favorite?(current_user) %>
-	<%= link_to("Unfavorite", ad_favorite_path(@ad, type: "unfavorite"), :class => "button is-block", :method => :put) if @ad.favorite?(current_user) %>
+	<%= link_to("#{t "common.favorite"}", ad_favorite_path(@ad, type: "favorite"), :class => "button is-block", :method => :put) unless @ad.favorite?(current_user) %>
+	<%= link_to("#{t "common.unfavorite"}", ad_favorite_path(@ad, type: "unfavorite"), :class => "button is-block", :method => :put) if @ad.favorite?(current_user) %>
 <%# end %>
 	<!-- <a href="" class="button is-block not-implemented">
 		Add to favorites

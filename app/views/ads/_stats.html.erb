@@ -1,16 +1,16 @@
 <% if @ad_logs -%>
-	<h3>Statistics</h3>
+	<h3><%= t "views.ad.statistics.heading" %></h3>
 	<table class="datatable">
 		<tbody>
 			<% @ad_logs.group(:event_type).count().each do |s| -%>
 			<tr>
 				<th><%= s[0].name %></th>
-				<td><%=pluralize(s[1], "time")%></td>
+				<td><%= t("views.ad.statistics.times", :count => s[1]) %></td>
 			</tr>
 			<% end -%>
 			<tr>
-				<th>Favorites</th>
-				<td><%= pluralize(@ad.favorite_ads.count, "time") %></td>
+				<th><%= t "views.ad.statistics.favorites" %></th>
+				<td><%= t("views.ad.statistics.times", :count => @ad.favorite_ads.count) %></td>
 			</tr>
 		</tbody>
 	</table>

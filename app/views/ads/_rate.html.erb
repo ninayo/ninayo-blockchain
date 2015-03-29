@@ -1,8 +1,8 @@
-<h4>Rate</h4>
-<p>How would you rate the buyer?</p>
+<h4><%= t "views.ad.rate.heading" %></h4>
+<p><%= t "views.ad.rate.text" %></p>
 
 <div class="rate <%= "field_with_errors" if @rating && @rating.errors.any? %>">
-	<span class="rate-label is-legend">Aweful</span>
+	<span class="rate-label is-legend"><%= t "views.ad.rate.aweful" %></span>
 	<label for="score_1" class="rate-label">
 		<%= radio_button_tag(:score, "1") %>
 		1
@@ -23,5 +23,5 @@
 		<%= radio_button_tag(:score, "5") %>
 		5
 	</label>
-	<span class="rate-label is-legend">Excellent</span>
+	<span class="rate-label is-legend"><%= t "views.ad.rate.excellent" %></span>
 </div>

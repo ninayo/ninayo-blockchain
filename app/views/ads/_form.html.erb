@@ -1,7 +1,7 @@
 <%= form_for @ad, validate: true do |f| %>
 	<% if @ad.errors.any? %>
 		<div id="error_explanation">
-			<h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+			<h2><%= t("common.errors", :count => @ad.errors.count) %> <%= t "views.ad.error_heading" %>:</h2>
 
 			<ul>
 			<% @ad.errors.full_messages.each do |message| %>
@@ -12,17 +12,17 @@
 	<% end %>
 
 	<fieldset>
-		<h3>Crop</h3>
+		<h3><%= t "views.ad.crop" %></h3>
 		<div class="field">
-			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "Select a Crop Type"} %>
+			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} %>
 		</div>
 		<div class="field other_crop_type <%= "is-hidden"  unless @ad.crop_type_id == 10 %>">
-			<%= f.label :other_crop_type, "Name of other crop type", :class => 'field-label' %>
+			<%= f.label :other_crop_type, "#{t "views.ad.new.name_of_crop_type"}", :class => 'field-label' %>
 			<%= f.text_field :other_crop_type %>
 		</div>
 
 		<div class="field">
-			<%= f.label :price, :class => 'field-label' %>
+			<%= f.label :price, "#{t "views.ad.price"}", :class => 'field-label' %>
 			<div class="input-wrapper">
 				<div class="input-field">
 					<%= f.number_field :price, :class => "is-inline" %>
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 		<div class="field">
-			<%= f.label :volume, :class => 'field-label' %>
+			<%= f.label "#{t "views.ad.volume"}", :class => 'field-label' %>
 			<div class="input-wrapper">
 				<div class="input-field">
 					<%= f.number_field :volume, :class => "is-inline" %>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="field">
-			<%= f.label :description, :class => 'field-label' %>
+			<%= f.label "#{t "views.ad.description"}", :class => 'field-label' %>
 			<%= f.text_area :description %>
 		</div>
 	</fieldset>
@@ -52,20 +52,20 @@
 	<fieldset>
 		<h3>Location</h3>
 		<div class="field">
-			<%= f.label :region_id, :class => 'field-label' %>
+			<%= f.label "#{t "views.ad.region"}", :class => 'field-label' %>
 			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "Select a Region"} %>
 		</div>
 		<div class="field">
-			<%= f.label :village, :class => 'field-label' %>
+			<%= f.label "#{t "views.ad.village"}", :class => 'field-label' %>
 			<%= f.text_field :village %>
 		</div>
 		<div class="field row">
 			<div class="field field-col">
-				<%= f.label :lat, :class => 'field-label' %>
+				<%= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
 				<%= f.text_field :lat %>
 			</div>
 			<div class="field field-col">
-				<%= f.label :lng, :class => 'field-label' %>
+				<%= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
 				<%= f.text_field :lng %>
 			</div>
 		</div>
@@ -73,43 +73,45 @@
 
 	<div class="positionmap">
 		<div class="positionmap-header">
-			<h4 class="positionmap-heading">Pick your location</h4>
+			<h4 class="positionmap-heading"><%= t "views.ad.new.pick_your_location" %></h4>
 			<a href="" class="button positionmap-toggle">
-				Big map
+				<%= t "views.ad.new.big_map" %>
 			</a>
 			<a href="" class="positionmap-close">&times;</a>
 		</div>
 		<div id="positionmap-canvas"></div>
 		<div class="positionmap-actions">
 			<div class="positionmap-actions-text is-second">
-				Drag the marker to the location of your crop
+				<%= t "views.ad.new.drag_marker" %>
 			</div>
 			<div class="positionmap-actions-button">
-				<button class="button is-primary is-block positionmap-confirm">Confirm location</button>
+				<button class="button is-primary is-block positionmap-confirm">
+					<%= t "views.ad.new.confirm_location" %>
+				</button>
 			</div>
 		</div>
 	</div>
 
 	<p>
 		<a href="" class="button is-block positionmap-toggle is-mobile">
-			Pick your location
+			<%= t "views.ad.new.pick_your_location" %>
 		</a>
 	</p>
 
 	<fieldset>
-		<h3>Contact information</h3>
-		<p>Please review your contact information.</p>
+		<h3><%= t "views.ad.new.contact_information" %></h3>
+		<p><%= t "views.ad.new.review_contact_information" %>.</p>
 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<div class="field">
-				<%= user_fields.label :name, class: "field-label" %>
+				<%= user_fields.label :name, :value => "#{t "active_record.attributes.user.name"}", :class => "field-label" %>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<div class="field">
-				<%= user_fields.label :email, class: "field-label" %>
+				<%= user_fields.label :email, :value => "#{t "active_record.attributes.user.email"}", :class => "field-label" %>
 				<%= user_fields.telephone_field :email, :validate => true%>
 			</div>
 			<div class="field">
-				<%= user_fields.label :phone_number, class: "field-label" %>
+				<%= user_fields.label :phone_number, :value => "#{t "active_record.attributes.user.phone_number"}", :class => "field-label" %>
 				<%= user_fields.telephone_field :phone_number, :validate => true, class: "is-small" %>
 			</div>
 		<% end %>
@@ -118,10 +120,10 @@
 
 	<div class="field-actions">
 		<% if @ad.published? %>
-			<%= f.submit("Save changes", :class  => "button is-primary is-block") %>
+			<%= f.submit("#{t "views.ad.new.save_changes"}", :class  => "button is-primary is-block") %>
 		<% else %>
-			<%= f.submit("Preview the Ad", :class  => "button is-primary is-block") %>
+			<%= f.submit("#{t "views.ad.new.preview_ad"}", :class  => "button is-primary is-block") %>
 		<% end %>
-		<%= link_to "Cancel", root_path, :class => "button is-block" %>
+		<%= link_to "#{t "views.ad.new.cancel"}", root_path, :class => "button is-block" %>
 	</div>
 <% end %>

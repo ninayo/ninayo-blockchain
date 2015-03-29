@@ -1,21 +1,19 @@
 <h3>Facts</h3>
 <table class="datatable">
 	<tr>
-		<th>Price:</th>
+		<th><%= t "common.price" %>:</th>
 		<td><%= number_to_currency(@ad.price)%></td>
 	</tr>
 	<tr>
-		<th>Volume:</th>
+		<th><%= t "common.volume" %>:</th>
 		<td><%= pluralize(@ad.volume, @ad.volume_unit) %></td>
 	</tr>
-	
 	<tr>
-		<th>Published:</th>
+		<th><%= t "common.published" %>:</th>
 		<% if @ad.published_at %>
 		<td><%= l(@ad.published_at, format: :short) %></td>
 		<% else %>
 			<td><%= l(Time.now, format: :short) %></td>
 		<% end %>
 	</tr>
-	
 </table>

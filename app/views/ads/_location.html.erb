@@ -1,5 +1,5 @@
 <div class="ad-location">
-	<h3>Location</h3>
+	<h3><%= t "views.ad.show.location" %></h3>
 	<% if @ad.lat && @ad.lng %>
 	<div class="ad-staticmap">
 		<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">

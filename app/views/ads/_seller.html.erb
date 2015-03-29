@@ -1,5 +1,5 @@
 <div class="ad-contactinfo">
-	<h3>Seller</h3>
+	<h3><%= t "views.ad.seller.heading" %></h3>
 	<h4 class="ad-seller-name"><%=@ad.user.name %></h4>
 	<p class="ad-seller-scire">
 		<span class="rating" data-score="<%= @ad.user.seller_score %>">
@@ -13,7 +13,7 @@
 		<%= render "contact_info", :user => @ad.user %>
 	<% else %>
 		<%= form_tag(show_contact_info_path, :remote => true, :authenticity_token => true) do %>
-			<button id="contact-info-toggle" class="button is-block is-primary">Show Contact Information</button>
+			<button id="contact-info-toggle" class="button is-block is-primary"><%= t "views.ad.seller.show_contact_information" %></button>
 		<% end %>
 	<% end %>
 </div>

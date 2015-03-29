@@ -20,7 +20,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  active_record:
+    models:
+      ad: "Ad"
+    attributes:
+      ad:
+        price: "Price"
+        description: "Description"
+        final_price: "Final price"
+      user:
+        name: "Name"
+        email: "Email"
+        phone_number: "Phone number"
 
   common:
     back: "Back"
@@ -33,6 +44,25 @@ en:
     archive: "Archive"
     destroy: "Destroy"
     you_need_to_login_first: "You need to login first to perform this action"
+    favorite: "favorite"
+    unfavorite: "unfavorite"
+    phone: "Phone"
+    email: "Email"
+    by: "By"
+
+    errors:
+      zero: "no errors"
+      one: "1 error"
+      other: "%{count} errors"
+
+    facts: "Facts"
+    price: "Price"
+    volumne: "Volume"
+    published: "Published"
+
+    min: "Min"
+    max: "Max"
+    display_all: "Display all"
 
   views:
     create_account:
@@ -53,12 +83,90 @@ en:
       save_changes: "Save changes"
 
     ad:
+      crop_type: "Crop type"
+      region: "Region"
+      village: "Village"
+      volume: "Volume"
+      price: "Price"
+      crop: "Crop"
+      lat: "Latitude"
+      lng: "Longitude"
+      description: "Description"
+
+
+      error_heading: "prohibited this ad from being saved"
+
       new:
         heading: "Create an ad"
+        select_a_crop_type: "Select a Crop Type"
+        name_of_crop_type: "Name of other crop type"
+
+        pick_your_location: "Pick your location"
+        big_map: "Big map"
+        drag_marker: "Drag the marker to the location of your crop"
+        confirm_location: "Confirm location"
+
+        contact_information: "Contact information"
+        review_contact_information: "Please review your contact information"
+
+        save_changes: "Save changes"
+        preview_ad: "Preview the ad"
+        cancel: "Cancel"
+
       edit:
         heading: "Edit ad"
       show:
         delete_confirmation: "Are you sure you want to delete this ad?"
+        location: "Location"
+      list:
+        could_not_find_heading: "Couldn't find any ads that match your criterias"
+        could_not_find_body: "Try to remove some of your filters."
+
+      archive:
+        heading: "Archive ad"
+        tell_us_final_price: "Please tell us what the final price for your crop was."
+        final_price: "Final price"
+        pick_buyer: "Please see if you can find the buyer in the list below"
+        please_select_the_buyer: "Please select the buyer"
+
+
+      pagenav:
+        list: "List"
+        map: "Map"
+        filter: "Filter"
+
+      rate:
+        heading: "Rate"
+        text: "How would you like to rate the buyer?"
+        aweful: "Aweful"
+        excellent: "Excellent"
+
+      statistics:
+        heading: "Statistics"
+        favorites: "Favorites"
+        times:
+          zero: "no times"
+          one: "1 time"
+          other: "%{count} times"
+
+      filter:
+        filter_ads: "Filter ads"
+        reset_filter: "Reset filter"
+
+      seller:
+        heading: "Seller"
+        show_contact_information: "Show contact information"
+
+    log:
+      heading: "Logs"
+      event: "Event"
+      user: "User"
+      time: "Time"
+
+
+
+
+
 
     pagination:
       first: "&laquo; First"
