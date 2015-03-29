@@ -17,8 +17,6 @@ class Ad < ActiveRecord::Base
 
 	has_many :ratings
 
-	has_many :ad_buyers
-
 	before_save	:set_published_at
 	before_save	:set_archived_at
 
