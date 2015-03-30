@@ -4,9 +4,9 @@
 			<%= image_tag("ninayo-logo.png", alt: "NINAYO") %>
 		</a>
 
-		<%= link_to("New ad", new_ad_path, :class => "button siteheader-new-ad is-primary") %>
+		<%= link_to("#{t "views.navigation.new_ad"}", new_ad_path, :class => "button siteheader-new-ad is-primary") %>
 		<a href="" class="siteheader-toggle">
-			<%= image_tag("hamburger.svg", alt: "Menu") %>
+			<%= image_tag("hamburger.svg", alt: "#{t "views.navigation.menu"}") %>
 		</a>
 
 		<%= render "layouts/usernav" %>

@@ -68,6 +68,17 @@ en:
     display_all: "Display all"
 
   views:
+    navigation:
+      new_ad: "New ad"
+      menu: "Menu"
+      home: "Home"
+      my_page: "My page"
+      edit_profile: "Edit profile"
+      log_out: "Log out"
+      sign_up: "Sign up"
+      login: "Login"
+
+
     create_account:
       heading: "Create an account"
       heading_2: "Already have an account?"
