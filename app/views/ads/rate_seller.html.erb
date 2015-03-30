@@ -1,33 +1,12 @@
 <%= form_for @ad, url: save_buy_info_path, validate: true do |f| %>
-	<h3>What did you pay?</h3>
+	<h3><%= t "views.ad.rate_seller.heading_1" %></h3>
 
-	<p>You can track what you bought for future reference by filling out this simple form</p>
+	<p><%= t "views.ad.rate_seller.text_1" %></p>
 
-	<% if @ad.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@ad.errors.count, "error") %> prohibited this ad from being saved:</h2>
+	<%= render "validation_errors", :model => @ad %>
+	<%= render "validation_errors", :model => @rating %>
 
-			<ul>
-			<% @ad.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<% if @rating &&  @rating.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= pluralize(@rating.errors.count, "error") %> prohibited this ad from being saved:</h2>
-
-			<ul>
-			<% @rating.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<h4>What did you eventually pay for the <%= @ad.crop_type_name%>?</h4>
+	<h4><%= t "views.ad.rate_seller.heading_2" %> <%= @ad.crop_type_name%>?</h4>
 
 	<fieldset>
 		<div class="field">
@@ -44,35 +23,12 @@
 	</fieldset>
 
 	<fieldset>
-		<h4>How would you rate <%= @ad.user.name%>?</h4>
-		<div class="rate <%= "field_with_errors" if @rating && @rating.errors.any? %>">
-			<span class="rate-label is-legend">Aweful</span>
-			<label for="score_1" class="rate-label">
-				<%= radio_button_tag(:score, "1") %>
-				1
-			</label>
-			<label for="score_2" class="rate-label">
-				<%= radio_button_tag(:score, "2") %>
-				2
-			</label>
-			<label for="score_3" class="rate-label">
-				<%= radio_button_tag(:score, "3") %>
-				3
-			</label>
-			<label for="score_4" class="rate-label">
-				<%= radio_button_tag(:score, "4") %>
-				4
-			</label>
-			<label for="score_5" class="rate-label">
-				<%= radio_button_tag(:score, "5") %>
-				5
-			</label>
-			<span class="rate-label is-legend">Excellent</span>
-		</div>
+		<h4><%= t "views.ad.rate_seller.heading_3" %> <%= @ad.user.name%>?</h4>
+		<%= render "rate" %>
 	</fieldset>
 
 	<div class="field-action">
-		<%= f.submit "Save", :class => "button is-primary is-block" %>
+		<%= f.submit "#{t "common.save"}", :class => "button is-primary is-block" %>
 	</div>
 
 <% end %>

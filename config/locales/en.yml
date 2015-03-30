@@ -33,6 +33,9 @@ en:
         email: "Email"
         phone_number: "Phone number"
 
+  validation:
+    message: "prohibited this %{name} from being saved"
+
   common:
     back: "Back"
     are_you_sure?: "Are you sure?"
@@ -128,6 +131,16 @@ en:
         final_price: "Final price"
         pick_buyer: "Please see if you can find the buyer in the list below"
         please_select_the_buyer: "Please select the buyer"
+
+      preview:
+        title: "Preview ad"
+
+      rate_seller:
+        haeading_1: "What did you pay?"
+        text_1: ""
+        heading_2: "What did you eventually pay for the"
+        heading_3: "How would you rate"
+
 
 
       pagenav:

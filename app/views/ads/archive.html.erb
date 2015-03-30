@@ -6,27 +6,8 @@
 		<p><%= t "views.ad.archive.tell_us_final_price" %></p>
 
 		<%= form_for @ad, validate: true do |f| %>
-			<% if @ad.errors.any? %>
-				<div id="error_explanation">
-					<h2><%= t("common.errors", :count => @ad.errors.count) %> <%= t "views.ad.error_heading" %>:</h2>
-					<ul>
-					<% @ad.errors.full_messages.each do |message| %>
-						<li><%= message %></li>
-					<% end %>
-					</ul>
-				</div>
-			<% end %>
-
-			<% if @rating &&  @rating.errors.any? %>
-				<div id="error_explanation">
-					<h2><%= t("common.errors", :count => @rating.errors.count) %> <%= t "views.ad.error_heading" %>:</h2>
-					<ul>
-					<% @rating.errors.full_messages.each do |message| %>
-						<li><%= message %></li>
-					<% end %>
-					</ul>
-				</div>
-			<% end %>
+			<%= render "validation_errors", :model => @ad %>
+			<%= render "validation_errors", :model => @rating %>
 
 			<div class="field">
 				<%= f.label :final_price, :value => "#{t "active_record.attributes.ad.final_price"}", :class => "field-label"%>
@@ -46,6 +27,8 @@
 			</div>
 
 			<div id="rate-buyer" class="<%= "is-hidden" unless @ad.buyer %>">
+				<h4><%= t "views.ad.rate.heading" %></h4>
+				<p><%= t "views.ad.rate.text" %></p>
 				<%= render "rate" %>
 			</div>
 
