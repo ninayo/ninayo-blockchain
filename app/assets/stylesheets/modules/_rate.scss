@@ -3,11 +3,11 @@
 	margin: 0 $negativeHalfPadding $margin;
 
 	&.field_with_errors {
-		background-color: #D9534F;
+		background-color: $alertColor;
 		margin: 0 0 $margin;
 
 		.rate-label {
-			color: white;
+			color: $black;
 		}
 	}
 }

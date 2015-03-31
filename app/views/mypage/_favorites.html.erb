@@ -1,8 +1,8 @@
 <% if @bought_ads.length > 0 %>
-	<h3>Did you buy this?</h3>
+	<h3><%= t "views.my_page.favorites.heading_1" %></h3>
 	<%= render "list", :ads => @bought_ads, :current_view  => current_view %>
 <% end %>
 
-<h3>Favorites</h3>
+<h3><%= t "views.my_page.favorites.heading_2" %></h3>
 
 <%= render "list", :ads => @ads, :current_view  => current_view %>

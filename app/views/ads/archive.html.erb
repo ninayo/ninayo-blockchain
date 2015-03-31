@@ -10,7 +10,7 @@
 			<%= render "validation_errors", :model => @rating %>
 
 			<div class="field">
-				<%= f.label :final_price, :value => "#{t "active_record.attributes.ad.final_price"}", :class => "field-label"%>
+				<%= f.label :final_price, :value => "#{t "activerecord.attributes.ad.final_price"}", :class => "field-label"%>
 				<div class="input-wrapper">
 					<div class="input-field">
 						<%= f.number_field :final_price, :class => "is-small", :value => @ad.final_price || @ad.price , autofocus: true %>

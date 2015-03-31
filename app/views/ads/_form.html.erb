@@ -103,15 +103,15 @@
 		<p><%= t "views.ad.new.review_contact_information" %>.</p>
 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<div class="field">
-				<%= user_fields.label :name, :value => "#{t "active_record.attributes.user.name"}", :class => "field-label" %>
+				<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<div class="field">
-				<%= user_fields.label :email, :value => "#{t "active_record.attributes.user.email"}", :class => "field-label" %>
+				<%= user_fields.label :email, :value => "#{t "activerecord.attributes.user.email"}", :class => "field-label" %>
 				<%= user_fields.telephone_field :email, :validate => true%>
 			</div>
 			<div class="field">
-				<%= user_fields.label :phone_number, :value => "#{t "active_record.attributes.user.phone_number"}", :class => "field-label" %>
+				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
 				<%= user_fields.telephone_field :phone_number, :validate => true, class: "is-small" %>
 			</div>
 		<% end %>

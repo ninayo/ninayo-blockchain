@@ -20,9 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  active_record:
+  activerecord:
     models:
-      ad: "Ad"
+      ad:
+        one: "Adx"
+        other: "Adsx"
+      user:
+        one: "User"
+        other: "Users"
     attributes:
       ad:
         price: "Price"
@@ -47,8 +52,8 @@ en:
     archive: "Archive"
     destroy: "Destroy"
     you_need_to_login_first: "You need to login first to perform this action"
-    favorite: "favorite"
-    unfavorite: "unfavorite"
+    favorite: "Favorite"
+    unfavorite: "Unfavorite"
     phone: "Phone"
     email: "Email"
     by: "By"
@@ -187,9 +192,35 @@ en:
       user: "User"
       time: "Time"
 
-
-
-
+    my_page:
+      current:
+        title: "My page"
+        heading: ""
+      favorites:
+        title: "Favorites"
+        heading_1: "Did you buy this?"
+        heading_2: "Favorites"
+      archive:
+        title: "Archive"
+        heading_1: "Sold ads"
+        heading_2: "Bought ads"
+      pagenav:
+        current: "Current"
+        favorites: "Favorites"
+        archive: "Archive"
+      list:
+        title: "Title"
+        seller: "Seller"
+        buyer: "Buyer"
+        price: "Price"
+        final_price: "Final price"
+        published: "Published"
+        archived: "Archived"
+        displayed: "Displayed"
+        displayed_contact_info: "Displayed contact info"
+        favorites: "Favorites"
+        i_bought_this: "I bought this"
+        no_ads: "No ads to show"
 
 
     pagination:

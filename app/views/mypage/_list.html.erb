@@ -2,26 +2,26 @@
 
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
-		<th>Title</th>
+		<th><%= t "views.my_page.list.title" %></th>
 		<% if current_view == "favorites" || current_view == "bought" -%>
-			<th>Seller</th>
+			<th><%= t "views.my_page.list.seller" %></th>
 		<% end -%>
-		<th class="text-right">Price</th>
+		<th class="text-right"><%= t "views.my_page.list.price" %></th>
 		<% if current_view == "archive" -%>
-			<th class="text-right">Final Price</th>
-			<th>Buyer</th>
+			<th class="text-right"><%= t "views.my_page.list.final_price" %></th>
+			<th><%= t "views.my_page.list.buyer" %></th>
 		<% end -%>
 		<% if current_view == "bought" -%>
-			<th class="text-right">Final Price</th>
+			<th class="text-right"><%= t "views.my_page.list.final_price" %></th>
 		<% end -%>
-		<th>Published</th>
+		<th><%= t "views.my_page.list.published" %></th>
 		<% if current_view == "archive" -%>
-			<th>Archived</th>
+			<th><%= t "views.my_page.list.archived" %></th>
 		<% end -%>
 		<% if current_view != "favorites" && current_view != "bought" -%>
-			<th class="text-right">Displayed</th>
-			<th class="text-right">Displayed contact info</th>
-			<th class="text-right">Favorites</th>
+			<th class="text-right"><%= t "views.my_page.list.displayed" %></th>
+			<th class="text-right"><%= t "views.my_page.list.displayed_contact_info" %></th>
+			<th class="text-right"><%= t "views.my_page.list.favorites" %></th>
 		<% end -%>
 		<% if current_view == "current"  || current_view == "favorites" -%>
 			<th class="is-buttonrow"></th>
@@ -95,9 +95,9 @@
 			<td class="text-right is-buttonrow">
 				<div class="button-group is-stacked">
 					<% if ad.buyer_id == current_user.id %>
-						<%= link_to("I bought this", rate_seller_path(ad), :class => "button is-block is-primary ads-table-button") -%>
+						<%= link_to("#{t "views.my_page.list.i_bought_this"}", rate_seller_path(ad), :class => "button is-block is-primary ads-table-button") -%>
 					<% else %>
-						<%= link_to("Unfavorite", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
+						<%= link_to("#{t "common.unfavorite"}", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
 					<% end %>
 				</div>
 			</td>
@@ -106,25 +106,9 @@
 	<% end -%>
 	</tbody>
 </table>
-<!-- <div class="ads is-current">
-	<% ads.each do |ad| -%>
-		<div data-url="<%= ad_path(ad) %>" class="ads-item has-actions">
 
-			<h2 class="ads-heading">
-				<%= link_to ad.title, ad_path(ad) %>
-			</h2>
-			<div class="ads-location">
-				<%= number_to_currency(ad.price) %>
-			</div>
-			<div class="ads-actions">
-				<%= link_to("Sold", archive_ad_path(ad), :class => "ads-actions-item button is-primary") %>
-			</div>
-		</div>
-	<% end -%>
-</div>
- -->
 <% else -%>
 	<% if current_view = "current" -%>
-		<p>No ads to show</p>
+		<p><%= t "views.my_page.list.no_ads" %></p>
 	<% end -%>
 <% end -%>
