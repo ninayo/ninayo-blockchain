@@ -6,8 +6,8 @@
 		<p><%= t "views.ad.archive.tell_us_final_price" %></p>
 
 		<%= form_for @ad, validate: true do |f| %>
-			<%= render "validation_errors", :model => @ad %>
-			<%= render "validation_errors", :model => @rating %>
+			<%= render "shared/validation_errors", :model => @ad %>
+			<%= render "shared/validation_errors", :model => @rating %>
 
 			<div class="field">
 				<%= f.label :final_price, :value => "#{t "activerecord.attributes.ad.final_price"}", :class => "field-label"%>

@@ -32,7 +32,7 @@
 
 				<div class="field">
 					<%= f.label :region, class: "field-label" %>
-					<%= f.text_field :region, :validate => true %>
+					<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
 				</div>
 
 				<div class="field">
@@ -50,7 +50,8 @@
 					<%= f.label :password, class: "field-label" %>
 					<%= f.password_field :password, autocomplete: "off" %>
 					<% if @validatable %>
-						<span class="field-hint">(<%= @minimum_password_length %> characters minimum)</span>
+					<p>adsjlfkjsd</p>
+						<span class="field-hint">(<%= t("views.edit_profile.minimum_password_length", :length =>  @minimum_password_length) %>)</span>
 					<% end %>
 				</div>
 

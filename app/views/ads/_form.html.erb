@@ -1,15 +1,5 @@
 <%= form_for @ad, validate: true do |f| %>
-	<% if @ad.errors.any? %>
-		<div id="error_explanation">
-			<h2><%= t("common.errors", :count => @ad.errors.count) %> <%= t "views.ad.error_heading" %>:</h2>
-
-			<ul>
-			<% @ad.errors.full_messages.each do |message| %>
-				<li><%= message %></li>
-			<% end %>
-			</ul>
-		</div>
-	<% end %>
+	<%= render "shared/validation_errors", :model => @ad %>
 
 	<fieldset>
 		<h3><%= t "views.ad.crop" %></h3>
@@ -53,7 +43,7 @@
 		<h3>Location</h3>
 		<div class="field">
 			<%= f.label "#{t "views.ad.region"}", :class => 'field-label' %>
-			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "Select a Region"} %>
+			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
 		</div>
 		<div class="field">
 			<%= f.label "#{t "views.ad.village"}", :class => 'field-label' %>

@@ -3,8 +3,8 @@
 
 	<p><%= t "views.ad.rate_seller.text_1" %></p>
 
-	<%= render "validation_errors", :model => @ad %>
-	<%= render "validation_errors", :model => @rating %>
+	<%= render "shared/validation_errors", :model => @ad %>
+	<%= render "shared/validation_errors", :model => @rating %>
 
 	<h4><%= t "views.ad.rate_seller.heading_2" %> <%= @ad.crop_type_name%>?</h4>
 

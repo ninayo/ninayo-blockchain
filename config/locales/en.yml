@@ -119,6 +119,7 @@ en:
       heading_2: "Already have an account?"
       sign_up: "Sign up"
       characters_minimum: "characters minimum"
+
     edit_profile:
       heading: "Edit Profile"
       waiting_for_confirmation: "Currently waiting for confirmation for:"
@@ -130,6 +131,8 @@ en:
       change_password: "Change password"
       confirm_your_changes: "Confirm your changes"
       save_changes: "Save changes"
+      select_region: "Select a Region"
+      minimum_password_length: "%{length} characters minimum"
 
     ad:
       crop_type: "Crop type"

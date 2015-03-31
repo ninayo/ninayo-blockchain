@@ -130,6 +130,8 @@ sv:
       change_password: "Change password"
       confirm_your_changes: "Confirm your changes"
       save_changes: "Save changes"
+      select_region: "Välj en region"
+      minimum_password_length: "Minst %{length} tecken långt"
 
     ad:
       crop_type: "Crop type"
