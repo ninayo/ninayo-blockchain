@@ -44,7 +44,6 @@
 		// 	}
 		// });
 		isInitialized = true;
-		mc = new MarkerClusterer(map);
 
 		postFilterForm();
 
@@ -62,10 +61,16 @@
 
 	var addMarkers = function(data) {
 
-		for(var i = 0, length = markers.length; i < length; i++) {
-			markers[i].setMap(null);
-			markers[i] = null;
-		}
+		// for(var i = 0, length = markers.length; i < length; i++) {
+		// 	markers[i].setMap(null);
+		// 	markers[i] = null;
+		// }
+
+		if (mc) {
+			mc.clearMarkers();
+		};
+
+
 
 		markers.splice(0, markers.length);
 
@@ -73,13 +78,19 @@
 			var marker = createMarker(data[i]);
 			markers.push(marker);
 		}
+
+		if (!mc) {
+			mc = new MarkerClusterer(map, markers);
+		} else {
+			mc.addMarkers(markers);
+		}
 	};
 
 	var createMarker = function(data) {
 		var latLng = new google.maps.LatLng(data.lat, data.lng);
 		var marker = new google.maps.Marker({
 			position: latLng,
-			map: map,
+			//map: map,
 			title: data.title,
 		});
 		marker.ad = data;
