@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 	before_action :set_locale
 	before_action :configure_permitted_parameters, if: :devise_controller?
 	after_action :store_location
+	before_action :set_locale
 
 	def set_locale
 		#I18n.locale = params[:locale] || I18n.default_locale
@@ -21,6 +22,10 @@ class ApplicationController < ActionController::Base
 	end
 
 	protected
+
+	def set_locale
+		I18n.locale = params[:locale] || I18n.default_locale
+	end
 
 	def store_location
 		# store last url as long as it isn't a /users path

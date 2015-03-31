@@ -1,6 +1,7 @@
 <% if model && model.errors.any? -%>
 	<div id="error_explanation">
-		<h2><%= t("common.errors", :count => model.errors.count) %>
+		<h2>
+			<%= t("common.errors", :count => model.errors.count) %>
 			<%= t("validation.message", name: model.model_name.human) %>
 		</h2>
 
