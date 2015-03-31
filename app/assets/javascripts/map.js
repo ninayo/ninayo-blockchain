@@ -5,6 +5,7 @@
 		mapDiv,
 		isInitialized = false,
 		resizeTimeout,
+		mc,
 		markers = [],
 		infoWindow;
 
@@ -43,6 +44,7 @@
 		// 	}
 		// });
 		isInitialized = true;
+		mc = new MarkerClusterer(map);
 
 		postFilterForm();
 

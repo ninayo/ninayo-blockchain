@@ -1,5 +1,10 @@
 (function($) {
 	$(document).on('page:load', function() {
-		$('.ads-table').table().data('table').refresh();
+		var adsTable = $('.ads-table');
+
+		if (adsTable.length) {
+			adsTable.table().data('table').refresh();
+		}
+
 	});
 })(jQuery);
