@@ -1,5 +1,265 @@
----
+
 sw:
+
+  activerecord:
+    models:
+      ad:
+        one: "Ad"
+        other: "Ads"
+      user:
+        one: "User"
+        other: "Users"
+    attributes:
+      ad:
+        description: "Description"
+        price: "Price"
+        volume: "Volume"
+        volume_unit: "Unit"
+        village: "Village"
+        crop_type: "Crop type"
+        status: "Status"
+        published_at: "Published"
+        lat: "Latitude"
+        lng: "Longitude"
+        region: "Region"
+        final_price: "Final price"
+        buyer: "Buyer"
+        other_crop_type: "Other crop type"
+        buyer_price: "Buyer price"
+
+      ad_log:
+        user: "User"
+        event: "Event"
+        event_type: "Event type"
+        description: "Description"
+
+      rating:
+        rater: "Rater"
+        user: "User"
+        role: "Role"
+        score: "Score"
+
+      user:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        phone_number: "Phone number"
+        role: "Role"
+        village: "Village"
+        region: "Region"
+
+  validation:
+    message: "prohibited this %{name} from being saved"
+
+  common:
+    back: "Back"
+    are_you_sure?: "Are you sure?"
+    update: "Update"
+    save: "Save"
+    cancel: "Cancel"
+    edit: "Edit"
+    delete: "Delete"
+    archive: "Archive"
+    destroy: "Destroy"
+    you_need_to_login_first: "You need to login first to perform this action"
+    favorite: "Favorite"
+    unfavorite: "Unfavorite"
+    phone: "Phone"
+    email: "Email"
+    by: "By"
+
+    errors:
+      zero: "no errors"
+      one: "1 error"
+      other: "%{count} errors"
+
+    facts: "Facts"
+    price: "Price"
+    volumne: "Volume"
+    published: "Published"
+
+    min: "Min"
+    max: "Max"
+    display_all: "Display all"
+
+  views:
+    navigation:
+      new_ad: "New ad"
+      menu: "Menu"
+      home: "Home"
+      my_page: "My page"
+      edit_profile: "Edit profile"
+      log_out: "Log out"
+      sign_up: "Sign up"
+      login: "Login"
+
+
+    create_account:
+      heading: "Create an account"
+      heading_2: "Already have an account?"
+      sign_up: "Sign up"
+      characters_minimum: "characters minimum"
+
+    edit_profile:
+      heading: "Edit Profile"
+      waiting_for_confirmation: "Currently waiting for confirmation for:"
+      leave_blank: "Leave blank if you don't want to change it"
+      need_password_for: "We need your current password to confirm your changes"
+      cancel_account: "Cancel my account"
+      unhappy?: "Unhappy?"
+      address: "Address"
+      change_password: "Change password"
+      confirm_your_changes: "Confirm your changes"
+      save_changes: "Save changes"
+      select_region: "Select a Region"
+      minimum_password_length: "%{length} characters minimum"
+
+    ad:
+      crop_type: "Crop type"
+      region: "Region"
+      village: "Village"
+      volume: "Volume"
+      price: "Price"
+      crop: "Crop"
+      lat: "Latitude"
+      lng: "Longitude"
+      description: "Description"
+
+
+      error_heading: "prohibited this ad from being saved"
+
+      new:
+        heading: "Create an ad"
+        select_a_crop_type: "Select a Crop Type"
+        name_of_crop_type: "Name of other crop type"
+
+        pick_your_location: "Pick your location"
+        big_map: "Big map"
+        drag_marker: "Drag the marker to the location of your crop"
+        confirm_location: "Confirm location"
+
+        contact_information: "Contact information"
+        review_contact_information: "Please review your contact information"
+
+        save_changes: "Save changes"
+        preview_ad: "Preview the ad"
+        cancel: "Cancel"
+
+      edit:
+        heading: "Edit ad"
+      show:
+        delete_confirmation: "Are you sure you want to delete this ad?"
+        location: "Location"
+      list:
+        could_not_find_heading: "Couldn't find any ads that match your criterias"
+        could_not_find_body: "Try to remove some of your filters."
+
+      archive:
+        heading: "Archive ad"
+        tell_us_final_price: "Please tell us what the final price for your crop was."
+        final_price: "Final price"
+        pick_buyer: "Please see if you can find the buyer in the list below"
+        please_select_the_buyer: "Please select the buyer"
+
+      preview:
+        title: "Preview ad"
+
+      rate_seller:
+        haeading_1: "What did you pay?"
+        text_1: ""
+        heading_2: "What did you eventually pay for the"
+        heading_3: "How would you rate"
+
+
+
+      pagenav:
+        list: "List"
+        map: "Map"
+        filter: "Filter"
+
+      rate:
+        heading: "Rate"
+        text: "How would you like to rate the buyer?"
+        aweful: "Aweful"
+        excellent: "Excellent"
+
+      statistics:
+        heading: "Statistics"
+        favorites: "Favorites"
+        times:
+          zero: "no times"
+          one: "1 time"
+          other: "%{count} times"
+
+      filter:
+        filter_ads: "Filter ads"
+        reset_filter: "Reset filter"
+
+      seller:
+        heading: "Seller"
+        show_contact_information: "Show contact information"
+
+    log:
+      heading: "Logs"
+      event: "Event"
+      user: "User"
+      time: "Time"
+
+    my_page:
+      current:
+        title: "My page"
+        heading: ""
+      favorites:
+        title: "Favorites"
+        heading_1: "Did you buy this?"
+        heading_2: "Favorites"
+      archive:
+        title: "Archive"
+        heading_1: "Sold ads"
+        heading_2: "Bought ads"
+      pagenav:
+        current: "Current"
+        favorites: "Favorites"
+        archive: "Archive"
+      list:
+        title: "Title"
+        seller: "Seller"
+        buyer: "Buyer"
+        price: "Price"
+        final_price: "Final price"
+        published: "Published"
+        archived: "Archived"
+        displayed: "Displayed"
+        displayed_contact_info: "Displayed contact info"
+        favorites: "Favorites"
+        i_bought_this: "I bought this"
+        no_ads: "No ads to show"
+
+
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+
+
+
+
+
+
+  # Jack, don't bother with the stuff below from here, it's already translated to Swahili
+
   date:
     abbr_day_names:
     - J2

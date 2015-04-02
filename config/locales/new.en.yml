@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    attributes:
+      ad:
+        ad_type: "Type"

@@ -243,6 +243,7 @@ private
 	end
 
 	def get_ads
+		@ad_type = params[:ad_type] || "sell"
 		@crop_type_id = params[:crop_type_id]
 		@volume_min = params[:volume_min]
 		@volume_max = params[:volume_max]
@@ -259,6 +260,13 @@ private
 			.filter(params.slice(:price_max))
 			.filter(params.slice(:region_id))
 			.order("published_at desc")
+
+
+		if @ad_type == "buy"
+			@ads = @ads.buy
+		else
+			@ads = @ads.sell
+		end
 	end
 
 	def ad_params

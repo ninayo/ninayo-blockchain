@@ -45,6 +45,7 @@ en:
         buyer: "Buyer"
         other_crop_type: "Other crop type"
         buyer_price: "Buyer price"
+        ad_type: "Type"
 
       ad_log:
         user: "User"

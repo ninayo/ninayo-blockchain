@@ -4,6 +4,14 @@
 		<h3 class="filter-heading"><%= t "views.ad.filter.filter_ads" %> <a href="<%=request.path%>" class="filter-reset"><%= t "views.ad.filter.reset_filter" %></a></h3>
 
 		<a href="" class="filter-close filter-toggle">&times;</a>
+
+		<div class="pagenav is-block has-2">
+			<div class="pagenav-buttongroup">
+				<button name="ad_type" value="sell" class="pagenav-item <%= "is-active" if @ad_type == 'sell'%>">For sale</button>
+				<button name="ad_type" value="buy" class="pagenav-item <%= "is-active" if @ad_type == 'buy'%>">Want to buy</button>
+			</div>
+		</div>
+
 		<div class="field filter-field">
 			<!-- <label for="crop_type_id">Crop type</label> -->
 			<h4 class="filter-field-heading"><%= t "views.ad.crop_type" %></h4>

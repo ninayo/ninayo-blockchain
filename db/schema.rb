@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329204124) do
+ActiveRecord::Schema.define(version: 20150331213115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20150329204124) do
     t.integer  "buyer_id"
     t.string   "other_crop_type"
     t.float    "buyer_price"
+    t.integer  "ad_type"
   end
 
   add_index "ads", ["crop_type_id"], name: "index_ads_on_crop_type_id", using: :btree

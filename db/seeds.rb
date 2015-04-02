@@ -95,6 +95,7 @@ puts 'CREATED 200 FAKE USERS '
 
 1.upto(1000) do |i|
 	ad = Ad.new
+	ad.ad_type = rand(0..1)
 	ad.description = Faker::Lorem.sentence(20, false, 4)
 	ad.price = Faker::Number.number(5)
 	ad.volume = Faker::Number.number(2)

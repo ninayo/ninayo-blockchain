@@ -33,6 +33,13 @@
 			}
 		}
 	}
+
+	&.has-2 {
+		.pagenav-item {
+			display: block;
+			width: 50%;
+		}
+	}
 }
 .map.show-filter {
 	.pagenav {

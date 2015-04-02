@@ -102,3 +102,11 @@
 		color: $white;
 	}
 }
+
+.filter {
+	.pagenav-item {
+		&.is-active {
+			background-color: $accentColor;
+		}
+	}
+}
