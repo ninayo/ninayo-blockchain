@@ -3,7 +3,6 @@
 	<% ads.each do |ad| %>
 		<a href="<%= ad_path(ad) %>" class="ads-item">
 			<div class="ads-meta">
-				<%= ad.ad_type %>
 				<span class="ads-published_at"><%= t "common.published" %> <%= l(ad.published_at, format: :short) if ad.published_at %>
 				</span>
 				<span class="rating" data-score="<%= ad.user.seller_score %>">
