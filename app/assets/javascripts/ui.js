@@ -1,6 +1,8 @@
 (function($) {
 	'use strict'
 
+	$('html').addClass('js');
+
 	$(document).on('click', '.not-implemented', function(e) {
 		e.preventDefault();
 		alert('Not implemented');
