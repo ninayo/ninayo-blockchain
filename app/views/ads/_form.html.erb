@@ -3,6 +3,12 @@
 
 	<fieldset>
 		<h3><%= t "views.ad.crop" %></h3>
+
+		<div class="field">
+			<%= f.label :ad_type, "#{t "views.ad.new.ad_type_label"}", :class => 'field-label' %>
+			<%= f.select :ad_type, options_for_select(["Sell", "Buy"], @ad.ad_type) %>
+		</div>
+
 		<div class="field">
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} %>
 		</div>

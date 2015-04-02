@@ -165,6 +165,7 @@ en:
         save_changes: "Save changes"
         preview_ad: "Preview the ad"
         cancel: "Cancel"
+        ad_type_label: "I want to"
 
       edit:
         heading: "Edit ad"
