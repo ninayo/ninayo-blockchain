@@ -15,7 +15,7 @@ class AdsController < ApplicationController
 		@regions = Region.all.order("name")
 
 		respond_to do |format|
-			format.html # index.html.erb
+			format.html { render layout: 'startpage' } # index.html.erb
 			format.js { render json: @ads }
 			format.json { render json: @ads }
 		end
