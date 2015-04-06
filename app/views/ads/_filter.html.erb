@@ -16,7 +16,8 @@
 			<!-- <label for="crop_type_id">Crop type</label> -->
 			<h4 class="filter-field-heading"><%= t "views.ad.crop_type" %></h4>
 
-			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), prompt: "#{t "common.display_all"}" %>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), prompt: "#{t "common.display_all"}" if I18n.locale == :en %>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name_sw", @crop_type_id), prompt: "#{t "common.display_all"}" if I18n.locale == :sw %>
 		</div>
 		<div class="field filter-field">
 			<!-- <label for="region">Region</label> -->
