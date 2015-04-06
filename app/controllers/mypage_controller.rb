@@ -3,7 +3,7 @@ class MypageController < ApplicationController
 
 	def index
 		#@ads = current_user.ads.where(:status => "published")
-		@ads = current_user.ads.published
+		@ads = current_user.ads.published.includes(:crop_type)
 		@view = "current"
 
 		respond_to do |format|
@@ -24,8 +24,8 @@ class MypageController < ApplicationController
 	end
 
 	def archive
-		@ads = current_user.ads.archived
-		@bought_ads = current_user.ads.bought
+		@ads = current_user.ads.archived.includes(:buyer, :crop_type)
+		@bought_ads = current_user.ads.bought.includes(:buyer, :crop_type)
 		@view = "archived"
 
 		respond_to do |format|
