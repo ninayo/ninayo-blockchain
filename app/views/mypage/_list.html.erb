@@ -41,9 +41,9 @@
 			</td>
 			<% if current_view == "favorites" || current_view == "bought" -%>
 				<td>
-					<span class="rating" data-score="<%= ad.user.seller_rating %>">
+					<span class="rating" data-score="<%= ad.user.seller_rating.round(0) %>">
 						<span class="rating-user">
-							<%= ad.user.name %>
+							<%= ad.user.id %> <%= ad.user.name %>
 						</span>
 						<span class="rating-score">
 							<span class="rating-score-inner"></span>
@@ -54,7 +54,20 @@
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
 			<% if current_view == "archive" -%>
 				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
-				<td><%= ad.buyer ? ad.buyer.name : "-" %></td>
+				<td>
+					<% if ad.buyer -%>
+					<span class="rating" data-score="<%= ad.user.buyer_rating.round(0) %>">
+						<span class="rating-user">
+							<%= ad.buyer.name %>
+						</span>
+						<span class="rating-score">
+							<span class="rating-score-inner"></span>
+						</span>
+					</span>
+					<% else -%>
+						-
+					<% end -%>
+				</td>
 			<% end -%>
 			<% if current_view == "bought" -%>
 				<td class="text-right"><%= number_to_currency(ad.ad_buyers.where(:user_id => current_user.id).first.price) %></td>
