@@ -12,12 +12,13 @@ class User < ActiveRecord::Base
 
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?
+	after_initialize :set_default_rating, :if => :new_record?
 
 	validates :name, :email, :phone_number, presence: true, on: :save_ad
 
 	accepts_nested_attributes_for :ratings, allow_destroy: true
 
-	scope :seller_rating, -> { ratings.seller }
+	#scope :seller_rating, -> { ratings.seller }
 
 
 	# Include default devise modules. Others available are:
@@ -25,23 +26,31 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 		:recoverable, :rememberable, :trackable, :validatable
 
+
+	# def seller_score
+	# 	if self.ratings.seller.exists?
+	# 		self.ratings.seller.average(:score).round
+	# 	else
+	# 		0
+	# 	end
+	# end
+
+	# def buyer_score
+	# 	if self.ratings.buyer.exists?
+	# 		self.ratings.buyer.average(:score).round
+	# 	else
+	# 		0
+	# 	end
+	# end
+
+protected
+
 	def set_default_role
 		self.role ||= :user
 	end
 
-	def seller_score
-		if self.ratings.seller.exists?
-			self.ratings.seller.average(:score).round
-		else
-			0
-		end
-	end
-
-	def buyer_score
-		if self.ratings.buyer.exists?
-			self.ratings.buyer.average(:score).round
-		else
-			0
-		end
+	def set_default_rating
+		self.seller_rating ||= 0
+		self.buyer_rating ||= 0
 	end
 end

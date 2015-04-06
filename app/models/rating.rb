@@ -12,6 +12,9 @@ class Rating < ActiveRecord::Base
 	private
 
 	def update_user_ratings
-		self.user.update(:seller_rating => self.user.seller_score, :buyer_rating => self.user.buyer_score)
+		#self.user.update(:seller_rating => self.user.seller_score, :buyer_rating => self.user.buyer_score)
+		seller_rating = self.user.ratings.seller.average(:score) || 0
+		buyer_rating =  self.user.ratings.buyer.average(:score) || 0
+		self.user.update(:seller_rating => seller_rating, :buyer_rating => buyer_rating)
 	end
 end
