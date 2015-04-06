@@ -3,7 +3,10 @@ class MypageController < ApplicationController
 
 	def index
 		#@ads = current_user.ads.where(:status => "published")
-		@ads = current_user.ads.published.includes(:crop_type)
+		@ads = current_user.ads
+							.published
+							.includes(:crop_type)
+							.page(params[:page])
 		@view = "current"
 
 		respond_to do |format|
@@ -13,8 +16,14 @@ class MypageController < ApplicationController
 
 	def favorites
 		# todo: filter out ads the user marked as bought
-		@ads = current_user.favorites.published.includes(:user).includes(:crop_type)
+		@ads = current_user.favorites
+							.published
+							.includes(:user)
+							.includes(:crop_type)
+							.page(params[:page])
+
 		@bought_ads = Ad.where(:buyer_id => current_user.id, :buyer_price => nil)
+						.page(params[:page])
 
 		@view = "favorites"
 
@@ -24,8 +33,14 @@ class MypageController < ApplicationController
 	end
 
 	def archive
-		@ads = current_user.ads.archived.includes(:buyer, :crop_type)
-		@bought_ads = current_user.ads.bought.includes(:buyer, :crop_type)
+		@ads = current_user.ads
+							.archived.includes(:buyer, :crop_type)
+							.page(params[:page])
+
+		@bought_ads = current_user.ads
+									.bought
+									.includes(:buyer, :crop_type)
+									.page(params[:page])
 		@view = "archived"
 
 		respond_to do |format|
