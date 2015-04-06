@@ -12,7 +12,6 @@ class Rating < ActiveRecord::Base
 	private
 
 	def update_user_ratings
-		puts self.user
 		self.user.update(:seller_rating => self.user.seller_score, :buyer_rating => self.user.buyer_score)
 	end
 end

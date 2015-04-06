@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(version: 20150406183731) do
     t.string   "other_crop_type"
     t.float    "buyer_price"
     t.integer  "ad_type"
-    t.float    "seller_rating"
   end
 
   add_index "ads", ["crop_type_id"], name: "index_ads_on_crop_type_id", using: :btree
