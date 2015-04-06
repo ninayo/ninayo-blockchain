@@ -5,7 +5,7 @@
 			<div class="ads-meta">
 				<span class="ads-published_at"><%= t "common.published" %> <%= l(ad.published_at, format: :short) if ad.published_at %>
 				</span>
-				<span class="rating" data-score="<%= ad.user.seller_score %>">
+				<span class="rating" data-score="<%= ad.user.seller_rating %>">
 					<span class="rating-user">
 						<%= t "common.by" %> <%= ad.user.name %>
 					</span>

@@ -126,7 +126,7 @@
 
 			if (ad.user) {
 				html = html + '<p>';
-				html = html + '<span class="rating" data-score="' + ad.seller_score +  '">';
+				html = html + '<span class="rating" data-score="' + ad.seller_rating +  '">';
 				html = html + '<span class="rating-user">' + ad.user.name + '</span>';
 				html = html + '<span class="rating-score">';
     			html = html + '<span class="rating-score-inner"></span>';

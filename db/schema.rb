@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331213115) do
+ActiveRecord::Schema.define(version: 20150406183731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150331213115) do
     t.string   "other_crop_type"
     t.float    "buyer_price"
     t.integer  "ad_type"
+    t.float    "seller_rating"
   end
 
   add_index "ads", ["crop_type_id"], name: "index_ads_on_crop_type_id", using: :btree
@@ -124,6 +125,8 @@ ActiveRecord::Schema.define(version: 20150331213115) do
     t.float    "lat"
     t.float    "lng"
     t.integer  "region_id"
+    t.float    "seller_rating"
+    t.float    "buyer_rating"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
