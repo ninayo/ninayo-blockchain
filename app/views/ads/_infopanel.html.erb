@@ -1,4 +1,7 @@
-<h3><%= t "views.ad.facts.heading" %></h3>
+<h3 class="infopanel-heading"><%= @ad.title %></h3>
+<div class="infopanel-description">
+	<%= simple_format(@ad.description) %>
+</div>
 <table class="datatable">
 	<tr>
 		<th><%= t "common.price" %>:</th>
@@ -17,3 +20,5 @@
 		<% end %>
 	</tr>
 </table>
+
+<p><%= link_to("Show ad", ad_path(@ad))%></p>
