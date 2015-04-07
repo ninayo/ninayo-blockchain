@@ -103,6 +103,7 @@ en:
     email: "Email"
     by: "By"
     of: "of"
+    loading_content: "Loading content"
 
     errors:
       zero: "no errors"

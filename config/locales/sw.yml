@@ -83,6 +83,7 @@ sw:
     email: "Email"
     by: "Na"
     of: "ya"
+    loading_content: "Loading content"
 
     errors:
       zero: "hakuna makosa"

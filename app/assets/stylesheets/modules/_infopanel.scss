@@ -1,0 +1,33 @@
+.infopanel {
+	position: absolute;
+	bottom: -1 * $panelHeight;
+	left: 0;
+	right: 0;
+	height: $panelHeight;
+	padding: $padding;
+	background-color: $lightGrey;
+	@include transition(bottom 300ms ease-in-out);
+	box-shadow: 0 0 30px rgba(black, .2);
+
+	@include mq($from: tablet) {
+		right: $filterWidth;
+	}
+
+	// &.is-active {
+	// 	display: block;
+	// }
+}
+
+.infopanel-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	padding: $halfPadding $halfPadding $doublePadding $doublePadding;
+	font-size: 22px;
+	line-height: 1;
+}
+
+.infopanel-content {
+	@include ellipsis();
+}

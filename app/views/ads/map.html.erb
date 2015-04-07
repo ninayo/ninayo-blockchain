@@ -2,4 +2,16 @@
 	<div id="admap"></div>
 	<%= render "pagenav", :is_floating => true, :current => "map" %>
 	<%= render "filter", :ads => @ads %>
+
+	<div class="infopanel">
+		<div class="infopanel-content">
+		</div>
+		<div class="loader">
+			<%= image_tag("loader.gif")%>
+			<div class="loader-label">
+				<%= t "common.loading_content" %>
+			</div>
+		</div>
+		<a href="" class="infopanel-close">&times;</a>
+	</div>
 </div>

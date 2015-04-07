@@ -1,0 +1,14 @@
+.loader {
+	text-align: center;
+	margin: $padding 0 0;
+	display: none;
+
+	&.is-active {
+		display: block;
+	}
+}
+
+.loader-label {
+	font-size: 12px;
+	text-transform: uppercase;
+}

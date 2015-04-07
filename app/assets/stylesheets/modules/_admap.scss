@@ -1,3 +1,5 @@
+$panelHeight: 180px;
+
 .map {
 	position: absolute;
 	overflow: hidden;
@@ -9,6 +11,14 @@
 
 	@include mq($from: tablet) {
 		padding-right: $filterWidth;
+	}
+
+	&.has-panel {
+		padding-bottom: $panelHeight;
+
+		.infopanel {
+			bottom: 0;
+		}
 	}
 }
 

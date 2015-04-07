@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-	before_action :set_ad, only: [:show, :contact_info, :edit, :preview, :archive, :update, :destroy, :rate_seller, :save_buy_info]
+	before_action :set_ad, only: [:show, :panel_info, :contact_info, :edit, :preview, :archive, :update, :destroy, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show]
 
@@ -49,6 +49,11 @@ class AdsController < ApplicationController
 			end
 			#respond_with(@ad)
 		end
+	end
+
+	def panel_info
+		sleep(3.0)
+		render "_panel_info", layout: false
 	end
 
 	def contact_info

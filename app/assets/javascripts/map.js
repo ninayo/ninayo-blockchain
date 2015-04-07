@@ -22,6 +22,14 @@
 	 	}
 	});
 
+	$(document).on('click', '.infopanel-close', function(e) {
+		e.preventDefault();
+		$(this).closest('.map').removeClass('has-panel');
+		setTimeout(function() {
+			google.maps.event.trigger(map, 'resize');
+		}, 300);
+	});
+
 
 
 	$(document).on('change', '.map #filter-form', postFilterForm);
@@ -96,11 +104,23 @@
 		marker.ad = data;
 
 		google.maps.event.addListener(marker, 'click', function(e) {
-			createOrUpdateInfoWindow(marker);
+			//createOrUpdateInfoWindow(marker);
+			getAdInfo(marker);
 		});
 
 		return marker;
 	};
+
+	var getAdInfo = function(marker) {
+		$('.infopanel-content').html('<h3 class="infopanel-heading">' + marker.ad.title + '</h3>');
+		$('.map').addClass('has-panel');
+		$('.infopanel .loader').addClass('is-active');
+
+		$.get(marker.ad.url, function(data) {
+			$('.infopanel-content').html(data);
+			$('.infopanel .loader').removeClass('is-active');
+		});
+	}
 
 	var createOrUpdateInfoWindow = function(marker) {
 		if (!infoWindow) {
