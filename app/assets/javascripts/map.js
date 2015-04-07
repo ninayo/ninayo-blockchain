@@ -43,7 +43,11 @@
 		map = new google.maps.Map(document.getElementById('admap'), {
 			zoom: 6,
 			center: new google.maps.LatLng(-7.458111, 35.991116),
-			mapTypeId: google.maps.MapTypeId.TERRAIN
+			mapTypeId: google.maps.MapTypeId.TERRAIN,
+			disableDefaultUI: true,
+			mapTypeControl: true,
+			scaleControl: true,
+			zoomControl: true
 		});
 
 		// google.maps.event.addDomListener(map, 'tilesloaded', function(){

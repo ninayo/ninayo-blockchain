@@ -5,7 +5,7 @@
 	right: 0;
 	height: $panelHeight;
 	padding: $padding;
-	background-color: $lightGrey;
+	background-color: #f6f6f6;
 	@include transition(bottom 300ms ease-in-out);
 	box-shadow: 0 0 30px rgba(black, .2);
 
@@ -24,10 +24,18 @@
 	right: 0;
 	display: block;
 	padding: $halfPadding $halfPadding $doublePadding $doublePadding;
-	font-size: 22px;
+	font-size: 28px;
 	line-height: 1;
 }
 
 .infopanel-content {
 	@include ellipsis();
+}
+.infopanel-heading {
+	margin: 0 0 5px;
+}
+
+.infopanel-rating {
+	display: block;
+	margin-bottom: $padding;
 }

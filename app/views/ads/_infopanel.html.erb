@@ -1,24 +1,17 @@
-<h3 class="infopanel-heading"><%= @ad.title %></h3>
+<h3 class="infopanel-heading"><%= link_to(@ad.title, ad_path(@ad)) %></h3>
+<p class="rating infopanel-rating" data-score="<%= @ad.user.seller_rating ? @ad.user.seller_rating.round(0) : 0 %>">
+	<span class="rating-user">
+		<%= t("views.ad.seller.heading").humanize %>: <%= t "common.by" %> <%= @ad.user.name %>
+	</span>
+	<span class="rating-score">
+		<span class="rating-score-inner"></span>
+	</span>
+</p>
 <div class="infopanel-description">
 	<%= simple_format(@ad.description) %>
 </div>
-<table class="datatable">
-	<tr>
-		<th><%= t "common.price" %>:</th>
-		<td><%= number_to_currency(@ad.price)%></td>
-	</tr>
-	<tr>
-		<th><%= t "common.volume" %>:</th>
-		<td><%= t("volume_units.#{@ad.volume_unit}", count: 3) %></td>
-	</tr>
-	<tr>
-		<th><%= t "common.published" %>:</th>
-		<% if @ad.published_at %>
-		<td><%= l(@ad.published_at, format: :short) %></td>
-		<% else %>
-			<td><%= l(Time.now, format: :short) %></td>
-		<% end %>
-	</tr>
-</table>
+<p>
+	<%= t "common.price" %>: <%= number_to_currency(@ad.price)%>
+</p>
 
-<p><%= link_to("Show ad", ad_path(@ad))%></p>
+<!-- <p><%#= link_to("Show ad", ad_path(@ad))%></p> -->
