@@ -2,7 +2,7 @@
 	<%= render "shared/validation_errors", :model => @ad %>
 
 	<fieldset>
-		<h3><%= t "views.ad.crop" %></h3>
+		<h3><%= t("views.ad.crop").humanize %></h3>
 
 		<div class="field">
 			<%= f.label :ad_type, "#{t "views.ad.new.ad_type_label"}", :class => 'field-label' %>
@@ -36,7 +36,7 @@
 					<%= f.number_field :volume, :class => "is-inline" %>
 				</div>
 				<div class="input-label">
-					<%= f.select :volume_unit, Ad.volume_units.keys.to_a.map { |w| [w.humanize.pluralize, w] }, {}, {:class => "is-inline"}  %>
+					<%= f.select :volume_unit, Ad.volume_units.keys.to_a.map { |w| [I18n.t("volume_unit.#{w}"), w]}, {}, {:class => "is-inline"} %>
 				</div>
 			</div>
 		</div>
@@ -47,7 +47,7 @@
 	</fieldset>
 
 	<fieldset>
-		<h3>Location</h3>
+		<h3><%= t("views.ad.show.location").humanize %></h3>
 		<div class="field">
 			<%= f.label "#{t "views.ad.region"}", :class => 'field-label' %>
 			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
@@ -96,7 +96,7 @@
 	</p>
 
 	<fieldset>
-		<h3><%= t "views.ad.new.contact_information" %></h3>
+		<h3><%= t("views.ad.new.contact_information").humanize %></h3>
 		<p><%= t "views.ad.new.review_contact_information" %>.</p>
 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<div class="field">

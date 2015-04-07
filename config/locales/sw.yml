@@ -52,6 +52,20 @@ sw:
   validation:
     message: "Marufuku %{name} hii kukoa"
 
+  volume_unit:
+    bucket: "buckets (sw)"
+    sack: "sacks (sw)"
+
+  volume_units:
+    bucket:
+      zero: "no buckets (sw)"
+      one: "1 bucket (sw)"
+      other: "%{count} buckets (sw)"
+    sack:
+      zero: "no sacks (sw)"
+      one: "1 sack (sw)"
+      other: "%{count} sacks (sw)"
+
   common:
     back: "Kurudi"
     are_you_sure?: "Je, una hakika?"

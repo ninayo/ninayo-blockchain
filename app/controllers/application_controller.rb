@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 	after_action :store_location
 	before_action :set_locale
 
-	def set_locale
-		#I18n.locale = params[:locale] || I18n.default_locale
-		I18n.locale = :en
-		#I18n.locale = current_user.language if current_user
-	end
+	# def set_locale
+	# 	#I18n.locale = params[:locale] || I18n.default_locale
+	# 	I18n.locale = :en
+	# 	#I18n.locale = current_user.language if current_user
+	# end
 
 	def not_found
 		raise ActionController::RoutingError.new('Not Found')
@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
 	def set_locale
 		I18n.locale = :sw
 		# I18n.locale = params[:locale] || I18n.default_locale
+		# I18n.locale = current_user.language if current_user
 	end
 
 	def store_location

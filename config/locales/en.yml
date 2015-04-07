@@ -72,6 +72,20 @@ en:
   validation:
     message: "prohibited this %{name} from being saved"
 
+  volume_unit:
+    bucket: "buckets"
+    sack: "sacks"
+
+  volume_units:
+    bucket:
+      zero: "no buckets"
+      one: "1 bucket"
+      other: "%{count} buckets"
+    sack:
+      zero: "no sacks"
+      one: "1 sack"
+      other: "%{count} sack"
+
   common:
     back: "Back"
     are_you_sure?: "Are you sure?"
