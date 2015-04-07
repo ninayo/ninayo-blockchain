@@ -4,262 +4,261 @@ sw:
   activerecord:
     models:
       ad:
-        one: "Ad"
-        other: "Ads"
+        one: "Tangazo"
+        other: "Matangazo"
       user:
-        one: "User"
-        other: "Users"
+        one: "Mtumiaji"
+        other: "Watumiaji"
     attributes:
       ad:
-        description: "Description"
-        price: "Price"
-        volume: "Volume"
-        volume_unit: "Unit"
-        village: "Village"
-        crop_type: "Crop type"
-        status: "Status"
-        published_at: "Published"
+        description: "Maelezo"
+        price: "Bei"
+        volume: "Ujazo"
+        volume_unit: "unit"
+        village: "Kijiji"
+        crop_type: "Aina ya mazao"
+        status: "Hali"
+        published_at: "Kuonyeshwa"
         lat: "Latitude"
         lng: "Longitude"
-        region: "Region"
-        final_price: "Final price"
-        buyer: "Buyer"
-        other_crop_type: "Other crop type"
-        buyer_price: "Buyer price"
+        region: "Jimbo"
+        final_price: "Bei ya mwisho"
+        buyer: "Mnunuzi"
+        other_crop_type: "Nyingine mazao ya Aina"
+        buyer_price: "bei ya Mnunuzi"
 
       ad_log:
-        user: "User"
-        event: "Event"
-        event_type: "Event type"
-        description: "Description"
+        user: "Mtumiaji"
+        event: "Tukio"
+        event_type: "Aina ya Tukio"
+        description: "Maelezo"
 
       rating:
-        rater: "Rater"
-        user: "User"
-        role: "Role"
-        score: "Score"
+        rater: "Mkaguzi"
+        user: "Mtumiaji"
+        role: "Jukumu"
+        score: "Alama"
 
       user:
-        name: "Name"
+        name: "Jina"
         email: "Email"
         password: "Password"
-        password_confirmation: "Password confirmation"
-        phone_number: "Phone number"
-        role: "Role"
-        village: "Village"
-        region: "Region"
+        password_confirmation: "Uthibitisho Password"
+        phone_number: "Namba ya simu"
+        role: "Jukumu"
+        village: "Kijiji"
+        region: "Jimbo"
 
   validation:
-    message: "prohibited this %{name} from being saved"
+    message: "Marufuku %{name} hii kukoa"
 
   common:
-    back: "Back"
-    are_you_sure?: "Are you sure?"
+    back: "Kurudi"
+    are_you_sure?: "Je, una hakika?"
     update: "Update"
-    save: "Save"
-    cancel: "Cancel"
-    edit: "Edit"
-    delete: "Delete"
-    archive: "Archive"
-    destroy: "Destroy"
-    you_need_to_login_first: "You need to login first to perform this action"
-    favorite: "Favorite"
-    unfavorite: "Unfavorite"
-    phone: "Phone"
+    save: "kukoa"
+    cancel: "kufuta"
+    edit: "hariri"
+    delete: "kufuta"
+    archive: "Kutunza"
+    destroy: "Kuharibu"
+    you_need_to_login_first: "Unahitaji kuingia kwanza kufanya hili tendo"
+    favorite: "Kupenda"
+    unfavorite: "Sipendi"
+    phone: "simu"
     email: "Email"
-    by: "By"
+    by: "Na"
+    of: "ya"
 
     errors:
-      zero: "no errors"
-      one: "1 error"
-      other: "%{count} errors"
+      zero: "hakuna makosa"
+      one: "kosa moja"
+      other: "%{count} makosa"
 
-    facts: "Facts"
-    price: "Price"
-    volumne: "Volume"
-    published: "Published"
+    facts: "Ukweli"
+    price: "Bei"
+    volumne: "Ujazo"
+    published: "Kuonyeshwa"
 
-    min: "Min"
-    max: "Max"
-    display_all: "Display all"
+    min: "Mdogo"
+    max: "Kubwa"
+    display_all: "Kuonyesha wote"
 
   views:
     navigation:
-      new_ad: "New ad"
-      menu: "Menu"
-      home: "Home"
-      my_page: "My page"
-      edit_profile: "Edit profile"
-      log_out: "Log out"
-      sign_up: "Sign up"
-      login: "Login"
+      new_ad: "Tangazo mpya"
+      menu: "orodha"
+      home: "Nyumba"
+      my_page: "Ukurasa wangu"
+      edit_profile: "hariri profile"
+      log_out: "logi nje"
+      sign_up: "tengeza akaunti"
+      login: "Ingia"
 
 
     create_account:
-      heading: "Create an account"
-      heading_2: "Already have an account?"
-      sign_up: "Sign up"
-      characters_minimum: "characters minimum"
+      heading: "kuunda akaunti"
+      heading_2: "tayari una akaunti?"
+      sign_up: "tengeza akaunti"
+      characters_minimum: "kiasi cha herufi kwa nenosiri"
 
     edit_profile:
-      heading: "Edit Profile"
-      waiting_for_confirmation: "Currently waiting for confirmation for:"
-      leave_blank: "Leave blank if you don't want to change it"
-      need_password_for: "We need your current password to confirm your changes"
-      cancel_account: "Cancel my account"
-      unhappy?: "Unhappy?"
-      address: "Address"
-      change_password: "Change password"
-      confirm_your_changes: "Confirm your changes"
-      save_changes: "Save changes"
-      select_region: "Select a Region"
-      minimum_password_length: "%{length} characters minimum"
+      heading: "hariri profile"
+      waiting_for_confirmation: "hivi sasa kusubiri kwa ajili ya uthibitisho kwa:"
+      leave_blank: "Acha tupu kama huna wanataka mbadailiko yako"
+      need_password_for: "Tunahitaji nywila yako ya sasa ili kuthibitisha mabdalika yako"
+      cancel_account: "Kufuta akaunti yangu"
+      unhappy?: "Furaha?"
+      address: "Anwani"
+      change_password: "Badalisha password"
+      confirm_your_changes: "Ckuthibitisha mabadiliko yako"
+      save_changes: "Kukoa mabadiliko"
+      select_region: "Chagua Jimbo"
+      minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
 
     ad:
-      crop_type: "Crop type"
-      region: "Region"
-      village: "Village"
-      volume: "Volume"
-      price: "Price"
-      crop: "Crop"
+      crop_type: "aina ya mazao"
+      region: "Jimbo"
+      village: "Kijiji"
+      volume: "Ujazo"
+      price: "bei"
+      crop: "mazao"
       lat: "Latitude"
       lng: "Longitude"
-      description: "Description"
+      description: "Maelezo"
 
 
-      error_heading: "prohibited this ad from being saved"
+      error_heading: "marufuku tangazo hili kukoa"
 
       new:
-        heading: "Create an ad"
-        select_a_crop_type: "Select a Crop Type"
-        name_of_crop_type: "Name of other crop type"
+        heading: "Kujenga tangazo"
+        select_a_crop_type: "chagua jimbo"
+        name_of_crop_type: "jina la aina nyingine ya mazao"
 
-        pick_your_location: "Pick your location"
-        big_map: "Big map"
-        drag_marker: "Drag the marker to the location of your crop"
-        confirm_location: "Confirm location"
+        pick_your_location: "Chagua eneo lako"
+        big_map: "Ramani lako"
+        drag_marker: "hoja marker kwa eneo la mazao yako"
+        confirm_location: "kuthibitisha eneo"
 
-        contact_information: "Contact information"
-        review_contact_information: "Please review your contact information"
+        contact_information: "taarifa ya mawasiliano"
+        review_contact_information: "tafadhali angalia taarifa wasiliana yako"
 
-        save_changes: "Save changes"
-        preview_ad: "Preview the ad"
-        cancel: "Cancel"
+        save_changes: "kuokoa mabadiliko"
+        preview_ad: "angalia tangazo yako"
+        cancel: "kufuta"
 
       edit:
-        heading: "Edit ad"
+        heading: "hariri tangazo"
       show:
-        delete_confirmation: "Are you sure you want to delete this ad?"
-        location: "Location"
+        delete_confirmation: "Je, una uhakika unataka kufuta tangazo hili?"
+        location: "eneo"
       list:
-        could_not_find_heading: "Couldn't find any ads that match your criterias"
-        could_not_find_body: "Try to remove some of your filters."
+        could_not_find_heading: "hakuwezi kupata matangazo kama hii"
+        could_not_find_body: "Jaribu kuondoa baadhi ya filters yako"
 
       archive:
-        heading: "Archive ad"
-        tell_us_final_price: "Please tell us what the final price for your crop was."
-        final_price: "Final price"
-        pick_buyer: "Please see if you can find the buyer in the list below"
-        please_select_the_buyer: "Please select the buyer"
+        heading: "Kutunza tangazo"
+        tell_us_final_price: "tafadhali tueleze bei gani umepata kwa mazao."
+        final_price: "Bei ya mwisho"
+        pick_buyer: "Tafadhali jaribu kutafuta mnunuzi katika orodha hii"
+        please_select_the_buyer: "Chague mnunuzi"
 
       preview:
-        title: "Preview ad"
+        title: "Angalia tangazo"
 
       rate_seller:
-        haeading_1: "What did you pay?"
+        haeading_1: "Umelipa bei gani?"
         text_1: ""
-        heading_2: "What did you eventually pay for the"
-        heading_3: "How would you rate"
+        heading_2: "Je, wewe hatimaye kulipa kwa ajilia ya"
+        heading_3: "Jinsi gani unaweza mapitio"
 
 
 
       pagenav:
-        list: "List"
-        map: "Map"
-        filter: "Filter"
+        list: "Oradha"
+        map: "Ramani"
+        filter: "filter"
 
       rate:
-        heading: "Rate"
-        text: "How would you like to rate the buyer?"
-        aweful: "Aweful"
-        excellent: "Excellent"
+        heading: "kulinganisha"
+        text: "jinsi gani ungependa kiwango mnunuzi hii??"
+        aweful: "Mbaya"
+        excellent: "Nzuri"
+
+      facts:
+        heading: "Mambo"
 
       statistics:
-        heading: "Statistics"
+        heading: "takwimu"
         favorites: "Favorites"
         times:
-          zero: "no times"
-          one: "1 time"
-          other: "%{count} times"
+          zero: "hakuna mara"
+          one: "mara moja"
+          other: "%{count} mara"
 
       filter:
-        filter_ads: "Filter ads"
-        reset_filter: "Reset filter"
+        filter_ads: "kuandaa matangazo"
+        reset_filter: "kuandaa tena"
 
       seller:
-        heading: "Seller"
-        show_contact_information: "Show contact information"
+        heading: "muuzaji"
+        show_contact_information: "Onyesha taarifa ya mwasiliano"
 
     log:
       heading: "Logs"
-      event: "Event"
-      user: "User"
-      time: "Time"
+      event: "Tukio"
+      user: "Mtumiaji"
+      time: "Muda"
 
     my_page:
       current:
-        title: "My page"
+        title: "ukurasa wangu"
         heading: ""
       favorites:
         title: "Favorites"
-        heading_1: "Did you buy this?"
+        heading_1: "je kununua?"
         heading_2: "Favorites"
       archive:
-        title: "Archive"
-        heading_1: "Sold ads"
-        heading_2: "Bought ads"
+        title: "Kutunza"
+        heading_1: "kuuzwa matangazo"
+        heading_2: "Kununuliwa matangazo"
       pagenav:
-        current: "Current"
+        current: "Sasa"
         favorites: "Favorites"
-        archive: "Archive"
+        archive: "Kutunza"
       list:
-        title: "Title"
-        seller: "Seller"
-        buyer: "Buyer"
-        price: "Price"
-        final_price: "Final price"
-        published: "Published"
-        archived: "Archived"
-        displayed: "Displayed"
-        displayed_contact_info: "Displayed contact info"
+        title: "Cheo"
+        seller: "muuzaji"
+        buyer: "Mnunuzi"
+        price: "Bei"
+        final_price: "Bei ya mwisho"
+        published: "Kuonyeshwa"
+        archived: "kutunzwa"
+        displayed: "Kuonyeshwa"
+        displayed_contact_info: "Kuonyeshwa taarifa ya mwasiliano"
         favorites: "Favorites"
-        i_bought_this: "I bought this"
-        no_ads: "No ads to show"
+        i_bought_this: "nimenunua hii"
+        no_ads: "hakuna matangazo ya Kuonyesha"
 
 
     pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Prev"
-      next: "Next &rsaquo;"
+      first: "&laquo; kwanza"
+      last: "mwisho &raquo;"
+      previous: "&lsaquo; uliopita"
+      next: "ijayo &rsaquo;"
       truncate: "&hellip;"
   helpers:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "No %{entry_name} found"
-          one: "Displaying <b>1</b> %{entry_name}"
-          other: "Displaying <b>all %{count}</b> %{entry_name}"
+          zero: "hakuna %{entry_name} kupatikana"
+          one: "Kuonyesha <b>1</b> %{entry_name}"
+          other: "Kuonyesha <b>all %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
-
-
-
-
+        display_entries: "Kuonyesha %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> jumla"
 
 
   # Jack, don't bother with the stuff below from here, it's already translated to Swahili
-
   date:
     abbr_day_names:
     - J2

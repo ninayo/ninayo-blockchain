@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def set_locale
-		#I18n.locale = :sw
-		I18n.locale = params[:locale] || I18n.default_locale
+		I18n.locale = :sw
+		# I18n.locale = params[:locale] || I18n.default_locale
 	end
 
 	def store_location

@@ -56,7 +56,7 @@ class Ad < ActiveRecord::Base
 		end
 
 		if self.volume && self.crop_type
-			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} of #{crop_type}"
+			"#{self.volume} #{self.volume_unit.pluralize(self.volume)} #{I18n.t 'common.of'} #{crop_type}"
 		end
 	end
 

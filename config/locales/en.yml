@@ -88,6 +88,7 @@ en:
     phone: "Phone"
     email: "Email"
     by: "By"
+    of: "of"
 
     errors:
       zero: "no errors"
@@ -204,6 +205,9 @@ en:
         text: "How would you like to rate the buyer?"
         aweful: "Aweful"
         excellent: "Excellent"
+
+      facts:
+        heading: "Facts"
 
       statistics:
         heading: "Statistics"
