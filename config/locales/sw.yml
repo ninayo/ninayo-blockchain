@@ -53,18 +53,18 @@ sw:
     message: "Marufuku %{name} hii kukoa"
 
   volume_unit:
-    bucket: "buckets (sw)"
-    sack: "sacks (sw)"
+    bucket: "buckets"
+    sack: "sacks"
 
   volume_units:
     bucket:
-      zero: "no buckets (sw)"
-      one: "1 bucket (sw)"
-      other: "%{count} buckets (sw)"
+      zero: "no buckets"
+      one: "1 bucket"
+      other: "%{count} buckets"
     sack:
-      zero: "no sacks (sw)"
-      one: "1 sack (sw)"
-      other: "%{count} sacks (sw)"
+      zero: "no sacks"
+      one: "1 sack"
+      other: "%{count} sacks"
 
   common:
     back: "Kurudi"
