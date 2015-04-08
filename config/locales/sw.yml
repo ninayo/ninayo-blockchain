@@ -26,6 +26,7 @@ sw:
         buyer: "Mnunuzi"
         other_crop_type: "Nyingine mazao ya Aina"
         buyer_price: "bei ya Mnunuzi"
+        ad_type: "Type"
 
       ad_log:
         user: "Mtumiaji"
@@ -141,6 +142,8 @@ sw:
       lat: "Latitude"
       lng: "Longitude"
       description: "Maelezo"
+      for_sale: "For sale"
+      buying: "Buying"
 
 
       error_heading: "marufuku tangazo hili kukoa"

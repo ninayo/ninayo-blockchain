@@ -1,8 +1,8 @@
 <div class="ad">
 	<div class="ad-main">
 		<h3 class="supheading">
-			<%= "For sale" if @ad.sell? %>
-			<%= "Buying" if @ad.buy? %>
+			<%= t("views.ad.for_sale") if @ad.sell? %>
+			<%= t("views.ad.buying") if @ad.buy? %>
 		</h3>
 		<h1><%= @ad.title %></h1>
 		<div class="description">
