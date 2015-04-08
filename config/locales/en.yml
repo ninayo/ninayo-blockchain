@@ -84,7 +84,7 @@ en:
     sack:
       zero: "no sacks"
       one: "1 sack"
-      other: "%{count} sack"
+      other: "%{count} sacks"
 
   common:
     back: "Back"
@@ -441,12 +441,12 @@ en:
     currency:
       format:
         delimiter: ","
-        format: "%u%n"
+        format: "%n%u"
         precision: 2
         separator: "."
         significant: false
         strip_insignificant_zeros: false
-        unit: "$"
+        unit: "/="
     format:
       delimiter: ","
       precision: 3

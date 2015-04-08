@@ -164,6 +164,7 @@ sw:
         save_changes: "kuokoa mabadiliko"
         preview_ad: "angalia tangazo yako"
         cancel: "kufuta"
+        ad_type_label: "I want to"
 
       edit:
         heading: "hariri tangazo"
