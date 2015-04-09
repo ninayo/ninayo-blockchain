@@ -26,7 +26,6 @@ class Ad < ActiveRecord::Base
 	validates :region_id, presence: true
 
 	validates :crop_type, :price, :volume, :volume_unit, :village, :user, presence: true
-	validates :crop_type_id, numericality: { greater_than: 0 }
 	validates :price, :volume, numericality: true
 	validates :final_price, presence: true, if: "archived?"
 	validates :other_crop_type, presence: true, if: "crop_type.id == 10"

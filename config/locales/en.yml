@@ -163,6 +163,8 @@ en:
       description: "Description"
       for_sale: "For sale"
       buying: "Buying"
+      sell: "Sell"
+      buy: "Buy"
 
       error_heading: "prohibited this ad from being saved"
 

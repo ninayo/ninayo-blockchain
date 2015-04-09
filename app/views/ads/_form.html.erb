@@ -6,7 +6,7 @@
 
 		<div class="field">
 			<%= f.label :ad_type, "#{t "views.ad.new.ad_type_label"}", :class => 'field-label' %>
-			<%= f.select :ad_type, options_for_select(["Sell", "Buy"], @ad.ad_type) %>
+			<%= f.select :ad_type, options_for_select([["#{t "views.ad.sell"}", "sell"], ["#{t "views.ad.buy"}", "buy"]], @ad.ad_type) %>
 		</div>
 
 		<div class="field">

@@ -144,6 +144,8 @@ sw:
       description: "Maelezo"
       for_sale: "For sale"
       buying: "Buying"
+      sell: "Sell"
+      buy: "Buy"
 
 
       error_heading: "marufuku tangazo hili kukoa"
