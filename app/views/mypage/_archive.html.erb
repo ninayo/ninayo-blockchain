@@ -1,5 +1,5 @@
 <h3><%= t "views.my_page.archive.heading_1" %></h3>
-<%= render "list", :ads => @ads, :current_view  => current_view %>
+<%= render "list", :ads => @ads, :current_view  => "sold_ads" %>
 
 <h3><%= t "views.my_page.archive.heading_2" %></h3>
-<%= render "list", :ads => @bought_ads, :current_view  => current_view %>
+<%= render "list", :ads => @bought_ads, :current_view  => "bought_ads" %>

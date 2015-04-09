@@ -34,13 +34,14 @@ class MypageController < ApplicationController
 
 	def archive
 		@ads = current_user.ads
-							.archived.includes(:buyer, :crop_type)
+							.archived.includes(:user, :buyer, :crop_type)
 							.page(params[:page])
 
-		@bought_ads = current_user.ads
-									.bought
-									.includes(:buyer, :crop_type)
-									.page(params[:page])
+		@bought_ads = Ad.where(:buyer => current_user)
+						.where.not(:archived_at => nil)
+						.includes(:user)
+						.page(params[:page])
+
 		@view = "archived"
 
 		respond_to do |format|

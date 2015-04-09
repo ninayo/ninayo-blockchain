@@ -3,22 +3,22 @@
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
 		<th><%= t "views.my_page.list.title" %></th>
-		<% if current_view == "favorites" || current_view == "bought" -%>
+		<% if current_view == "favorites" || current_view == "bought_ads" -%>
 			<th><%= t "views.my_page.list.seller" %></th>
 		<% end -%>
 		<th class="text-right"><%= t "views.my_page.list.price" %></th>
-		<% if current_view == "archive" -%>
+		<% if current_view == "sold_ads" -%>
 			<th class="text-right"><%= t "views.my_page.list.final_price" %></th>
 			<th><%= t "views.my_page.list.buyer" %></th>
 		<% end -%>
-		<% if current_view == "bought" -%>
+		<% if current_view == "bought_ads" -%>
 			<th class="text-right"><%= t "views.my_page.list.final_price" %></th>
 		<% end -%>
 		<th><%= t "views.my_page.list.published" %></th>
-		<% if current_view == "archive" -%>
+		<% if current_view == "sold_ads" -%>
 			<th><%= t "views.my_page.list.archived" %></th>
 		<% end -%>
-		<% if current_view != "favorites" && current_view != "bought" -%>
+		<% if current_view != "favorites" && current_view != "bought_ads" -%>
 			<th class="text-right"><%= t "views.my_page.list.displayed" %></th>
 			<th class="text-right"><%= t "views.my_page.list.displayed_contact_info" %></th>
 			<th class="text-right"><%= t "views.my_page.list.favorites" %></th>
@@ -39,11 +39,11 @@
 					<% end %>
 				</h4>
 			</td>
-			<% if current_view == "favorites" || current_view == "bought" -%>
+			<% if current_view == "favorites" || current_view == "bought_ads" -%>
 				<td>
 					<span class="rating" data-score="<%= ad.user.seller_rating.round(0) %>">
 						<span class="rating-user">
-							<%= ad.user.id %> <%= ad.user.name %>
+							<%= ad.user.name %>
 						</span>
 						<span class="rating-score">
 							<span class="rating-score-inner"></span>
@@ -52,7 +52,7 @@
 				</td>
 			<% end -%>
 			<td class="text-right"><%= number_to_currency(ad.price) %></td>
-			<% if current_view == "archive" -%>
+			<% if current_view == "sold_ads" -%>
 				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
 				<td>
 					<% if ad.buyer -%>
@@ -69,14 +69,14 @@
 					<% end -%>
 				</td>
 			<% end -%>
-			<% if current_view == "bought" -%>
-				<td class="text-right"><%= number_to_currency(ad.ad_buyers.where(:user_id => current_user.id).first.price) %></td>
+			<% if current_view == "bought_ads" -%>
+				<td class="text-right"><%= number_to_currency(ad.buyer_price)  %></td>
 			<% end -%>
 			<td><%= l(ad.published_at, format: :short) %></td>
-			<% if current_view == "archive" -%>
+			<% if current_view == "sold_ads" -%>
 				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
-			<% if current_view != "favorites" && current_view != "bought" -%>
+			<% if current_view != "favorites" && current_view != "bought_ads" -%>
 				<td class="text-right">
 					<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
 					<% if displayed.length > 0 %>
