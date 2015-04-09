@@ -18,11 +18,12 @@ class MypageController < ApplicationController
 		# todo: filter out ads the user marked as bought
 		@ads = current_user.favorites
 							.published
+							.where('buyer_id IS null OR buyer_id != ?', current_user.id)
 							.includes(:user)
 							.includes(:crop_type)
 							.page(params[:page])
 
-		@bought_ads = Ad.where(:buyer_id => current_user.id, :buyer_price => nil)
+		@bought_ads = Ad.where(:buyer => current_user, :buyer_price => nil)
 						.page(params[:page])
 
 		@view = "favorites"

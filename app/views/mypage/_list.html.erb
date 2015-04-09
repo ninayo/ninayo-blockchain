@@ -31,13 +31,13 @@
 	<% ads.each do |ad| -%>
 		<tr>
 			<td>
-				<h4 class="ads-table-heading">
+				<strong>
 					<% if ad.published? %>
 						<%= link_to ad.title, ad_path(ad) %>
 					<% else %>
 						<%= ad.title %>
 					<% end %>
-				</h4>
+				</strong>
 			</td>
 			<% if current_view == "favorites" || current_view == "bought_ads" -%>
 				<td>
