@@ -139,6 +139,8 @@ class AdsController < ApplicationController
 						@buyers = buyers(@ad)
 						render "archive"
 					end
+				else
+					redirect_to mypage_archive_path, notice: "Your ad have been archived!"
 				end
 			else
 				redirect_to :action => "preview", :id => @ad.id
