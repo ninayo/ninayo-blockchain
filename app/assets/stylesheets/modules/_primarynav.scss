@@ -1,0 +1,45 @@
+.primarynav {
+	height: $siteheaderHeight;
+	display: none;
+
+	@include mq($from: tablet) {
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.primarynav-item {
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	height: $siteheaderHeight;
+	line-height: $siteheaderHeight;
+	padding: 0 $padding;
+	text-transform: uppercase;
+	color: $black;
+	font-size: $buttonFontSize;
+
+	&:hover,
+	&:focus {
+		color: $black;
+		background-color: #aaa;
+	}
+
+	&:active {
+		color: $white;
+		background-color: $darkGrey;
+	}
+}
+
+.primarynav-button {
+	display: block-inline;
+	vertical-align: middle;
+	margin: (($siteheaderHeight - $controlHeight) / 2) 40px 0 $padding !important;
+
+	@include mq($from: mobile) {
+		margin-right: 70px !important;
+	}
+	@include mq($from: tablet) {
+		margin-top: 0 !important;
+	}
+}

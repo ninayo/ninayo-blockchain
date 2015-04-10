@@ -25,6 +25,7 @@
 .usernav-inner {
 	background-color: $usernavBackgroundColor;
 	@include box-shadow(0 0 20px rgba(black, .4));
+	text-align: left;
 }
 
 .usernav-item {
@@ -55,10 +56,10 @@
 }
 
 .usernav-separator {
-
+	display: block;
 	height: 1px;
-	border-top: 1px solid $white;
-	margin: 10px 0;
+	border-top: 1px solid $black;
+	
 }
 
 .usernav-caret {

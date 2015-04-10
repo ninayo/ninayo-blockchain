@@ -1,0 +1,6 @@
+<div class="primarynav">
+	<%= link_to "#{t "views.navigation.home"}", root_path, :class => "primarynav-item" %>
+	<% if user_signed_in? %>
+		<%= link_to "#{t "views.navigation.my_page"}", mypage_path, :class => "primarynav-item" %>
+	<% end %>
+</div>

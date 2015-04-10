@@ -18,3 +18,9 @@
 	visibility: visible;
 	display: block;
 }
+
+.mobile-only {
+	@include mq($from: tablet) {
+		display: none !important;
+	}
+}

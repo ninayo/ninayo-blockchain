@@ -8,6 +8,7 @@
 	margin: 0 auto;
 	padding: 0 $halfPadding;
 	height: $siteheaderHeight;
+	text-align: right;
 
 	@include mq($from: tablet) {
 		padding: 0 $padding;
@@ -19,8 +20,9 @@
 }
 
 .siteheader-logo {
-	display: inline-block;
-	margin: 0;
+	position: absolute;
+	left: $padding;
+	margin: 0 100px 0 0;
 	padding: $padding 0;
 	width: auto;
 	line-height: $siteheaderHeight;
@@ -48,15 +50,5 @@
 
 	@include mq($from: wide) {
 		padding: 12px $doublePadding 12px ($padding - 2px);
-	}
-}
-
-.siteheader-new-ad {
-	position: absolute;
-	top: ($siteheaderHeight - $controlHeight) / 2;
-	right: 70px;
-
-	@include mq($from: tablet) {
-		right: 90px;
 	}
 }
