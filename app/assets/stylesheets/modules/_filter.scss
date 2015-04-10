@@ -10,6 +10,10 @@
 	padding: $padding;
 	background-color: $mediumGrey;
 	color: $white;
+
+	overflow-y: auto;
+	 -webkit-overflow-scrolling: touch;
+
 	@include transition(right 300ms ease-in-out);
 	@include box-shadow(0 0 20px rgba(black, .7));
 
@@ -29,6 +33,7 @@
 			padding-bottom: $padding;
 		}
 	}
+
 }
 
 .wrapper.show-filter .ads-wrapper .filter {

@@ -36,7 +36,7 @@
 	vertical-align: middle;
 	margin: (($siteheaderHeight - $controlHeight) / 2) 40px 0 $padding !important;
 
-	@include mq($from: mobile) {
+	@include mq($from: tablet) {
 		margin-right: 70px !important;
 	}
 	@include mq($from: tablet) {
