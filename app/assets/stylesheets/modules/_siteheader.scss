@@ -22,18 +22,34 @@
 .siteheader-logo {
 	position: absolute;
 	left: $padding;
-	margin: 0 100px 0 0;
+	margin: 0;
 	padding: $padding 0;
 	width: auto;
 	line-height: $siteheaderHeight;
 	color: $black;
 	text-decoration: none;
+}
 
-	img {
+.siteheader-logo-full {
+	display: none;
+	max-height: 20px;
+	height: $siteheaderHeight - 20px;
+	width: auto;
+
+	@include mq($from: mobile) {
 		display: block;
-		max-height: 20px;
-		height: $siteheaderHeight - 20px;
-		width: auto;
+	}
+}
+.siteheader-logo-emblem {
+	display: block;
+	max-height: 40px;
+	height: $siteheaderHeight - 10px;
+	width: auto;
+	margin: -10px;
+
+
+	@include mq($from: mobile) {
+		display: none;
 	}
 }
 
