@@ -111,9 +111,11 @@
 	}
 	&:hover,
 	&:focus {
+		color: $white;
 		background-color: darken($grey, 10%);
 	}
 	&:active {
+		color: $white;
 		background-color: $darkGrey;
 	}
 
