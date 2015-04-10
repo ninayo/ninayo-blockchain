@@ -42,6 +42,7 @@ gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations"
 gem 'faker'
 
 group :development do
+  gem 'heroku'
   gem 'meta_request'
   gem 'bullet'
 end
