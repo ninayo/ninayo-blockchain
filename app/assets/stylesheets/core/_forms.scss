@@ -135,6 +135,21 @@ fieldset {
 	margin-top: $padding;
 	padding-top: $padding;
 	border-top: 1px solid $lightGrey;
+	@include clearfix();
+}
+
+.field-actions-column {
+	float: left;
+	width: 50%;
+
+	&:first-child {
+		padding-right: $halfPadding;
+	}
+
+	&:last-child {
+		padding-left: $halfPadding;
+	}
+
 }
 
 .field-label {

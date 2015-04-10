@@ -6,7 +6,7 @@
 	height: $controlHeight;
 	line-height: $controlHeight;
 	background-color: $grey;
-	color: $white !important;
+	color: $white;
 	text-transform: uppercase;
 	text-align: center;
 	font-size: $buttonFontSize;
@@ -65,7 +65,27 @@
 			background-color: darken($dangerColor, 20%);
 		}
 	}
+
+	&.is-link {
+		border: none;
+		background: transparent;
+		color: $linkTextColor;
+		text-transform: none;
+		font-size: $baseFontSize;
+		padding: 0;
+
+		&:hover,
+		&:focus {
+			color: $linkTextHoverColor;
+		}
+
+		&:active {
+			color: $linkTextActiveColor;
+		}
+	}
 }
+
+
 
 .button-group {
 	@include clearfix();
