@@ -11,7 +11,7 @@
 
 
 	$(document).on('ready page:load', function() {
-
+		isInitialized = false;
 	 	mapDiv = $('#admap');
 	 	if (!mapDiv.length) {
 	 		return;
@@ -83,16 +83,9 @@
 
 	var addMarkers = function(data) {
 
-		// for(var i = 0, length = markers.length; i < length; i++) {
-		// 	markers[i].setMap(null);
-		// 	markers[i] = null;
-		// }
-
 		if (mc) {
 			mc.clearMarkers();
 		};
-
-
 
 		markers.splice(0, markers.length);
 
@@ -101,11 +94,7 @@
 			markers.push(marker);
 		}
 
-		if (!mc) {
-			mc = new MarkerClusterer(map, markers);
-		} else {
-			mc.addMarkers(markers);
-		}
+		mc = new MarkerClusterer(map, markers);
 	};
 
 	var createMarker = function(data) {
@@ -178,16 +167,31 @@
 
 	function postFilterForm() {
 
-		var form = $('#filter-form');
-		console.log(form.serialize());
+		var form = $('#filter-form'),
+			formParams = form.serialize();
+
 		$.ajax({
 			url: form.attr('action') + '.json',
 			type: 'GET',
 			accepts: 'application/json; charset=utf-8',
-			data: form.serialize()
+			data: formParams
 		}).done(function(data) {
 			addMarkers(data);
+			$('.pagenav-item').each(function() {
+				this.search = '?' + formParams
+			});
 		});
 	};
+
+	function updateQueryStringParameter(uri, key, value) {
+		var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+		var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+		if (uri.match(re)) {
+			return uri.replace(re, '$1' + key + "=" + value + '$2');
+		}
+		else {
+			return uri + separator + key + "=" + value;
+		}
+	}
 
 })(jQuery);
