@@ -11,6 +11,8 @@
 				<button name="ad_type" value="buy" class="pagenav-item <%= "is-active" if @ad_type == 'buy'%>"><%= t "views.ad.buying" %></button>
 			</div>
 		</div>
+		<input type="hidden" name="ad_type" id="ad_type" value="<%=@ad_type%>">
+
 
 		<div class="field filter-field">
 			<!-- <label for="crop_type_id">Crop type</label> -->

@@ -91,7 +91,7 @@
 	@extend .button;
 	background-color: $grey;
 	float: left;
-	border-left: 1px solid #aaa;
+	border-left: 1px solid transparent;
 
 	&:first-child {
 		border-left: none;

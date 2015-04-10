@@ -31,8 +31,18 @@
 	});
 
 
+	$(document).on('click', '.map #filter-form .pagenav-item', function(e) {
+		e.preventDefault();
 
-	$(document).on('change', '.map #filter-form', postFilterForm);
+		var module = $(this).closest('.pagenav');
+		module.find('.pagenav-item').removeClass('is-active');
+		$(this).addClass('is-active');
+		$('#ad_type').val($(this).val());
+
+		postFilterForm();
+	});
+
+	$(document).on('change', '.map #filter-form select', postFilterForm);
 	$(document).on('submit', '.map #filter-form', function(e) {
 		e.preventDefault();
 		postFilterForm();
@@ -167,7 +177,9 @@
 	};
 
 	function postFilterForm() {
+
 		var form = $('#filter-form');
+		console.log(form.serialize());
 		$.ajax({
 			url: form.attr('action') + '.json',
 			type: 'GET',

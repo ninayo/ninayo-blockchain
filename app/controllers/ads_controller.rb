@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 	before_action :set_ad, only: [:show, :infopanel, :contact_info, :edit, :preview, :archive, :update, :destroy, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
-	before_action :authenticate_user!, :except => [:index, :map, :show]
+	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
 
 	respond_to :html, :json
 
