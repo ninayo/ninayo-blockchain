@@ -21,6 +21,14 @@
 	@include mq($from: wide) {
 		right: $negativeDoublePadding;
 	}
+
+	.pagenav {
+		padding-bottom: $halfPadding;
+
+		@include mq($from: tablet) {
+			padding-bottom: $padding;
+		}
+	}
 }
 
 .wrapper.show-filter .ads-wrapper .filter {
@@ -45,17 +53,25 @@
 }
 
 .filter-heading {
-
+	line-height: 1;
 }
 
 .filter-field-heading {
+	font-size: 14px;
 	margin: 0 0 3px;
 	font-weight: normal;
+
+	@include mq($from: tablet) {
+		font-size: 16px;
+	}
 }
 
 .filter-field {
-	margin: 0 0 $padding;
+	margin: 0 0 $halfPadding;
 
+	@include mq($from: tablet) {
+		margin: 0 0 $padding;
+	}
 }
 
 .filter-label {
