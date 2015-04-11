@@ -160,6 +160,7 @@ sw:
 
         pick_your_location: "Chagua eneo lako"
         big_map: "Ramani lako"
+        drop_marker: "Click the map to drop a marker"
         drag_marker: "hoja marker kwa eneo la mazao yako"
         confirm_location: "kuthibitisha eneo"
 
@@ -457,6 +458,7 @@ sw:
     percentage:
       format:
         delimiter: ''
+        format: "%n%"
     precision:
       format:
         delimiter: ''

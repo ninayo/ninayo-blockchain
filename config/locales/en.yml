@@ -182,6 +182,7 @@ en:
 
         pick_your_location: "Pick your location"
         big_map: "Big map"
+        drop_marker: "Click the map to drop a marker"
         drag_marker: "Drag the marker to the location of your crop"
         confirm_location: "Confirm location"
 
