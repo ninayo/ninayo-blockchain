@@ -6,7 +6,7 @@
 	</tr>
 	<tr>
 		<th><%= t "common.volume" %>:</th>
-		<td><%= t("volume_units.#{@ad.volume_unit}", count: 3) %></td>
+		<td><%= t("volume_units.#{@ad.volume_unit}", count: @ad.volume) %></td>
 	</tr>
 	<tr>
 		<th><%= t "common.published" %>:</th>

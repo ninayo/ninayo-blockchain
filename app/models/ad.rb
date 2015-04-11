@@ -1,9 +1,17 @@
 class Ad < ActiveRecord::Base
 	include Filterable
 
+	before_validation :adjust_price
+
+	before_save	:set_published_at
+	before_save	:set_archived_at
+
+	after_initialize :set_default_status, :if => :new_record?
+
+
+	# Associations
 	belongs_to :user, autosave: true
 	accepts_nested_attributes_for :user
-
 
 	belongs_to :buyer, :class_name => "User", :foreign_key => "buyer_id"
 	accepts_nested_attributes_for :buyer
@@ -17,11 +25,8 @@ class Ad < ActiveRecord::Base
 
 	has_many :ratings
 
-	before_save	:set_published_at
-	before_save	:set_archived_at
 
-	after_initialize :set_default_status, :if => :new_record?
-
+	# Validations
 	validates :lat, :lng, presence: true
 	validates :region_id, presence: true
 
@@ -33,11 +38,14 @@ class Ad < ActiveRecord::Base
 
 	validates :buyer_price, presence: true, on: :save_buyer_info
 
+
+	# Enums
 	enum volume_unit: [:bucket, :sack]
 	enum status: [:draft, :published, :archived, :pending_review, :rejected, :spam]
 	enum ad_type: [:sell, :buy]
 
-	# scope :ad_type, -> (ad_type) { where ad_type: ad_type }
+
+	# Scopes
 	scope :crop_type_id, -> (crop_type_id) { where crop_type_id: crop_type_id }
 	scope :volume_min, -> (volume_min) { where("volume > ?", volume_min) }
 	scope :volume_max, -> (volume_max) { where("volume < ?", volume_max) }
@@ -83,6 +91,10 @@ class Ad < ActiveRecord::Base
 	end
 
 protected
+
+	def adjust_price
+		self.price = self.price.sub!(",", ".") if self.price && self.price.kind_of?(String) && self.price.count(",") > 0
+	end
 
 	def set_default_status
 		self.status ||= :draft
