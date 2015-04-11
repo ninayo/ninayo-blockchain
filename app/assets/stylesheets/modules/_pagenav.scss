@@ -36,6 +36,10 @@
 			}
 		}
 
+		.pagenav-item {
+			margin-bottom: 0;
+		}
+
 		// @include mq($from: wide) {
 		// 	right: $doublePadding;
 		// 	left: $doublePadding;

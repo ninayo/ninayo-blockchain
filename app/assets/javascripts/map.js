@@ -9,6 +9,18 @@
 		markers = [];
 
 
+
+	$(document).on('click', '.filter-toggle', function(e) {
+		if ($('.ads-map').length) {
+			setTimeout(function() {
+				if (!$('.wrapper').hasClass('show-filter')) {
+					$(window).scrollTop(0);
+				}
+			}, 300);
+		}
+	});
+
+
 	$(document).on('ready page:load', function() {
 		isInitialized = false;
 	 	mapDiv = $('#admap');
@@ -47,7 +59,6 @@
 		postFilterForm();
 	});
 
-
 	var initMap = function() {
 		map = new google.maps.Map(document.getElementById('admap'), {
 			zoom: 6,
@@ -56,7 +67,11 @@
 			disableDefaultUI: true,
 			mapTypeControl: true,
 			scaleControl: true,
-			zoomControl: true
+			zoomControl: true,
+			zoomControlOptions: {
+				position: google.maps.ControlPosition.LEFT_BOTTOM,
+				style: google.maps.ZoomControlStyle.SMALL
+			}
 		});
 
 		// google.maps.event.addDomListener(map, 'tilesloaded', function(){

@@ -9,7 +9,6 @@
 	});
 
 	$(document).on('change', '.ads-index #filter-form', function(e) {
-		console.log('geh')
 		$(this).submit();
 	});
 

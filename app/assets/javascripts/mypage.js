@@ -1,4 +1,6 @@
 (function($) {
+	'use strict'
+
 	$(document).on('page:load', function() {
 		var adsTable = $('.ads-table');
 
