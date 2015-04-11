@@ -121,6 +121,10 @@ en:
     max: "Max"
     display_all: "Display all"
 
+  user_mailer:
+    signup_confirmation:
+      subject: "Welcome to Ninayo"
+
   views:
     navigation:
       new_ad: "New ad"

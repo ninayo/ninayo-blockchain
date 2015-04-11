@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+	after_create :send_welcome_email
 	has_many :ads
 	accepts_nested_attributes_for :ads
 
@@ -52,5 +53,9 @@ protected
 	def set_default_rating
 		self.seller_rating ||= 0
 		self.buyer_rating ||= 0
+	end
+
+	def send_welcome_email
+		UserMailer.signup_confirmation(self).deliver
 	end
 end

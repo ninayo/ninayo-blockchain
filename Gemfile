@@ -46,6 +46,7 @@ group :development do
   gem 'heroku'
   gem 'meta_request'
   gem 'bullet'
+  gem 'letter_opener'
 end
 
 group :development, :test do
