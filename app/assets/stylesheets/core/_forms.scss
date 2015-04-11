@@ -130,7 +130,20 @@ fieldset {
 
 .field {
 	margin-bottom: $halfPadding;
+
+
 }
+
+.field-radiolist {
+	label {
+		display: inline-block;
+		vertical-align: middle;
+		padding: 5px;
+		padding-left: 0;
+		margin-right: 10px;
+	}
+}
+
 .field-actions {
 	margin-top: $padding;
 	padding-top: $padding;

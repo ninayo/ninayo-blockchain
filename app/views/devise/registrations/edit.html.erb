@@ -43,6 +43,21 @@
 			</fieldset>
 
 			<fieldset>
+				<h4>Prefered language</h4>
+				<%#= f.label :language, class: "field-label" %>
+				<% [['English', 'en'], ['Swahili', 'sw']]%>
+				<div class="field field-radiolist">
+					<%= f.radio_button :language, :sw %>
+					<%= f.label :language, "Swahili", :value => "sw" %>
+
+					<%= f.radio_button :language, :en %>
+					<%= f.label :language, "English", :value => "en" %>
+				</div>
+
+
+			</fieldset>
+
+			<fieldset>
 				<h4><%= t "view.edit_profile.change_password" %></h4>
 				<p><%=t("views.edit_profile.leave_blank")%></p>
 
@@ -61,6 +76,8 @@
 				</div>
 
 			</fieldset>
+
+
 
 			<fieldset>
 				<h4><%= t "views.edit_profile.confirm_your_changes" %></h4>
