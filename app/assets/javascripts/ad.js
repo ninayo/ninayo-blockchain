@@ -102,7 +102,7 @@
 		}
 
 		function geo_error(error) {
-			 alert('ERROR(' + error.code + '): ' + error.message);
+			 //alert('ERROR(' + error.code + '): ' + error.message);
 		}
 
 		var geo_options = {
