@@ -95,10 +95,10 @@
 	@extend .button;
 	background-color: $grey;
 	float: left;
-	border-left: 1px solid transparent;
+	border-left: 1px solid $white !important;
 
 	&:first-child {
-		border-left: none;
+		border-left: none !important;
 	}
 
 
