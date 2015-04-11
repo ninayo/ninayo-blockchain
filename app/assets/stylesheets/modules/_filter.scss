@@ -83,7 +83,7 @@
 	font-size: 13px;
 }
 
-.filter-toggle {
+a.filter-toggle {
 	@include mq($from: tablet) {
 		display: none;
 	}
