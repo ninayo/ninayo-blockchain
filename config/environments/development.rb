@@ -42,14 +42,7 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-
-  config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = ENV['BULLET_ALERTS']
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-  end
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -61,4 +54,12 @@ Rails.application.configure do
     authentication:       'plain',
     enable_starttls_auto: true
   }
+
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = ENV['BULLET_ALERTS']
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.rails_logger = true
+  end
 end

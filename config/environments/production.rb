@@ -87,6 +87,8 @@ Rails.application.configure do
   # }
 
   config.action_mailer.default_url_options = { :host => 'www.ninayo.com' }
+  Rails.application.routes.default_url_options[:host] = 'www.ninayo.com'
+
   ActionMailer::Base.smtp_settings = {
     :address        => "smtp.sendgrid.net",
     :port           => "587",
