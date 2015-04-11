@@ -85,6 +85,8 @@ sw:
     by: "Na"
     of: "ya"
     loading_content: "Loading content"
+    english: "English"
+    swahili: "Swahili"
 
     errors:
       zero: "hakuna makosa"
@@ -131,6 +133,7 @@ sw:
       save_changes: "Kukoa mabadiliko"
       select_region: "Chagua Jimbo"
       minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
+      preferred_language: "Prefered language"
 
     ad:
       crop_type: "aina ya mazao"

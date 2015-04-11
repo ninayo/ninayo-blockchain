@@ -104,6 +104,8 @@ en:
     by: "By"
     of: "of"
     loading_content: "Loading content"
+    english: "English"
+    swahili: "Swahili"
 
     errors:
       zero: "no errors"
@@ -130,7 +132,6 @@ en:
       sign_up: "Sign up"
       login: "Login"
 
-
     create_account:
       heading: "Create an account"
       heading_2: "Already have an account?"
@@ -150,6 +151,8 @@ en:
       save_changes: "Save changes"
       select_region: "Select a Region"
       minimum_password_length: "%{length} characters minimum"
+      preferred_language: "Prefered language"
+
 
     ad:
       crop_type: "Crop type"

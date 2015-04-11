@@ -43,15 +43,14 @@
 			</fieldset>
 
 			<fieldset>
-				<h4>Prefered language</h4>
+				<h4><%= t "views.edit_profile.preferred_language" %></h4>
 				<%#= f.label :language, class: "field-label" %>
-				<% [['English', 'en'], ['Swahili', 'sw']]%>
 				<div class="field field-radiolist">
 					<%= f.radio_button :language, :sw %>
-					<%= f.label :language, "Swahili", :value => "sw" %>
+					<%= f.label :language, "#{t "common.swahili"}", :value => "sw" %>
 
 					<%= f.radio_button :language, :en %>
-					<%= f.label :language, "English", :value => "en" %>
+					<%= f.label :language, "#{t "common.english"}", :value => "en" %>
 				</div>
 
 
