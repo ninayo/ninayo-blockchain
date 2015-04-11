@@ -40,6 +40,7 @@ gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations"
 # gem 'capistrano-rails', group: :development
 
 gem 'faker'
+gem 'mail'
 
 group :development do
   gem 'heroku'
