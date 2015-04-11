@@ -84,7 +84,12 @@
 			</div>
 			<div class="field">
 				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
-				<%= user_fields.telephone_field :phone_number, :validate => true, class: "is-small" %>
+				<div class="input-wrapper">
+					<div class="input-field">
+						<%= user_fields.telephone_field :phone_number, :validate => true, class: "is-inline" %>
+					</div>
+
+				</div>
 			</div>
 		<% end %>
 	</fieldset>

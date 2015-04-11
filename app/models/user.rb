@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?
+	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
 	validates :name, :email, :phone_number, presence: true, on: :save_ad
@@ -48,6 +49,10 @@ protected
 
 	def set_default_role
 		self.role ||= :user
+	end
+
+	def set_default_language
+		self.language = "sw"
 	end
 
 	def set_default_rating
