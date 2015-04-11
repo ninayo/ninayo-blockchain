@@ -56,38 +56,13 @@
 			<%= f.label "#{t "views.ad.village"}", :class => 'field-label' %>
 			<%= f.text_field :village %>
 		</div>
-		<div class="field row">
-			<div class="field field-col">
-				<%= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
-				<%= f.text_field :lat %>
-			</div>
-			<div class="field field-col">
-				<%= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
-				<%= f.text_field :lng %>
-			</div>
-		</div>
+		<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
+		<%= f.hidden_field :lat %>
+		<%#= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
+		<%= f.hidden_field :lng %>
 	</fieldset>
 
-	<div class="positionmap">
-		<div class="positionmap-header">
-			<h4 class="positionmap-heading"><%= t "views.ad.new.pick_your_location" %></h4>
-			<a href="" class="button positionmap-toggle">
-				<%= t "views.ad.new.big_map" %>
-			</a>
-			<a href="" class="positionmap-close">&times;</a>
-		</div>
-		<div id="positionmap-canvas"></div>
-		<div class="positionmap-actions">
-			<div class="positionmap-actions-text is-second">
-				<%= t "views.ad.new.drag_marker" %>
-			</div>
-			<div class="positionmap-actions-button">
-				<button class="button is-primary is-block positionmap-confirm">
-					<%= t "views.ad.new.confirm_location" %>
-				</button>
-			</div>
-		</div>
-	</div>
+	<%= render "positionmap" %>
 
 	<p>
 		<a href="" class="button is-block positionmap-toggle is-mobile">

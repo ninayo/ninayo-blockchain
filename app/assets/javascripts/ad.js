@@ -93,6 +93,10 @@
 			if (!hasMovedMarker) {
 				updatePosition(pos.coords.latitude, pos.coords.longitude);
 				updateMarkerPosition(pos.coords.latitude, pos.coords.longitude);
+
+				var latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+				map.panTo(latLng);
+				map.setZoom(11);
 			};
 			$('.positionmap').addClass('has-position');
 		}
@@ -136,15 +140,10 @@
 		});
 
 		google.maps.event.addListener(marker, 'dragend', function(e) {
-			//updatePosition(e.latLng.lat(), e.latLng.lng());
+			updatePosition(e.latLng.lat(), e.latLng.lng());
 			hasMovedMarker = true;
 		});
-
-		map.panTo(latLng);
-		map.setZoom(13);
 	};
-
-
 
 	var initMap = function() {
 		map = new google.maps.Map(mapDiv[0], {
@@ -167,6 +166,7 @@
 			if (!marker) {
 				updateMarkerPosition(e.latLng.lat(), e.latLng.lng());
 				hasMovedMarker = true;
+				$('.positionmap').addClass('has-position');
 			}
 		});
 

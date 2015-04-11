@@ -1,0 +1,25 @@
+<div class="positionmap">
+	<div class="positionmap-header">
+		<h4 class="positionmap-heading"><%= t "views.ad.new.pick_your_location" %></h4>
+		<a href="" class="button positionmap-toggle">
+			<%= t "views.ad.new.big_map" %>
+		</a>
+		<a href="" class="positionmap-close">&times;</a>
+	</div>
+	<div id="positionmap-canvas"></div>
+	<div class="positionmap-actions">
+		<div class="positionmap-actions-text is-second">
+			<span class="positionmap-dropinstruction">
+				Click the map to drop a pin
+			</span>
+			<span class="positionmap-draginstruction">
+				<%= t "views.ad.new.drag_marker" %>
+			</span>
+		</div>
+		<div class="positionmap-actions-button">
+			<button class="button is-primary is-block positionmap-confirm">
+				<%= t "views.ad.new.confirm_location" %>
+			</button>
+		</div>
+	</div>
+</div>

@@ -37,17 +37,35 @@ $positionMapBarHeight: $controlHeight + 20px;
 		.positionmap-toggle {
 			display: none;
 		}
+
+		.positionmap-actions-button {
+			display: block;
+		}
 	}
 
 	&.has-position {
-		.positionmap-actions {
-			margin-bottom: 0;
+
+		.positionmap-dropinstruction {
+			display: none;
 		}
 
-		#positionmap-canvas {
-			bottom: $positionMapBarHeight;
+		.positionmap-draginstruction {
+			display: block;
 		}
+
+		// .positionmap-actions {
+		// 	margin-bottom: 0;
+		// }
+
+		// #positionmap-canvas {
+		// 	bottom: $positionMapBarHeight;
+		// }
 	}
+}
+
+
+.positionmap-draginstruction {
+	display: none;
 }
 
 .positionmap-header {
@@ -115,6 +133,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	}
 }
 
+
 .positionmap-actions {
 	position: absolute;
 	left: 0;
@@ -123,7 +142,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	background-color: $mediumGrey;
 	padding: $halfPadding;
 	padding-left: $padding;
-	margin-bottom: (-1 * $controlHeight) - 20px;
+	//margin-bottom: (-1 * $controlHeight) - 20px;
 	@include transition(margin 300ms ease-in-out);
 	@include clearfix();
 
@@ -142,7 +161,8 @@ $positionMapBarHeight: $controlHeight + 20px;
 	}
 
 	#positionmap-canvas {
-		margin-bottom: $controlHeight + 20px;
+		//margin-bottom: $controlHeight + 20px;
+		bottom: $positionMapBarHeight;
 	}
 }
 
@@ -159,6 +179,8 @@ $positionMapBarHeight: $controlHeight + 20px;
 	}
 }
 .positionmap-actions-button {
+	display: none;
+
 	@include mq($from: tablet) {
 		width: 30%;
 		float: right;
