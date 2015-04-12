@@ -84,9 +84,13 @@
 	});
 
 	var findPosition = function() {
-		if (!'geolocation' in navigator) {
+		// if (!'geolocation' in navigator) {
+		// 	return;
+		// }
+
+		if (!navigator.geolocation) {
 			return;
-		}
+		};
 
 		function geo_success(pos) {
 			position = pos;
@@ -111,7 +115,8 @@
 			timeout           : 27000
 		};
 
-		var watchID = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+		//var watchID = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
+		navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
 
 	};
 
