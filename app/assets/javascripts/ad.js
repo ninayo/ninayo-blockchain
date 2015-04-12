@@ -74,6 +74,7 @@
 
 		var latLng = marker.getPosition();
 		updatePosition(latLng.lat(), latLng.lng());
+		$(this).closest('positionmap').addClass('is-confirmed')
 
 		closeModal();
 	});
@@ -103,6 +104,7 @@
 				map.setZoom(11);
 			};
 			$('.positionmap').addClass('has-position');
+			$('.ad-position-message').addClass('is-active');
 		}
 
 		function geoError(error) {
@@ -171,6 +173,7 @@
 				updateMarkerPosition(e.latLng.lat(), e.latLng.lng());
 				hasMovedMarker = true;
 				$('.positionmap').addClass('has-position');
+				$('.ad-position-message').addClass('is-active');
 			}
 		});
 

@@ -68,6 +68,10 @@
 		<a href="" class="button is-block positionmap-toggle is-mobile">
 			<%= t "views.ad.new.pick_your_location" %>
 		</a>
+
+		<span class="ad-position-message <%= "is-active" if @ad.lat && @ad.lng %>">
+			Have a position!
+		</span>
 	</p>
 
 	<fieldset>
