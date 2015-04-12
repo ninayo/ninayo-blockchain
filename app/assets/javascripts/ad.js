@@ -89,12 +89,10 @@
 		// }
 
 		if (!navigator.geolocation) {
-			alert('Geolcocation not available')
 			return;
 		};
 
 		function geoSuccess(pos) {
-			alert(JSON.stringify(pos));
 			position = pos;
 			if (!hasMovedMarker) {
 				updatePosition(pos.coords.latitude, pos.coords.longitude);
@@ -108,7 +106,7 @@
 		}
 
 		function geoError(error) {
-			 alert('ERROR(' + error.code + '): ' + error.message);
+			 //console.log('ERROR(' + error.code + '): ' + error.message);
 		}
 
 		var geoOptions = {
@@ -117,7 +115,7 @@
 			timeout: 27000
 		};
 
-		navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+		//navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
 		var watchID = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
 	};
 
