@@ -89,10 +89,12 @@
 		// }
 
 		if (!navigator.geolocation) {
+			alert('Geolcocation not available')
 			return;
 		};
 
-		function geo_success(pos) {
+		function geoSuccess(pos) {
+			alert(JSON.stringify(pos));
 			position = pos;
 			if (!hasMovedMarker) {
 				updatePosition(pos.coords.latitude, pos.coords.longitude);
@@ -105,19 +107,18 @@
 			$('.positionmap').addClass('has-position');
 		}
 
-		function geo_error(error) {
-			 //alert('ERROR(' + error.code + '): ' + error.message);
+		function geoError(error) {
+			 alert('ERROR(' + error.code + '): ' + error.message);
 		}
 
-		var geo_options = {
+		var geoOptions = {
 			enableHighAccuracy: true,
-			maximumAge        : 30000,
-			timeout           : 27000
+			maximumAge: 30000,
+			timeout: 27000
 		};
 
-		//var watchID = navigator.geolocation.watchPosition(geo_success, geo_error, geo_options);
-		navigator.geolocation.getCurrentPosition(geo_success, geo_error, geo_options);
-
+		navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+		var watchID = navigator.geolocation.watchPosition(geoSuccess, geoError, geoOptions);
 	};
 
 	var updateMarkerPosition = function(lat, lng) {
