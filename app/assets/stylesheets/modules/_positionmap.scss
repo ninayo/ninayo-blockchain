@@ -74,6 +74,10 @@ $positionMapBarHeight: $controlHeight + 20px;
 	padding: $padding;
 	height: $positionMapBarHeight;
 
+	// @include mq($from: tablet) {
+	// 	padding: $padding;
+	// }
+
 	.positionmap-toggle {
 		position: absolute;
 		top: 10px;
@@ -92,13 +96,14 @@ $positionMapBarHeight: $controlHeight + 20px;
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding: $padding;
-	padding-top: 3px;
+	padding: 0 $padding;
+	//padding-top: 3px;
 	padding-right: 15px;
+
 	color: white;
-	font-size: 32px;
-	line-height: 1;
-	margin: 0;
+	font-size: 36px;
+	height: $positionMapBarHeight;
+	line-height: $positionMapBarHeight - 5px;
 	opacity: .75;
 
 	&:hover,
@@ -113,7 +118,11 @@ $positionMapBarHeight: $controlHeight + 20px;
 	top: $positionMapBarHeight;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 104px;
+
+	@include mq($from: tablet) {
+		bottom: $positionMapBarHeight;
+	}
 }
 
 .positionmap-toggle {
@@ -141,7 +150,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	bottom: 0;
 	background-color: $mediumGrey;
 	padding: $halfPadding;
-	padding-left: $padding;
+	//padding-left: $padding;
 	//margin-bottom: (-1 * $controlHeight) - 20px;
 	@include transition(margin 300ms ease-in-out);
 	@include clearfix();
@@ -158,11 +167,6 @@ $positionMapBarHeight: $controlHeight + 20px;
 		@include mq($from: tablet) {
 			margin: 0;
 		}
-	}
-
-	#positionmap-canvas {
-		//margin-bottom: $controlHeight + 20px;
-		bottom: $positionMapBarHeight;
 	}
 }
 
