@@ -148,8 +148,8 @@ sw:
       description: "Maelezo"
       for_sale: "Kwa ajili ya kuuza"
       buying: "Kwa ajili ya kununua"
-      sell: "Sell"
-      buy: "Buy"
+      sell: "Kuuza"
+      buy: "Kununua"
 
       error_heading: "Tangazo hili limekataliwa kuhifadhiwa"
 
