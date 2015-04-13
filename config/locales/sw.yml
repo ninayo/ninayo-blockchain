@@ -16,17 +16,17 @@ sw:
         volume: "Ujazo"
         volume_unit: "unit"
         village: "Kijiji"
-        crop_type: "Aina ya mazao"
-        status: "Hali"
+        crop_type: "Aina ya zao"
+        status: "kiwango cha mauzo"
         published_at: "Kuonyeshwa"
         lat: "Latitude"
         lng: "Longitude"
-        region: "Jimbo"
+        region: "Mkoa"
         final_price: "Bei ya mwisho"
         buyer: "Mnunuzi"
-        other_crop_type: "Nyingine mazao ya Aina"
+        other_crop_type: "Aina nyingine ya zao"
         buyer_price: "bei ya Mnunuzi"
-        ad_type: "Type"
+        ad_type: "Aina"
 
       ad_log:
         user: "Mtumiaji"
@@ -35,195 +35,194 @@ sw:
         description: "Maelezo"
 
       rating:
-        rater: "Mkaguzi"
+        rater: "Mthamini"
         user: "Mtumiaji"
-        role: "Jukumu"
+        role: "wajibu"
         score: "Alama"
 
       user:
         name: "Jina"
-        email: "Email"
-        password: "Password"
-        password_confirmation: "Uthibitisho Password"
-        phone_number: "Namba ya simu"
-        role: "Jukumu"
+        email: "barua pepe"
+        password: "nenosiri"
+        password_confirmation: "Uthibitisho wa nenorsiri"
+        phone_number: "Nambari ya simu"
+        role: "Mthamini"
         village: "Kijiji"
-        region: "Jimbo"
+        region: "Mkoa"
 
   validation:
     message: "Marufuku %{name} hii kukoa"
 
   volume_unit:
-    bucket: "buckets"
-    sack: "sacks"
+    bucket: "ndoo"
+    sack: "magunia"
 
   volume_units:
     bucket:
-      zero: "no buckets"
-      one: "1 bucket"
-      other: "%{count} buckets"
+      zero: "sifuri ndoo"
+      one: "ndoo moja"
+      other: "%{count} ndoo"
     sack:
-      zero: "no sacks"
-      one: "1 sack"
-      other: "%{count} sacks"
+      zero: "sifuri gunia"
+      one: "1 gunia"
+      other: "%{count} magunia"
 
   common:
-    back: "Kurudi"
-    are_you_sure?: "Je, una hakika?"
-    update: "Update"
-    save: "kukoa"
-    cancel: "kufuta"
+    back: "Nyuma"
+    are_you_sure?: "Unahakika?"
+    update: "Boresha"
+    save: "Hifadhi"
+    cancel: "Ahirisha"
     edit: "hariri"
-    delete: "kufuta"
+    delete: "futa"
     archive: "Kutunza"
-    destroy: "Kuharibu"
-    you_need_to_login_first: "Unahitaji kuingia kwanza kufanya hili tendo"
-    favorite: "Kupenda"
-    unfavorite: "Sipendi"
+    destroy: "haribu"
+    you_need_to_login_first: "Unatakiwa kuingia kwanza kabla ya kufanya tendo hili"
+    favorite: "Unachopendelea"
+    unfavorite: "Usichopendelea"
     phone: "simu"
-    email: "Email"
+    email: "Barua pepe"
     by: "Na"
     of: "ya"
-    loading_content: "Loading content"
+    loading_content: "Upakaji maudhui"
     english: "English"
     swahili: "Swahili"
 
     errors:
       zero: "hakuna makosa"
       one: "kosa moja"
-      other: "%{count} makosa"
+      other: "makosa %{count}"
 
     facts: "Ukweli"
     price: "Bei"
     volumne: "Ujazo"
-    published: "Kuonyeshwa"
+    published: "Tolewa"
 
-    min: "Mdogo"
+    min: "Ndogo"
     max: "Kubwa"
-    display_all: "Kuonyesha wote"
+    display_all: "Onesha yote"
 
   views:
     navigation:
-      new_ad: "Tangazo mpya"
-      menu: "orodha"
-      home: "Nyumba"
+      new_ad: "Tangazo jipya"
+      menu: "menyu"
+      home: "Nyumbani"
       my_page: "Ukurasa wangu"
-      edit_profile: "hariri profile"
-      log_out: "logi nje"
-      sign_up: "tengeza akaunti"
+      edit_profile: "hariri wasifu"
+      log_out: "kutoka"
+      sign_up: "Jisajili"
       login: "Ingia"
 
 
     create_account:
-      heading: "kuunda akaunti"
+      heading: "Tengeneza akaunti"
       heading_2: "tayari una akaunti?"
-      sign_up: "tengeza akaunti"
-      characters_minimum: "kiasi cha herufi kwa nenosiri"
+      sign_up: "Jisajili"
+      characters_minimum: "Kiwango cha chini cha herufi"
 
     edit_profile:
-      heading: "hariri profile"
-      waiting_for_confirmation: "hivi sasa kusubiri kwa ajili ya uthibitisho kwa:"
-      leave_blank: "Acha tupu kama huna wanataka mbadailiko yako"
-      need_password_for: "Tunahitaji nywila yako ya sasa ili kuthibitisha mabdalika yako"
-      cancel_account: "Kufuta akaunti yangu"
-      unhappy?: "Furaha?"
-      address: "Anwani"
-      change_password: "Badalisha password"
-      confirm_your_changes: "Ckuthibitisha mabadiliko yako"
-      save_changes: "Kukoa mabadiliko"
-      select_region: "Chagua Jimbo"
+      heading: "hariri wasifu"
+      waiting_for_confirmation: "kwasasa inasubiri uthibitisho wa"
+      leave_blank: "Acha wazi kama hutaki kubdailisha"
+      need_password_for: "Tunahitaji nenosiri lako la sasa ili kuthibitisha mabadaliko"
+      cancel_account: "Ahirisha akaunti yangu"
+      unhappy?: "Haujafurahishwa?"
+      address: "Anuani"
+      change_password: "Badalisha nenosiri"
+      confirm_your_changes: "Thibitisha mabadiliko"
+      save_changes: "Hifadhi mabadiliko"
+      select_region: "Chagua Mkoa"
       minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
+
       preferred_language: "Prefered language"
 
     ad:
-      crop_type: "aina ya mazao"
-      region: "Jimbo"
+      crop_type: "aina ya zao"
+      region: "Mkoa"
       village: "Kijiji"
       volume: "Ujazo"
       price: "bei"
-      crop: "mazao"
-      lat: "Latitude"
-      lng: "Longitude"
+      crop: "zao"
+      lat: "Latitudo"
+      lng: "Longitudo"
       description: "Maelezo"
-      for_sale: "For sale"
-      buying: "Buying"
+      for_sale: "Kwa ajili ya kuuza"
+      buying: "Kwa ajili ya kununua"
       sell: "Sell"
       buy: "Buy"
 
-
-      error_heading: "marufuku tangazo hili kukoa"
+      error_heading: "Tangazo hili limekataliwa kuhifadhiwa"
 
       new:
         heading: "Kujenga tangazo"
-        select_a_crop_type: "chagua jimbo"
-        name_of_crop_type: "jina la aina nyingine ya mazao"
+        select_a_crop_type: "chagua aina ya zao"
+        name_of_crop_type: "Jina la zao la aina nyingine"
 
-        pick_your_location: "Chagua eneo lako"
-        big_map: "Ramani lako"
-        drop_marker: "Click the map to drop a marker"
-        drag_marker: "hoja marker kwa eneo la mazao yako"
-        confirm_location: "kuthibitisha eneo"
+        pick_your_location: "Chagua mahali ulipo"
+        big_map: "Ramani kubwa"
+        drag_marker: "Pelekea mshale mahali zao lako lilipo"
+        confirm_location: "Thibitisha mahali ulipo"
 
-        contact_information: "taarifa ya mawasiliano"
-        review_contact_information: "tafadhali angalia taarifa wasiliana yako"
+        contact_information: "taarifa za mawasiliano"
+        review_contact_information: "tafadhali pitia taarifa zako za mawasiliano"
 
-        save_changes: "kuokoa mabadiliko"
-        preview_ad: "angalia tangazo yako"
-        cancel: "kufuta"
-        ad_type_label: "I want to"
+        save_changes: "Hifadhi mabadiliko"
+        preview_ad: "Pitia tangazo lako kabla hujatangaza"
+        cancel: "Ahirisha"
+        ad_type_label: "Ninataka"
 
       edit:
         heading: "hariri tangazo"
       show:
-        delete_confirmation: "Je, una uhakika unataka kufuta tangazo hili?"
-        location: "eneo"
+        delete_confirmation: "Unauhakika unataka kufuta tangazo hili?"
+        location: "Mahali"
       list:
-        could_not_find_heading: "hakuwezi kupata matangazo kama hii"
-        could_not_find_body: "Jaribu kuondoa baadhi ya filters yako"
+        could_not_find_heading: "hakuna tangazo lolote linaloendana na vigezo vyako"
+        could_not_find_body: "Jaribu kuondoa baadhi ya vigezo vyako"
 
       archive:
-        heading: "Kutunza tangazo"
-        tell_us_final_price: "tafadhali tueleze bei gani umepata kwa mazao."
+        heading: "Hifadhi tangazo"
+        tell_us_final_price: "tafadhali, tujulishe bei ya mwisho ya zao lako ilikuwa kiasi gani."
         final_price: "Bei ya mwisho"
-        pick_buyer: "Tafadhali jaribu kutafuta mnunuzi katika orodha hii"
-        please_select_the_buyer: "Chague mnunuzi"
+        pick_buyer: "Tafadhali angalia kama unaweza kumpata mnunuzi kwenye ordha hapo chini"
+        please_select_the_buyer: "Tafadhali chagua mnunuzi"
 
       preview:
-        title: "Angalia tangazo"
+        title: "Pitia tangazo kabla hujatangaza"
 
       rate_seller:
-        haeading_1: "Umelipa bei gani?"
+        haeading_1: "Umelipa kiasi gani"
         text_1: ""
         heading_2: "Je, wewe hatimaye kulipa kwa ajilia ya"
-        heading_3: "Jinsi gani unaweza mapitio"
+        heading_3: "Ungethaminishaje?"
 
 
 
       pagenav:
         list: "Oradha"
         map: "Ramani"
-        filter: "filter"
+        filter: "vigezo"
 
       rate:
-        heading: "kulinganisha"
-        text: "jinsi gani ungependa kiwango mnunuzi hii??"
+        heading: "Thaminisha"
+        text: "Ungependa kumthaminshaje mnunuzi"
         aweful: "Mbaya"
-        excellent: "Nzuri"
+        excellent: "Mzuri sana"
 
       facts:
         heading: "Mambo"
 
       statistics:
         heading: "takwimu"
-        favorites: "Favorites"
+        favorites: "Vipaumbele"
         times:
-          zero: "hakuna mara"
+          zero: "hakuna"
           one: "mara moja"
-          other: "%{count} mara"
+          other: "mara %{count}"
 
       filter:
-        filter_ads: "kuandaa matangazo"
-        reset_filter: "kuandaa tena"
+        filter_ads: "Chuja matangazo"
+        reset_filter: "Badili vigezo"
 
       seller:
         heading: "muuzaji"
@@ -240,47 +239,47 @@ sw:
         title: "ukurasa wangu"
         heading: ""
       favorites:
-        title: "Favorites"
-        heading_1: "je kununua?"
-        heading_2: "Favorites"
+        title: "Vipaumbele"
+        heading_1: "Ulinunua hii?"
+        heading_2: "Vipaumbele"
       archive:
-        title: "Kutunza"
-        heading_1: "kuuzwa matangazo"
-        heading_2: "Kununuliwa matangazo"
+        title: "Hifadhi"
+        heading_1: "Matangazo yaliyo uzwa"
+        heading_2: "Matangazo yaliyonunuliwa"
       pagenav:
         current: "Sasa"
-        favorites: "Favorites"
-        archive: "Kutunza"
+        favorites: "Vipaumbele"
+        archive: "Hifadhi"
       list:
         title: "Cheo"
         seller: "muuzaji"
         buyer: "Mnunuzi"
         price: "Bei"
         final_price: "Bei ya mwisho"
-        published: "Kuonyeshwa"
-        archived: "kutunzwa"
-        displayed: "Kuonyeshwa"
-        displayed_contact_info: "Kuonyeshwa taarifa ya mwasiliano"
-        favorites: "Favorites"
-        i_bought_this: "nimenunua hii"
-        no_ads: "hakuna matangazo ya Kuonyesha"
+        published: "Tolewa"
+        archived: "Hifadhiwa"
+        displayed: "Onyeshwa"
+        displayed_contact_info: "Taarifa ya mwasiliano iliyoonyeshwa"
+        favorites: "Vipaumbele"
+        i_bought_this: "nilinunua hii"
+        no_ads: "hakuna matangazo la kuonyesha"
 
 
     pagination:
       first: "&laquo; kwanza"
       last: "mwisho &raquo;"
-      previous: "&lsaquo; uliopita"
+      previous: "&lsaquo; iliopita"
       next: "ijayo &rsaquo;"
       truncate: "&hellip;"
   helpers:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "hakuna %{entry_name} kupatikana"
-          one: "Kuonyesha <b>1</b> %{entry_name}"
-          other: "Kuonyesha <b>all %{count}</b> %{entry_name}"
+          zero: "hamna %{entry_name} zilipatikana"
+          one: "Inaonesha <b>1</b> %{entry_name}"
+          other: "Inaonyesha <b>all %{count}</b> %{entry_name}"
       more_pages:
-        display_entries: "Kuonyesha %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> jumla"
+        display_entries: "Inaonyesha %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> jumla"
 
 
   # Jack, don't bother with the stuff below from here, it's already translated to Swahili
@@ -458,7 +457,6 @@ sw:
     percentage:
       format:
         delimiter: ''
-        format: "%n%"
     precision:
       format:
         delimiter: ''
