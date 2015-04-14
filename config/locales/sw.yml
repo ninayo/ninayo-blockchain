@@ -85,8 +85,8 @@ sw:
     by: "Na"
     of: "ya"
     loading_content: "Upakaji maudhui"
-    english: "English"
-    swahili: "Swahili"
+    english: "Kiingereza"
+    swahili: "Kiswahili"
 
     errors:
       zero: "hakuna makosa"
@@ -134,7 +134,7 @@ sw:
       select_region: "Chagua Mkoa"
       minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
 
-      preferred_language: "Prefered language"
+      preferred_language: "Lugha lako"
 
     ad:
       crop_type: "aina ya zao"
