@@ -27,6 +27,7 @@ sw:
         other_crop_type: "Aina nyingine ya zao"
         buyer_price: "bei ya Mnunuzi"
         ad_type: "Aina"
+        location: "Mahali"
 
       ad_log:
         user: "Mtumiaji"
@@ -160,6 +161,7 @@ sw:
 
         pick_your_location: "Chagua mahali ulipo"
         big_map: "Ramani kubwa"
+        drop_marker: "Click the map to drop a marker"
         drag_marker: "Pelekea mshale mahali zao lako lilipo"
         confirm_location: "Thibitisha mahali ulipo"
 

@@ -40,5 +40,8 @@ module Ninayo
     end)
 
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
+
+     # add custom validators path
+    config.autoload_paths += %W["#{config.root}/app/validators/"]
   end
 end

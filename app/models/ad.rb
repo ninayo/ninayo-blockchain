@@ -27,8 +27,16 @@ class Ad < ActiveRecord::Base
 
 
 	# Validations
-	validates :lat, :lng, presence: true
-	validates :region_id, presence: true
+	# validates :lat, :lng, presence: true
+	# validates :region_id, presence: true
+
+	validate :precence_of_position
+
+	def precence_of_position
+		unless lat.present? && lng.present?
+			errors.add(:location, I18n.t("errors.messages.blank"))
+		end
+	end
 
 	validates :crop_type, :price, :volume, :volume_unit, :village, :user, presence: true
 	validates :crop_type_id, numericality: { greater_than: 0 }
