@@ -57,9 +57,9 @@
 			<%= f.text_field :village %>
 		</div>
 		<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
-		<%= f.text_field :lat %>
+		<%= f.hidden_field :lat %>
 		<%#= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
-		<%= f.text_field :lng %>
+		<%= f.hidden_field :lng %>
 	</fieldset>
 
 	<%= render "positionmap" %>
