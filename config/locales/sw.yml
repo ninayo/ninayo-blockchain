@@ -147,8 +147,10 @@ sw:
       lat: "Latitudo"
       lng: "Longitudo"
       description: "Maelezo"
-      for_sale: "Kwa ajili ya kuuza"
-      buying: "Kwa ajili ya kununua"
+      # for_sale: "Kwa ajili ya kuuza"
+      # buying: "Kwa ajili ya kununua"
+      for_sale: "Kuuza"
+      buying: "Kununua"
       sell: "Kuuza"
       buy: "Kununua"
 
