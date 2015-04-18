@@ -25,6 +25,13 @@
 				<%= f.password_field :password_confirmation, autocomplete: "off" %>
 			</div>
 
+			<div class="field">
+				<%= f.check_box :agreement %>
+				<label for="user_agreement">
+					I agree to Ninayo's  <%= link_to "Terms of use", root_path %>
+				</label>
+			</div>
+
 			<div class="field-actions">
 				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-primary is-block" %>
 			</div>

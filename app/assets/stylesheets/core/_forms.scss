@@ -87,6 +87,13 @@ textarea {
 	height: 100px;
 }
 
+input[type=radio],
+input[type=checkbox] {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+
 fieldset {
 	border: none;
 	padding: 0;
@@ -167,6 +174,13 @@ fieldset {
 
 .field-label {
 	display: block;
+}
+
+.field-inline-label {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 10px;
+	padding-left: 0;
 }
 
 .field-hint {

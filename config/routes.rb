@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'map' => 'ads#map'
 
+  get 'terms' => 'home#terms', as: :terms
+
   get 'mypage' => 'mypage#index', as: :mypage
   get 'mypage/current' => 'mypage#index', as: :mypage_current
   get 'mypage/favorites' => 'mypage#favorites', as: :mypage_favorites
