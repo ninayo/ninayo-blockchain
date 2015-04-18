@@ -151,6 +151,8 @@ fieldset {
 	}
 }
 
+
+
 .field-actions {
 	margin-top: $padding;
 	padding-top: $padding;
@@ -228,6 +230,14 @@ fieldset {
 		padding: 5px;
 		@include border-radius(0 0 $borderRadius $borderRadius);
 
+	}
+}
+
+.field-checkbox {
+	.field_with_errors {
+		.message {
+			display: inline-block;
+		}
 	}
 }
 

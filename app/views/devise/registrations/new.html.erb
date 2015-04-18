@@ -25,10 +25,10 @@
 				<%= f.password_field :password_confirmation, autocomplete: "off" %>
 			</div>
 
-			<div class="field">
+			<div class="field field-checkbox">
 				<%= f.check_box :agreement %>
 				<label for="user_agreement">
-					I agree to Ninayo's  <%= link_to "Terms of use", root_path %>
+					I agree to Ninayo's  <%= link_to "Terms of use", terms_path, :target => "_BLANK" %>
 				</label>
 			</div>
 

@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
-	validates :name, :email, :phone_number, presence: true, on: :save_ad
+	validates :name, :email, :phone_number, :agreement, presence: true, on: :save_ad
+	validates :agreement, presence: true, :on => :create
 
 	accepts_nested_attributes_for :ratings, allow_destroy: true
 

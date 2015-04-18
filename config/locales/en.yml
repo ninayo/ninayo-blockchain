@@ -69,6 +69,10 @@ en:
         role: "Role"
         village: "Village"
         region: "Region"
+    errors:
+      user:
+        attributes:
+          agreement: "hej"
 
   validation:
     message: "prohibited this %{name} from being saved"
