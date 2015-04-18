@@ -69,10 +69,7 @@ en:
         role: "Role"
         village: "Village"
         region: "Region"
-    errors:
-      user:
-        attributes:
-          agreement: "hej"
+        agreement: "Agreement"
 
   validation:
     message: "prohibited this %{name} from being saved"
@@ -146,6 +143,8 @@ en:
       heading_2: "Already have an account?"
       sign_up: "Sign up"
       characters_minimum: "characters minimum"
+      agreement_text_1: "I agree to Ninayo’s"
+      agreement_text_2: "Terms of use"
 
     edit_profile:
       heading: "Edit Profile"

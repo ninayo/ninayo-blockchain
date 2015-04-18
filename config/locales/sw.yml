@@ -50,6 +50,7 @@ sw:
         role: "Mthamini"
         village: "Kijiji"
         region: "Mkoa"
+        agreement: "Agreement"
 
   validation:
     message: "Marufuku %{name} hii kukoa"
@@ -120,6 +121,8 @@ sw:
       heading_2: "tayari una akaunti?"
       sign_up: "Jisajili"
       characters_minimum: "Kiwango cha chini cha herufi"
+      agreement_text_1: "I agree to Ninayo’s"
+      agreement_text_2: "Terms of use"
 
     edit_profile:
       heading: "hariri wasifu"

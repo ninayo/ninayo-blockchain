@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 	# For APIs, you may want to use :null_session instead.
 	protect_from_forgery with: :exception
 	before_action :configure_permitted_parameters, if: :devise_controller?
-	after_action :store_location
+	before_action :store_location
 	before_action :set_locale
 
 	# def set_locale
@@ -39,7 +39,7 @@ class ApplicationController < ActionController::Base
 	def store_location
 		# store last url as long as it isn't a /users path or a .json request
 
-		session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/ || request.fullpath.include?(".json")
+		session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/ || request.fullpath =~ /\/terms/ ||request.fullpath.include?(".json")
 	end
 
 	def configure_permitted_parameters
