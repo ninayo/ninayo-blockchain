@@ -1,7 +1,19 @@
 .sitefooter {
 	background-color: $darkGrey;
 	color: $white;
-	height: $siteFooterHeight;
+	min-height: $siteFooterHeight;
+	font-size: 13px;
+	color: $lightGrey;
+
+	a {
+		color: $lightGrey;
+		text-decoration: underline;
+
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
 }
 
 .ads-map .sitefooter {
@@ -39,6 +51,16 @@
 	@include mq($from: tablet) {
 		float: right;
 		width: 30%;
+		text-align: right;
+	}
+}
+
+.sitefooter-copy {
+	margin-top: $padding;
+
+	@include mq($from: tablet) {
+		text-align: right;
+		margin-top: 0;
 	}
 }
 

@@ -155,21 +155,27 @@ fieldset {
 
 .field-actions {
 	margin-top: $padding;
-	padding-top: $padding;
-	border-top: 1px solid $lightGrey;
 	@include clearfix();
+
+	@include mq($from: tablet) {
+		padding-top: $padding;
+		border-top: 1px solid $lightGrey;
+	}
 }
 
 .field-actions-column {
-	float: left;
-	width: 50%;
 
-	&:first-child {
-		padding-right: $halfPadding;
-	}
+	@include mq($from: tablet) {
+		float: left;
+		width: 50%;
 
-	&:last-child {
-		padding-left: $halfPadding;
+		&:first-child {
+			padding-right: $halfPadding;
+		}
+
+		&:last-child {
+			padding-left: $halfPadding;
+		}
 	}
 
 }
