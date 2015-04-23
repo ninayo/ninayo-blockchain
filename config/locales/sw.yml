@@ -178,6 +178,10 @@ sw:
         cancel: "Ahirisha"
         ad_type_label: "Ninataka"
 
+        sidebar:
+          heading: "Pata Bei Vizuri!"
+          text: ""
+
       edit:
         heading: "hariri tangazo"
       show:

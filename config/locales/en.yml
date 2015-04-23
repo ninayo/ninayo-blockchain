@@ -198,6 +198,10 @@ en:
         cancel: "Cancel"
         ad_type_label: "I want to"
 
+        sidebar:
+          heading: "Get a better price!"
+          text: ""
+
       edit:
         heading: "Edit ad"
       show:
