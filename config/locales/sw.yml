@@ -51,6 +51,7 @@ sw:
         village: "Kijiji"
         region: "Mkoa"
         agreement: "Agreement"
+        remember_me: "Unikumbuke"
 
   validation:
     message: "Marufuku %{name} hii kukoa"
@@ -200,6 +201,8 @@ sw:
 
       preview:
         title: "Pitia tangazo kabla hujatangaza"
+        go_back_button: "Go back and change"
+        publish_button: "Publish"
 
       rate_seller:
         haeading_1: "Umelipa kiasi gani"

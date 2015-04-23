@@ -56,6 +56,7 @@ user.password_confirmation = 'thug4life'
 user.role = 'admin'
 user.name = 'Gabriel Svennerberg'
 user.language = 'en'
+user.agreement = true
 user.save!
 
 user = User.new
@@ -65,6 +66,7 @@ user.password_confirmation = 'thug4life'
 user.role = 'admin'
 user.name = 'Staffan Kerker'
 user.language = 'en'
+user.agreement = true
 user.save!
 
 user = User.new
@@ -72,5 +74,6 @@ user.email = 'gordon@svennerberg.com'
 user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
 user.name = 'Gordon Freeman'
+user.agreement = true
 user.language = 'en'
 user.save!

@@ -1,5 +1,5 @@
 <% provide(:title, "#{t "views.ad.preview.title"}") %>
-<h4 class="">Preview ad</h4>
+<h4><%= t "views.ad.new.preview_ad" %></h4>
 
 <div class="preview">
 	<%= render "show" %>
@@ -11,7 +11,7 @@
 		<%= user_fields.hidden_field :name %>
 	<% end %>
 	<div class="field-actions">
-		<%= link_to "Go back and change", edit_ad_path(@ad), :class => "button is-block" %>
-		<%= f.submit("Publish", :class  => "button is-primary is-block") %>
+		<%= link_to "#{t "views.ad.preview.go_back_button"}", edit_ad_path(@ad), :class => "button is-block" %>
+		<%= f.submit("#{t "views.ad.preview.publish_button"}", :class  => "button is-primary is-block") %>
 	</div>
 <% end %>

@@ -70,6 +70,7 @@ en:
         village: "Village"
         region: "Region"
         agreement: "Agreement"
+        remember_me: "Remember me"
 
   validation:
     message: "prohibited this %{name} from being saved"
@@ -220,6 +221,8 @@ en:
 
       preview:
         title: "Preview ad"
+        go_back_button: "Go back and change"
+        publish_button: "Publish"
 
       rate_seller:
         haeading_1: "What did you pay?"

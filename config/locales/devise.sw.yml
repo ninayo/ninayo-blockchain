@@ -11,6 +11,15 @@ sw:
       didnt_receive_confirmation_instruction?: "Hujapata maelekezo ya uthibitisho?"
       didnt_receive_unlock_instructions?: "Hujapata maelekezo ya kufungua"
       sign_in_with: "Ingia na"
+
+      reset_password: "Reset password"
+      reset_password_button: "Reset password?"
+      remember_me: "Unikumbuke"
+
+    change_password:
+      heading: "Change your password"
+      button: "Change password"
+
     confirmations:
       confirmed: "Anuani yako ya baruapepe imethibitishwa kwa mafinikio."
       send_instructions: "Utapokea baruapepe yenye maelekezo ya namna ya kuthibitisha anuani ya baruapepe yako ndani ya dakika chache."

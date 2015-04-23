@@ -73,6 +73,7 @@ user.password_confirmation = 'thug4life'
 user.role = 'admin'
 user.name = 'Gabriel Svennerberg'
 user.language = 'en'
+user.agreement = true
 user.save!
 
 user = User.new
@@ -82,6 +83,7 @@ user.password_confirmation = 'thug4life'
 user.role = 'admin'
 user.name = 'Staffan Kerker'
 user.language = 'en'
+user.agreement = true
 user.save!
 
 user = User.new
@@ -90,6 +92,7 @@ user.password = 'thug4life'
 user.password_confirmation = 'thug4life'
 user.name = 'Gordon Freeman'
 user.language = 'en'
+user.agreement = true
 user.save!
 
 1.upto(200) do |i|
@@ -100,6 +103,7 @@ user.save!
 	user.password_confirmation = 'thug4life'
 	user.name = Faker::Name.name
 	user.language = 'en'
+	user.agreement = true
 	user.save!
 end
 puts 'CREATED 200 FAKE USERS '
