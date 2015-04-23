@@ -122,8 +122,16 @@ sw:
       heading_2: "tayari una akaunti?"
       sign_up: "Jisajili"
       characters_minimum: "Kiwango cha chini cha herufi"
-      agreement_text_1: "I agree to Ninayo’s"
-      agreement_text_2: "Terms of use"
+      agreement_text_1: "Mimi kukubaliana na"
+      agreement_text_2: "Terms of Service"
+
+      sidebar:
+        heading: "Hakuna Akaunti?"
+        text: "Tengeneza akaunti sasa na unaweza:"
+        benefit_1: "Kuuza mazao yako kwa mtu yeyote"
+        benefit_2: "Kununua mazao kutoka kwa mtu yeyote"
+        benefit_3: "Soma bei nchini kote"
+        benefit_4: "Wasiliana wanunuzi na wauzaji"
 
     edit_profile:
       heading: "hariri wasifu"
@@ -201,8 +209,8 @@ sw:
 
       preview:
         title: "Pitia tangazo kabla hujatangaza"
-        go_back_button: "Go back and change"
-        publish_button: "Publish"
+        go_back_button: "Hariri tena"
+        publish_button: "Tangazwa"
 
       rate_seller:
         haeading_1: "Umelipa kiasi gani"

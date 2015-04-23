@@ -12,8 +12,8 @@ sw:
       didnt_receive_unlock_instructions?: "Hujapata maelekezo ya kufungua"
       sign_in_with: "Ingia na"
 
-      reset_password: "Reset password"
-      reset_password_button: "Reset password?"
+      reset_password: "Badalisha nenosiri"
+      reset_password_button: "Badalisha nenosiri?"
       remember_me: "Unikumbuke"
 
     change_password:

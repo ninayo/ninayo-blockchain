@@ -146,6 +146,14 @@ en:
       characters_minimum: "characters minimum"
       agreement_text_1: "I agree to Ninayo’s"
       agreement_text_2: "Terms of use"
+      
+      sidebar:
+        heading: "Don’t have an account?"
+        text: "Join now and you can:"
+        benefit_1: "Sell your crops to anyone"
+        benefit_2: "Buy crops from anyone"
+        benefit_3: "Compare prices across the country"
+        benefit_4: "Contact buyers and sellers"
 
     edit_profile:
       heading: "Edit Profile"
