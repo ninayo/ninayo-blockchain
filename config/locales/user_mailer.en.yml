@@ -1,0 +1,4 @@
+en:
+  user_mailer:
+    signup_confirmation:
+      subject: "Signup confirmation"
