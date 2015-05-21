@@ -11,8 +11,8 @@ class AdsController < ApplicationController
 					.includes(:region)
 					.page(params[:page])
 
-		@crop_types = CropType.all.order("id")
-		@regions = Region.all.order("name")
+		@crop_types = CropType.all.order(:sort_order)
+		@regions = Region.all.order(:name)
 
 		respond_to do |format|
 			format.html { render layout: 'startpage' } # index.html.erb
@@ -23,8 +23,8 @@ class AdsController < ApplicationController
 
 	def map
 		@ads = @ads.includes(:crop_type)
-		@crop_types = CropType.all.order("name")
-		@regions = Region.all.order("name")
+		@crop_types = CropType.all.order(:sort_order)
+		@regions = Region.all.order(:name)
 	end
 
 	def show
