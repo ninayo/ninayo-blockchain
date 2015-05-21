@@ -4,13 +4,26 @@
 	var map,
 		mapDiv,
 		position,
-		isInitialized = false,
+		isInitialized,
 		resizeTimeout,
 		marker,
-		hasPosition = false,
+		hasPosition,
+		hasMovedMarker;
+
+	initalizeVariables();
+
+	function initalizeVariables() {
+		map = null;
+		position = null;
+		isInitialized = false;
+		hasPosition = false;
 		hasMovedMarker = false;
+		marker = null;
+	}
 
 	$(document).on('ready page:load', function() {
+		initalizeVariables();
+
 		if ($('body').hasClass('ads-new')) {
 			findPosition();
 		}
