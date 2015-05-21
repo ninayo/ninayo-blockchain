@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520090908) do
+ActiveRecord::Schema.define(version: 20150521074806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,7 +66,10 @@ ActiveRecord::Schema.define(version: 20150520090908) do
     t.datetime "updated_at", null: false
     t.string   "name_sw"
     t.boolean  "is_other"
+    t.integer  "sort_order"
   end
+
+  add_index "crop_types", ["sort_order"], name: "index_crop_types_on_sort_order", using: :btree
 
   create_table "event_types", force: :cascade do |t|
     t.string   "name"

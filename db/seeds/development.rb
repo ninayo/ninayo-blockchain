@@ -15,16 +15,17 @@ CropType.delete_all
 EventType.delete_all
 Region.delete_all
 
-CropType.create!(:name => "Maize", :name_sw => "Mahindi")
-CropType.create!(:name => "Potatoes", :name_sw => "Viazi")
-CropType.create!(:name => "Rice", :name_sw => "Mchele")
-CropType.create!(:name => "Casava", :name_sw => "Muhogo")
-CropType.create!(:name => "Beans", :name_sw => "Maharage")
-CropType.create!(:name => "Avocadoes", :name_sw => "Maparachichi")
-CropType.create!(:name => "Mangoes", :name_sw => "Maembe")
-CropType.create!(:name => "Tomatoes", :name_sw => "Nyanya")
-CropType.create!(:name => "Bananas", :name_sw => "Ndizi")
-CropType.create!(:name => "Other", :name_sw => "Nyingine")
+CropType.create!(:name => "Maize", :name_sw => "Mahindi", :sort_order => 1)
+CropType.create!(:name => "Potatoes", :name_sw => "Viazi", :sort_order => 2)
+CropType.create!(:name => "Rice", :name_sw => "Mchele", :sort_order => 3)
+CropType.create!(:name => "Casava", :name_sw => "Muhogo", :sort_order => 4)
+CropType.create!(:name => "Beans", :name_sw => "Maharage", :sort_order => 5)
+CropType.create!(:name => "Avocadoes", :name_sw => "Maparachichi", :sort_order => 6)
+CropType.create!(:name => "Mangoes", :name_sw => "Maembe", :sort_order => 7)
+CropType.create!(:name => "Tomatoes", :name_sw => "Nyanya", :sort_order => 8)
+CropType.create!(:name => "Bananas", :name_sw => "Ndizi", :sort_order => 9)
+CropType.create!(:name => "Other", :name_sw => "Nyingine", :sort_order => 999)
+CropType.create!(:name => "Milled Rice", :name_sw => "Mpunga", :sort_order => 10)
 
 puts 'CREATED 10 CROP_TYPES'
 
