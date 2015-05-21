@@ -85,7 +85,7 @@ class AdsController < ApplicationController
 	def new
 		@ad = Ad.new
 		@ad.user = current_user
-		@crop_types = CropType.all
+		@crop_types = CropType.all.order(:sort_order)
 		respond_with(@ad)
 	end
 
@@ -93,7 +93,7 @@ class AdsController < ApplicationController
 		if @ad.archived?
 			not_found
 		end
-		@crop_types = CropType.all
+		@crop_types = CropType.all.order(:sort_order)
 	end
 
 	def create
@@ -107,13 +107,13 @@ class AdsController < ApplicationController
 			if @ad.save
 				redirect_to :action => "preview", :id => @ad.id
 			else
-				@crop_types = CropType.all
+				@crop_types = CropType.all.order(:sort_order)
 				@ad.user = current_user
 				render "new"
 			end
 		else
 			@ad.user = current_user
-			@crop_types = CropType.all
+			@crop_types = CropType.all.order(:sort_order)
 			render "new"
 		end
 	end
@@ -151,7 +151,7 @@ class AdsController < ApplicationController
 				@buyers = buyers(@ad)
 				render "archive"
 			else
-				@crop_types = CropType.all
+				@crop_types = CropType.all.order(:sort_order)
 				render "edit"
 			end
 		end
