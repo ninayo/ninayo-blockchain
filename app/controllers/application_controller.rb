@@ -27,14 +27,14 @@ class ApplicationController < ActionController::Base
 		# if params[:locale]
 		# 	I18n.locale = params[:locale]
 		# els
-		if current_user
-			I18n.locale = current_user.language
-		else
-			I18n.default_locale
-		end
+		# if current_user
+		# 	I18n.locale = current_user.language
+		# else
+		# 	I18n.default_locale
+		# end
 
 		#I18n.locale = params[:locale] || I18n.default_locale
-		# I18n.locale = current_user.language if current_user
+		I18n.locale = current_user.language if current_user
 	end
 
 	def store_location
