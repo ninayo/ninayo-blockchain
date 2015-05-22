@@ -8,7 +8,7 @@ CropType.create!(:name => "Mangoes", :name_sw => "Maembe", :sort_order => 7)
 CropType.create!(:name => "Tomatoes", :name_sw => "Nyanya", :sort_order => 8)
 CropType.create!(:name => "Bananas", :name_sw => "Ndizi", :sort_order => 9)
 CropType.create!(:name => "Other", :name_sw => "Nyingine", :sort_order => 999)
-CropType.create!(:name => "Milled Rice", :name_sw => "Mpunga", :sort_order => 10)
+CropType.create!(:name => "Unmilled Rice", :name_sw => "Mpunga", :sort_order => 10)
 
 puts 'CREATED 10 CROP_TYPES'
 
