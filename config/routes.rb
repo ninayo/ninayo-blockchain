@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
   get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
+  delete 'ads/:id/delete' => 'ads#delete', as: :delete_ad
   get 'ads/:id/rate_seller' => 'ads#rate_seller', as: :rate_seller
   get 'ads/:id/infopanel' => 'ads#infopanel', as: :infopanel
   patch 'ads/:id/save_buy_info' => 'ads#save_buy_info', as: :save_buy_info

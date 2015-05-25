@@ -10,4 +10,6 @@
 	<%#= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
 
 	<%= link_to "#{t "common.archive"}", archive_ad_path(@ad), :class => "button is-block is-danger" if @ad.published? && current_user && current_user.id == @ad.user.id %>
+
+	<%= link_to "#{t "common.delete"}", delete_ad_path(@ad), :confirm => 'Are you sure you want to delete this article?', :method => :delete, :class => "button is-block is-danger" if current_user && current_user.admin? %>
 </div>

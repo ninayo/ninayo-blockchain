@@ -1,5 +1,5 @@
 class AdsController < ApplicationController
-	before_action :set_ad, only: [:show, :infopanel, :contact_info, :edit, :preview, :archive, :update, :destroy, :rate_seller, :save_buy_info]
+	before_action :set_ad, only: [:show, :infopanel, :contact_info, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
 
@@ -158,9 +158,13 @@ class AdsController < ApplicationController
 
 	end
 
-	def destroy
-		@ad.destroy
-		respond_with(@ad)
+	def delete
+		if current_user && current_user.admin?
+			@ad.deleted!
+			redirect_to root_path
+		else
+			not_found
+		end
 	end
 
 	# Add and remove favorite recipes
