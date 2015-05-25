@@ -30,7 +30,7 @@ class AdsController < ApplicationController
 	def show
 		if !@ad
 			not_found
-		elsif @ad.archived?
+		elsif @ad.archived? || @ad.deleted?
 			not_found
 		else
 			if current_user && (current_user.id == @ad.user.id || current_user.admin?)
