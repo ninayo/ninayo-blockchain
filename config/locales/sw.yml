@@ -46,6 +46,7 @@ sw:
         email: "barua pepe"
         password: "nenosiri"
         password_confirmation: "Uthibitisho wa nenorsiri"
+        current_password: "Current password"
         phone_number: "Nambari ya simu"
         role: "Mthamini"
         village: "Kijiji"
@@ -286,6 +287,10 @@ sw:
         i_bought_this: "nilinunua hii"
         no_ads: "hakuna matangazo la kuonyesha"
 
+    footer:
+      contact: "Contact"
+      report_abuse: "Report abuse"
+      support: "Support"
 
     pagination:
       first: "&laquo; kwanza"
