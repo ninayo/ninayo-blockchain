@@ -39,6 +39,13 @@
 	text-transform: uppercase;
 	font-size: 14px;
 
+	&.is-secondary {
+		// height: $siteheaderHeight / 2;
+		// line-height: $siteheaderHeight / 2;
+		background-color: $lighterGrey;
+		text-transform: none;
+	}
+
 	&:first-child {
 		border-top: none;
 	}
@@ -55,11 +62,19 @@
 	}
 }
 
+.usernav-icon {
+	display: inline-block;
+	vertical-align: middle;
+	height: 16px;
+	margin-right: 5px;
+	opacity: .65;
+}
+
 .usernav-separator {
 	display: block;
 	height: 1px;
-	border-top: 1px solid $black;
-	
+	border-top: 1px solid $mediumGrey;
+	margin: 0;
 }
 
 .usernav-caret {

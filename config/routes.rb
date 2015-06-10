@@ -1,30 +1,35 @@
 Rails.application.routes.draw do
-  resources :ads do
-    put :favorite
+  
+
+  scope "(:locale)", locale: /en|sw/ do
+
+    resources :ads do
+      put :favorite
+    end
+
+    get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
+    get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
+    delete 'ads/:id/delete' => 'ads#delete', as: :delete_ad
+    get 'ads/:id/rate_seller' => 'ads#rate_seller', as: :rate_seller
+    get 'ads/:id/infopanel' => 'ads#infopanel', as: :infopanel
+    patch 'ads/:id/save_buy_info' => 'ads#save_buy_info', as: :save_buy_info
+    post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
+
+    get 'map' => 'ads#map'
+
+    get 'terms' => 'home#terms', as: :terms
+
+    get 'mypage' => 'mypage#index', as: :mypage
+    get 'mypage/current' => 'mypage#index', as: :mypage_current
+    get 'mypage/favorites' => 'mypage#favorites', as: :mypage_favorites
+    get 'mypage/archive' => 'mypage#archive', as: :mypage_archive
+
+    devise_for :users
+    # The priority is based upon order of creation: first created -> highest priority.
+    # See how all your routes lay out with "rake routes".
   end
 
-  get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
-  get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
-  delete 'ads/:id/delete' => 'ads#delete', as: :delete_ad
-  get 'ads/:id/rate_seller' => 'ads#rate_seller', as: :rate_seller
-  get 'ads/:id/infopanel' => 'ads#infopanel', as: :infopanel
-  patch 'ads/:id/save_buy_info' => 'ads#save_buy_info', as: :save_buy_info
-  post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
-
-  get 'map' => 'ads#map'
-
-  get 'terms' => 'home#terms', as: :terms
-
-  get 'mypage' => 'mypage#index', as: :mypage
-  get 'mypage/current' => 'mypage#index', as: :mypage_current
-  get 'mypage/favorites' => 'mypage#favorites', as: :mypage_favorites
-  get 'mypage/archive' => 'mypage#archive', as: :mypage_archive
-
-  devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
+  get '/:locale' => 'ads#index'
   root 'ads#index'
 
   # Example of regular route:

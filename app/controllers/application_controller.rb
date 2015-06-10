@@ -23,18 +23,18 @@ class ApplicationController < ActionController::Base
 	protected
 
 	def set_locale
-		# I18n.locale = :en
-		# if params[:locale]
-		# 	I18n.locale = params[:locale]
-		# els
-		if current_user
-			I18n.locale = current_user.language
-		else
-			I18n.locale = :sw
-		end
+		I18n.locale = params[:locale] || I18n.default_locale
 
-		#I18n.locale = params[:locale] || I18n.default_locale
-		#I18n.locale = current_user.language if current_user
+		# if current_user
+		# 	I18n.locale = current_user.language
+		# else
+		# 	I18n.locale = :sw
+		# end
+
+	end
+
+	def default_url_options(options = {})
+		{ locale: I18n.locale }.merge options
 	end
 
 	def store_location
