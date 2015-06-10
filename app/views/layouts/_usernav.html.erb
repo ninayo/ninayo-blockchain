@@ -13,34 +13,34 @@
 
 		<% if I18n.locale == :sw %>
 			<%= link_to({locale: "en"}, class: "usernav-item is-secondary") do %>
-				<%= image_tag "icons/language.svg", :class => "usernav-icon" %>
+				<img src="<%= image_path("icons/languagexx.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/language.png") %>'">
 				English
 			<% end %>
 		<% elsif I18n.locale == :en %>
 			<%= link_to({locale: "sw"}, class: "usernav-item is-secondary") do %>
-				<%= image_tag "icons/language.svg", :class => "usernav-icon" %>
+				<img src="<%= image_path("icons/languagexx.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/language.png") %>'">
 				Swahili
 			<% end %>
 		<% end %>
 
 		<% if user_signed_in? %>
 			<%= link_to edit_user_registration_path, :class => "usernav-item is-secondary" do %>
-				<%= image_tag "icons/user.svg", :class => "usernav-icon" %>
+				<img src="<%= image_path("icons/user.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/user.png") %>'">
 				<%= t "views.navigation.edit_profile" %>
 			<% end %>
 			<%= link_to destroy_user_session_path, method: :delete, :class => "usernav-item is-secondary"  do %>
-				<%= image_tag "icons/sign-out.svg", :class => "usernav-icon" %>
+				<img src="<%= image_path("icons/sign-out.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/sign-out.png") %>'">
 				<%= t "views.navigation.log_out" %>
 			<% end %>
 		<% else %>
 
 			<%= link_to new_user_registration_path, :class => "usernav-item is-secondary"  do %>
-				<%= image_tag "icons/user.svg", :class => "usernav-icon" %>
+				<img src="<%= image_path("icons/user.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/user.png") %>'">
 				<%= t "views.navigation.sign_up" %>
 			<% end %>
 
 			<%= link_to new_user_session_path, :class => "usernav-item is-secondary"  do %>
-				<%= image_tag "icons/sign-in.svg", :class => "usernav-icon" %>
+				<img src="<%= image_path("icons/sign-in.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/sign-in.png") %>'">
 				<%= t "views.navigation.login" %>
 			<% end %>
 
