@@ -7,7 +7,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	overflow: hidden;
 	@include transition(opacity 300ms ease-in-out);
 
-	@include mq($from: desktop) {
+	@include mq($from: large) {
 		height: 400px;
 		margin: 0 0 $margin;
 		opacity: 1;
@@ -78,7 +78,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	padding: $padding;
 	height: $positionMapBarHeight;
 
-	// @include mq($from: tablet) {
+	// @include mq($from: medium) {
 	// 	padding: $padding;
 	// }
 
@@ -124,23 +124,23 @@ $positionMapBarHeight: $controlHeight + 20px;
 	right: 0;
 	bottom: 104px;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		bottom: $positionMapBarHeight;
 	}
 }
 
 .positionmap-toggle {
 
-	&.is-mobile {
-		@include mq($from: desktop) {
+	&.is-small {
+		@include mq($from: large) {
 			display: none !important;
 		}
 	}
 
-	&.is-desktop {
+	&.is-large {
 		display: none !important;
 
-		@include mq($from: desktop) {
+		@include mq($from: large) {
 			display: inline-block !important;
 		}
 	}
@@ -159,7 +159,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	@include transition(margin 300ms ease-in-out);
 	@include clearfix();
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		height: $positionMapBarHeight;
 	}
 
@@ -168,7 +168,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 			margin-bottom: 0;
 		}
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			margin: 0;
 		}
 	}
@@ -179,7 +179,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 	margin-bottom: $margin;
 	text-align: center;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		width: 70%;
 		float: left;
 		line-height: $controlHeight;
@@ -189,7 +189,7 @@ $positionMapBarHeight: $controlHeight + 20px;
 .positionmap-actions-button {
 	display: none;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		width: 30%;
 		float: right;
 		text-align: right;

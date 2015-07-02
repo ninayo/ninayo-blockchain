@@ -19,8 +19,8 @@
 	display: block;
 }
 
-.mobile-only {
-	@include mq($from: tablet) {
+.small-only {
+	@include mq($from: medium) {
 		display: none !important;
 	}
 }

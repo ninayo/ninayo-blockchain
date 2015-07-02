@@ -1,5 +1,42 @@
 .datatable {
 	margin: 0 0 $padding;
+	border-collapse: collapse;
+
+	&.is-fullwidth {
+		width: 100%;
+	}
+
+	&.is-admin {
+
+		tbody {
+			td, th {
+				border-top: 1px solid $lightGrey;
+			}
+
+			tr:first-child {
+				td, th {
+					border-top: 3px solid $black;
+				}
+			}
+		}
+		tfoot {
+			td, th {
+				border-top: 3px solid $black;
+				font-weight: bold;
+			}
+		}
+	}
+
+	legend {
+		display: block;
+		text-transform: uppercase;
+		border-bottom: 1px solid $black;
+	}
+
+	td, th {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
 
 	th {
 		padding-right: 10px;

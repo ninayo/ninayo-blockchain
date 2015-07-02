@@ -14,7 +14,7 @@
 		//left: 40px;
 		//z-index: -1;
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			//right: $padding;
 			//left: $padding;
 		}
@@ -31,7 +31,7 @@
 				right: 6px;
 			}
 
-			@include mq($from: tablet) {
+			@include mq($from: medium) {
 				top: $padding;
 			}
 		}
@@ -47,7 +47,7 @@
 	}
 
 	&.is-block {
-		@include mq($until: tablet) {
+		@include mq($until: medium) {
 			.pagenav-buttongroup {
 				float: none;
 			}

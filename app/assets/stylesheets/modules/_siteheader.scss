@@ -10,7 +10,7 @@
 	height: $siteheaderHeight;
 	text-align: right;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding: 0 $padding;
 	}
 
@@ -29,7 +29,7 @@
 	color: $black;
 	text-decoration: none;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		left: $padding;
 	}
 }
@@ -40,7 +40,7 @@
 	height: $siteheaderHeight - 20px;
 	width: auto;
 
-	@include mq($from: mobile) {
+	@include mq($from: small) {
 		display: block;
 	}
 }
@@ -52,7 +52,7 @@
 	margin: -10px 0;
 
 
-	@include mq($from: mobile) {
+	@include mq($from: small) {
 		display: none;
 	}
 }
@@ -64,7 +64,7 @@
 	display: inline-block;
 	padding: 12px $halfPadding;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding: 12px $padding 12px ($padding - 2px);
 	}
 

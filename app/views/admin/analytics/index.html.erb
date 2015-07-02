@@ -1,0 +1,92 @@
+<h1>Dashboard</h1>
+
+<div class="grid">
+	<div class="grid-column-4">
+		<h4>Ads</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<td class="text-right"><%= @ads.count %></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<th>Drafts</th>
+					<td class="text-right"><%= @ads.draft.count %></td>
+				</tr>
+				<tr>
+					<th>Published</th>
+					<td class="text-right"><%= @ads.published.count %></td>
+				</tr>
+				<tr>
+					<th>Archived</th>
+					<td class="text-right"><%= @ads.archived.count %></td>
+				</tr>
+				<tr>
+					<th>Deleted</th>
+					<td class="text-right"><%= @ads.deleted.count %></td>
+				</tr>
+				<tr>
+					<th>Rejected</th>
+					<td class="text-right"><%= @ads.rejected.count %></td>
+				</tr>
+
+				<tr>
+					<th>Spam</th>
+					<td class="text-right"><%= @ads.spam.count %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="grid-column-4">
+		<h4>User success</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tbody>
+				<tr>
+					<th>Users</th>
+					<td class="text-right"><%= @users.user.count %></td>
+				</tr>
+				<tr>
+					<th>VIP</th>
+					<td class="text-right"><%= @users.vip.count %></td>
+				</tr>
+				<tr>
+					<th>Admin</th>
+					<td class="text-right"><%= @users.admin.count %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="grid-column-4">
+		<h4>Users</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<td class="text-right"><%= @users.count %></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<th>Users</th>
+					<td class="text-right"><%= @users.user.count %></td>
+				</tr>
+				<tr>
+					<th>VIP</th>
+					<td class="text-right"><%= @users.vip.count %></td>
+				</tr>
+				<tr>
+					<th>Admin</th>
+					<td class="text-right"><%= @users.admin.count %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+

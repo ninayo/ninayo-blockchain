@@ -33,7 +33,7 @@ a.button,
 		display: block;
 		width: 100%;
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			display: inline-block;
 			width: auto;
 		}

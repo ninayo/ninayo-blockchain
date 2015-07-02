@@ -1,0 +1,8 @@
+@function calculateRem($size) {
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@function calculateColumnsWidth($count) {
+	@return $count * (100 / 12) + 0%;
+}

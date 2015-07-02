@@ -9,7 +9,7 @@
 	@include transition(bottom 300ms ease-in-out);
 	box-shadow: 0 0 30px rgba(black, .2);
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		right: $filterWidth;
 	}
 

@@ -30,7 +30,7 @@
 		margin-right: 0;
 	}
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		display: inline-block;
 
 		&.is-next,

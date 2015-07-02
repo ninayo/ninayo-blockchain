@@ -25,7 +25,7 @@
 	max-width: $maxWidth;
 	padding: $padding $halfPadding;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding: $padding;
 	}
 
@@ -35,20 +35,20 @@
 }
 
 .sitefooter-row {
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		@include clearfix();
 	}
 }
 
 .sitefooter-first {
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		float: left;
 		width: 70%;
 	}
 }
 
 .sitefooter-second {
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		float: right;
 		width: 30%;
 		text-align: right;
@@ -58,7 +58,7 @@
 .sitefooter-copy {
 	margin-top: $padding;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		text-align: right;
 		margin-top: 0;
 	}

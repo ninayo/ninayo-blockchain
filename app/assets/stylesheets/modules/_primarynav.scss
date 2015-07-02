@@ -2,7 +2,7 @@
 	height: $siteheaderHeight;
 	display: none;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		display: inline-block;
 		vertical-align: middle;
 	}
@@ -36,10 +36,10 @@
 	vertical-align: middle;
 	margin: (($siteheaderHeight - $controlHeight) / 2) 40px 0 $padding !important;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		margin-right: 70px !important;
 	}
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		margin-top: 0 !important;
 	}
 }

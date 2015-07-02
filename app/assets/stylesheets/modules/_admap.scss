@@ -9,7 +9,7 @@ $panelHeight: 180px;
 	bottom: 0;
 	@include transition(padding 300ms ease-in-out);
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding-right: $filterWidth;
 	}
 

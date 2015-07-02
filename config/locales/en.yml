@@ -139,6 +139,7 @@ en:
       log_out: "Log out"
       sign_up: "Sign up"
       login: "Login"
+      dashboard: "Dashboard"
 
     create_account:
       heading: "Create an account"

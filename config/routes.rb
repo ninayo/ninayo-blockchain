@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  
 
   scope "(:locale)", locale: /en|sw/ do
+
+    namespace "admin" do
+      root :to => "analytics#index"
+      resources :analytics
+    end
 
     resources :ads do
       put :favorite

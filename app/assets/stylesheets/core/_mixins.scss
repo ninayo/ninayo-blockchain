@@ -3,3 +3,45 @@
 	&:before, &:after { content: " "; display: table; }
 	&:after { clear: both; }
 }
+
+@mixin grid-row($gutter: $padding) {
+	//margin: 0 (-0.5 * $gutter) $negativePadding;
+	margin: 0 (-0.5 * $gutter);
+	@include clearfix();
+}
+
+@mixin grid-column($count: 12, $margin: $padding, $gutter: $padding) {
+	float: left;
+	width: 100%;
+	min-height: 1px;
+	position: relative;
+	padding: 0 $gutter / 2;
+	clear: none;
+	width: calculateColumnsWidth($count);
+	margin-bottom: $margin;
+
+	@if $count == 12 {
+		float: none;
+		width: 100%;
+		clear: both;
+	}
+}
+
+@mixin grid-push($count) {
+	margin-left: calculateColumnsWidth($count);
+}
+
+
+
+@mixin grid-reset() {
+	float: none;
+	width: 100%;
+}
+
+@mixin grid-centered() {
+	display: block !important;
+	float: none !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	clear: both !important;
+}

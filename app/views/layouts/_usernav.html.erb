@@ -13,17 +13,23 @@
 
 		<% if I18n.locale == :sw %>
 			<%= link_to({locale: "en"}, class: "usernav-item is-secondary") do %>
-				<img src="<%= image_path("icons/languagexx.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/language.png") %>'">
+				<img src="<%= image_path("icons/language.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/language.png") %>'">
 				English
 			<% end %>
 		<% elsif I18n.locale == :en %>
 			<%= link_to({locale: "sw"}, class: "usernav-item is-secondary") do %>
-				<img src="<%= image_path("icons/languagexx.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/language.png") %>'">
+				<img src="<%= image_path("icons/language.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/language.png") %>'">
 				Swahili
 			<% end %>
 		<% end %>
 
 		<% if user_signed_in? %>
+			<% if current_user.admin? %>
+				<%= link_to admin_analytics_path, :class => "usernav-item is-secondary" do %>
+					<img src="<%= image_path("icons/tachometer.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/tachometer.png") %>'">
+					<%= t "views.navigation.dashboard" %>
+				<% end %>
+			<% end %>
 			<%= link_to edit_user_registration_path, :class => "usernav-item is-secondary" do %>
 				<img src="<%= image_path("icons/user.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/user.png") %>'">
 				<%= t "views.navigation.edit_profile" %>

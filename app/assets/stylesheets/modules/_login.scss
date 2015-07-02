@@ -1,5 +1,5 @@
 .login {
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		margin: 0 $negativePadding;
 		@include clearfix();
 	}
@@ -13,7 +13,7 @@
 		border-bottom: 1px solid $lightGrey;
 	}
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		float: left;
 		width: 50%;
 		padding: 0 $padding;

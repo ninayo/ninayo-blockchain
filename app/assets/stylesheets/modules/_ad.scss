@@ -3,7 +3,7 @@
 }
 
 
-@include mq($from: tablet) {
+@include mq($from: medium) {
 	.ad-main {
 		float: left;
 		width: 70%;
@@ -52,7 +52,7 @@
 	&.is-active {
 		display: block;
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			display: inline-block;
 			vertical-align: middle;
 			margin-bottom: 5px;

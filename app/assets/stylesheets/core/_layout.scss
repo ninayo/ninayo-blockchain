@@ -33,7 +33,7 @@ body {
 		height: $siteFooterHeight;
 	}
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding: $padding;
 	}
 

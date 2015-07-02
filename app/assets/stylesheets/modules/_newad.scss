@@ -8,7 +8,7 @@
 	margin-bottom: $padding;
 
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		float: left;
 		width: 70%;
 		border-right: 1px solid $lightGrey;
@@ -21,7 +21,7 @@
 }
 
 .newad-content {
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		float: left;
 		width: 30%;
 		border-left: 1px solid $lightGrey;

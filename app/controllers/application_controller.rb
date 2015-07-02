@@ -45,4 +45,14 @@ class ApplicationController < ActionController::Base
 		devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:email, :password, :remember_me) }
 		devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :name, :phone_number, :region_id, :village, :language, :lat, :lng, :language, :agreement) }
 	end
+
+	def admin_user?
+		current_user && current_user.admin?
+	end
+	helper_method :admin_user?
+
+	def vip_user?
+		current_user && (current_user.vip? || current_user.admin?)
+	end
+	helper_method :vip_user?
 end

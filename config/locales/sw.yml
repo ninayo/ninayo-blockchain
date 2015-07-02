@@ -116,6 +116,7 @@ sw:
       log_out: "kutoka"
       sign_up: "Jisajili"
       login: "Ingia"
+      dashboard: "Dashboard"
 
 
     create_account:

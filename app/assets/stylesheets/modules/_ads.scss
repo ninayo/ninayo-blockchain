@@ -6,13 +6,13 @@
 	min-height: 640px;
 	@include transition(padding 300ms ease-in-out);
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding-right: $filterWidth;
 	}
 }
 
 // .wrapper.show-filter .ads-wrapper {
-// 	@include mq($from: tablet) {
+// 	@include mq($from: medium) {
 // 		padding-right: $filterWidth;
 // 	}
 // }
@@ -20,7 +20,7 @@
 .ads {
 	margin: 0 $negativeHalfPadding;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		margin: 0;
 	}
 
@@ -39,7 +39,7 @@
 	padding: $padding $halfPadding;
 	border-bottom: 1px solid #ccc;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		padding: $padding;
 	}
 
@@ -77,7 +77,7 @@
 	font-weight: bold;
 	color: $black;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		right: 0;
 		padding: $padding;
 	}
@@ -139,7 +139,7 @@
 			padding-bottom: $padding;
 		}
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			padding: $padding $halfPadding;
 
 			&:first-of-type {
@@ -153,7 +153,7 @@
 		&.text-right {
 			text-align: right;
 
-			@include mq($until: tablet) {
+			@include mq($until: medium) {
 				text-align: left;
 			}
 		}
@@ -162,7 +162,7 @@
 	.is-buttonrow {
 		padding-top: $padding;
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			width: 190px;
 			max-width: 190px;
 			min-width: 190px;

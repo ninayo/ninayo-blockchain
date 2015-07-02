@@ -32,10 +32,10 @@ $mq-responsive: true !default;
 /// @type Map
 /// @link https://github.com/sass-mq/sass-mq#seeing-the-currently-active-breakpoint Full documentation and examples
 $mq-breakpoints: (
-    mobile:  320px,
-    tablet:  740px,
-    desktop: 980px,
-    wide:    1300px
+    small: 320px,
+    medium: 740px,
+    large: 980px,
+    wide: 1300px
 ) !default;
 
 /// Static breakpoint (for fixed-width layouts)
@@ -45,24 +45,24 @@ $mq-breakpoints: (
 /// (i.e. when $mq-responsive is set to 'false') in a old-ie.scss
 ///
 /// @example scss
-///  // tablet-only.scss
+///  // medium-only.scss
 ///  //
-///  // Ignore all styles above tablet breakpoint,
-///  // and fix the styles (e.g. layout) at tablet width
+///  // Ignore all styles above medium breakpoint,
+///  // and fix the styles (e.g. layout) at medium width
 ///  $mq-responsive: false;
-///  $mq-static-breakpoint: tablet;
-///  @include 'main'; // @media queries in this file will be rasterized up to tablet
+///  $mq-static-breakpoint: medium;
+///  @include 'main'; // @media queries in this file will be rasterized up to medium
 ///                   // larger breakpoints will be ignored
 ///
 /// @type String
 /// @link https://github.com/sass-mq/sass-mq#adding-custom-breakpoints Full documentation and examples
-$mq-static-breakpoint: desktop !default;
+$mq-static-breakpoint: large !default;
 
 /// Show breakpoints in the top right corner
 ///
 /// If you want to display the currently active breakpoint in the top
 /// right corner of your site during development, add the breakpoints
-/// to this list, ordered by width, e.g. (mobile, tablet, desktop).
+/// to this list, ordered by width, e.g. (small, medium, large).
 ///
 /// @type map
 $mq-show-breakpoints: () !default;
@@ -100,8 +100,8 @@ $mq-media-type: all !default;
 /// @param {String} $name - Name of the breakpoint. One of $mq-breakpoints
 ///
 /// @example scss
-///  $tablet-width: mq-get-breakpoint-width(tablet);
-///  @media (min-width: mq-get-breakpoint-width(desktop)) {}
+///  $medium-width: mq-get-breakpoint-width(medium);
+///  @media (min-width: mq-get-breakpoint-width(large)) {}
 ///
 /// @requires {Variable} $mq-breakpoints
 ///
@@ -137,22 +137,22 @@ $mq-media-type: all !default;
 ///
 /// @example scss
 ///  .element {
-///    @include mq($from: mobile) {
+///    @include mq($from: small) {
 ///      color: red;
 ///    }
-///    @include mq($until: tablet) {
+///    @include mq($until: medium) {
 ///      color: blue;
 ///    }
-///    @include mq(mobile, tablet) {
+///    @include mq(small, medium) {
 ///      color: green;
 ///    }
-///    @include mq($from: tablet, $and: '(orientation: landscape)') {
+///    @include mq($from: medium, $and: '(orientation: landscape)') {
 ///      color: teal;
 ///    }
 ///    @include mq(950px) {
 ///      color: hotpink;
 ///    }
-///    @include mq(tablet, $media-type: screen) {
+///    @include mq(medium, $media-type: screen) {
 ///      color: hotpink;
 ///    }
 ///    // Advanced use:

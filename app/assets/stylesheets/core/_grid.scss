@@ -1,0 +1,20 @@
+@include mq($from: medium) {
+
+	.grid {
+		@include grid-row();
+
+		&.no-margin {
+			[class*=grid-column] {
+				margin: 0;
+			}
+		}
+	}
+	$columns: 12;
+
+	@for $i from 1 through $columns {
+		.grid-column-#{$i} {
+			@include grid-column($i);
+		}
+	}
+
+}

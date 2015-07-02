@@ -17,7 +17,7 @@
 	@include transition(right 300ms ease-in-out);
 	@include box-shadow(0 0 20px rgba(black, .7));
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		width: $filterWidth;
 		right: $negativePadding;
 		@include box-shadow(none);
@@ -29,7 +29,7 @@
 	.pagenav {
 		padding-bottom: $halfPadding;
 
-		@include mq($from: tablet) {
+		@include mq($from: medium) {
 			padding-bottom: $padding;
 		}
 	}
@@ -39,7 +39,7 @@
 .wrapper.show-filter .ads-wrapper .filter {
 	right: $negativeHalfPadding;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		right: $negativePadding;
 	}
 	@include mq($from: wide) {
@@ -48,7 +48,7 @@
 
 }
  .map .filter {
- 	@include mq($from: tablet) {
+ 	@include mq($from: medium) {
 		right: 0;
 	}
  }
@@ -66,7 +66,7 @@
 	margin: 0 0 3px;
 	font-weight: normal;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		font-size: 16px;
 	}
 }
@@ -74,7 +74,7 @@
 .filter-field {
 	margin: 0 0 $halfPadding;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		margin: 0 0 $padding;
 	}
 }
@@ -84,7 +84,7 @@
 }
 
 a.filter-toggle {
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		display: none;
 	}
 }
@@ -106,7 +106,7 @@ a.filter-toggle {
 		opacity: 1;
 	}
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		display: none;
 	}
 }

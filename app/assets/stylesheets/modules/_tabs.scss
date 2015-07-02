@@ -6,7 +6,7 @@ $tabActiveBackgroundColor: #ccc;
 	@include clearfix();
 	border-bottom: 3px solid $tabActiveBackgroundColor;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		margin: 0 0 $margin;
 	}
 }
@@ -22,7 +22,7 @@ $tabActiveBackgroundColor: #ccc;
 	text-align: center;
 	background-color: $tabBackgroundColor;
 
-	@include mq($from: tablet) {
+	@include mq($from: medium) {
 		width: auto;
 	}
 
