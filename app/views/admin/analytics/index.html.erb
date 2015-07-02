@@ -41,21 +41,27 @@
 		</table>
 	</div>
 	<div class="grid-column-4">
-		<h4>User success</h4>
+		<h4>Ad feedback</h4>
 
 		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th></th>
+					<td class="text-right"></td>
+				</tr>
+			</tfoot>
 			<tbody>
 				<tr>
-					<th>Users</th>
-					<td class="text-right"><%= @users.user.count %></td>
+					<th>Ads with final_price</th>
+					<td class="text-right"><%= @ads.where.not(:final_price =>  nil).count %></td>
 				</tr>
 				<tr>
-					<th>VIP</th>
-					<td class="text-right"><%= @users.vip.count %></td>
+					<th>Ads with registered buyer</th>
+					<td class="text-right"><%= @ads.where.not(:buyer_id =>  nil).count %></td>
 				</tr>
 				<tr>
-					<th>Admin</th>
-					<td class="text-right"><%= @users.admin.count %></td>
+					<th>Ads with buyer_price</th>
+					<td class="text-right"><%= @ads.where.not(:buyer_price =>  nil).count %></td>
 				</tr>
 			</tbody>
 		</table>
