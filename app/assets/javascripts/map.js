@@ -74,9 +74,9 @@
 			}
 		});
 
-		google.maps.event.addListener(map, 'zoom_changed', function() {
-			console.log('zoomLevel', map.getZoom())
-		})
+		// google.maps.event.addListener(map, 'zoom_changed', function() {
+		// 	console.log('zoomLevel', map.getZoom())
+		// })
 
 		// google.maps.event.addDomListener(map, 'tilesloaded', function(){
 		// 	if($('.map-controls').length == 0){
