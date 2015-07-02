@@ -15,5 +15,5 @@
 //= require rails.validations
 //= require lib/jquery.cookie.js
 //= require lib/tablesaw.js
-//= require lib/markerclusterer.js
+//= require lib/markerclustererplus.js
 //= require_tree .

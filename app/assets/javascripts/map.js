@@ -74,6 +74,10 @@
 			}
 		});
 
+		google.maps.event.addListener(map, 'zoom_changed', function() {
+			console.log('zoomLevel', map.getZoom())
+		})
+
 		// google.maps.event.addDomListener(map, 'tilesloaded', function(){
 		// 	if($('.map-controls').length == 0){
 		// 		$('div.gmnoprint').last().parent().wrap('<div class="map-controls" />');
@@ -108,7 +112,7 @@
 			markers.push(marker);
 		}
 
-		mc = new MarkerClusterer(map, markers);
+		mc = new MarkerClusterer(map, markers, { maxZoom: 14, minimumClusterSize: 4 });
 	};
 
 	var createMarker = function(data) {
