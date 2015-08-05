@@ -79,6 +79,7 @@ en:
   volume_unit:
     bucket: "buckets"
     sack: "sacks"
+    kg: "kg"
 
   volume_units:
     bucket:
@@ -89,6 +90,10 @@ en:
       zero: "no sacks"
       one: "1 sack"
       other: "%{count} sacks"
+    kg:
+      zero: "0 kg"
+      one: "1 kg"
+      other: "%{count} kg"
 
   common:
     back: "Back"

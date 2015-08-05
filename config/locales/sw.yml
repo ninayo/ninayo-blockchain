@@ -60,6 +60,7 @@ sw:
   volume_unit:
     bucket: "ndoo"
     sack: "magunia"
+    kg: "kilo"
 
   volume_units:
     bucket:
@@ -70,6 +71,10 @@ sw:
       zero: "sifuri gunia"
       one: "1 gunia"
       other: "%{count} magunia"
+    kg:
+      zero: "kilo"
+      one: "kilo"
+      other: "kilo"
 
   common:
     back: "Nyuma"
