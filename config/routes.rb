@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
     namespace "admin" do
       root :to => "analytics#index"
-      resources :analytics
+      get 'analytics/index' => 'analytics#index', as: :analytics
+      get 'analytics/ads-per-day' => 'analytics#ads_per_day', as: :ads_per_day
     end
 
     resources :ads do

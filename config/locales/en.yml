@@ -65,7 +65,7 @@ en:
         email: "Email"
         password: "Password"
         password_confirmation: "Password confirmation"
-        current_password: "current_password"
+        current_password: "Current password"
         phone_number: "Phone number"
         role: "Role"
         village: "Village"

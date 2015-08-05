@@ -1,0 +1,18 @@
+<h4>Transactions per day</h4>
+
+<table class="datatable is-admin is-fullwidth">
+	<thead>
+		<tr>
+			<th>Archive date</th>
+			<th class="text-right">Number of ads</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @transactions_per_day.each do |a| -%>
+		<tr>
+			<td><%= a.ad_date %></td>
+			<td class="text-right"><%= a.ad_count %></td>
+		</tr>
+		<% end -%>
+	</tbody>
+</table>

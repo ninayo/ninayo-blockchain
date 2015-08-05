@@ -98,6 +98,14 @@ class Ad < ActiveRecord::Base
 		end
 	end
 
+	def self.ads_per_day
+		select("date(published_at) as ad_date, count(*) as ad_count").group("date(published_at)").order("date(published_at)")
+	end
+
+	def self.transactions_per_day
+		select("date(archived_at) as ad_date, count(*) as ad_count").where("status = 2").group("date(archived_at)").order("date(archived_at)")
+	end
+
 protected
 
 	def adjust_price
