@@ -96,6 +96,7 @@ sw:
     loading_content: "Upakaji maudhui"
     english: "Kiingereza"
     swahili: "Kiswahili"
+    per_unit: "ya moja"
 
     errors:
       zero: "hakuna makosa"

@@ -115,6 +115,7 @@ en:
     loading_content: "Loading content"
     english: "English"
     swahili: "Swahili"
+    per_unit: "per unit"
 
     errors:
       zero: "no errors"

@@ -18,7 +18,7 @@
 			<div class="ads-location">
 				<%= ad.village %>, <%= ad.region.name %>
 			</div>
-			<span class="ads-price"><%= number_to_currency(ad.price) %></span>
+			<span class="ads-price"><%= number_to_currency(ad.price) %> <%= t "common.per_unit" %></span>
 		</a>
 	<% end %>
 </div>
