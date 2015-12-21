@@ -64,28 +64,35 @@
 }
 
 .ads-heading {
-	@extend .h5;
+	@extend .h4;
 	margin: 0 0 5px;
 	color: $linkTextColor;
 }
 
 .ads-price {
-	position: absolute;
-	bottom: $padding;
-	right: $halfPadding;
 	font-size: $baseFontSize * 1.1;
+	color: $mediumGrey;
+	margin: -2px 0 15px;
+	font-size: 0.875em;
 	font-weight: bold;
-	color: $black;
 
-	@include mq($from: medium) {
+	@include mq($from: large) {
+		position: absolute;
+		bottom: $padding;
 		right: 0;
+		margin: 0;
 		padding: $padding;
+		font-size: 1em;
 	}
 
 	@include mq($from: wide) {
 		//padding: $padding $doublePadding;
 	}
 
+}
+
+.ads-location {
+	font-size: 0.750em;
 }
 
 .ads-actions {
@@ -100,7 +107,7 @@
 	
 }
 .ads-meta {
-	font-size: 12px;
+	font-size: 0.750em;
 	color: #999;
 	margin-bottom: 2px;
 

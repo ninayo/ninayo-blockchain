@@ -1,6 +1,6 @@
 body {
 	font-family: $bodyFont;
-	//font-size: $baseFontSize;
+	font-size: 100%;
 	line-height: 1.4;
 	color: $black;
 }
@@ -16,6 +16,7 @@ h1 {
 
 p {
 	margin: 0 0 $margin;
+	font-size: 1em;
 }
 
 a {
@@ -36,10 +37,6 @@ hr {
 	border: none;
 	border-top: 1px solid $lightGrey;
 	margin: $margin 0;
-}
-
-body {
-	font-size: 100%;
 }
 
 body, caption, th, td, input, textarea, select, option, legend, fieldset, h1, h2, h3, h4, h5, h6 {
