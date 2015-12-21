@@ -11,7 +11,7 @@
 	<%= simple_format(@ad.description) %>
 </div>
 <p>
-	<%= t "common.price" %>: <%= number_to_currency(@ad.price)%>
+	<%= t "common.price" %>: <%= number_to_currency(@ad.price, precision: 0)%>
 </p>
 
 <!-- <p><%#= link_to("Show ad", ad_path(@ad))%></p> -->

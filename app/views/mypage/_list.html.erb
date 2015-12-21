@@ -51,9 +51,9 @@
 					</span>
 				</td>
 			<% end -%>
-			<td class="text-right"><%= number_to_currency(ad.price) %></td>
+			<td class="text-right"><%= number_to_currency(ad.price, precision: 0) %></td>
 			<% if current_view == "sold_ads" -%>
-				<td class="text-right"><%= number_to_currency(ad.final_price) %></td>
+				<td class="text-right"><%= number_to_currency(ad.final_price, precision: 0) %></td>
 				<td>
 					<% if ad.buyer -%>
 					<span class="rating" data-score="<%= ad.user.buyer_rating.round(0) %>">
@@ -70,7 +70,7 @@
 				</td>
 			<% end -%>
 			<% if current_view == "bought_ads" -%>
-				<td class="text-right"><%= number_to_currency(ad.buyer_price)  %></td>
+				<td class="text-right"><%= number_to_currency(ad.buyer_price, precision: 0)  %></td>
 			<% end -%>
 			<td><%= l(ad.published_at, format: :short) %></td>
 			<% if current_view == "sold_ads" -%>

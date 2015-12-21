@@ -2,7 +2,7 @@
 <table class="datatable">
 	<tr>
 		<th><%= t "common.price" %>:</th>
-		<td><%= number_to_currency(@ad.price)%></td>
+		<td><%= number_to_currency(@ad.price, precision: 0)%></td>
 	</tr>
 	<tr>
 		<th><%= t "common.volume" %>:</th>
