@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.2.3'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -7,8 +7,11 @@ gem 'rails', '~> 4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-gem 'compass-rails'
+gem 'sass-rails', '~> 5.0.1'
+# gem 'compass-rails'
+gem 'compass', '1.0.3'
+gem 'compass-rails', '2.0.4'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

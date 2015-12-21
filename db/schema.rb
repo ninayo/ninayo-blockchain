@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20150521074806) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name_sw"
-    t.boolean  "is_other"
     t.integer  "sort_order"
   end
 
@@ -142,7 +141,6 @@ ActiveRecord::Schema.define(version: 20150521074806) do
   add_foreign_key "ad_logs", "users"
   add_foreign_key "ads", "crop_types"
   add_foreign_key "ads", "regions"
-  add_foreign_key "ads", "users"
   add_foreign_key "ads", "users"
   add_foreign_key "favorite_ads", "ads"
   add_foreign_key "favorite_ads", "users"
