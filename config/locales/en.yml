@@ -31,8 +31,8 @@ en:
     attributes:
       ad:
         description: "Description"
-        price: "Price"
-        volume: "Volume"
+        price: "Price per unit"
+        volume: "Amount for sale"
         volume_unit: "Unit"
         village: "Village"
         crop_type: "Crop type"
@@ -122,8 +122,8 @@ en:
       other: "%{count} errors"
 
     facts: "Facts"
-    price: "Price"
-    volumne: "Volume"
+    price: "Price per unit"
+    volumne: "Amount for sale"
     published: "Published"
 
     min: "Min"
@@ -153,7 +153,7 @@ en:
       characters_minimum: "characters minimum"
       agreement_text_1: "I agree to Ninayo’s"
       agreement_text_2: "Terms of use"
-      
+
       sidebar:
         heading: "Don’t have an account?"
         text: "Join now and you can:"
@@ -182,8 +182,8 @@ en:
       crop_type: "Crop type"
       region: "Region"
       village: "Village"
-      volume: "Volume"
-      price: "Price"
+      volume: "Amount for sale"
+      price: "Price per unit"
       crop: "Crop"
       lat: "Latitude"
       lng: "Longitude"
@@ -303,7 +303,7 @@ en:
         title: "Title"
         seller: "Seller"
         buyer: "Buyer"
-        price: "Price"
+        price: "Price per unit"
         final_price: "Final price"
         published: "Published"
         archived: "Archived"

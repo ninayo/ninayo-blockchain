@@ -12,8 +12,8 @@ sw:
     attributes:
       ad:
         description: "Maelezo"
-        price: "Bei"
-        volume: "Ujazo"
+        price: "Bie ya moja"
+        volume: "Ujazo zote unauza"
         volume_unit: "unit"
         village: "Kijiji"
         crop_type: "Aina ya zao"
@@ -103,8 +103,8 @@ sw:
       other: "makosa %{count}"
 
     facts: "Ukweli"
-    price: "Bei"
-    volumne: "Ujazo"
+    price: "Bie ya moja"
+    volumne: "Ujazo zote unauza"
     published: "Tolewa"
 
     min: "Ndogo"
@@ -160,8 +160,8 @@ sw:
       crop_type: "aina ya zao"
       region: "Mkoa"
       village: "Kijiji"
-      volume: "Ujazo"
-      price: "bei"
+      volume: "Ujazo zote unauza"
+      price: "Bie ya moya"
       crop: "zao"
       lat: "Latitudo"
       lng: "Longitudo"
@@ -283,7 +283,7 @@ sw:
         title: "Cheo"
         seller: "muuzaji"
         buyer: "Mnunuzi"
-        price: "Bei"
+        price: "Bie ya moja"
         final_price: "Bei ya mwisho"
         published: "Tolewa"
         archived: "Hifadhiwa"
