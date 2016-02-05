@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
 	after_create :send_welcome_email
 	has_many :ads
+	has_many :user_logs
 	accepts_nested_attributes_for :ads
 
 	has_many :ad_logs

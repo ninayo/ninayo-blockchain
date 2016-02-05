@@ -95,3 +95,27 @@
 		</table>
 	</div>
 </div>
+
+
+<div class="grid">
+	<div class="grid-column-4">
+		<h4>Unique log ins per day</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<td class="text-right"><%= @ads.count %></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<th>2015-02-02</th>
+					<td class="text-right">5</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<p><%= link_to "Ads per day", admin_ads_per_day_path %></p>
+	</div>
+</div>

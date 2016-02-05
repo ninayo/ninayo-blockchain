@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     get 'mypage/favorites' => 'mypage#favorites', as: :mypage_favorites
     get 'mypage/archive' => 'mypage#archive', as: :mypage_archive
 
-    devise_for :users
+    devise_for :users, :controllers => { :sessions => "track_sessions" }
     # The priority is based upon order of creation: first created -> highest priority.
     # See how all your routes lay out with "rake routes".
   end
