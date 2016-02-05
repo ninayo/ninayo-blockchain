@@ -10,4 +10,8 @@ class Admin::AnalyticsController < Admin::BaseController
 		@ads_per_day = Ad.ads_per_day
 		@transactions_per_day = Ad.transactions_per_day
 	end
+
+	def logins_per_day
+		@logins_per_day = UserLog.logins_per_day
+	end
 end

@@ -1,0 +1,25 @@
+<div class="grid">
+	<div class="grid-column-6">
+		<h4>Unique logins per day</h4>
+		<table class="datatable is-admin is-fullwidth">
+			<thead>
+				<tr>
+					<th>Login date</th>
+					<th class="text-right">Logins</th>
+					<th class="text-right">Unique logins</th>
+					
+				</tr>
+			</thead>
+			<tbody>
+				<% ((DateTime.now. - 30.days).to_date..(DateTime.now.to_date)).each do |date| -%>
+				<tr>
+					<td><%= date %></td>
+					<td class="text-right"><%= UserLog.where(:created_at => date..date.end_of_day).count %></td>
+					<td class="text-right"><%= UserLog.where(:created_at => date..date.end_of_day).select("distinct user_id").count %></td>
+				</tr>
+				<% end -%>
+			</tbody>
+		</table>
+	</div>
+	
+</div>
