@@ -13,7 +13,7 @@ class Admin::AnalyticsController < Admin::BaseController
 
 	def logins_per_day
 		@logins_per_day = UserLog.logins_per_day
-		if [:start_date]
+		if params[:start_date]
 			@start_date = params[:start_date].to_date
 		else
 			@start_date = (DateTime.now - 30.days).to_date
