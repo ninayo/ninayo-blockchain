@@ -31,6 +31,10 @@ select {
 	&.is-small {
 		width: 180px;
 	}
+
+	&.is-date {
+		width: 140px;
+	}
 }
 
 // Custom Select Input
@@ -137,6 +141,12 @@ fieldset {
 
 .field {
 	margin-bottom: $halfPadding;
+
+	&.has-inline_fields {
+		input, textarea, select, button, .button {
+			margin-bottom: 5px;
+		}
+	}
 
 
 }

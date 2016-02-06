@@ -8,6 +8,15 @@
 
 	&.is-admin {
 
+		thead {
+			th {
+				padding-right: 2px;
+				text-transform: none;
+				font-weight: bold;
+				font-size: 15px;
+			}			
+		}
+
 		tbody {
 			td, th {
 				border-top: 1px solid $lightGrey;

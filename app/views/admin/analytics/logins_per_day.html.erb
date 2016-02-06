@@ -1,18 +1,27 @@
+<ul class="breadcrumbs">
+	<li class="breadcrumbs-item">
+		<%= link_to("Dashboard", admin_analytics_path) %>
+	</li>
+	<li class="breadcrumbs-item is-current">
+		<%= link_to("Logins per day", admin_logins_per_day_path) %>
+	</li>
+</ul>
+
+<h2>Logins per day</h2>
+
+<form action="" class="has-margin form-filter">
+	<div class="field has-inline_fields">
+		<label for="start_date" class="field-label">Datespan</label>
+		<input type="date" name="start_date" id="start_date" value="<%= @start_date %>" class="is-inline is-date">
+		-
+		<input type="date" name="end_date" id="end_date" value="<%= @end_date %>" class="is-inline is-date">
+		<button class="button">Update</button>
+	</div>
+	<p class="field-hint"><strong>Hint:</strong> Long date spans can take a while to load. First date with data is 2016-02-06.</p>
+</form>
+
 <div class="grid">
 	<div class="grid-column-6">
-		<h4>Unique logins per day</h4>
-
-		<form action="" class="has-margin form-filter">
-			<div class="field">
-				<label for="start_date" class="field-label">Datespan</label>
-				<input type="date" name="start_date" id="start_date" value="<%= @start_date %>" class="is-inline">
-				-
-				<input type="date" name="end_date" id="end_date" value="<%= @end_date %>" class="is-inline">
-				<button class="button">Update</button>
-			</div>
-			<p class="field-hint"><strong>Hint:</strong> Long date spans can take a while to load</p>
-		</form>
-
 		<table class="datatable is-admin is-fullwidth">
 			<thead>
 				<tr>
@@ -22,6 +31,13 @@
 					
 				</tr>
 			</thead>
+			<tfoot>
+				<tr>
+					<th>Totalt</th>
+					<td class="text-right"><%= UserLog.where(:created_at => @start_date..@end_date.end_of_day).count %></td>
+					<td class="text-right"><%= UserLog.where(:created_at => @start_date..@end_date.end_of_day).select("distinct user_id").count %></td>
+				</tr>
+			</tfoot>
 			<tbody>
 				<% (@start_date.to_date..@end_date).each do |date| -%>
 				<tr>

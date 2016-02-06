@@ -1,0 +1,49 @@
+.breadcrumbs {
+	border-bottom: 1px solid $lightGrey;
+	margin: 0 0 $padding;
+	padding: 0;
+	list-style: none;
+	@include ellipsis;
+
+
+	// @include mq($from: small) {
+	// 	margin: 0;
+	// }
+}
+
+
+.breadcrumbs-item {
+	display: inline-block;
+	vertical-align: middle;
+	text-transform: uppercase;
+	font-weight: 600;
+	line-height: $controlHeight;
+	font-size: 13px;
+
+
+	&:after {
+		content: "";
+		position: relative;
+		display: inline-block;
+		vertical-align: middle;
+		height: $controlHeight;
+		margin-top: -5px;
+		width: 20px;
+		background-image: image-url("icons/angle-right.svg");
+		background-repeat: no-repeat;
+		background-position: center center;
+		@include background-size(16px);
+		opacity: .5;
+	}
+
+	&:last-child:after {
+		display: none;
+	}
+
+	&.is-current,
+	&.is-current a {
+		cursor: default;
+		color: $darkGrey;
+		text-decoration: none;
+	}
+}
