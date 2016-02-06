@@ -1,6 +1,18 @@
 <div class="grid">
 	<div class="grid-column-6">
 		<h4>Unique logins per day</h4>
+
+		<form action="" class="has-margin form-filter">
+			<div class="field">
+				<label for="start_date" class="field-label">Datespan</label>
+				<input type="date" name="start_date" id="start_date" value="<%= @start_date %>" class="is-inline">
+				-
+				<input type="date" name="end_date" id="end_date" value="<%= @end_date %>" class="is-inline">
+				<button class="button">Update</button>
+			</div>
+			<p class="field-hint"><strong>Hint:</strong> Long date spans can take a while to load</p>
+		</form>
+
 		<table class="datatable is-admin is-fullwidth">
 			<thead>
 				<tr>
@@ -11,7 +23,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% ((DateTime.now. - 30.days).to_date..(DateTime.now.to_date)).each do |date| -%>
+				<% (@start_date.to_date..@end_date).each do |date| -%>
 				<tr>
 					<td><%= date %></td>
 					<td class="text-right"><%= UserLog.where(:created_at => date..date.end_of_day).count %></td>

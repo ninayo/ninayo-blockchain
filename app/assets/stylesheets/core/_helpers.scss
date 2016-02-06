@@ -24,3 +24,11 @@
 		display: none !important;
 	}
 }
+
+.has-margin {
+	margin-bottom: $padding;
+}
+
+.has-padding {
+	padding: $padding;
+}

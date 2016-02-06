@@ -86,7 +86,13 @@ a.button,
 	}
 }
 
-
+input,
+textarea,
+select {
+	+ .button {
+		margin-bottom: 0;
+	}
+}
 
 .button-group {
 	@include clearfix();
