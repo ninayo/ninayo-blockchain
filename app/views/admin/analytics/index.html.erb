@@ -102,12 +102,6 @@
 		<h4>Unique Logins Today</h4>
 
 		<table class="datatable is-admin is-fullwidth">
-			<tfoot>
-				<tr>
-					<th>Total</th>
-					<td class="text-right"><%= @ads.count %></td>
-				</tr>
-			</tfoot>
 			<tbody>
 				<tr>
 					<% date_today = DateTime.now.to_date -%>
