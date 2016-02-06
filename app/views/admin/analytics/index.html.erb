@@ -99,7 +99,7 @@
 
 <div class="grid">
 	<div class="grid-column-4">
-		<h4>Unique log ins per day</h4>
+		<h4>Unique Logins Today</h4>
 
 		<table class="datatable is-admin is-fullwidth">
 			<tfoot>
@@ -110,12 +110,13 @@
 			</tfoot>
 			<tbody>
 				<tr>
-					<th>2015-02-02</th>
-					<td class="text-right">5</td>
+					<% date_today = DateTime.now.to_date -%>
+					<th><%= date_today %></th>
+					<td class="text-right"><%= UserLog.where(:created_at => date_today..date_today.end_of_day).select("distinct user_id").count %></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<p><%= link_to "Ads per day", admin_ads_per_day_path %></p>
+		<p><%= link_to "Logins per day", admin_logins_per_day_path %></p>
 	</div>
 </div>
