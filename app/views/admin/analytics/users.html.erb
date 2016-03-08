@@ -13,6 +13,7 @@
 			<th>Id</th>
       <th>Email</th>
       <th class="text-right">No of ads</th>
+			<th class="text-right">Drafts</th>
       <th class="text-right">Published</th>
       <th class="text-right">Archived</th>
 			<th class="text-right">Final price</th>
@@ -24,6 +25,7 @@
       <td><%= u.id %></td>
       <td><%= u.email %></td>
       <td class="text-right"><%= u.ads.count %></td>
+			<td class="text-right"><%= u.ads.draft.count %></td>
       <td class="text-right"><%= u.ads.published.count %></td>
       <td class="text-right"><%= u.ads.archived.count %></td>
       <td class="text-right"><%= number_to_currency(u.ads.archived.sum(:final_price), precision: 0) %></td>
