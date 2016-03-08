@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'analytics/index' => 'analytics#index', as: :analytics
       get 'analytics/ads-per-day' => 'analytics#ads_per_day', as: :ads_per_day
       get 'analytics/logins-per-day' => 'analytics#logins_per_day', as: :logins_per_day
+      get 'analytics/users' => 'analytics#users', as: :analytics_users
     end
 
     resources :ads do

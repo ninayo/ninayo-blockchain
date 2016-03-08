@@ -17,12 +17,16 @@ class Admin::AnalyticsController < Admin::BaseController
 			@start_date = params[:start_date].to_date
 		else
 			@start_date = (DateTime.now - 30.days).to_date
-		end 
+		end
 
 		if params[:end_date]
 			@end_date = params[:end_date].to_date
 		else
 			@end_date = DateTime.now.to_date
-		end 
+		end
+	end
+
+	def users
+		@users = User.user.includes(:ads).page(params[:page]).per(100)
 	end
 end
