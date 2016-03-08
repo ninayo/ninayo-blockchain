@@ -78,6 +78,31 @@
 		</table>
 	</div>
 	<div class="grid-column-4">
+		<h4>Number of ads per crop type</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th>Total</th>
+					<td class="text-right"><%= @users.count %></td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<% Ad.crop_type_stats.each do |c| %>
+				<tr>
+					<th><%= CropType.find(c.crop_type_id).name %></th>
+					<td class="text-right"><%= c.ad_count %></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<hr>
+
+<div class="grid">
+	<div class="grid-column-4">
 		<h4>Users</h4>
 
 		<table class="datatable is-admin is-fullwidth">
@@ -103,20 +128,25 @@
 			</tbody>
 		</table>
 	</div>
-</div>
-
-
-<div class="grid">
 	<div class="grid-column-4">
-		<h4>Unique Logins Today</h4>
+		<h4>Unique Logins last week</h4>
 
 		<table class="datatable is-admin is-fullwidth">
-			<tbody>
+			<% start_date = (DateTime.now - 7.days).to_date -%>
+			<% end_date = (DateTime.now).to_date -%>
+			<tfoot>
 				<tr>
-					<% date_today = DateTime.now.to_date -%>
-					<th><%= date_today %></th>
-					<td class="text-right"><%= UserLog.where(:created_at => date_today..date_today.end_of_day).select("distinct user_id").count %></td>
+					<th>Totalt</th>
+					<td class="text-right"><%= UserLog.where(:created_at => start_date..end_date.end_of_day).select("distinct user_id").count %></td>
 				</tr>
+			</tfoot>
+			<tbody>
+				<% (start_date..end_date).each do |date| -%>
+				<tr>
+					<td><%= date %></td>
+					<td class="text-right"><%= UserLog.where(:created_at => date..date.end_of_day).select("distinct user_id").count %></td>
+				</tr>
+				<% end -%>
 			</tbody>
 		</table>
 

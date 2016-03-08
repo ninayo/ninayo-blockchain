@@ -4,6 +4,8 @@ class Admin::AnalyticsController < Admin::BaseController
 	def index
 		@ads = Ad.all
 		@users = User.all
+
+		
 	end
 
 	def ads_per_day

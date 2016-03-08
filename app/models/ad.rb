@@ -106,6 +106,12 @@ class Ad < ActiveRecord::Base
 		select("date(archived_at) as ad_date, count(*) as ad_count").where("status = 2").group("date(archived_at)").order("date(archived_at)")
 	end
 
+	def self.crop_type_stats
+		select("crop_type_id, count(*) as ad_count")
+			.group("crop_type_id")
+			.order("crop_type_id")
+	end
+
 protected
 
 	def adjust_price
