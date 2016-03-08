@@ -11,7 +11,7 @@ a.button,
 	text-transform: uppercase;
 	text-align: center;
 	font-size: $buttonFontSize;
-	margin-bottom: $halfPadding;
+	//margin-bottom: $halfPadding;
 
 	border: none;
 	cursor: pointer;
@@ -32,10 +32,12 @@ a.button,
 	&.is-block {
 		display: block;
 		width: 100%;
+		margin-bottom: $halfPadding;
 
 		@include mq($from: medium) {
 			display: inline-block;
 			width: auto;
+			margin-bottom: 0;
 		}
 
 	}
