@@ -39,7 +39,7 @@ class Admin::AnalyticsController < Admin::BaseController
 	end
 
 	def all_ads
-		@ads = Ad.all
+		@ads = Ad.all.includes(:region).includes(:crop_type)
 
 		respond_to do |format|
 			format.xls
