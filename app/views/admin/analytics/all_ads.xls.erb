@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Id</Data></Cell>
+        <Cell><Data ss:Type="String">user_id</Data></Cell>
+        <Cell><Data ss:Type="String">Ad_type</Data></Cell>
+        <Cell><Data ss:Type="String">Description</Data></Cell>
+        <Cell><Data ss:Type="String">Price</Data></Cell>
+        <Cell><Data ss:Type="String">Volume</Data></Cell>
+        <Cell><Data ss:Type="String">Volume_unit</Data></Cell>
+        <Cell><Data ss:Type="String">Crop_type</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+        <Cell><Data ss:Type="String">Village</Data></Cell>
+        <Cell><Data ss:Type="String">Region</Data></Cell>
+        <Cell><Data ss:Type="String">Final_price</Data></Cell>
+        <Cell><Data ss:Type="String">Buyer_id</Data></Cell>
+        <Cell><Data ss:Type="String">Other_crop_type</Data></Cell>
+        <Cell><Data ss:Type="String">Buyer_price</Data></Cell>
+        <Cell><Data ss:Type="String">Created_at</Data></Cell>
+        <Cell><Data ss:Type="String">Updated_at</Data></Cell>
+        <Cell><Data ss:Type="String">Published_at</Data></Cell>
+        <Cell><Data ss:Type="String">Archived_at</Data></Cell>
+      </Row>
+      <% @ads.each do |ad| -%>
+      <Row>
+        <Cell><Data ss:Type="String"><%= ad.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.user_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.ad_type %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.description %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.volume %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.volume_unit %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.crop_type.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.status %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.village %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.region.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.final_price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.buyer_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.other_crop_type %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.buyer_price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.created_at %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.updated_at %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.published_at %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= ad.archived_at %></Data></Cell>
+      </Row>
+    <% end -%>
+    </Table>
+  </Worksheet>
+</Workbook>

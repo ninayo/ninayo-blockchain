@@ -1,11 +1,11 @@
 class Admin::AnalyticsController < Admin::BaseController
-	respond_to :html
+	respond_to :html, :csv, :xls
 
 	def index
 		@ads = Ad.all
 		@users = User.all
 
-		
+
 	end
 
 	def ads_per_day
@@ -30,5 +30,22 @@ class Admin::AnalyticsController < Admin::BaseController
 
 	def users
 		@users = User.user.includes(:ads).page(params[:page]).per(100)
+
+		respond_to do |format|
+			format.html
+			format.csv { send_data @users.to_csv }
+			format.xls
+		end
 	end
+
+	def all_ads
+		@ads = Ad.all
+
+		respond_to do |format|
+			format.xls
+		end
+	end
+
+
+
 end

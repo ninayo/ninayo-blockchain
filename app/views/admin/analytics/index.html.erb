@@ -48,8 +48,10 @@
 
 			</tbody>
 		</table>
-
 		<p><%= link_to "Ads per day", admin_ads_per_day_path %></p>
+		<p>
+			<%=link_to "Download Excel file", admin_analytics_all_ads_path(format: "xls"), :class => "button" %>
+		</p>
 	</div>
 	<div class="grid-column-4">
 		<h4>Ad feedback</h4>

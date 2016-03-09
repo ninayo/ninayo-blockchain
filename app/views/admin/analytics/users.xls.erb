@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+ xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Id</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">No of ads</Data></Cell>
+        <Cell><Data ss:Type="String">Drafts</Data></Cell>
+        <Cell><Data ss:Type="String">Published Date</Data></Cell>
+        <Cell><Data ss:Type="String">Archived</Data></Cell>
+        <Cell><Data ss:Type="String">Final price</Data></Cell>
+      </Row>
+      <% @users.order(:id).each do |u| -%>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= u.id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= u.email %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.ads.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.ads.draft.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.ads.published.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.ads.archived.count %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= u.ads.archived.sum(:final_price) %></Data></Cell>
+      </Row>
+    <% end -%>
+    </Table>
+  </Worksheet>
+</Workbook>
