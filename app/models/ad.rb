@@ -57,8 +57,8 @@ class Ad < ActiveRecord::Base
 	scope :crop_type_id, -> (crop_type_id) { where crop_type_id: crop_type_id }
 	scope :volume_min, -> (volume_min) { where("volume > ?", volume_min) }
 	scope :volume_max, -> (volume_max) { where("volume < ?", volume_max) }
-	scope :price_min, -> (price_min) { where("price > " + price_min) }
-	scope :price_max, -> (price_max) { where("price < " + price_max) }
+	scope :price_min, -> (price_min) { where("price > ?", price_min) }
+	scope :price_max, -> (price_max) { where("price < ?", price_max) }
 	scope :region_id, -> (region_id) { where region_id: region_id }
 
 	scope :bought, -> { where.not(:buyer_price => nil) }
