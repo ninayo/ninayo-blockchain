@@ -26,6 +26,9 @@ CropType.create!(:name => "Tomatoes", :name_sw => "Nyanya", :sort_order => 8)
 CropType.create!(:name => "Bananas", :name_sw => "Ndizi", :sort_order => 9)
 CropType.create!(:name => "Other", :name_sw => "Nyingine", :sort_order => 999)
 CropType.create!(:name => "Unmilled Rice", :name_sw => "Mpunga", :sort_order => 10)
+CropType.create!(:name => "Coffee", :name_sw => "Kahawa", :sort_order => 11)
+CropType.create!(:name => "Onions", :name_sw => "Vitunguu", :sort_order => 12)
+
 
 puts 'CREATED 10 CROP_TYPES'
 
