@@ -1,7 +1,7 @@
 <% if ads.length > 0 %>
 <div class="ads">
 	<% ads.each do |ad| %>
-		<a href="<%= ad_path(ad) %>" class="ads-item">
+		<a href="<%= ad_path(ad) %>" class="posts-item">
 			<div class="ads-meta">
 				<span class="ads-published_at"><%= t "common.published" %> <%= l(ad.published_at, format: :short) if ad.published_at %>
 				</span>
@@ -16,7 +16,7 @@
 			</div>
 			<h2 class="ads-heading"><%= ad.title %></h2>
 			<div class="ads-price"><%= number_to_currency(ad.price, precision: 0) %> <%= t "common.per_unit" %></div>
-			<div class="ads-location">
+			<div class="posts-location">
 				<%= ad.village %>, <%= ad.region.name %>
 			</div>
 		</a>

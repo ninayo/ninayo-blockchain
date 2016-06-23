@@ -1,4 +1,4 @@
-.ads-wrapper {
+.posts-wrapper {
 	position: relative;
 	padding-right: 0;
 	padding-top: $padding;
@@ -11,7 +11,7 @@
 	}
 }
 
-// .wrapper.show-filter .ads-wrapper {
+// .wrapper.show-filter .posts-wrapper {
 // 	@include mq($from: medium) {
 // 		padding-right: $filterWidth;
 // 	}
@@ -31,7 +31,7 @@
 
 }
 
-.ads-item {
+.posts-item {
 	position: relative;
 	display: block;
 	text-decoration: none;
@@ -91,7 +91,7 @@
 
 }
 
-.ads-location {
+.posts-location {
 	font-size: 0.750em;
 }
 
