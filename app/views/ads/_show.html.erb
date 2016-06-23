@@ -1,5 +1,5 @@
 <div class="ad">
-	<div class="ad-main">
+	<div class="post-main">
 		<h3 class="supheading">
 			<%= t("views.ad.for_sale") if @ad.sell? %>
 			<%= t("views.ad.buying") if @ad.buy? %>
@@ -13,7 +13,7 @@
 
 		<%= render "logs" if current_user && current_user.admin? %>
 	</div>
-	<div class="ad-sidebar">
+	<div class="post-sidebar">
 		<%= render "stats" if current_user && (current_user.id == @ad.user_id || current_user.admin?) %>
 		<%= render "facts" %>
 		<hr>
