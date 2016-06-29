@@ -1,3 +1,5 @@
+require 'net/http'
+
 class User < ActiveRecord::Base
 
 	after_create :send_welcome_email
@@ -27,7 +29,7 @@ class User < ActiveRecord::Base
 
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
-	devise :database_authenticatable, :registerable,
+	devise :database_authenticatable, :registerable, :omniauthable
 		:recoverable, :rememberable, :trackable, :validatable
 
 
@@ -46,6 +48,55 @@ class User < ActiveRecord::Base
 	# 		0
 	# 	end
 	# end
+
+	#overwrites built-in method, skips password req for oauth registration
+	def password_required? 
+		super && uid.blank?
+	end
+
+	#overwrites built-in method, skip password req for oauth profile update
+	def update_with_password(params, *options)
+		if encrypted_password.blank?
+			update_attributes(params, *options)
+		else
+			super
+		end
+	end
+
+	def self.new_with_session(params, session)
+		if session["devise.user_attributes"]
+			#we use without_protection because we already trust the params hash here
+			new(session["devise.user_attributes"], without_protection: true) do |user|
+				user.attributes = params
+				user.valid?
+			end
+		else
+			#fall back to normal devise behavior
+			super
+		end
+	end
+
+	def self.find_for_oauth(auth)
+		uid = auth.slice(:uid)
+
+		#this is a weird hack to get an explicit image url
+		#facebook graph API gives you a redirect url, but if you add redirect=false param
+		#it will give you back some json including the actual url you need
+		photo_url = URI.parse(auth.info.image)
+		req = Net::HTTP::Get.new(photo_url.to_s + "?redirect=false") #we just append it here
+		res = Net::HTTP.start(photo_url.host, photo_url.port) {|http|
+			http.request(req)
+		}
+
+		#set properties of the new user. requested info determined in devise.rb
+		where(uid: uid.uid).first_or_create do |user|
+			user.uid = auth.uid
+			user.name = auth.info.name
+			user.email = auth.info.email || "no_email@ninayo.com"
+			user.photo_url = JSON.parse(res.body)["data"]["url"]
+			user.agreement = true
+		end
+	end
 
 	def self.to_csv
 		CSV.generate do |csv|
