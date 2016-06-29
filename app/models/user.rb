@@ -56,6 +56,24 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def sum_sales_last_month
+		sum_sales_within_range(1.month.ago.beginning_of_month, 1.month.ago.end_of_month)
+	end
+
+	def sum_sales_this_month
+		sum_sales_within_range(Time.now.beginning_of_month, Time.now.end_of_month)
+	end
+
+	def sum_sales_all_time
+		sum_sales_within_range(self.created_at, Time.now)
+	end
+
+	def sum_sales_within_range(start_date, end_date) #return an integer, sum of all completed orders within range
+		completed_ads = self.ads.where(:archived_at => start_date..end_date)
+		return 0 if completed_ads.empty?
+		completed_ads.map{ |ad| ad.final_price }.inject(:+)
+	end
+
 protected
 
 	def set_default_role

@@ -79,6 +79,20 @@
 			</tbody>
 		</table>
 	</div>
+
+	<div class="grid-column-4">
+		<h4>Ads posted this month</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th><%= "#{Time.now.beginning_of_month.to_date}" + " - " + "#{Time.now.to_date}" %></th>
+					<td class="text-right"><%= ads_posted_this_month %></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+	
 	<div class="grid-column-4">
 		<h4>Number of ads per crop type</h4>
 
@@ -130,6 +144,33 @@
 			</tbody>
 		</table>
 	</div>
+
+	<div class="grid-column-4">
+		<h4>Users registered this month</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th><%= "#{Time.now.beginning_of_month.to_date}" + " - " + "#{Time.now.to_date}" %></th>
+					<td class="text-right"><%= users_registered_this_month %></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+
+	<div class="grid-column-4">
+		<h4>User of the Month (Last Month)</h4>
+
+		<table class="datatable is-admin is-fullwidth">
+			<tfoot>
+				<tr>
+					<th><%= "#{1.month.ago.beginning_of_month.to_date}" + " - " + "#{1.month.ago.end_of_month.to_date}" %></th>
+					<td class="text-right"><%= user_of_month %></td>
+				</tr>
+			</tfoot>
+		</table>
+	</div>
+
 	<!-- <div class="grid-column-4">
 		<h4>Unique Logins last week</h4>
 
