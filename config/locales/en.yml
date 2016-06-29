@@ -116,6 +116,9 @@ en:
     english: "English"
     swahili: "Swahili"
     per_unit: "per unit"
+    want_sell: "I want to sell"
+    want_buy: "I want to buy"
+    about_me: "Instructions"
 
     errors:
       zero: "no errors"
@@ -146,6 +149,7 @@ en:
       sign_up: "Sign up"
       login: "Login"
       dashboard: "Dashboard"
+      facebook: "Login with Facebook"
 
     create_account:
       heading: "Create an account"
@@ -256,7 +260,7 @@ en:
       rate:
         heading: "Rate"
         text: "How would you like to rate the buyer?"
-        aweful: "Aweful"
+        aweful: "Awful"
         excellent: "Excellent"
 
       facts:

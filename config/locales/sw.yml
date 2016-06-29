@@ -43,10 +43,10 @@ sw:
 
       user:
         name: "Jina"
-        email: "barua pepe"
-        password: "nenosiri"
-        password_confirmation: "Uthibitisho wa nenorsiri"
-        current_password: "Current password"
+        email: "Barua pepe"
+        password: "Nenosiri"
+        password_confirmation: "Uthibitisho wa nenosiri"
+        current_password: "Nenosiri sasa"
         phone_number: "Nambari ya simu"
         role: "Mthamini"
         village: "Kijiji"
@@ -97,6 +97,9 @@ sw:
     english: "Kiingereza"
     swahili: "Kiswahili"
     per_unit: "ya moja"
+    want_sell: "Ninataka kuuza"
+    want_buy: "Ninataka kununua"
+    about_me: "Jifunza zaidi"
 
     errors:
       zero: "hakuna makosa"
@@ -123,11 +126,12 @@ sw:
       sign_up: "Jisajili"
       login: "Ingia"
       dashboard: "Dashboard"
+      facebook: "Jisajili na Facebook"
 
 
     create_account:
       heading: "Tengeneza akaunti"
-      heading_2: "tayari una akaunti?"
+      heading_2: "Tayari una akaunti?"
       sign_up: "Jisajili"
       characters_minimum: "Kiwango cha chini cha herufi"
       agreement_text_1: "Mimi kukubaliana na"

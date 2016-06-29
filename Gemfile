@@ -47,6 +47,10 @@ gem 'markdown-rails'
 
 gem 'faker'
 gem 'mail'
+gem 'annotate'
+
+gem 'pry-rails'
+gem 'omniauth-facebook'
 
 group :development do
   gem 'heroku'
