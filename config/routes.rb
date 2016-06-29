@@ -45,8 +45,8 @@ Rails.application.routes.draw do
 
   end
 
-  get '/:locale' => 'ads#index'
-  root 'ads#index'
+  get '/:locale' => 'splash#index'
+  root 'splash#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
