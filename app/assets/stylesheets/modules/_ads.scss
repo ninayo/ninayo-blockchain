@@ -31,6 +31,19 @@
 
 }
 
+.indexoptions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	height: 75vh;
+}
+
+.signinlogo {
+	height: auto;
+	width: 40vw;
+}
+
 .posts-item {
 	position: relative;
 	display: block;

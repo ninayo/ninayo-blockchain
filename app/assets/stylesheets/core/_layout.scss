@@ -15,6 +15,13 @@ body {
 	background-color: $backgroundColor;
 }
 
+.avatar {
+	border-radius: 5px;
+	width: 32px;
+	position: relative;
+    top: 12px;
+}
+
 .wrapper {
 	min-height: 100%;
 	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
@@ -23,7 +30,7 @@ body {
 	min-width: $minWidth;
 	padding: $padding $halfPadding;
 	margin: 0 auto;
-	background-color: $white;
+	background-color: #EEE;
 	margin-bottom: (-1 * $siteFooterHeight);
 	overflow: hidden;
 

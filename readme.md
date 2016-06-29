@@ -1,9 +1,9 @@
 ##TO BUILD:
 
 ###USSD API
-- [ ] - postAd
+- [x] - postAd
 - [x] - getAdsForUser
-- [ ] - archiveAd
+- [x] - archiveAd
 - [x] - getUnits
 - [x] - getCropTypes
 - [x] - getRegions
@@ -23,8 +23,8 @@
 - [ ] - Marker culling (don't draw markers older than 30 days)
 
 ###LOGIN/LANDING PAGE
-- [ ] - User landing prompting login/signup
-- [ ] - Facebook oauth login
+- [x] - User landing prompting login/signup
+- [x] - Facebook oauth login
 
 ###POST IMPROVEMENTS
 - [ ] - "Similar ads" carousel somewhere on ad listing

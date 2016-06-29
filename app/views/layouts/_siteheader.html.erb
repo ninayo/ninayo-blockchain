@@ -5,11 +5,31 @@
 			<%= image_tag("ninayo-emblem.png", alt: "NINAYO", class: "siteheader-logo-emblem") %>
 		</a>
 
+		<% if user_signed_in? %>
+			<%= link_to mypage_path, :class => "primarynav-item is-secondary" do %>
+				<% if !current_user.photo_url.nil? %>
+					<img src=<%= "#{current_user.photo_url}" %> class="avatar">
+				<% end %>
+
+				<%if params[:locale] === "en" %>
+					<%= "  Welcome, #{current_user.name}!" %>
+				<% else %>
+					<%= "  Kuwakaribusha, #{current_user.name}!" %>
+				<% end %>
+			<% end %>
+
+		<% else %>
+			<%= link_to user_omniauth_authorize_path(:facebook), :class => "primarynav-item is-secondary" do%>
+				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+					this.src='<%= image_path("icons/facebook.png") %>'">
+				<%if params[:locale] === "en" %>
+					Login with Facebook
+				<% else %>
+					Jisajili na Facebook
+				<% end %>
+			<% end %>
+		<% end %>
+
 		<%= render "layouts/primarynav" %>
-		<%= link_to("#{t "views.navigation.new_ad"}", new_ad_path, :class => "button primarynav-button is-primary") %>
-		<a href="" class="siteheader-toggle">
-			<%= image_tag("hamburger.svg", alt: "#{t "views.navigation.menu"}") %>
-		</a>
-		<%= render "layouts/usernav" %>
 	</div>
 </div>

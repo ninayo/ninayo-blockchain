@@ -44,6 +44,12 @@ a.button,
 
 
 	&.is-primary {
+		display: flex;
+	    width: 350px;
+	    height: 100px;
+	    justify-content: center;
+	    align-items: center;
+	    font-size: 24px;
 		background-color: $accentColor;
 
 		&:hover,

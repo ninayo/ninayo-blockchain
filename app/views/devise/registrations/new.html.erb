@@ -12,18 +12,20 @@
 
 			<hr>
 
-			<div class="field">
-				<%= f.label :password, class: "field-label" %>
-				<%= f.password_field :password, autocomplete: "off" %>
-				<% if @validatable %>
-				<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
-				<% end %>
-			</div>
+			<% if f.object.password_required? %>
+				<div class="field">
+					<%= f.label :password, class: "field-label" %>
+					<%= f.password_field :password, autocomplete: "off" %>
+					<% if @validatable %>
+					<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
+					<% end %>
+				</div>
 
-			<div class="field">
-				<%= f.label :password_confirmation, class: "field-label" %>
-				<%= f.password_field :password_confirmation, autocomplete: "off" %>
-			</div>
+				<div class="field">
+					<%= f.label :password_confirmation, class: "field-label" %>
+					<%= f.password_field :password_confirmation, autocomplete: "off" %>
+				</div>
+			<% end %>
 
 			<div class="field field-checkbox">
 				<%= f.check_box :agreement %>
@@ -33,14 +35,25 @@
 			</div>
 
 			<div class="field-actions">
-				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-primary is-block" %>
+				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-block" %>
 			</div>
 		<% end %>
 	</div>
 	<div class="login-column">
 		<h2><%= t "views.create_account.heading_2" %></h2>
 		<p>
-			<%= link_to "#{t "devise.phrases.log_in"}", new_session_path(resource_name), :class => "button is-primary is-block" %>
+			<%= link_to "#{t "devise.phrases.log_in"}", new_session_path(resource_name), :class => "button is-block" %>
+		</p>
+		<p>
+			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
+				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+					this.src='<%= image_path("icons/facebook.png") %>'">
+				<%if params[:locale] === "en" %>
+					Log in with Facebook
+				<% else %>
+					Jisajili na Facebook
+				<% end %>
+			<% end %>
 		</p>
 	</div>
 </div>
