@@ -16,9 +16,17 @@
 				<% end %>
 
 				<%if params[:locale] === "en" %>
-					<%= "  Welcome, #{current_user.name.split(" ")[0]}!" %>
+					<% if current_user.name.nil? %>
+						<%= "  Welcome!" %>
+					<% else %>
+						<%= "  Welcome, #{current_user.name.split(" ")[0]}!" %>
+					<% end %>
 				<% else %>
-					<%= "  Karibu, #{current_user.name.split(" ")[0]}!" %>
+					<% if current_user.name.nil? %>
+						<%= "  Karibu!" %>
+					<% else %>
+						<%= "  Karibu, #{current_user.name.split(" ")[0]}!" %>
+					<% end %>
 				<% end %>
 			<% end %>
 
