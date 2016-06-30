@@ -16,9 +16,9 @@
 				<% end %>
 
 				<%if params[:locale] === "en" %>
-					<%= "  Welcome, #{current_user.name}!" %>
+					<%= "  Welcome, #{current_user.name.split(" ")[0]}!" %>
 				<% else %>
-					<%= "  Karibu, #{current_user.name}!" %>
+					<%= "  Karibu, #{current_user.name.split(" ")[0]}!" %>
 				<% end %>
 			<% end %>
 
