@@ -6,4 +6,7 @@ class SplashController < ApplicationController
   def instructions
   end
 
+  def get_started
+  end
+
 end

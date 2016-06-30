@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     get 'mypage/archive' => 'mypage#archive', as: :mypage_archive
 
     get 'splash/instructions' => 'splash#instructions', as: :splash_instructions
+    get 'splash/get_started' => 'splash#get_started', as: :get_started
 
     #devise_for :users, :controllers => { :sessions => "track_sessions" }
     # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,8 @@
+	<div class="indexoptions">
+		<% if current_user && current_user.admin? %>
+			<%= link_to("Admin Page", admin_analytics_path, :class => "button primarynav-button is-primary") %>
+		<% end %>
+		<%= link_to("#{t "views.navigation.sign_up"}", new_user_registration_path, :class => "button primarynav-button is-primary") %>
+		<%= link_to("#{t "views.navigation.login"}", new_user_session_path, :class => "button primarynav-button is-primary") %>
+		<%= link_to("#{t "views.navigation.facebook"}", user_omniauth_authorize_path(:facebook), :class => "button primarynav-button is-primary") %>
+	</div>

@@ -116,9 +116,9 @@ en:
     english: "English"
     swahili: "Swahili"
     per_unit: "per unit"
-    want_sell: "I want to sell"
-    want_buy: "I want to buy"
-    about_me: "Instructions"
+    want_sell: "🍅🌽I want to sell🍌🍠"
+    want_buy: "💰 I want to buy 💰"
+    about_me: "❓ Instructions ❓"
 
     errors:
       zero: "no errors"
