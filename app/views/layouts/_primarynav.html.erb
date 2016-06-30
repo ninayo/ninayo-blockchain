@@ -2,11 +2,11 @@
 
 	<% if I18n.locale == :sw %>
 		<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
-			<img src="<%= image_path("tz_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("tz_flag.png") %>'">
+			<img src="<%= image_path("en_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("tz_flag.png") %>'">
 			<% end %>
 	<% elsif I18n.locale == :en %>
 		<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
-			<img src="<%= image_path("en_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("en_flag.png") %>'">
+			<img src="<%= image_path("tz_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("en_flag.png") %>'">
 		<% end %>
 	<% end %>
 
@@ -35,15 +35,6 @@
 			<%= t "views.navigation.login" %>
 		<% end %>
 
-		<%= link_to user_omniauth_authorize_path(:facebook), :class => "primarynav-item is-secondary" do%>
-			<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-				this.src='<%= image_path("icons/facebook.png") %>'">
-			<%if params[:locale] === "en" %>
-				Login with Facebook
-			<% else %>
-				Jisajili na Facebook
-			<% end %>
-		<% end %>
 	<% end %>
 
 </div>
