@@ -99,7 +99,7 @@ sw:
     per_unit: "ya moja"
     want_sell: "Ninataka kuuza"
     want_buy: "Ninataka kununua"
-    about_me: "Jifunza zaidi"
+    about_me: "Jifunze zaidi"
 
     errors:
       zero: "hakuna makosa"
