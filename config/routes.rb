@@ -4,6 +4,15 @@ Rails.application.routes.draw do
 
   scope "(:locale)", locale: /en|sw/ do
 
+    namespace :api, defaults: {format: :json} do
+      post 'ads' => 'ussd#post_ad'
+      get 'ads' => 'ussd#get_ads_for_user'
+      get 'archive/:id' => 'ussd#archive_ad'
+      get 'units' => 'ussd#get_units'
+      get 'crops' => 'ussd#get_crop_types'
+      get 'regions' => 'ussd#get_regions'
+    end
+
     namespace "admin" do
       root :to => "analytics#index"
       get 'analytics/index' => 'analytics#index', as: :analytics
