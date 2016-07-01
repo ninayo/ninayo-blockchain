@@ -10,7 +10,7 @@
 
 ###ADMIN PANEL
 - [ ] - https://github.com/activeadmin/activeadmin
-- [ ] - metabase (not ready for primetime on heroku yet)
+- [x] - metabase
 
 ###MESSAGES
 - [ ] - https://github.com/mailboxer/mailboxer
