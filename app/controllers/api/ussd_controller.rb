@@ -14,7 +14,7 @@ class Api::UssdController < ApplicationController
     if @ad.save!
       render json: {:status => 201}
     else
-      render json: {:status => 400}
+      render json: {:status => 422}
     end
   end
 
@@ -27,7 +27,7 @@ class Api::UssdController < ApplicationController
       if @ad.update!(:status => 2, :archived_at => Time.now, :final_price => @ad.price)
         respond_with status: 202
       else
-        respond_with status: 400
+        respond_with status: 422
       end
     else
       respond_with status: 401
