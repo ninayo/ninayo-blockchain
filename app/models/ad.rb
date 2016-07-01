@@ -68,7 +68,7 @@ class Ad < ActiveRecord::Base
 		if self.crop_type.id == 10
 			crop_type = self.other_crop_type
 		else
-			crop_type = self.crop_type.name
+			crop_type = self.crop_type.name_sw
 		end
 
 		if self.volume && self.crop_type
