@@ -26,6 +26,14 @@ Rails.application.routes.draw do
       put :favorite
     end
 
+    resources :conversations, only: [:index, :show, :destroy] do
+      member do
+        post :reply
+      end
+    end
+
+    resources :messages, only: [:new, :create]
+
     get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
     get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
     delete 'ads/:id/delete' => 'ads#delete', as: :delete_ad

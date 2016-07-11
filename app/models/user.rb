@@ -51,6 +51,11 @@ class User < ActiveRecord::Base
 	# 	end
 	# end
 
+	#so that mailboxer plays nice with devise
+	def mailboxer_email(object)
+		email
+	end
+
 	#overwrites built-in method, skips password req for oauth registration
 	def password_required? 
 		super && uid.blank?
