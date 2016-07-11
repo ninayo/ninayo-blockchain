@@ -1,0 +1,7 @@
+<li class="conversation-item clearfix">
+	<%= link_to conversation.subject, conversation_path(conversation) %>
+	<small><i><%= conversation.created_at.strftime("%A %e %B, %Y") %></i></small>
+	<% if conversation.created_at != conversation.updated_at %>
+		<small><i><%= "New message " + conversation.updated_at.strftime("%A %e %B, %Y") %></i></small>
+	<% end %>
+</li>
