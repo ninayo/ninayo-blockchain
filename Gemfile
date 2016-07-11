@@ -52,6 +52,8 @@ gem 'annotate'
 gem 'pry-rails'
 gem 'omniauth-facebook'
 
+gem 'mailboxer'
+
 group :development do
   gem 'heroku'
   gem 'meta_request'

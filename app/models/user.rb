@@ -2,6 +2,8 @@ require 'net/http'
 
 class User < ActiveRecord::Base
 
+	acts_as_messageable
+
 	after_create :send_welcome_email
 	has_many :ads
 	has_many :user_logs
