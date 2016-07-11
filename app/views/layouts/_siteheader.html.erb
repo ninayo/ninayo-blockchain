@@ -10,6 +10,8 @@
 		</a>
 
 		<% if user_signed_in? %>
+
+
 			<%= link_to mypage_path, :class => "primarynav-item is-secondary" do %>
 				<% if !current_user.photo_url.nil? %>
 					<img src=<%= "#{current_user.photo_url}" %> class="avatar">
@@ -26,6 +28,17 @@
 						<%= "  Karibu!" %>
 					<% else %>
 						<%= "  Karibu, #{current_user.name.split(" ")[0]}!" %>
+					<% end %>
+				<% end %>
+			<% end %>
+			<% if current_user.unread_inbox_count >= 0 %>
+				<%= link_to conversations_path, :class => "primarynav-messages is-secondary"  do %>
+					<% if current_user.unread_inbox_count >= 1 %>
+						<span class="unreadcount"><%= current_user.unread_inbox_count %></span>
+					<% end %>
+					<img src="<%= image_path("icons/chat.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/chat.svg") %>'">
+					<% if current_user.unread_inbox_count >= 1 %>
+						<div class="notifylight"></div>
 					<% end %>
 				<% end %>
 			<% end %>
