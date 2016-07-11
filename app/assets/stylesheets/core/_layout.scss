@@ -15,6 +15,122 @@ body {
 	background-color: $backgroundColor;
 }
 
+.conversation-header {
+	margin: 0 0 0 10px;
+}
+
+.conversation-group {
+	position: relative;
+	padding-right: 0;
+	padding-top: $padding;
+	padding-left: 0;
+	margin-top: $negativePadding;
+	@include transition(padding 300ms ease-in-out);
+
+	@include mq($from: medium) {
+		padding-right: $filterWidth;
+	}
+}
+
+.conversation-item {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	text-decoration: none;
+	color: $black;
+	padding: $padding $halfPadding;
+	border-bottom: 1px solid #ccc;
+
+	@include mq($from: medium) {
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
+		//padding: $padding $doublePadding;
+	}
+
+	&:hover, 
+	&:focus {
+		background-color: rgba(black, .05);
+	}
+
+	&:first-child {
+		border-top: 1px solid #ccc;
+	}
+}
+
+.messages {
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.messages-item {
+
+	border: 1px solid lightgray;
+    border-radius: 12px;
+    background: ghostwhite;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+    box-shadow: 0px 2px 2px 0px lightgray;
+
+	position: relative;
+	/*display: block;*/
+	text-decoration: none;
+	color: $black;
+	padding: $padding $halfPadding;
+	border-bottom: 1px solid #ccc;
+
+	@include mq($from: medium) {
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
+		//padding: $padding $doublePadding;
+	}
+
+	&:first-child {
+		border-top: 1px solid #ccc;
+	}
+
+}
+
+.messages-item-mine {
+	border: 1px solid lightgray;
+    border-radius: 12px;
+    background: lightcyan;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-bottom: 5px;
+    box-shadow: 0px 2px 2px 0px lightgray;
+
+	position: relative;
+	/*display: block;*/
+	text-decoration: none;
+	color: $black;
+	padding: $padding $halfPadding;
+	border-bottom: 1px solid #ccc;
+
+	@include mq($from: medium) {
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
+		//padding: $padding $doublePadding;
+	}
+
+	&:first-child {
+		border-top: 1px solid #ccc;
+	}
+
+}
+
+.panel-heading {
+	padding-left: 10px;
+}
+
 .instructions {
 	line-height: 1.8;
 }

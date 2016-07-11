@@ -43,3 +43,29 @@
 		margin-top: 0 !important;
 	}
 }
+
+.primarynav-messages {
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	height: $siteheaderHeight;
+	line-height: $siteheaderHeight;
+	padding: 0 $padding;
+	padding-right: 0px;
+	padding-left: 0px;
+	text-transform: uppercase;
+	color: $black;
+	font-size: $buttonFontSize;
+
+
+	&:hover,
+	&:focus {
+		color: $black;
+		background-color: #aaa;
+	}
+
+	&:active {
+		color: $white;
+		background-color: $darkGrey;
+	}
+}
