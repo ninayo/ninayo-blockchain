@@ -29,7 +29,7 @@ class Admin::AnalyticsController < Admin::BaseController
 	end
 
 	def users
-		@users = User.user.includes(:ads).page(params[:page]).per(10000)
+		@users = User.user.includes(:ads).page(params[:page]).per(100)
 
 		respond_to do |format|
 			format.html
