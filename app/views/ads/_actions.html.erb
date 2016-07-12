@@ -2,7 +2,7 @@
 <%# if current_user %>
 	<%= link_to("#{t "common.favorite"}", ad_favorite_path(@ad, type: "favorite"), :class => "button is-block", :method => :put) unless @ad.favorite?(current_user) %>
 	<%= link_to("#{t "common.unfavorite"}", ad_favorite_path(@ad, type: "unfavorite"), :class => "button is-block", :method => :put) if @ad.favorite?(current_user) %>
-	<p><%= link_to 'Message', new_message_path(:uid => @ad.user.id, :adid => @ad.id), class: "button is-block" %></p>
+	<p><%= link_to 'Ujumbe', new_message_path(:uid => @ad.user.id, :adid => @ad.id), class: "button is-block" %></p>
 <%# end %>
 	<!-- <a href="" class="button is-block not-implemented">
 		Add to favorites
