@@ -13,7 +13,7 @@
 - [x] - metabase
 
 ###MESSAGES
-- [ ] - https://github.com/mailboxer/mailboxer
+- [x] - https://github.com/mailboxer/mailboxer
 
 ###CROP TYPES
 - [x] - Coffee (Kawaha)
@@ -40,6 +40,6 @@
 ###SECURITY ISSUES
 - [x] - SQLi on ad.rb:60
 - [x] - SQLi on ad.rb:61
-- [ ] - SQLi on ad_log.rb:11
+- [x] - SQLi on ad_log.rb:11
 - [ ] - XSS in rails-html-sanitizer 1.0.2, upgrade gem to 1.0.3+
 - [ ] - DOS in Rails 4.2.5
