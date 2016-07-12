@@ -22,7 +22,7 @@ class AdsController < ApplicationController
 	end
 
 	def map
-		@ads = @ads.includes(:crop_type).where(:created_at => 40.days.ago..Time.now)
+		@ads = @ads.includes(:crop_type).last(1000)
 		@crop_types = CropType.all.order(:sort_order)
 		@regions = Region.all.order(:name)
 	end
