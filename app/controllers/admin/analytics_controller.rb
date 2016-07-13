@@ -45,7 +45,7 @@ class Admin::AnalyticsController < Admin::BaseController
 			format.xls
 		end
 	end
-
+	#pretty much everything below this point was rendered redundant by metabase
 	def ads_posted_this_month
 		Ad.where(:created_at => Time.now.beginning_of_month..Time.now).count
 	end

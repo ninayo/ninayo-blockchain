@@ -20,7 +20,7 @@
 - [x] - Onions (Vitunguu)
 
 ###MAP IMPROVEMENTS
-- [ ] - Marker culling (don't draw markers older than 30 days)
+- [x] - Marker culling (don't draw markers older than 30 days)
 
 ###LOGIN/LANDING PAGE
 - [x] - User landing prompting login/signup

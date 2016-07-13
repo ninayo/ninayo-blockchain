@@ -21,4 +21,4 @@ module DeviseHelper
     resource.errors.empty? ? false : true
   end
 
-end
+end #this makes devise be helpful when oauth messes up rather than just exploding, no need to mess with it

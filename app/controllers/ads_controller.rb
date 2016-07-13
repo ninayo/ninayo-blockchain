@@ -22,12 +22,12 @@ class AdsController < ApplicationController
 	end
 
 	def map
-		@ads = @ads.includes(:crop_type).last(1000)
+		@ads = @ads.includes(:crop_type).last(1000) #this determines number of map markers to draw, can use .where
 		@crop_types = CropType.all.order(:sort_order)
 		@regions = Region.all.order(:name)
 	end
 
-	def show
+	def show #i'm not sure what's going on in this method, but it works so i won't break it yet
 		if !@ad
 			not_found
 		elsif @ad.archived? || @ad.deleted?
@@ -222,7 +222,7 @@ class AdsController < ApplicationController
 
 private
 
-	def update_user_location
+	def update_user_location #if we don't have a location for a user, assign one once they post an ad with a location
 		if !@ad.user.lat && @ad.lat
 			@ad.user.lat = @ad.lat
 		end

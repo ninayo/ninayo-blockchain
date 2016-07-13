@@ -9,3 +9,5 @@ class ApiKey < ActiveRecord::Base
   end
 
 end
+
+#a new api key will need to be generated for every additional api client. right now there's only one for tigo

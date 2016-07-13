@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 	# end
 
 
-	#both this and redirect_back_or are required for mailboxer
+	#both this and redirect_back_or are required for mailboxer, in case a user has no messages
 	rescue_from ActiveRecord::RecordNotFound do
 		flash[:warning] = 'Resource not found'
 		redirect_back_or root_path

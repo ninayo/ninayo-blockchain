@@ -1,3 +1,5 @@
+#this is documented with req/res examples at http://docs.ninayoussd.apiary.io/#
+
 class Api::UssdController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
