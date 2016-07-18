@@ -11,6 +11,16 @@
 			</div>
 			<div class="sitefooter-second">
 				<div class="fb-like" data-href="https://www.facebook.com/pages/NINAYOcom/588982287904802" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+
+				<% if I18n.locale == :sw %>
+					<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
+						<img src="<%= image_path("en_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("tz_flag.png") %>'">
+					<% end %>
+				<% elsif I18n.locale == :en %>
+					<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
+						<img src="<%= image_path("tz_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("en_flag.png") %>'">
+					<% end %>
+				<% end %>
 			</div>
 		</div>
 		<div class="copy sitefooter-copy">
