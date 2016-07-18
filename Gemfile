@@ -54,6 +54,8 @@ gem 'omniauth-facebook'
 
 gem 'mailboxer'
 
+gem 'skylight'
+
 group :development do
   gem 'heroku'
   gem 'meta_request'
