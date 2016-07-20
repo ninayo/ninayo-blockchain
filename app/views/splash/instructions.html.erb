@@ -12,23 +12,59 @@
 
 	<%= link_to "#{t "devise.phrases.sign_up_now"}", new_user_registration_path, class: "button is-block" %>
 
-	<p><strong>Je, nini maana ya  NINAYO.com?</strong></p>
+	<%if params[:locale] === "en" %>
 
-	<p>Kwa wakulima, NINAYO ni chombo cha kufikia masoko. Kwa masoko na wanunuzi ni chombo cha kutafuta bidhaa kwa kuangalia bei, kiasi na mahali zinapopatikana. Ni chombo kinachotumia dira ya satelaiti (GPS) kinacho ongeza ufanisi wa kuratibu malipo na shughuli za kibiashara. Ni chombo cha kuwezesha makampuni ya kilimo kufikia wateja wao, na kuwapa nafasi wakulima wenye uwezo wa kifedha kununua bidhaa wanazohitaji. Pia, chombo hiki kinaweza kutumika kunufaisha sekta kubwa ya kilimo na kubadilisha hali ya umaskini barani Afrika.</p>
+		<p><strong>NINAYO EXECUTIVE SUMMARY</strong></p>
+		
+		<p>NINAYO.com is an online trading platform targeting emerging markets.  It uses crowd-sourced data to provide actionable business intelligence for its users. Thousands of NINAYO users, typically small holder farmers with an average annual income of $637, are earning $100’s more with this tool.</p>
+		
+		<p>NINAYO launched in Tanzania in April, 2015.  Founder, Jack Langworthy, conducted business for years in the Tanzanian agriculture sector.  NINAYO.com is a tool to solve specific problems he faced in that sector.  Those issues are:</p>
+		
+		<ul>
+			<li>Lack of supply visibility (buyers don’t know what crops farmers are selling)</li>
+			<li>Lack of demand visibility (farmers don’t know how much buyers are willing to pay)</li>
+			<li>Lack of logistical coordination (inefficient transportation skyrockets costs)</li>
+		</ul>
+		
+		<p>An understanding of emerging markets is necessary to explain our value proposition. As Tanzania exemplifies these markets, consider:</p>
+		
+		<ul>
+			<li>80% of Tanzania’s work force are independent farmers</li>
+			<li>Farmers have little bargaining power over the sale of their crops due to poor infrastructure and a lack of communication with food processors (markets)</li>
+			<li>Internet access has recently become widespread, even in poor and remote villages</li>
+		</ul>
+		
+		<p>By enabling Tanzanian farmers to post their supply (crops) they gain access to a far wider range of demand.  Food processors, likewise, have a much clearer view of the crops available in their regions.  Each side of the value chain is incentivized to use this website.</p>
+		
+		<p>Consider that, in Tanzania, over 30% of food rots while malnutrition and poverty run rampant.  If there were ever an industry in need of disruption, it’s this one.  By improving supply visibility, demand visibility and logistical coordination, more food will go to those in need at a fairer price.</p>
+		
+		<p>Crucial partnerships with NGO’s like the Peace Corps and Technoserve, as well as telecom leader, Tigo, strengthen NINAYO’s position. NINAYO has a first mover advantage, and is scaling rapidly.  As a website valuable to the final billion new internet users, NINAYO will have an immensely valuable position in the future economy. Most importantly, NINAYO enables hard working people to capture a greater share of the value they bring to the world.</p>
 
-	<p><strong>Safi! Je, ni jinsi gani inafanya kazi?</strong></p>
+		<p>Thank you,</p>
 
-	<p><strong><u>Wakulima</u></strong></p>
+		<p>NINAYO Inc.</p>
 
-	<p>Kwanza, fuata maelekezo ya kuweka tangazo la mazao yako. Onyesha mahali ulipo, bei yako ya bidhaa ya kiwango cha chini na hakikisha unatoa nambari ya wasiliano inayofanya kazi! Tangazo lako linaweza kusomwa na maelfu ya wanunuzi ambao watajaribu kuwasiliana na wewe, hivyo kuwa tayari kujadili bei. Kumbuka, utathaminishwa na mnunuzi, kwa hiyo hakikisha unajenga sifa nzuri ya biashara.</p>
+	<% else %>
 
-	<p>Kama hujapata mawasiliano yoyote toka kwa wanunuzi, usikate tamaa. Tumia Orodha iliyopo kwenye kurasa yetu kuwasiliana na wanunuzi ambao wanataka bidhaa unazouza wewe. Kama njia hii pia haitofanya kazi, linganisha tangazo lako na matangazo ya wengine walio katika eneo lako. Je, wewe unauza bei ya juu sana? Au, unauza mazao yasiyo na soko? Unauza mazao mengi/machache mno? Rekebisha ipasavyo na jaribu tena!</p>
+		<p><strong>Je, nini maana ya  NINAYO.com?</strong></p>
 
-	<p>Pia, unganisha wakulima wengine katika kijiji chako na masoko hayo. Hakuna haja ya kujiwakilisha mwenyewe tu. Wakilisha wenzako, na uwe dalali!</p>
+		<p>Kwa wakulima, NINAYO ni chombo cha kufikia masoko. Kwa masoko na wanunuzi ni chombo cha kutafuta bidhaa kwa kuangalia bei, kiasi na mahali zinapopatikana. Ni chombo kinachotumia dira ya satelaiti (GPS) kinacho ongeza ufanisi wa kuratibu malipo na shughuli za kibiashara. Ni chombo cha kuwezesha makampuni ya kilimo kufikia wateja wao, na kuwapa nafasi wakulima wenye uwezo wa kifedha kununua bidhaa wanazohitaji. Pia, chombo hiki kinaweza kutumika kunufaisha sekta kubwa ya kilimo na kubadilisha hali ya umaskini barani Afrika.</p>
 
-	<p><strong><u>Wasindikizaji wa vyakula / Masoko / Wanunuzi / Wajasiriamali!</u></strong></p>
+		<p><strong>Safi! Je, ni jinsi gani inafanya kazi?</strong></p>
 
-	<p>Kihistoria, sasa ndio wakati wa kupata bei nzuri za mazao Tanzania. Tuma malori vijijini kwa kutumia dira ya satelaiti (GPS) ili kukuwezesha kupata mazao ya bei nafuu kabisa. Si tu kutafuta mazao yanayo patikana kiurahisi- bali weka tangazo lako na wauzaji watapigania juu ya kukuuzia wewe! Hii ni nafasi yako ya kuzalisha fedha kwa njia ya kununua mazao ya bei ya chini na kuuza kwa bei ya juu. Ila kumbuka, utathaminishwa na kila mtu utakae fanya nae biashara, hivyo kua muaminifu na jenga sifa nzuri ya biashara yako kwa mafanikio makubwa zaidi mbeleni.</p>
+		<p><strong><u>Wakulima</u></strong></p>
+
+		<p>Kwanza, fuata maelekezo ya kuweka tangazo la mazao yako. Onyesha mahali ulipo, bei yako ya bidhaa ya kiwango cha chini na hakikisha unatoa nambari ya wasiliano inayofanya kazi! Tangazo lako linaweza kusomwa na maelfu ya wanunuzi ambao watajaribu kuwasiliana na wewe, hivyo kuwa tayari kujadili bei. Kumbuka, utathaminishwa na mnunuzi, kwa hiyo hakikisha unajenga sifa nzuri ya biashara.</p>
+
+		<p>Kama hujapata mawasiliano yoyote toka kwa wanunuzi, usikate tamaa. Tumia Orodha iliyopo kwenye kurasa yetu kuwasiliana na wanunuzi ambao wanataka bidhaa unazouza wewe. Kama njia hii pia haitofanya kazi, linganisha tangazo lako na matangazo ya wengine walio katika eneo lako. Je, wewe unauza bei ya juu sana? Au, unauza mazao yasiyo na soko? Unauza mazao mengi/machache mno? Rekebisha ipasavyo na jaribu tena!</p>
+
+		<p>Pia, unganisha wakulima wengine katika kijiji chako na masoko hayo. Hakuna haja ya kujiwakilisha mwenyewe tu. Wakilisha wenzako, na uwe dalali!</p>
+
+		<p><strong><u>Wasindikizaji wa vyakula / Masoko / Wanunuzi / Wajasiriamali!</u></strong></p>
+
+		<p>Kihistoria, sasa ndio wakati wa kupata bei nzuri za mazao Tanzania. Tuma malori vijijini kwa kutumia dira ya satelaiti (GPS) ili kukuwezesha kupata mazao ya bei nafuu kabisa. Si tu kutafuta mazao yanayo patikana kiurahisi- bali weka tangazo lako na wauzaji watapigania juu ya kukuuzia wewe! Hii ni nafasi yako ya kuzalisha fedha kwa njia ya kununua mazao ya bei ya chini na kuuza kwa bei ya juu. Ila kumbuka, utathaminishwa na kila mtu utakae fanya nae biashara, hivyo kua muaminifu na jenga sifa nzuri ya biashara yako kwa mafanikio makubwa zaidi mbeleni.</p>
+
+	<% end %>
 
 	<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
 		<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
