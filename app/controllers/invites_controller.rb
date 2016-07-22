@@ -14,7 +14,7 @@ class InvitesController < ApplicationController
         #InviteMailer.existing_user_invite(@invite).deliver
       else
         #new user, send them the standard invite with a new token
-        InviteMailer.new_user_invite(@invite, new_user_registration_path(:invite_token => @invite.token)).deliver
+        InviteMailer.new_user_invite(@invite, @user, new_user_registration_path(:invite_token => @invite.token)).deliver
       end
       #it worked, go home
       #probably want to set a flash message here, need sw
