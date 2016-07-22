@@ -1,6 +1,6 @@
 class InviteMailer < ApplicationMailer
 
-  default from: "info@ninayo.com"
+  default from: "ninayo@ninayo.com"
 
   def existing_user_invite(invite)
     @invite = invite
