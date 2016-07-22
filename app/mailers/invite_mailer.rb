@@ -8,10 +8,11 @@ class InviteMailer < ApplicationMailer
     mail to: @invite.email
   end
 
-  def new_user_invite(invite, url)
-    @invite, @url = invite, url
-
-    mail to: @invite.email
+  def new_user_invite(invite, user, url)
+    @invite = invite
+    @url = url
+    @user = user
+    mail to: @invite.email, subject: "#{@user.name.titleize} has invited you to NINAYO"
   end
 
 end
