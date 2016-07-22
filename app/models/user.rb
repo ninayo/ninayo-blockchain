@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
 	has_many :favorite_ads
 	has_many :favorites, through: :favorite_ads, source: :ad
 
+	#invitation stuff
+	has_many :invitations, :class_name => "Invite", :foreign_key => "recipient_id"
+	has_many :sent_invites, :class_name => "Invite", :foreign_key => "sender_id"
+
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?
 	after_initialize :set_default_language, :if => :new_record?

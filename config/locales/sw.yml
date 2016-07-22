@@ -98,8 +98,9 @@ sw:
     swahili: "Kiswahili"
     per_unit: "ya moja"
     want_sell: "🍅🌽Ninataka kuuza🍌🍠"
-    want_buy: "💰 Ninataka kununua 💰"
+    want_buy: "🚚 Ninataka kununua 🚚"
     about_me: "❓ Jifunza zaidi ❓"
+    invite: "💰 Elfu Kumi Leo 💰"
 
     errors:
       zero: "hakuna makosa"

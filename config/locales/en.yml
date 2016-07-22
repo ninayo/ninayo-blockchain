@@ -117,8 +117,9 @@ en:
     swahili: "Swahili"
     per_unit: "per unit"
     want_sell: "🍅🌽I want to sell🍌🍠"
-    want_buy: "💰 I want to buy 💰"
+    want_buy: "🚚 I want to buy 🚚"
     about_me: "❓ Instructions ❓"
+    invite: "💰 10k TZS Today 💰"
 
     errors:
       zero: "no errors"
