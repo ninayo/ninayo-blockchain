@@ -99,6 +99,14 @@ class User < ActiveRecord::Base
 			http.request(req)
 		}
 
+		user = User.find_by_email(auth.info.email)
+		if user
+			user.uid = auth.uid
+			user.name = auth.info.name
+			user.photo_url = JSON.parse(res.body)["data"]["url"]
+			return user
+		end
+
 		#set properties of the new user. requested info determined in devise.rb
 		where(uid: auth.uid, email: auth.info.email).first_or_create do |user|
 			user.update(:uid => auth.uid,
