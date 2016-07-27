@@ -100,7 +100,7 @@ class User < ActiveRecord::Base
 		}
 
 		#set properties of the new user. requested info determined in devise.rb
-		where(uid: uid.uid, email: auth.info.email).first_or_create do |user|
+		where(uid: auth.uid, email: auth.info.email).first_or_create do |user|
 			user.update(:uid => auth.uid,
 									:name => auth.info.name,
 									:email => auth.info.email || "no_email#{rand(999999)}@ninayo.com",
