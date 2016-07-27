@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
 		res = Net::HTTP.start(photo_url.host, photo_url.port) {|http|
 			http.request(req)
 		}
-
+		#check to see if a user already exists. if it does, merge oauth data with existing user
 		user = User.find_by_email(auth.info.email)
 		if user
 			user.uid = auth.uid
@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
 			return user
 		end
 
-		#set properties of the new user. requested info determined in devise.rb
+		#new registration, so set properties of the new user. requested info determined in devise.rb
 		where(uid: auth.uid, email: auth.info.email).first_or_create do |user|
 			user.update(:uid => auth.uid,
 									:name => auth.info.name,
