@@ -13,8 +13,8 @@
 				<% else %>
 				<div class="messages-item">
 				<% end %>
-					<% if !current_user.photo_url.nil? %>
-						<img src=<%= "#{current_user.photo_url}" %> class="avatar">
+					<% if !message.sender.photo_url.nil? %>
+						<img src=<%= "#{message.sender.photo_url}" %> class="avatar">
 					<% end %>
 					<div class="message-header">
 						<strong><%= message.sender.name %></strong>
