@@ -2,6 +2,10 @@ class InvitesController < ApplicationController
 
   before_action :authenticate_user!
 
+  def index
+    @invites = current_user.sent_invites
+  end
+
   def create
     @invite = Invite.new(invite_params)
     @invite.sender_id = current_user.id
@@ -18,11 +22,10 @@ class InvitesController < ApplicationController
         InviteMailer.new_user_invite(@invite, @user, new_user_registration_path(:invite_token => @invite.token)).deliver
       end
       #it worked, go home
-      #probably want to set a flash message here, need sw
-      redirect_to root_url
+      redirect_to root_url, notice: "Mwaliko kutumwa. Asante!"
     else
       #creating an invite failed for some reason
-      redirect_to root_url
+      redirect_to root_url, notice: "Huwezi kutuma ujumbe"
     end
 
   end
