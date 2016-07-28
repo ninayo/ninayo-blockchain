@@ -15,4 +15,8 @@ class MessagesController < ApplicationController
   end
   #subject is hardcoded in messages/new.html.erb but we can replace the hidden with a normal field if we want
   #if someone really wants to modify the request they can set their own subject but whatever
+
+  def admin_message
+    redirect_to root_path unless current_user && current_user.admin?
+  end
 end

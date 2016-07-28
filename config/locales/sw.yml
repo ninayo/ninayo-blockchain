@@ -1,6 +1,9 @@
 
 sw:
-
+  mailboxer:
+    message_mailer:
+      subject_new: "Una ujumbe Mpya"
+      subject_reply: "Umejibiwa"
   activerecord:
     models:
       ad:

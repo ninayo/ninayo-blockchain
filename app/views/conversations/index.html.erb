@@ -1,4 +1,9 @@
 <ul class="conversation-group clearfix">
+	<% if current_user && current_user.admin? %>
+		<div class="panel-heading">
+			<%= link_to 'Admin Message', admin_message_path, style: "margin-bottom: 0px;", class: 'button btn-primary'%>
+		</div>
+	<% end %>
 	<p class="conversation-header"><strong><%= "Karibu katika mfumo wa ujumbe wa NINAYO!" %></strong></p>
 	<%= render partial: 'conversations/conversation', collection: @conversations %>
 </ul>

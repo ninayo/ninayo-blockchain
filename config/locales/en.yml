@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  mailboxer:
+    message_mailer:
+      subject_new: "You have a new message on NINAYO!"
+      subject_reply: "You have received a reply on NINAYO!"
   activerecord:
     models:
       ad:
