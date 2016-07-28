@@ -20,11 +20,4 @@ class MessagesController < ApplicationController
     redirect_to root_path unless current_user && current_user.admin?
   end
 
-  def message_all
-    redirect_to root_path unless current_user && current_user.admin?
-    recipients = User.all
-    conversation = current_user.send_message(recipients, "Je, unataka 500,000 / = kusherehekea na juu ya Nane Nane? Bonyeza 'Waharike Marafiki' na kisha kuandika katika barua pepe ya rafiki yako na wanakijiji wenzake. NINAYO mtumiaji ambaye inahusu watumiaji wengi wapya atashinda Laki Tano ya Tigo Pesa hii Nane Nane!", "500,000/= NANE NANE Tuzo!").conversation
-    redirect_to root_path, notice: "Announcement sent, delivery in progress"
-  end
-
 end
