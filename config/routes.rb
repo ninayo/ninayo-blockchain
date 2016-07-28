@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     resources :invites, only: [:index, :create]
 
     get 'messages/admin_message' => 'messages#admin_message', as: :admin_message
+    get 'messages/mass_announce_nanenane' => 'messages#message_all', as: :message_all
 
     get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
     get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
