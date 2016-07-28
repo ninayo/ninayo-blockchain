@@ -14,7 +14,7 @@
 				<div class="messages-item">
 				<% end %>
 					<% if !message.sender.photo_url.nil? %>
-						<img src=<%= "#{message.sender.photo_url}" %> class="avatar">
+						<img src=<%= "#{message.sender.photo_url}" %> class="avatar" style="margin-bottom: 12px;">
 					<% end %>
 					<div class="message-header">
 						<strong><%= message.sender.name %></strong>
