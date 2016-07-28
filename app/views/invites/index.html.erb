@@ -14,7 +14,7 @@
 		<p><strong>Barua Zilizotumwa</strong></p>
 		<ul class="conversation-group clearfix">
 			<% @invites.each do |invite| %>
-				<li class="conversation-item clearfix"><%= "#{invite.receiver_id ? "✅️" : "❌"} #{invite.email}"%></br><%="#{invite.created_at.strftime("%e %B, %Y")}"%></li>
+				<li class="conversation-item clearfix"><%= "#{invite.receiver_id ? "✅️" : "📩"} #{invite.email}"%></br><%="#{invite.created_at.strftime("%e %B, %Y")}"%></li>
 			<% end %>
 		</ul>
 	</div>
