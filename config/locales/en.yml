@@ -120,9 +120,9 @@ en:
     english: "English"
     swahili: "Swahili"
     per_unit: "per unit"
-    want_sell: "🍅🌽I want to sell🍌🍠"
-    want_buy: "🚚 I want to buy 🚚"
-    about_me: "❓ About ❓"
+    want_sell: "I want to sell"
+    want_buy: "I want to buy"
+    about_me: "About"
     invite: "Invite Friends"
 
     errors:
