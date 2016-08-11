@@ -14,11 +14,11 @@
 
 				<% if I18n.locale == :sw %>
 					<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
-						<img src="<%= image_path("en_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("tz_flag.png") %>'">
+						<span>EN</span>
 					<% end %>
 				<% elsif I18n.locale == :en %>
 					<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
-						<img src="<%= image_path("tz_flag.png") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("en_flag.png") %>'">
+						<span>SW</span>
 					<% end %>
 				<% end %>
 			</div>
