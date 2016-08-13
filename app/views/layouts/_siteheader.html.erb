@@ -21,13 +21,13 @@
 					<% if current_user.name.nil? %>
 						<%= "  Welcome!" %>
 					<% else %>
-						<%= "  Welcome, #{current_user.name.split(" ")[0]}!" %>
+						<%= "  #{current_user.name.split(" ")[0]}" %>
 					<% end %>
 				<% else %>
 					<% if current_user.name.nil? %>
 						<%= "  Karibu!" %>
 					<% else %>
-						<%= "  Karibu, #{current_user.name.split(" ")[0]}!" %>
+						<%= "  #{current_user.name.split(" ")[0]}" %>
 					<% end %>
 				<% end %>
 			<% end %>
