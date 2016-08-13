@@ -99,7 +99,7 @@ class User < ActiveRecord::Base
 			http.request(req)
 		}
 		#check to see if a user already exists. if it does, merge oauth data with existing user
-		user = User.find_by_email(auth.info.email)
+		user = User.find_by_email(auth.info.email) || User.find_by_uid(auth.uid)
 		if user
 			user.uid = auth.uid
 			user.name = auth.info.name
