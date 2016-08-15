@@ -36,7 +36,7 @@
 
 }
 
-.wrapper.show-filter .ads-wrapper .filter {
+.wrapper.show-filter .posts-wrapper .filter {
 	right: $negativeHalfPadding;
 
 	@include mq($from: medium) {
