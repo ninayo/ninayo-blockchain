@@ -28,8 +28,8 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
-	#after_initialize :track_registration, :if => :new_record?
-	#after_initialize :track_login
+	after_initialize :track_registration, :if => :new_record?
+	after_initialize :track_login
 
 	validates :name, :email, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
@@ -150,16 +150,17 @@ class User < ActiveRecord::Base
 		return 0 if completed_ads.empty?
 		completed_ads.map{ |ad| ad.final_price }.inject(:+)
 	end
-
-protected
-
+	
 	def track_registration
-		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{(current_user.email || current_user.uid)}")
+		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email}")
 	end
 
 	def track_login
-		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{(current_user.email || current_user.uid)}")
+		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{(current_user.email}")
 	end
+
+protected
+
 
 	def set_default_role
 		self.role ||= :user
