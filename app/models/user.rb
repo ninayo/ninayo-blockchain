@@ -2,6 +2,9 @@ require 'net/http'
 
 class User < ActiveRecord::Base
 
+	#trackable inclusion goes here instead of controller, since devise+oauth tends to make google analytics choke
+	include Trackable
+
 	acts_as_messageable
 
 	after_create :send_welcome_email
@@ -24,6 +27,9 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_role, :if => :new_record?
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
+
+	after_initialize :track_registration, :if => :new_record?
+	after_initialize :track_login
 
 	validates :name, :email, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
@@ -146,6 +152,14 @@ class User < ActiveRecord::Base
 	end
 
 protected
+
+	def track_registration
+		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.uid}")
+	end
+
+	def track_login
+		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{current_user.email || current_user.uid}")
+	end
 
 	def set_default_role
 		self.role ||= :user
