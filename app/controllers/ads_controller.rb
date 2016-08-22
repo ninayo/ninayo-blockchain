@@ -6,6 +6,9 @@ class AdsController < ApplicationController
 	after_action :track_update, only: [:update]
 	after_action :track_archive, only: [:archive]
 
+	after_action :track_contact_reveal, only: [:contact_info]
+	after_action :track_favorite, only: [:favorite]
+
 	before_action :set_ad, only: [:show, :infopanel, :contact_info, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
@@ -231,6 +234,7 @@ private
 
 	def ga_info
 		{
+			ad_id: @ad.id
 			type: @ad.ad_type,
 			unit_type: @ad.volume_unit,
 			crop_type: @ad.crop_type_id,
@@ -250,6 +254,14 @@ private
 
 	def track_archive
 		track_event('ARCHIVE AD', ga_info)
+	end
+
+	def track_contact_reveal
+		track_event('REVEAL AD CONTACT', ga_info)
+	end
+
+	def track_favorite
+		track_event('FAVORITE AD', ga_info)
 	end
 
 	def update_user_location #if we don't have a location for a user, assign one once they post an ad with a location
