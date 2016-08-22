@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	acts_as_messageable
 
 	after_create :send_welcome_email
-	after_create :track_registration
+	#after_create :track_registration
 	has_many :ads
 	has_many :user_logs
 	accepts_nested_attributes_for :ads
