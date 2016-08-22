@@ -117,11 +117,13 @@ class AdsController < ApplicationController
 			if @ad.save
 				redirect_to :action => "preview", :id => @ad.id
 			else
+				track_failure
 				@crop_types = CropType.all.order(:sort_order)
 				@ad.user = current_user
 				render "new"
 			end
 		else
+			track_failure
 			@ad.user = current_user
 			@crop_types = CropType.all.order(:sort_order)
 			render "new"
@@ -268,6 +270,10 @@ private
 
 	def track_favorite
 		track_event('Engagement & Acquisition', 'Advert Added to Favorite', "favorite advert: #{crop_name(@ad.crop_type_id)}", "FAVORITE AD: #{ga_info}")
+	end
+
+	def track_failure
+		track_Event('Engagement & Acquisition', 'Failed Post Advert Error', "failed to post advert: #{crop_name(@ad.crop_type_id)}", "FAILED AD: #{ga_info}")
 	end
 
 	def update_user_location #if we don't have a location for a user, assign one once they post an ad with a location
