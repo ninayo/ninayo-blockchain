@@ -122,7 +122,7 @@ class AdsController < ApplicationController
 				render "new"
 			end
 		else
-			track_failure
+			#track_failure
 			@ad.user = current_user
 			@crop_types = CropType.all.order(:sort_order)
 			render "new"
