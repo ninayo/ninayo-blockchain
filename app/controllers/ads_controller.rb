@@ -234,6 +234,7 @@ private
 
 	def ga_info
 		"ga_info"
+		
 		# {
 		# 	ad_id: @ad.id,
 		# 	type: @ad.ad_type,

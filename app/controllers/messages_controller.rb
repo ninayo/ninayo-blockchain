@@ -27,6 +27,7 @@ class MessagesController < ApplicationController
   private
 
   def track_message
+    track_event("Engagement & Acquisition", "Advert message sent", "sent message to advert added", "SEND MESSAGE TO AD")
   end
 
 end
