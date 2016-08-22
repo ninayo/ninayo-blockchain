@@ -1,4 +1,11 @@
 class AdsController < ApplicationController
+
+	include Trackable
+
+	after_action :track_new, only: [:create]
+	after_action :track_update, only: [:update]
+	after_action :track_archive, only: [:archive]
+
 	before_action :set_ad, only: [:show, :infopanel, :contact_info, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
@@ -221,6 +228,29 @@ class AdsController < ApplicationController
 
 
 private
+
+	def ga_info
+		{
+			type: @ad.ad_type,
+			unit_type: @ad.volume_unit,
+			crop_type: @ad.crop_type_id,
+			region: @ad.region_id,
+			village: @ad.village,
+			amount: @ad.price
+		}
+	end
+
+	def track_new
+		track_event('NEW AD', ga_info)
+	end
+
+	def track_update
+		track_event('UPDATE AD', ga_info)
+	end
+
+	def track_archive
+		track_event('ARCHIVE AD', ga_info)
+	end
 
 	def update_user_location #if we don't have a location for a user, assign one once they post an ad with a location
 		if !@ad.user.lat && @ad.lat

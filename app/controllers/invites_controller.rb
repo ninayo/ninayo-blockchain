@@ -1,6 +1,10 @@
 class InvitesController < ApplicationController
 
+  include Trackable
+
   before_action :authenticate_user!
+
+  after_action :track_invite, only: [:create]
 
   def index
     @invites = current_user.sent_invites
@@ -28,6 +32,12 @@ class InvitesController < ApplicationController
       redirect_to root_url, notice: "Huwezi kutuma ujumbe"
     end
 
+  end
+
+  private
+
+  def track_invite
+    track_event('INVITE', current_user.email)
   end
 
   def invite_params

@@ -1,6 +1,10 @@
 class MessagesController < ApplicationController
 
+  include Trackable
+
   before_action :authenticate_user!
+
+  after_action :track_message, only: [:create]
 
   def new
   end
@@ -18,6 +22,11 @@ class MessagesController < ApplicationController
 
   def admin_message
     redirect_to root_path unless current_user && current_user.admin?
+  end
+
+  private
+
+  def track_message
   end
 
 end
