@@ -243,25 +243,25 @@ private
 			amount: @ad.price
 		}
 	end
-
+	#track_event(category, type, action, label)
 	def track_new
-		track_event('NEW AD', ga_info)
+		track_event('Engagement & Acquisition', 'Post Advert', "new advert added: #{@ad.crop_type_id}", "NEW AD: #{ga_info}")
 	end
 
 	def track_update
-		track_event('UPDATE AD', ga_info)
+		track_event('Engagement & Acquisition', 'Advert Update', "update advert added: #{@ad.crop_type_id}", "UPDATE AD: #{ga_info}")
 	end
 
 	def track_archive
-		track_event('ARCHIVE AD', ga_info)
+		track_event('Engagement & Acquisition', 'Advert Archive', "archive advert added: #{@ad.crop_type_id}", "ARCHIVE AD: #{ga_info}")
 	end
 
 	def track_contact_reveal
-		track_event('REVEAL AD CONTACT', ga_info)
+		track_event('Engagement & Acquisition', 'Phone Reveal', "reveal contact details on advert: #{@ad.crop_type_id}", "REVEAL AD CONTACT: #{ga_info}")
 	end
 
 	def track_favorite
-		track_event('FAVORITE AD', ga_info)
+		track_event('Engagement & Acquisition', 'Advert Added to Favorite', "favorite advert: #{@ad.crop_type_id}", "FAVORITE AD: #{ga_info}")
 	end
 
 	def update_user_location #if we don't have a location for a user, assign one once they post an ad with a location

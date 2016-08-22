@@ -37,7 +37,7 @@ class InvitesController < ApplicationController
   private
 
   def track_invite
-    track_event('INVITE', current_user.email)
+    track_event('Social', 'Invite a Friend', "Submission of friend invite from #{current_user.email}", "INVITE: #{current_user.email}")
   end
 
   def invite_params
