@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 	acts_as_messageable
 
 	after_create :send_welcome_email
+	after_create :track_registration
 	has_many :ads
 	has_many :user_logs
 	accepts_nested_attributes_for :ads
@@ -28,8 +29,7 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
-	after_initialize :track_registration, :if => :new_record?
-	after_initialize :track_login
+	#after_initialize :track_login
 
 	validates :name, :email, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
