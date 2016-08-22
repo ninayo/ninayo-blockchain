@@ -156,7 +156,7 @@ class User < ActiveRecord::Base
 	end
 
 	def track_login
-		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{(current_user.email}")
+		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{current_user.email}")
 	end
 
 protected
