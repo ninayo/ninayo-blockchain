@@ -233,15 +233,16 @@ class AdsController < ApplicationController
 private
 
 	def ga_info
-		{
-			ad_id: @ad.id,
-			type: @ad.ad_type,
-			unit_type: @ad.volume_unit,
-			crop_type: @ad.crop_type_id,
-			region: @ad.region_id,
-			village: @ad.village,
-			amount: @ad.price
-		}
+		"ga_info"
+		# {
+		# 	ad_id: @ad.id,
+		# 	type: @ad.ad_type,
+		# 	unit_type: @ad.volume_unit,
+		# 	crop_type: @ad.crop_type_id,
+		# 	region: @ad.region_id,
+		# 	village: @ad.village,
+		# 	amount: @ad.price
+		# }
 	end
 	#track_event(category, type, action, label)
 	def track_new
