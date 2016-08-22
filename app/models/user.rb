@@ -154,11 +154,11 @@ class User < ActiveRecord::Base
 protected
 
 	def track_registration
-		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.uid}")
+		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{(current_user.email || current_user.uid)}")
 	end
 
 	def track_login
-		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{current_user.email || current_user.uid}")
+		track_event('User Management', 'User Login', 'account login', "ACCOUNT LOGIN: #{(current_user.email || current_user.uid)}")
 	end
 
 	def set_default_role
