@@ -234,7 +234,7 @@ private
 
 	def ga_info
 		{
-			ad_id: @ad.id
+			ad_id: @ad.id,
 			type: @ad.ad_type,
 			unit_type: @ad.volume_unit,
 			crop_type: @ad.crop_type_id,
