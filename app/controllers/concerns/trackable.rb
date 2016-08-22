@@ -2,7 +2,7 @@ module Trackable
   extend ActiveSupport::Concern
 
   def track_event(category, type, action, label)
-    push_to_google_analytics(type, ec: category, ea: action, el: label)
+    push_to_google_analytics('event', ec: category, ea: action, el: label)
   end
 
   def track_page_view
