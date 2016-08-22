@@ -117,7 +117,6 @@ class AdsController < ApplicationController
 			if @ad.save
 				redirect_to :action => "preview", :id => @ad.id
 			else
-				track_failure
 				@crop_types = CropType.all.order(:sort_order)
 				@ad.user = current_user
 				render "new"
