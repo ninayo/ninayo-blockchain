@@ -15,8 +15,8 @@ sw:
     attributes:
       ad:
         description: "Maelezo"
-        price: "Bie ya moja"
-        volume: "Ujazo zote unauza"
+        price: "Bie za rejareja"
+        volume: "Kiasi kinacho uzwa"
         volume_unit: "unit"
         village: "Kijiji"
         crop_type: "Aina ya zao"
@@ -28,7 +28,7 @@ sw:
         final_price: "Bei ya mwisho"
         buyer: "Mnunuzi"
         other_crop_type: "Aina nyingine ya zao"
-        buyer_price: "bei ya Mnunuzi"
+        buyer_price: "Bei ya Mnunuzi"
         ad_type: "Aina"
         location: "Mahali"
 
@@ -47,7 +47,7 @@ sw:
       user:
         name: "Jina"
         email: "Barua pepe"
-        password: "Nenosiri"
+        password: "Neno la siri"
         password_confirmation: "Uthibitisho wa nenosiri"
         current_password: "Nenosiri sasa"
         phone_number: "Nambari ya simu"
@@ -85,14 +85,14 @@ sw:
     update: "Boresha"
     save: "Hifadhi"
     cancel: "Ahirisha"
-    edit: "hariri"
-    delete: "futa"
+    edit: "Hariri"
+    delete: "Futa"
     archive: "Kutunza"
     destroy: "haribu"
     you_need_to_login_first: "Unatakiwa kuingia kwanza kabla ya kufanya tendo hili"
     favorite: "Unachopendelea"
     unfavorite: "Usichopendelea"
-    phone: "simu"
+    phone: "Simu"
     email: "Barua pepe"
     by: "Na"
     of: "ya"
@@ -102,8 +102,8 @@ sw:
     per_unit: "ya moja"
     want_sell: "Ninataka kuuza"
     want_buy: "Ninataka kununua"
-    about_me: "Jifunza zaidi"
-    invite: "Waharike Marafiki"
+    about_me: "Jifunze zaidi"
+    invite: "Waalike Wengine"
 
     errors:
       zero: "hakuna makosa"
@@ -111,8 +111,8 @@ sw:
       other: "makosa %{count}"
 
     facts: "Ukweli"
-    price: "Bie ya moja"
-    volumne: "Ujazo zote unauza"
+    price: "Bei za rejareja"
+    volumne: "Kiasi kinacho uzwa"
     published: "Tolewa"
 
     min: "Ndogo"
@@ -125,8 +125,8 @@ sw:
       menu: "menyu"
       home: "Nyumbani"
       my_page: "Ukurasa wangu"
-      edit_profile: "hariri wasifu"
-      log_out: "kutoka"
+      edit_profile: "Hariri wasifu"
+      log_out: "Kutoka"
       sign_up: "Jisajili"
       login: "Ingia"
       dashboard: "Dashboard"
@@ -142,15 +142,15 @@ sw:
       agreement_text_2: "Terms of Service"
 
       sidebar:
-        heading: "Hakuna Akaunti?"
+        heading: "Hauna Akaunti?"
         text: "Tengeneza akaunti sasa na unaweza:"
         benefit_1: "Kuuza mazao yako kwa mtu yeyote"
         benefit_2: "Kununua mazao kutoka kwa mtu yeyote"
-        benefit_3: "Soma bei nchini kote"
+        benefit_3: "Ona bei zilizopo nchini nzima"
         benefit_4: "Wasiliana wanunuzi na wauzaji"
 
     edit_profile:
-      heading: "hariri wasifu"
+      heading: "Hariri wasifu"
       waiting_for_confirmation: "kwasasa inasubiri uthibitisho wa"
       leave_blank: "Acha wazi kama hutaki kubdailisha"
       need_password_for: "Tunahitaji nenosiri lako la sasa ili kuthibitisha mabadaliko"
@@ -166,12 +166,12 @@ sw:
       preferred_language: "Lugha lako"
 
     ad:
-      crop_type: "aina ya zao"
+      crop_type: "Aina ya zao"
       region: "Mkoa"
       village: "Kijiji"
       volume: "Ujazo zote unauza"
       price: "Bie ya moya"
-      crop: "zao"
+      crop: "Zao"
       lat: "Latitudo"
       lng: "Longitudo"
       description: "Maelezo"
@@ -186,7 +186,7 @@ sw:
 
       new:
         heading: "Kujenga tangazo"
-        select_a_crop_type: "chagua aina ya zao"
+        select_a_crop_type: "Chagua aina ya zao"
         name_of_crop_type: "Jina la zao la aina nyingine"
 
         pick_your_location: "Chagua mahali ulipo"
@@ -195,8 +195,8 @@ sw:
         drag_marker: "Pelekea mshale mahali zao lako lilipo"
         confirm_location: "Thibitisha mahali ulipo"
 
-        contact_information: "taarifa za mawasiliano"
-        review_contact_information: "tafadhali pitia taarifa zako za mawasiliano"
+        contact_information: "Taarifa za mawasiliano"
+        review_contact_information: "Tafadhali pitia taarifa zako za mawasiliano"
 
         save_changes: "Hifadhi mabadiliko"
         preview_ad: "Pitia tangazo lako kabla hujatangaza"
@@ -237,9 +237,9 @@ sw:
 
 
       pagenav:
-        list: "Oradha"
+        list: "Orodha"
         map: "Ramani"
-        filter: "vigezo"
+        filter: "Vigezo"
 
       rate:
         heading: "Thaminisha"
@@ -263,7 +263,7 @@ sw:
         reset_filter: "Badili vigezo"
 
       seller:
-        heading: "muuzaji"
+        heading: "Muuzaji"
         show_contact_information: "Onyesha taarifa ya mwasiliano"
 
     log:
@@ -274,7 +274,7 @@ sw:
 
     my_page:
       current:
-        title: "ukurasa wangu"
+        title: "Ukurasa wangu"
         heading: ""
       favorites:
         title: "Vipaumbele"
@@ -290,7 +290,7 @@ sw:
         archive: "Hifadhi"
       list:
         title: "Cheo"
-        seller: "muuzaji"
+        seller: "Muuzaji"
         buyer: "Mnunuzi"
         price: "Bie ya moja"
         final_price: "Bei ya mwisho"
@@ -303,9 +303,9 @@ sw:
         no_ads: "hakuna matangazo la kuonyesha"
 
     footer:
-      contact: "Contact"
+      contact: "Barua pepe"
       report_abuse: "Report abuse"
-      support: "Support"
+      support: "Msaada"
 
     pagination:
       first: "&laquo; kwanza"
