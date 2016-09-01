@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
 	acts_as_messageable
 	#skip sending confirmation email if we've assigned a user a temp email
-	after_create :send_welcome_email, unless Proc.new {self.email.include?("@ninayo.com") }
+	after_create :send_welcome_email, unless Proc.new { self.email.include?("@ninayo.com") }
 	#after_create :track_registration
 	has_many :ads
 	has_many :user_logs
@@ -151,11 +151,11 @@ class User < ActiveRecord::Base
 		completed_ads.map{ |ad| ad.final_price }.inject(:+)
 	end
 	
-	def track_registration
-		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email}")
-	end
+	# def track_registration
+	# 	track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email}")
+	# end
 
-protected
+	protected
 
 
 	def set_default_role
