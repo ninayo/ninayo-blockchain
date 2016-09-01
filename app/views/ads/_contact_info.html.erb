@@ -4,7 +4,9 @@
 		<td><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></td>
 	</tr>
 	<tr>
+		<% unless user.email.include?("@ninayo.com") %>
 		<th><%= t("common.email") %>:</th>
 		<td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
+		<% end %>
 	</tr>
 </table>

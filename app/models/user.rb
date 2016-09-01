@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 	include Trackable
 
 	acts_as_messageable
-
-	after_create :send_welcome_email
+	#skip sending confirmation email if we've assigned a user a temp email
+	after_create :send_welcome_email, unless Proc.new {self.email.include?("@ninayo.com") }
 	#after_create :track_registration
 	has_many :ads
 	has_many :user_logs
@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 	has_many :ad_logs
 	has_many :ratings
 	belongs_to :region
+	belongs_to :district
+	belongs_to :ward
 
 	has_many :favorite_ads
 	has_many :favorites, through: :favorite_ads, source: :ad

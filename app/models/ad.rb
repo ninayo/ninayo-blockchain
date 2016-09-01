@@ -18,6 +18,8 @@ class Ad < ActiveRecord::Base
 
 	belongs_to :crop_type
 	belongs_to :region
+	belongs_to :district
+	belongs_to :ward
 	has_many :ad_logs
 	has_many :speculators, through: :ad_logs, source: :user
 	has_many :favorite_ads

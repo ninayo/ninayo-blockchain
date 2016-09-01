@@ -1,0 +1,34 @@
+<h1>Spreadsheet Import</h1>
+
+<p>A CSV or Excel file can be used to import records. The first row should be the column name. The following columns are allowed.</p>
+
+<ul>
+  <% Ad.columns.each do |column| %>
+    <% if column.name.in? [ "region_id", "district_id", "ward_id", "village", "volume", "volume_unit", "price", "crop_type_id", "description"] %>
+      <li>
+        <strong><%= column.name %></strong> -
+        <%= column.type.to_s.titleize %> type
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<p>A <strong>name</strong> and <strong>phone number</strong> must be supplied for each row. If we have seen it before, it will update the matching user instead of creating a new one.</p>
+
+<%= form_for @post_import do |f| %>
+  <% if @post_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post_import.errors.count, "error") %> prohibited this import from completing:</h2>
+      <ul>
+      <% @post_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.file_field :file %>
+  </div>
+  <div class="buttons"><%= f.submit "Import" %></div>
+<% end %>

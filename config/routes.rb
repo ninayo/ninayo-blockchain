@@ -32,11 +32,13 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :post_imports
+
     resources :messages, only: [:new, :create]
 
     resources :invites, only: [:index, :create]
 
-    get 'messages/admin_message' => 'messages#admin_message', as: :admin_message
+    #get 'messages/admin_message' => 'messages#admin_message', as: :admin_message
 
     get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
     get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
