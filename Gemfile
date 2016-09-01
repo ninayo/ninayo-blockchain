@@ -35,6 +35,8 @@ gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations"
 
 gem 'markdown-rails'
 
+gem 'roo'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -54,7 +56,7 @@ gem 'omniauth-facebook'
 
 gem 'mailboxer'
 
-gem 'skylight'
+#gem 'skylight'
 
 group :development do
   gem 'heroku'
