@@ -69,7 +69,7 @@ class Admin::AnalyticsController < Admin::BaseController
 			end
 		end
 
-		"#{best_user.name} - #{best_sum}/="
+		best_user.nil? ? "No best user yet this month" : "#{best_user.name} - #{best_sum}/="
 
 	end
 
