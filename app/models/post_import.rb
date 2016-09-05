@@ -48,7 +48,7 @@ class PostImport
                                   :region_id => Region.find_by_name(row["Mkoa"]).id,
                                   :district_id => District.find_by_name(row["Wilaya"]).id,
                                   :ward_id => Ward.find_by_name(row["Wodi"]).id)
-      user.update!(:name => row["Jina"].titleize
+      user.update!(:name => row["Jina"].titleize,
                   :district_id => District.find_by_name(row["Wilaya"]).id,
                   :ward_id => Ward.find_by_name(row["Wodi"]).id) #run another check in case we got a name for known user this time
       
