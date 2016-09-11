@@ -32,7 +32,7 @@ class Ad < ActiveRecord::Base
 	# validates :lat, :lng, presence: true
 	# validates :region_id, presence: true
 
-	validate :precence_of_position
+	#validate :precence_of_position
 
 	def precence_of_position
 		unless lat.present? && lng.present?

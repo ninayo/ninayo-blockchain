@@ -4,10 +4,11 @@ class User < ActiveRecord::Base
 
 	#trackable inclusion goes here instead of controller, since devise+oauth tends to make google analytics choke
 	include Trackable
+	attr_accessor :login
 
 	acts_as_messageable
 	#skip sending confirmation email if we've assigned a user a temp email
-	after_create :send_welcome_email, unless: Proc.new { self.email.include?("@ninayo.com") }
+	after_create :send_welcome_email, unless: Proc.new { self.email.include?("@ninayo.com") || self.email.blank? }
 	#after_create :track_registration
 	has_many :ads
 	has_many :user_logs
@@ -31,8 +32,10 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
-	validates :name, :email, :phone_number, :agreement, presence: true, on: :save_ad
+	validates :name, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
+	validates :phone_number, uniqueness: true, allow_nil: true
+	validates :email, uniqueness: true, allow_nil: true 
 
 	accepts_nested_attributes_for :ratings, allow_destroy: true
 
@@ -42,7 +45,7 @@ class User < ActiveRecord::Base
 	# Include default devise modules. Others available are:
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :registerable, :omniauthable,
-		:recoverable, :rememberable, :trackable, :validatable
+		:recoverable, :rememberable, :trackable, :validatable, :authentication_keys => { login: true }
 
 
 	# def seller_score
@@ -61,6 +64,17 @@ class User < ActiveRecord::Base
 	# 	end
 	# end
 
+	def self.find_for_database_authentication(warden_conditions)
+		conditions = warden_conditions.dup
+		conditions[:email].downcase! if conditions[:email]
+
+		if login = conditions.delete(:login)
+			where(conditions.to_hash).where(["phone_number = :value OR email = :value", { :value => login.downcase }]).first
+		elsif conditions.has_key?(:phone_number) || conditions.has_key?(:email)
+			where(conditions.to_hash).first
+		end
+	end
+
 	#so that mailboxer plays nice with devise
 	def mailboxer_email(object)
 		email
@@ -69,6 +83,10 @@ class User < ActiveRecord::Base
 	#overwrites built-in method, skips password req for oauth registration
 	def password_required? 
 		super && uid.blank?
+	end
+
+	def email_required?
+		false
 	end
 
 	#overwrites built-in method, skip password req for oauth profile update
@@ -155,8 +173,19 @@ class User < ActiveRecord::Base
 	# 	track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email}")
 	# end
 
+	def info_needed?
+		phone_number.blank? || name.blank?
+	end
+
+	def location_needed?
+		region_id.nil? || district_id.nil? || ward_id.nil? || village.blank?
+	end
+
 	protected
 
+	def cleanup_temp
+    self.phone_number[0..8] == ("TEMPPHONE") ? true : self.update(:email => nil)
+  end
 
 	def set_default_role
 		self.role ||= :user
@@ -174,4 +203,5 @@ class User < ActiveRecord::Base
 	def send_welcome_email
 		UserMailer.signup_confirmation(self).deliver
 	end
+	
 end

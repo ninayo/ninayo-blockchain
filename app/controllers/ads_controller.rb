@@ -107,22 +107,59 @@ class AdsController < ApplicationController
 	end
 
 	def create
-		current_user.update(user_params)
-		@ad = Ad.new(ad_params)
-		@ad.user = current_user
+		if current_user.info_needed?
+			current_user.update(user_params)
+		end
+
+		if current_user.location_needed?
+
+			if current_user.region_id.nil?
+				current_user.update(:region_id => ad_params[:region_id])
+			end
+
+			if current_user.district_id.nil?
+				current_user.update(:district_id => ad_params[:district_id])
+			end
+
+			if current_user.ward_id.nil?
+				current_user.update(:ward_id => ad_params[:ward_id])
+			end
+
+			if current_user.village.blank?
+				current_user.update(:village => ad_params[:village])
+			end
+
+		end
+
+
+		@ad 							= Ad.new(ad_params)
+		@ad.user 					= current_user
 		#@ad.user.update(user_params)
-		@ad.crop_type_id = ad_params[:crop_type_id]
+		@ad.crop_type_id 	= ad_params[:crop_type_id]
+		@ad.ad_type 			= 0 #i want to sell assumes you're going to sell
+		@ad.lat 					= current_user.district.lat
+		@ad.lng 					= current_user.district.lon
+		@ad.status 				= 1 #set to active automatically, skip preview
+
+		current_user.district_id 	= @ad.district_id if current_user.district_id.nil?
+		current_user.ward_id 			= @ad.ward_id if current_user.ward_id.nil?
+		current_user.village = @ad.village if current_user.village.nil?
+
+		@ad.region_id = current_user.region_id
+		@ad.district_id = current_user.district_id
+		@ad.ward_id = current_user.ward_id
+		@ad.village = current_user.village
 
 		if @ad.save
-			if @ad.save
-				redirect_to :action => "preview", :id => @ad.id
-			else
-				@crop_types = CropType.all.order(:sort_order)
-				@ad.user = current_user
-				render "new"
-			end
+			# if @ad.save
+			# 	# redirect_to :action => "preview", :id => @ad.id
+			# else
+			# 	@crop_types = CropType.all.order(:sort_order)
+			# 	@ad.user = current_user
+			# 	render "new"
+			# end
+			redirect_to ad_url(@ad.id), notice: "Karibu!"
 		else
-			#track_failure
 			@ad.user = current_user
 			@crop_types = CropType.all.order(:sort_order)
 			render "new"
@@ -333,9 +370,9 @@ private
 	end
 
 	def ad_params
-		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :buyer_price, :rating, :ad_type)
+		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :district_id, :ward_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :buyer_price, :rating, :ad_type)
 	end
 	def user_params
-		params.require(:user).permit(:name, :email, :phone_number)
+		params.require(:user).permit(:name, :email, :phone_number, :region_id, :district_id, :ward_id, :village)
 	end
 end

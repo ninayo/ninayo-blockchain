@@ -5,11 +5,6 @@
 		<h3><%= t("views.ad.crop").humanize %></h3>
 
 		<div class="field">
-			<%= f.label :ad_type, "#{t "views.ad.new.ad_type_label"}", :class => 'field-label' %>
-			<%= f.select :ad_type, options_for_select([["#{t "views.ad.sell"}", "sell"], ["#{t "views.ad.buy"}", "buy"]], @ad.ad_type) %>
-		</div>
-
-		<div class="field">
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
 		</div>
@@ -46,12 +41,23 @@
 		</div>
 	</fieldset>
 
+	<% if current_user.location_needed?%>
 	<fieldset>
 		<h3><%= t("views.ad.show.location").humanize %></h3>
 		<div class="field">
 			<%= f.label "#{t "views.ad.region"}", :class => 'field-label' %>
-			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
+			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => current_user.region_id %>
 		</div>
+		<div class="field">
+			<%= f.label :district, class: "field-label" %>
+			<%= f.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
+		</div>
+
+		<div class="field">
+			<%= f.label :ward, class: "field-label" %>
+			<%= f.grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
+		</div>
+
 		<div class="field">
 			<%= f.label "#{t "views.ad.village"}", :class => 'field-label' %>
 			<%= f.text_field :village %>
@@ -61,40 +67,30 @@
 		<%#= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
 		<%= f.hidden_field :lng %>
 	</fieldset>
-
-	<%= render "positionmap" %>
-
-	<p>
-		<a href="" class="button is-block positionmap-toggle is-mobile">
-			<%= t "views.ad.new.pick_your_location" %>
-		</a>
-
-		<span class="ad-position-message <%= "is-active" if @ad.lat && @ad.lng %>">
-			Have a position!
-		</span>
-	</p>
-
+	<% end %>
 	<fieldset>
+		<% if current_user.info_needed? %>
 		<h3><%= t("views.ad.new.contact_information").humanize %></h3>
 		<p><%= t "views.ad.new.review_contact_information" %>.</p>
+		<% end %>
 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
+			<% if current_user.name.nil? %>
 			<div class="field">
 				<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
-			<div class="field">
-				<%= user_fields.label :email, :value => "#{t "activerecord.attributes.user.email"}", :class => "field-label" %>
-				<%= user_fields.telephone_field :email, :validate => true%>
-			</div>
+			<% end %>
+			<% if current_user.phone_number.nil? %>
 			<div class="field">
 				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
 				<div class="input-wrapper">
 					<div class="input-field">
-						<%= user_fields.telephone_field :phone_number, :validate => true, class: "is-inline" %>
+						<%= user_fields.telephone_field :phone_number, :validate => false, class: "is-inline" %>
 					</div>
-
 				</div>
 			</div>
+			<% end %>
+
 		<% end %>
 	</fieldset>
 
