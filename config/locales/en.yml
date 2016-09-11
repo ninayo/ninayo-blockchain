@@ -184,6 +184,8 @@ en:
       confirm_your_changes: "Confirm your changes"
       save_changes: "Save changes"
       select_region: "Select a Region"
+      select_district: "Select a District"
+      select_ward: "Select a Ward"
       minimum_password_length: "%{length} characters minimum"
       preferred_language: "Prefered language"
 

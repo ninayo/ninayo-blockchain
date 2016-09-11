@@ -161,6 +161,8 @@ sw:
       confirm_your_changes: "Thibitisha mabadiliko"
       save_changes: "Hifadhi mabadiliko"
       select_region: "Chagua Mkoa"
+      select_district: "Chagua Wilaya"
+      select_ward: "Chagua Wodi"
       minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
 
       preferred_language: "Lugha lako"
