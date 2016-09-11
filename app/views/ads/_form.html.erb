@@ -74,13 +74,13 @@
 		<p><%= t "views.ad.new.review_contact_information" %>.</p>
 		<% end %>
 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
-			<% if current_user.name.nil? %>
+			<% if current_user.name.nil? || current_user.name.blank? %>
 			<div class="field">
 				<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<% end %>
-			<% if current_user.phone_number.nil? %>
+			<% if current_user.phone_number.nil? || current_user.phone_number.blank? %>
 			<div class="field">
 				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
 				<div class="input-wrapper">
