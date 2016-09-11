@@ -107,9 +107,9 @@ class AdsController < ApplicationController
 	end
 
 	def create
-		if current_user.info_needed?
-			current_user.update(user_params)
-		end
+		# if current_user.info_needed?
+		# 	current_user.update(user_params)
+		# end
 
 		if current_user.location_needed?
 
