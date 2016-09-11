@@ -168,6 +168,8 @@ sw:
     ad:
       crop_type: "Aina ya zao"
       region: "Mkoa"
+      district: "Wilaya"
+      ward: "Wodi"
       village: "Kijiji"
       volume: "Ujazo zote unauza"
       price: "Bie ya moya"

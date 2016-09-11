@@ -191,6 +191,8 @@ en:
     ad:
       crop_type: "Crop type"
       region: "Region"
+      district: "District"
+      ward: "Ward"
       village: "Village"
       volume: "Amount for sale"
       price: "Price per unit"

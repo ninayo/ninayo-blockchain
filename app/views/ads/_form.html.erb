@@ -49,12 +49,12 @@
 			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => current_user.region_id %>
 		</div>
 		<div class="field">
-			<%= f.label :district, class: "field-label" %>
+			<%= f.label "#{t "views.ad.district"}", class: "field-label" %>
 			<%= f.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
 		</div>
 
 		<div class="field">
-			<%= f.label :ward, class: "field-label" %>
+			<%= f.label "#{t "views.ad.ward"}", class: "field-label" %>
 			<%= f.grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
 		</div>
 
