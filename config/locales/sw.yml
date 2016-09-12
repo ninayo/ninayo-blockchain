@@ -75,29 +75,29 @@ sw:
       one: "1 gunia"
       other: "%{count} magunia"
     kg:
-      zero: "kilo"
-      one: "kilo"
-      other: "kilo"
+      zero: "0 kilo"
+      one: "1 kilo"
+      other: "%{count} kilo"
     fungu:
-      zero: "fungu"
-      one: "fungu"
-      other: "fungu"
+      zero: "0 fungu"
+      one: "1 fungu"
+      other: "%{count} fungu"
     moja:
-      zero: "moja"
-      one: "moja"
-      other: "moja"
+      zero: "0 moja"
+      one: "1 moja"
+      other: "%{count} moja"
     chane:
-      zero: "chane"
-      one: "chane"
-      other: "chane"
+      zero: "0 chane"
+      one: "1 chane"
+      other: "%{count} chane"
     debe:
-      zero: "debe"
-      one: "debe"
-      other: "debe"
+      zero: "0 debe"
+      one: "1 debe"
+      other: "%{count} debe"
     sado:
-      zero: "sado"
-      one: "sado"
-      other: "sado"
+      zero: "0 sado"
+      one: "1 sado"
+      other: "%{count} sado"
 
   common:
     back: "Nyuma"
