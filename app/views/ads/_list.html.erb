@@ -17,7 +17,7 @@
 			<h2 class="ads-heading"><%= ad.title %></h2>
 			<div class="ads-price"><%= number_to_currency(ad.price, precision: 0) %> <%= t "common.per_unit" %></div>
 			<div class="posts-location">
-				<% if ad.village && !ad.village.blank? %><%= "#{ad.village}, " %><% end %> <%if ad.user.ward %><%= "#{ad.user.ward.name}, " %><% end %> <% if ad.user.district %><%= "#{ad.user.district.name}, " %> <% end %> <%= ad.region.name %>
+				<% unless ad.village.nil? || ad.village.blank? %><%= "#{ad.village}, " %><% end %> <%if ad.user.ward %><%= "#{ad.user.ward.name}, " %><% end %> <% if ad.user.district %><%= "#{ad.user.district.name}, " %> <% end %> <%= ad.region.name %>
 			</div>
 		</a>
 	<% end %>
