@@ -78,6 +78,26 @@ sw:
       zero: "kilo"
       one: "kilo"
       other: "kilo"
+    fungu:
+      zero: "fungu"
+      one: "fungu"
+      other: "fungu"
+    moja:
+      zero: "moja"
+      one: "moja"
+      other: "moja"
+    chane:
+      zero: "chane"
+      one: "chane"
+      other: "chane"
+    debe:
+      zero: "debe"
+      one: "debe"
+      other: "debe"
+    sado:
+      zero: "sado"
+      one: "sado"
+      other: "sado"
 
   common:
     back: "Nyuma"
