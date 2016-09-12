@@ -118,6 +118,18 @@ en:
       zero: "sado"
       one: "sado"
       other: "sado"
+    gunia:
+      zero: ""
+      one: "1 gunia"
+      other: "%{count} gunia"
+    trees:
+      zero: ""
+      one: "1 tree"
+      other: "%{count} trees"
+    mkungu:
+      zero: ""
+      one: "1 mkungu"
+      other: "%{count} mkungu"
 
   common:
     back: "Back"
