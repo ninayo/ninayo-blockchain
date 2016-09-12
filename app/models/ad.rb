@@ -50,7 +50,7 @@ class Ad < ActiveRecord::Base
 
 
 	# Enums
-	enum volume_unit: [:bucket, :sack, :kg]
+	enum volume_unit: [:bucket, :sack, :kg, :fungu, :moja, :debe, :chane]
 	enum status: [:draft, :published, :archived, :pending_review, :rejected, :spam, :deleted]
 	enum ad_type: [:sell, :buy]
 
