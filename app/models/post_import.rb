@@ -59,7 +59,15 @@ class PostImport
       post.price          = row["Uza"]
       post.volume         = row["Ukubwa"]
       post.volume_unit    = row["Unit"].downcase
-      post.crop_type_id   = CropType.find_by_name_sw(row["Mazao"].titleize).id #TODO: search by en name as well 
+
+      #spin this into a method
+      if CropType.find_by_name_sw(row["Mazao"].titleize)
+        post.crop_type_id = CropType.find_by_name_sw(row["Mazao"].titleize).id
+      else
+        post.crop_type_id = 10
+        post.other_crop_type = row["Mazao"].titleize
+      end
+      #post.crop_type_id   = CropType.find_by_name_sw(row["Mazao"].titleize).id #TODO: search by en name as well 
       post.region_id      = user.region_id
       post.village        = row["Mitaa/Kijiji (hiari)"] || "" #we have to have a village, but it can be anything
       post.lat            = user.district.lat #all users registered through this method necessarily have districts
@@ -70,6 +78,10 @@ class PostImport
       post
     end
 
+  end
+
+  def find_crop_or_other
+    
   end
 
   def open_spreadsheet
