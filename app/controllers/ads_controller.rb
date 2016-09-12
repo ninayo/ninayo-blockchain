@@ -32,7 +32,7 @@ class AdsController < ApplicationController
 	end
 
 	def map
-		@ads = @ads.includes(:crop_type).last(1000) #this determines number of map markers to draw, can use .where
+		@ads = @ads.includes(:crop_type) #this determines number of map markers to draw, can use .where
 		@crop_types = CropType.all.order(:sort_order)
 		@regions = Region.all.order(:name)
 	end
