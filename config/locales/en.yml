@@ -130,6 +130,10 @@ en:
       zero: ""
       one: "1 mkungu"
       other: "%{count} mkungu"
+    tenga:
+      zero: ""
+      one: "1 tenga"
+      other: "%{count} tenga"
 
   common:
     back: "Back"
