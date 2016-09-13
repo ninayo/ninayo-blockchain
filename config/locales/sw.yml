@@ -194,7 +194,7 @@ sw:
       save_changes: "Hifadhi mabadiliko"
       select_region: "Chagua Mkoa"
       select_district: "Chagua Wilaya"
-      select_ward: "Chagua Wodi"
+      select_ward: "Chagua Kata"
       minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
 
       preferred_language: "Lugha lako"
@@ -203,7 +203,7 @@ sw:
       crop_type: "Aina ya zao"
       region: "Mkoa"
       district: "Wilaya"
-      ward: "Wodi"
+      ward: "Kata"
       village: "Kijiji"
       volume: "Ujazo zote unauza"
       price: "Bie ya moya"
