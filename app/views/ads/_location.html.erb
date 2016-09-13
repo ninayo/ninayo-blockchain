@@ -5,5 +5,5 @@
 		<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:blue%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">
 	</div>
 	<% end %>
-	<p class="ad-address"><%= @ad.village %>, <%= @ad.region.name %></p>
+	<p class="ad-address"><% unless ad.village.nil? || ad.village.blank? %><%= "#{ad.village}, " %><% end %> <%if ad.user.ward %><%= "#{ad.user.ward.name}, " %><% end %> <% if ad.user.district %><%= "#{ad.user.district.name}, " %> <% end %> <%= ad.region.name %></p>
 </div>
