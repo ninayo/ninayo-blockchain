@@ -47,10 +47,10 @@ class PostImport
                                   :village => row["Mitaa/Kijiji (hiari)"],
                                   :region_id => Region.find_by_name(row["Mkoa"].titleize).id,
                                   :district_id => District.find_by_name(row["Wilaya"].titleize).id,
-                                  :ward_id => Ward.find_by_name(row["Wodi"].titleize) ? Ward.find_by_name(row["Wodi"].titleize).id : nil)
+                                  :ward_id => row["Wodi"] ? Ward.find_by_name(row["Wodi"].titleize).id : nil)
       user.update!(:name => row["Jina"].titleize,
                   :district_id => District.find_by_name(row["Wilaya"]).id,
-                  :ward_id => Ward.find_by_name(row["Wodi"].titleize) ? Ward.find_by_name(row["Wodi"].titleize).id : nil) #run another check in case we got a name for known user this time
+                  :ward_id => row["Wodi"] ? Ward.find_by_name(row["Wodi"].titleize).id : nil) #run another check in case we got a name for known user this time
       
       #TODO: archive old user posts of same crop when we get an updated version to keep things tidy
 
