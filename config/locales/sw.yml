@@ -552,5 +552,5 @@ sw:
     formats:
       default: "%a, %d %b %Y %H:%M:%S"
       long: "%A, %e. %B %Y, %H:%M:%S"
-      short: "%e %b %Y %H:%M"
+      short: "%e %b"
     pm: pm
