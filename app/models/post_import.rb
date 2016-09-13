@@ -45,9 +45,9 @@ class PostImport
                                   :email => row["Email (hiari)"] || "no_email#{rand(9999999)}@ninayo.com",
                                   :password => SecureRandom.urlsafe_base64(60), #set random pw for easy conversion
                                   :village => row["Mitaa/Kijiji (hiari)"],
-                                  :region_id => Region.find_by_name(row["Mkoa"]).id,
-                                  :district_id => District.find_by_name(row["Wilaya"]).id,
-                                  :ward_id => Ward.find_by_name(row["Wodi"]).id)
+                                  :region_id => Region.find_by_name(row["Mkoa"].titleize).id,
+                                  :district_id => District.find_by_name(row["Wilaya"].titleize).id,
+                                  :ward_id => row["Wodi"] ? Ward.find_by_name(row["Wodi"].titleize).id) || nil
       user.update!(:name => row["Jina"].titleize,
                   :district_id => District.find_by_name(row["Wilaya"]).id,
                   :ward_id => Ward.find_by_name(row["Wodi"]).id) #run another check in case we got a name for known user this time
