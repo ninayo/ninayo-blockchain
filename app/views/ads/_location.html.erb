@@ -2,7 +2,7 @@
 	<h3><%= t "views.ad.show.location" %></h3>
 	<% if @ad.lat && @ad.lng %>
 	<div class="ad-staticmap">
-		<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:red%7Clabel:C%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">
+		<img src="https://maps.googleapis.com/maps/api/staticmap?center=<%= @ad.lat%>,<%= @ad.lng%>&zoom=8&size=600x300&maptype=roadmap&markers=color:blue%7C<%= @ad.lat%>,<%= @ad.lng%>" alt="">
 	</div>
 	<% end %>
 	<p class="ad-address"><%= @ad.village %>, <%= @ad.region.name %></p>
