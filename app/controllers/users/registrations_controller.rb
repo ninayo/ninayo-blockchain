@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @invite.update(:receiver_id => resource.id)
       end
 
-      cleanup_temp
+      #cleanup_temp
     end
   end
 
@@ -38,7 +38,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def cleanup_temp
-    return if @user.phone_number.nil?
+    return if @user.phone_number.nil? || @user.phone_number.blank?
     @user.phone_number[0..8] == ("TEMPPHONE") ? @user.update(:phone_number => nil) : @user.update(:email => nil)
   end
 
