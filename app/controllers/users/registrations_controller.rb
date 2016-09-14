@@ -7,31 +7,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    build_login
-    @user.referred_by_user_id = params[:ref]
+    super do
+      build_login
+      resource.referred_by_user_id = params[:ref]
 
-    if @user.save
-      cleanup_temp
       if params[:invite_token]
         @invite = Invite.find_by_token(params[:invite_token])
-        @invite.update(:receiver_id => @user.id)
+        @invite.update(:receiver_id => resource.id)
       end
-      sign_in(:user, @user)
-      redirect_to root_url, :notice => "Karibu!"
-    else
-      invalid_login
+      cleanup_temp
     end
   end
 
   def build_login
-    @user = User.new(:agreement => true, :password => params[:user][:password])
     login = params[:user][:login].delete(" ")
-    @user.referred_by_user_id = params[:ref]
+    resource.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
-      @user.update(:email => login)
+      resource.update(:email => login)
     elsif is_valid_phone_number?(login)
-      @user.update(:phone_number => login)
+      resource.update(:phone_number => login)
     else
       #matched neither email or phone number, render error and return to super
     end
@@ -40,13 +35,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def cleanup_temp
-    return if @user.phone_number.nil?
-    @user.phone_number[0..8] == ("TEMPPHONE") ? @user.update(:phone_number => nil) : @user.update(:email => nil)
+    return if resource.phone_number.nil?
+    resource.phone_number[0..8] == ("TEMPPHONE") ? resource.update(:phone_number => nil) : resource.update(:email => nil)
   end
 
   def invalid_login
-    @user.errors.clear
-    @user.errors.add(:login, 'is invalid. Please enter a valid email or phone number.')
+    resource.errors.clear
+    resource.errors.add(:login, 'is invalid. Please enter a valid email or phone number.')
     redirect_to new_user_registration_url, :alert => "Simu au barua pepe imesajiliwa"
   end
 
