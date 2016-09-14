@@ -24,14 +24,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def build_login
-    @user = User.new(:email => temp_email, :phone_number => temp_phone, :agreement => true, :password => params[:user][:password])
+    @user = User.new(:agreement => true, :password => params[:user][:password])
     login = params[:user][:login].delete(" ")
     @user.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
-      @user.email, @user.phone_number = login, temp_phone
+      @user.update(:email => login)
     elsif is_valid_phone_number?(login)
-      @user.phone_number, @user.email = login, temp_email
+      @user.update(:phone_number => login)
     else
       #matched neither email or phone number, render error and return to super
     end
