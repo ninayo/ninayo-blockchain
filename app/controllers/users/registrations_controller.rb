@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_login
     @user.referred_by_user_id = params[:ref]
-    puts @user
 
     if @user.save
       cleanup_temp
@@ -27,12 +26,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def build_login
     @user = User.new(:agreement => true, :password => params[:user][:password])
     login = params[:user][:login].delete(" ")
-    resource.referred_by_user_id = params[:ref]
+    @user.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
-      @user.email, @user.phone_number = login, temp_phone
+      @user.update(:email => login, :phone_number => temp_phone)
     elsif is_valid_phone_number?(login)
-      @user.phone_number, @user.email = login, temp_email
+      @user.update(:phone_number => login, :email => temp_email)
     else
       #matched neither email or phone number, render error and return to super
     end
