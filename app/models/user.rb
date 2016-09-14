@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
 		elsif conditions.has_key?(:phone_number) || conditions.has_key?(:email)
 			where(conditions.to_hash).first
 		end
-	# end
+	end
 
 	#so that mailboxer plays nice with devise
 	def mailboxer_email(object)
