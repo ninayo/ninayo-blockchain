@@ -64,16 +64,29 @@ class User < ActiveRecord::Base
 	# 	end
 	# end
 
-	def self.find_for_database_authentication(warden_conditions)
-		conditions = warden_conditions.dup
-		conditions[:email].downcase! if conditions[:email]
-
-		if login = conditions.delete(:login)
-			where(conditions.to_hash).where(["phone_number = :value OR email = :value", { :value => login.downcase }]).first
-		elsif conditions.has_key?(:phone_number) || conditions.has_key?(:email)
-			where(conditions.to_hash).first
-		end
+	def self.find_first_by_auth_conditions(warden_conditions)
+	  conditions = warden_conditions.dup
+	  if login = conditions.delete(:login)
+	    where(conditions).where(["lower(phone_number) = :value OR lower(email) = :value", { :value => login.downcase }]).first
+	  else
+	    if conditions[:phone_number].nil?
+	      where(conditions).first
+	    else
+	      where(phone_number: conditions[:phone_number]).first
+	    end
+	  end
 	end
+
+	# def self.find_for_database_authentication(warden_conditions)
+	# 	conditions = warden_conditions.dup
+	# 	conditions[:email].downcase! if conditions[:email]
+
+	# 	if login = conditions.delete(:login)
+	# 		where(conditions.to_hash).where(["phone_number = :value OR email = :value", { :value => login.downcase }]).first
+	# 	elsif conditions.has_key?(:phone_number) || conditions.has_key?(:email)
+	# 		where(conditions.to_hash).first
+	# 	end
+	# end
 
 	#so that mailboxer plays nice with devise
 	def mailboxer_email(object)
