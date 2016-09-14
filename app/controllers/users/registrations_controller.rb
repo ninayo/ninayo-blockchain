@@ -29,9 +29,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
-      @user.update(:email => login)
+      @user.email, @user.phone_number = login, temp_phone
     elsif is_valid_phone_number?(login)
-      @user.update(:phone_number => login)
+      @user.phone_number, @user.email = login, temp_email
     else
       #matched neither email or phone number, render error and return to super
     end

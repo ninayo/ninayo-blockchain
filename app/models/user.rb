@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
 	#trackable inclusion goes here instead of controller, since devise+oauth tends to make google analytics choke
 	include Trackable
-	attr_accessor :login
+	attr_accessor :login, :email, :phone_number
 
 	acts_as_messageable
 	#skip sending confirmation email if we've assigned a user a temp email
