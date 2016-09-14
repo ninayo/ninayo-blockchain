@@ -18,12 +18,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       #cleanup_temp
     end
     login = params[:user][:login].delete(" ")
-    resource.referred_by_user_id = params[:ref]
+    current_user.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
-      resource.email, resource.phone_number = login, temp_phone
+      current_user.update(:email => login, :phone_number => temp_phone)
     elsif is_valid_phone_number?(login)
-      resource.phone_number, resource.email = login, temp_email
+      current_user.update(:phone_number => login, :email => temp_email)
     else
       #matched neither email or phone number, render error and return to super
     end
