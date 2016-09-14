@@ -7,36 +7,35 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    super do
-      build_login
-      resource.referred_by_user_id = params[:ref]
+    build_login
+    @user.referred_by_user_id = params[:ref]
 
-      invalid_login unless resource.save
 
+    if @user.save
+      cleanup_temp
       if params[:invite_token]
         @invite = Invite.find_by_token(params[:invite_token])
-        @invite.update(:receiver_id => resource.id)
+        @invite.update(:receiver_id => @user.id)
       end
-
-      #cleanup_temp
+      sign_in(:user, @user)
+      redirect_to root_url, :notice => "Karibu!"
+    else
+      invalid_login
     end
   end
 
   def build_login
+    @user = User.new(:agreement => true, :password => params[:user][:password])
     login = params[:user][:login].delete(" ")
     resource.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
-      puts "matched email #{login}"
-      resource.email, resource.phone_number = login, temp_phone
+      @user.email, @user.phone_number = login, temp_phone
     elsif is_valid_phone_number?(login)
-      puts "matched phone #{login}"
-      resource.phone_number, resource.email = login, temp_email
+      @user.phone_number, @user.email = login, temp_email
     else
-      puts "matched neither email nor phone"
       #matched neither email or phone number, render error and return to super
     end
-    puts resource
   end
 
   private
@@ -49,6 +48,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def invalid_login
     @user.errors.clear
     @user.errors.add(:login, 'is invalid. Please enter a valid email or phone number.')
+    redirect_to new_user_registration_url, :alert => "Simu au barua pepe imesajiliwa"
   end
 
   def is_valid_email?(str)
