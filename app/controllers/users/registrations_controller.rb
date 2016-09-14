@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     build_login
     @user.referred_by_user_id = params[:ref]
+    puts @user
 
-
-    if @user.save!
+    if @user.save
       cleanup_temp
       if params[:invite_token]
         @invite = Invite.find_by_token(params[:invite_token])
