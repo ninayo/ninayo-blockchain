@@ -90,7 +90,10 @@ a.filter-toggle {
 }
 
 .filter-close {
-	position: absolute;
+	background-color: forestgreen;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
 	top: 0;
 	right: 0;
 	display: block;

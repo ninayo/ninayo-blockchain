@@ -3,7 +3,7 @@
 	<form action="<%= request.path %>" id="filter-form" method="get">
 		<h3 class="filter-heading"><%= t "views.ad.filter.filter_ads" %> <a href="<%=request.path%>" class="filter-reset"><%= t "views.ad.filter.reset_filter" %></a></h3>
 
-		<a href="" class="filter-close filter-toggle">&times;</a>
+		
 
 		<input type="hidden" name="ad_type" id="ad_type" value="<%=@ad_type%>">
 		<div class="pagenav is-block has-2">
@@ -56,6 +56,7 @@
 				<%= t "views.ad.filter.filter_ads" %>
 			</button>
 		</div>
+		<a href="" class="filter-close filter-toggle">Close</a>
 	<%# end %>
 	</form>
 </div>
