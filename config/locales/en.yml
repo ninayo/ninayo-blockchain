@@ -109,24 +109,24 @@ en:
       other: "%{count} kg"
     fungu:
       zero: "fungu"
-      one: "fungu"
+      one: "1 fungu"
       other: "fungu"
     moja:
       zero: "moja"
-      one: "moja"
-      other: "moja"
+      one: "1 moja"
+      other: "%{count} moja"
     chane:
       zero: "chane"
-      one: "chane"
-      other: "chane"
+      one: "1 chane"
+      other: "%{count} chane"
     debe:
       zero: "debe"
-      one: "debe"
-      other: "debe"
+      one: "1 debe"
+      other: "%{count} debe"
     sado:
       zero: "sado"
-      one: "sado"
-      other: "sado"
+      one: "1 sado"
+      other: "%{count} sado"
     gunia:
       zero: ""
       one: "1 gunia"
