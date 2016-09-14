@@ -31,6 +31,7 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_role, :if => :new_record?
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
+	after_initialize :set_default_email, :if => :new_record?
 
 	validates :name, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
@@ -189,6 +190,10 @@ class User < ActiveRecord::Base
 
 	def set_default_role
 		self.role ||= :user
+	end
+
+	def set_default_email
+		self.email ||=  "no_email#{rand(999999)}@ninayo.com"
 	end
 
 	def set_default_language
