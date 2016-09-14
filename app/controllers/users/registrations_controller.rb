@@ -27,8 +27,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.referred_by_user_id = params[:ref]
 
     if is_valid_email?(login)
+      puts "matched email #{login}"
       resource.email, resource.phone_number = login, temp_phone
     elsif is_valid_phone_number?(login)
+      puts "matched phone #{login}"
       resource.phone_number, resource.email = login, temp_email
     else
       puts "matched neither email nor phone"
@@ -45,18 +47,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def invalid_login
-    debugger
     @user.errors.clear
     @user.errors.add(:login, 'is invalid. Please enter a valid email or phone number.')
   end
 
   def is_valid_email?(str)
-    puts "got valid email: #{str}"
     email_regex.match(str) ? true : false
   end
 
   def is_valid_phone_number?(str)
-    puts "got valid phone #{str}"
     phone_regex.match(str) ? true : false
   end
 
