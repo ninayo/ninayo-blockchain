@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
 	acts_as_messageable
 	#skip sending confirmation email if we've assigned a user a temp email
-	after_create :send_welcome_email, unless: Proc.new { self.email.include?("@ninayo.com") || self.email.blank? }
+	after_create :send_welcome_email, unless: Proc.new { self.email.nil? || self.email.include?("@ninayo.com") || self.email.blank? }
 	#after_create :track_registration
 	has_many :ads
 	has_many :user_logs
