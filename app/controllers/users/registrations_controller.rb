@@ -31,8 +31,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     elsif is_valid_phone_number?(login)
       resource.phone_number, resource.email = login, temp_email
     else
+      puts "matched neither email nor phone"
       #matched neither email or phone number, render error and return to super
     end
+    puts resource
   end
 
   private
@@ -49,10 +51,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def is_valid_email?(str)
+    puts "got valid email: #{str}"
     email_regex.match(str) ? true : false
   end
 
   def is_valid_phone_number?(str)
+    puts "got valid phone #{str}"
     phone_regex.match(str) ? true : false
   end
 
