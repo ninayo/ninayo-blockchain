@@ -131,6 +131,16 @@ class AdsController < ApplicationController
 
 		end
 
+		if current_user.info_needed?
+			if current_user.phone_number.nil? || current_user.phone_number.blank?
+				current_user.update(:phone_number => user_params[:phone_number])
+			end
+
+			if current_user.name.nil? || current_user.name.blank?
+				current_user.update(:name => user_params[:name])
+			end
+		end
+
 
 		@ad 							= Ad.new(ad_params)
 		@ad.user 					= current_user
