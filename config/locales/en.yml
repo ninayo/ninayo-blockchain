@@ -84,6 +84,16 @@ en:
     bucket: "buckets"
     sack: "sacks"
     kg: "kg"
+    fungu: "fungu"
+    moja: "moja"
+    chane: "chane"
+    debe: "debe"
+    sado: "sado"
+    gunia: "gunia"
+    trees: "trees"
+    mkungu: "mkungu"
+    tenga: "tenga"
+    #NEW TRANSLATIONS HERE FOR UNIT
 
   volume_units:
     bucket:
