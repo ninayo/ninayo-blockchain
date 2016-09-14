@@ -7,18 +7,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    login = params[:user][:login].delete(" ")
+
+    if is_valid_email?(login)
+      params[:user][:email] = login
+      resource.update(:email => login, :phone_number => temp_phone)
+    elsif is_valid_phone_number?(login)
+      params[:user][:phone_number] = login
+      resource.update(:phone_number => login, :email => temp_email)
+    else
+      #matched neither email or phone number, render error and return to super
+    end
+
     super do
       #build_login
-      login = params[:user][:login].delete(" ")
-      resource.referred_by_user_id = params[:ref]
-
-      if is_valid_email?(login)
-        resource.update(:email => login, :phone_number => temp_phone)
-      elsif is_valid_phone_number?(login)
-        resource.update(:phone_number => login, :email => temp_email)
-      else
-        #matched neither email or phone number, render error and return to super
-      end
       resource.referred_by_user_id = params[:ref]
 
       if params[:invite_token]
