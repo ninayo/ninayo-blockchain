@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.referred_by_user_id = params[:ref]
 
 
-    if @user.save
+    if @user.save!
       cleanup_temp
       if params[:invite_token]
         @invite = Invite.find_by_token(params[:invite_token])
@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def cleanup_temp
-    return if @user.phone_number.nil? || @user.phone_number.blank?
+    return if @user.phone_number.nil?
     @user.phone_number[0..8] == ("TEMPPHONE") ? @user.update(:phone_number => nil) : @user.update(:email => nil)
   end
 
