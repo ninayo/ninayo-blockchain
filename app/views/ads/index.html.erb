@@ -1,6 +1,6 @@
 <div class="posts-wrapper">
 	<%= render "layouts/alert" %>
-	<%= render "layouts/ads/pagenav" %>
+	<%= render "pagenav", :is_floating => false, :current => "list" %>
 
 	<%= render "list", :ads => @ads %>
 	<%= paginate @ads %>
