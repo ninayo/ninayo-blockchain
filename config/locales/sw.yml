@@ -64,6 +64,15 @@ sw:
     bucket: "ndoo"
     sack: "magunia"
     kg: "kilo"
+    fungu: "fungu"
+    moja: "moja"
+    chane: "chane"
+    debe: "debe"
+    sado: "sado"
+    gunia: "gunia"
+    trees: "trees"
+    mkungu: "mkungu"
+    tenga: "tenga"
 
   volume_units:
     bucket:
