@@ -6,8 +6,8 @@
 			<%= devise_error_messages! %>
 
 			<div class="field">
-				<%= f.label "Namba ya simu au barua pepe", class: "field-label" %>
- 				<%= f.text_field :login, placeholder: "Ingie namba ya simu au barua pepe" %>
+				<%= f.label (I18n.locale == "sw" ? "Namba ya simu au barua pepe" : "Phone number or email"), class: "field-label" %>
+ 				<%= f.text_field :login, placeholder: (I18n.locale == "sw" ? "Ingie namba ya simu au barua pepe" : "Please enter your email or phone number") %>
 			</div>
 
 			<hr>
@@ -15,7 +15,7 @@
 			<% if f.object.password_required? %>
 				<div class="field">
 					<%= f.label :password, class: "field-label" %>
-					<%= f.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
+					<%= f.password_field :password, autocomplete: "off", placeholder: (I18n.locale == "sw" ? "Chague nenosiri" : "Choose a password") %>
 					<% if @validatable %>
 					<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
 					<% end %>
@@ -23,7 +23,7 @@
 
 				<div class="field">
 					<%= f.label :password_confirmation, class: "field-label" %>
-					<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Andike nenosiri tena" %>
+					<%= f.password_field :password_confirmation, autocomplete: "off", placeholder: (I18n.locale == "sw" ? "Andike nenosiri tena" : "Enter your password again") %>
 				</div>
 			<% end %>
 

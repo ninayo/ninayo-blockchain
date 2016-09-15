@@ -6,12 +6,12 @@
 
 			<div class="field">
 				<%= f.label :login %>
- 				<%= f.text_field :login, placeholder: "Namba ya simu au barua pepe" %>
+ 				<%= f.text_field :login, placeholder: (I18n.locale == "sw" ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
 			</div>
 
 			<div class="field">
 				<%= f.label :password %>
-				<%= f.password_field :password, placeholder: "Nenosiri", autocomplete: "off", :validate => true %>
+				<%= f.password_field :password, placeholder: (I18n.locale == "sw" ? "Nenosiri" : "Password"), autocomplete: "off", :validate => true %>
 			</div>
 
 			<% if devise_mapping.rememberable? -%>
