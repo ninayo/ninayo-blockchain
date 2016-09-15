@@ -5,13 +5,13 @@
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
 			<div class="field">
-				<%= f.label (I18n.locale == "sw" ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
- 				<%= f.text_field :login, placeholder: (I18n.locale == "sw" ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
+				<%= f.label (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
+ 				<%= f.text_field :login, placeholder: (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
 			</div>
 
 			<div class="field">
 				<%= f.label :password %>
-				<%= f.password_field :password, placeholder: (I18n.locale == "sw" ? "Nenosiri" : "Password"), autocomplete: "off", :validate => true %>
+				<%= f.password_field :password, placeholder: (params[:locale] === "sw" ? "Nenosiri" : "Password"), autocomplete: "off", :validate => true %>
 			</div>
 
 			<% if devise_mapping.rememberable? -%>

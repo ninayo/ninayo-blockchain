@@ -176,6 +176,9 @@ sw:
       login: "Ingia"
       dashboard: "Dashboard"
       facebook: "Jisajili na Facebooka"
+      enter_login: "Simu # au barua pepe"
+      enter_password: "Chagua nenosiri"
+      confirm_password: "Andike nenosiri tena"
 
 
     create_account:

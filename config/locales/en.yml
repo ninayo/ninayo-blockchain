@@ -200,6 +200,9 @@ en:
       login: "Login"
       dashboard: "Dashboard"
       facebook: "Login with Facebook"
+      enter_login: "Enter your phone number or email address"
+      enter_password: "Choose a password"
+      confirm_password: "Enter your password again"
 
     create_account:
       heading: "Create an account"
