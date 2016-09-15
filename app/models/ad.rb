@@ -70,11 +70,7 @@ class Ad < ActiveRecord::Base
 		if self.crop_type.id == 10
 			crop_type = self.other_crop_type
 		else
-			if I18n.locale == "sw"
-				crop_type = self.crop_type.name_sw
-			else
-				crop_type = self.crop_type.name
-			end
+			crop_type = (params[:locale] === "sw" ? self.crop_type.name_sw : self.crop_type.name)
 		end
 
 		if self.volume && self.crop_type
