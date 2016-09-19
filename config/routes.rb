@@ -13,6 +13,12 @@ Rails.application.routes.draw do
       get 'regions' => 'ussd#get_regions'
     end
 
+    namespace :bot, defaults: {format: :json} do
+      post 'register' => 'bot#create_user'
+      post 'update' => 'bot#update_user'
+      post 'postad' => 'bot#post_ad'
+    end
+
     namespace "admin" do
       root :to => "analytics#index"
       get 'analytics/index' => 'analytics#index', as: :analytics
