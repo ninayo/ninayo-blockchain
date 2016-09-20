@@ -1,7 +1,5 @@
 class Bot::BotController < ApplicationController
 
-  before_action :find_user_by_uuid, except: [:create_user]
-
   def create_user
     render json: {:status => 422} if find_user_by_uuid
     @user = User.new(user_params)
@@ -55,10 +53,6 @@ class Bot::BotController < ApplicationController
         }
       ]
     end
-  end
-
-  def find_user_by_uuid
-    @user = User.find_by_uuid(params[:uuid])
   end
 
   def ad_params
