@@ -28,7 +28,7 @@ class Bot::BotController < ApplicationController
   end
 
   def auth
-    @user = User.find_by_uid(params[:uid])
+    @user = User.find_by(:fb_bot_id => params[:uid])
     if @user && @user.id
       render json: [
         {"text": "I recognize you. #{@user.name}!"}
