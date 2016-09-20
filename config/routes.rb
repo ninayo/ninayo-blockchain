@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       post 'register' => 'bot#create_user'
       post 'update' => 'bot#update_user'
       post 'postad' => 'bot#post_ad'
+      get 'auth' => 'bot#auth' 
     end
 
     namespace "admin" do

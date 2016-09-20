@@ -29,6 +29,34 @@ class Bot::BotController < ApplicationController
     end
   end
 
+  def auth
+    @user = User.find_by_uid(params[:uid])
+    if @user && @user.id
+      render json: [
+        {"text": "I recognize you. #{@user.name}!"}
+      ]
+    else
+      render json: [
+        {
+          "attachment": {
+            "type": "template",
+            "payload": {
+              "template_type": "button",
+              "text": "I don't recognize you. Please link your Facebook!",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "https://www.ninayo.com/users/auth/facebook?locale=sw",
+                  "title": "Link Facebook"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    end
+  end
+
   def find_user_by_uuid
     @user = User.find_by_uuid(params[:uuid])
   end
