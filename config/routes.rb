@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
 
     namespace :bot, defaults: {format: :json} do
-      post 'postad' => 'bot#post_ad'
-      post 'linkuser' => 'bot#link_facebook'
+      get 'postad' => 'bot#post_ad'
+      get 'linkuser' => 'bot#link_facebook'
     end
 
     namespace "admin" do
