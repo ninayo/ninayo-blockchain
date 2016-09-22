@@ -1,66 +1,132 @@
 class Bot::BotController < ApplicationController
+ 
+  skip_before_filter :verify_authenticity_token
 
-  def create_user
-    render json: {:status => 422} if find_user_by_uuid
-    @user = User.new(user_params)
-    @user.password = SecureRandom.urlsafe_base64(16)
-    if @user.save
-      render json: {:status => 201}
-    else
-      render json: {:status => 422}
-    end
+  before_action :find_user_by_bot_id, only: [:post_ad]
+
+  def find_user_by_bot_id
+    @user = User.find_by(:fb_bot_id => params[:fb_bot_id])
+    link_facebook unless @user && @user.id
   end
 
-  def update_user
-    render json: {:status => 422} unless find_user_by_uuid
-    @user.update(:phone_number => params[:phone_number])
+  def link_facebook
+    phone     = params[:phone_number].gsub("+", "")
+    fb_bot_id = params[:fb_bot_id]
+    user_name = [params[:fname], params[:lname]].join(" ")
+
+    return bad_phone unless valid_phone?(phone)
+
+    @user = User.find_by_phone_number(phone) || User.find_by(:fb_bot_id => fb_bot_id)
+
+    if @user && @user.id #found preregistered user
+      if @user.update(:fb_bot_id => fb_bot_id, :name => user_name)
+        #generic_message("DEBUG: Account found, updated with fb_bot_id")
+      else
+        generic_message("DEBUG: Couldn't update user #{@user.id}, failed with #{@user.errors.full_messages}")
+      end
+    else
+      @user = User.create(:name => user_name, 
+                          :phone_number => phone, 
+                          :password => SecureRandom.urlsafe_base64(16), 
+                          :fb_bot_id => fb_bot_id, 
+                          :agreement => true)
+      
+      if @user.persisted?
+        #render json: [{"text": "Didn't find user, created one. ID is #{@user.id}"}]
+      else
+        render json: [{"text": "DEBUG: Couldn't persist user"}]
+      end
+
+    end
+
   end
 
   def post_ad
-    @ad = Ad.new(ad_params)
+
+    link_facebook unless @user && @user.id
+
+    region    = Region.find_by_name(params[:region_name].titleize)
+    district  = District.find_by_name(params[:district_name].titleize)
+    ward      = Ward.find_by_name(params[:ward_name].titleize)
+    crop_type = CropType.find_by(:name_sw => params[:crop_name].titleize)
+
+    @ad = Ad.new(:region_id => region.id, :district_id => district.id)
+    
+    parse_price(params[:crop_price])
+    parse_volume(params[:crop_volume])
+
+    if ward && ward.id
+      @ad.ward_id = ward.id
+    end
+
+    @ad.village = params[:village].titleize
+
+    if crop_type && crop_type.id
+      @ad.crop_type_id = crop_type.id
+    else
+      @ad.crop_type_id = 10 #other
+      @ad.other_crop_type = params[:crop_name].titleize
+    end
+
     @ad.user_id = @user.id
     @ad.status = 1
-    if @ad.save!
-      render json: {:status => 201}
+
+    if @ad.save
+      ad_success
     else
-      render json: {:status => 422}
+      fail_message(@ad.errors.full_messages)
     end
   end
 
-  def auth
-    @user = User.find_by(:fb_bot_id => params[:uid])
-    if @user && @user.id
-      render json: [
-        {"text": "I recognize you. #{@user.name}!"}
-      ]
-    else
-      render json: [
-        {
-          "attachment": {
-            "type": "template",
-            "payload": {
-              "template_type": "button",
-              "text": "I don't recognize you. Please link your Facebook!",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "https://www.ninayo.com/users/auth/facebook?locale=sw",
-                  "title": "Link Facebook"
+  def parse_price(price)
+    @ad.price = price.split("/=")[0]
+  end
+
+  def parse_volume(volume)
+    @ad.volume_unit = volume.split(" ")[0]
+    @ad.volume = volume.split(" ")[1]
+  end
+
+  def bad_phone
+    generic_message("Invalid phone number, please try again.")
+  end
+
+  def ad_success
+    render json: [
+      {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "button",
+            "text": "Thanks, your ad has been posted. You may view your ad at this link.",
+            "buttons": [
+              {
+                "type": "web_url",
+                "url": "#{ad_url(@ad.id)}",
+                "title": "View your ad"
                 }
               ]
             }
           }
         }
       ]
-    end
   end
 
-  def ad_params
-    params.permit(:price, :crop_type_id, :volume, :volume_unit, :region_id, :district_id, :ward_id, :village, :ad_type)
+  def fail_message(messages)
+    render json: [
+        {"text": "Sorry, something went wrong. Please try again later. #{messages}"}
+      ]
   end
 
-  def user_params
-    params.permit(:phone_number, :uuid, :region_id, :district_id, :ward_id, :village)
+  def generic_message(message)
+    return false unless message.is_a?(String)
+    render json: [
+      {"text": message}
+    ]
+  end
+
+  def valid_phone?(number)
+    (number.length == 9) || (number.length == 10)
   end
 
 end
