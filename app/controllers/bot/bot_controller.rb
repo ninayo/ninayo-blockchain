@@ -98,12 +98,12 @@ class Bot::BotController < ApplicationController
           "type": "template",
           "payload": {
             "template_type": "button",
-            "text": "Thanks, your ad has been posted. You may view your ad at this link.",
+            "text": "Asante, tangazo lako imekuwa posted. Unaweza kuona tangazo lako katika kiungo huu:",
             "buttons": [
               {
                 "type": "web_url",
                 "url": "#{ad_url(@ad.id)}",
-                "title": "View your ad"
+                "title": "NINAYO"
                 }
               ]
             }
