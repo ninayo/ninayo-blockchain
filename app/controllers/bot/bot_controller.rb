@@ -79,12 +79,12 @@ class Bot::BotController < ApplicationController
   end
 
   def parse_price(price)
-    @ad.price = price.split("/=")[0]
+    @ad.price = price.split("/=")[0].gsub!(/[^0-9]/,'')
   end
 
   def parse_volume(volume)
     @ad.volume_unit = volume.split(" ")[0]
-    @ad.volume = volume.split(" ")[1]
+    @ad.volume = volume.split(" ")[1].gsub!(/[^0-9]/,'')
   end
 
   def bad_phone
