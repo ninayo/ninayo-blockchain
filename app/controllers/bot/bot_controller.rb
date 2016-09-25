@@ -124,7 +124,7 @@ class Bot::BotController < ApplicationController
         "attachment": {
           "type": "template",
           "payload": {
-            "template_type": "generic",
+            "template_type": "button",
               "title": "Karibu NINAYO",
               "buttons": [{
                 "type": "account_link",
