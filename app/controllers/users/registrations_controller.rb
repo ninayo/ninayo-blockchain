@@ -9,7 +9,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super do
       build_login
-      #resource.referred_by_user_id = params[:ref]
 
       if params[:invite_token]
         @invite = Invite.find_by_token(params[:invite_token])
@@ -46,19 +45,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def is_valid_email?(str)
-    email_regex.match(str) ? true : false
+    /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/.match(str) ? true : false
   end
 
   def is_valid_phone_number?(str)
-    phone_regex.match(str) ? true : false
-  end
-
-  def email_regex
-    /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
-  end
-
-  def phone_regex
-    /^(\+|\d)[0-9]{8,9}$/
+    /^(\+|\d)[0-9]{8,9}$/.match(str) ? true : false
   end
 
   def temp_email
