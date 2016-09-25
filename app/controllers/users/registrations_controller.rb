@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super do
       build_login
-      resource.referred_by_user_id = params[:ref]
+      #resource.referred_by_user_id = params[:ref]
 
       if params[:invite_token]
         @invite = Invite.find_by_token(params[:invite_token])
