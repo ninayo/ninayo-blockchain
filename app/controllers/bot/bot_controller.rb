@@ -10,9 +10,9 @@ class Bot::BotController < ApplicationController
   end
 
   def link_facebook
-    phone     = params[:phone_number].gsub("+", "")
+    phone     = params[:phone_number].gsub("+", "").split("/")[0]
     fb_bot_id = params[:fb_bot_id]
-    user_name = [params[:fname], params[:lname]].join(" ")
+    user_name = [params[:fname], params[:lname]].join(" ").strip
 
     return bad_phone unless valid_phone?(phone)
 
