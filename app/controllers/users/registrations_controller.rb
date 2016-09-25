@@ -15,8 +15,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @invite = Invite.find_by_token(params[:invite_token])
         @invite.update(:receiver_id => resource.id)
       end
+      cleanup_temp
     end
-    cleanup_temp
   end
 
   def build_login
@@ -34,8 +34,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def cleanup_temp
-    return if resource.phone_number.nil?
-    resource.phone_number[0..8] == ("TEMPPHONE") ? (resource.phone_number = nil) : (resource.email = nil)
+    return if @user.phone_number.nil? || @user.phone_number.blank?
+    resource.phone_number[0..8] == ("TEMPPHONE") ? @user.update(:phone_number => nil) : @user.update(:email => nil)
   end
 
   def invalid_login
