@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     namespace :bot, defaults: {format: :json} do
       get 'postad' => 'bot#post_ad'
       get 'linkuser' => 'bot#link_facebook'
+      get 'fb_auth' => 'bot#auth_link'
     end
 
     namespace "admin" do

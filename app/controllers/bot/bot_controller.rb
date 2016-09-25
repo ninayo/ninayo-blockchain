@@ -118,6 +118,27 @@ class Bot::BotController < ApplicationController
       ]
   end
 
+  def auth_link
+    render json: [
+      {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [{
+              "title": "Karibu NINAYO",
+              "buttons": [{
+                "type": "account_link",
+                "url": "https://www.ninayo.com/users/auth/facebook?locale=sw"
+                  }]
+                }
+              ]
+            }
+          }
+        }
+      ]
+  end
+
   def generic_message(message)
     return false unless message.is_a?(String)
     render json: [
