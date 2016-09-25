@@ -15,8 +15,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @invite = Invite.find_by_token(params[:invite_token])
         @invite.update(:receiver_id => resource.id)
       end
-      cleanup_temp
     end
+    cleanup_temp
   end
 
   def build_login
