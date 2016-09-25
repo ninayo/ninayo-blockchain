@@ -35,7 +35,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def cleanup_temp
     return if resource.phone_number.nil?
-    resource.phone_number[0..8] == ("TEMPPHONE") ? resource.update(:phone_number => nil) : resource.update(:email => nil)
+    resource.phone_number[0..8] == ("TEMPPHONE") ? (resource.phone_number = nil) : (resource.email = nil)
   end
 
   def invalid_login
