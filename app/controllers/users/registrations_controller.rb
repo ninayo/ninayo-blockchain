@@ -29,6 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       #matched neither email or phone number, render error and return to super
     end
+    resource.save
   end
 
   private
