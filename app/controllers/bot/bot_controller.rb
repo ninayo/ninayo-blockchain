@@ -125,14 +125,11 @@ class Bot::BotController < ApplicationController
           "type": "template",
           "payload": {
             "template_type": "generic",
-            "elements": [{
               "title": "Karibu NINAYO",
               "buttons": [{
                 "type": "account_link",
                 "url": "https://www.ninayo.com/users/auth/facebook?locale=sw"
                   }]
-                }
-              ]
             }
           }
         }
