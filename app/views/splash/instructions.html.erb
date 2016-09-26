@@ -1,5 +1,6 @@
 <div class="instructions">
 
+	<% unless current_user %>
 	<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
 		<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 			this.src='<%= image_path("icons/facebook.png") %>'">
@@ -11,6 +12,7 @@
 	<% end %>
 
 	<%= link_to "#{t "devise.phrases.sign_up_now"}", new_user_registration_path, class: "button is-block" %>
+	<% end %>
 
 	<%if params[:locale] === "en" %>
 
@@ -65,7 +67,7 @@
 		<p>Kihistoria, sasa ndio wakati wa kupata bei nzuri ya mazao Tanzania. Tuma malori yalio beba mazao vijijini kwa kutumia dira ya satelaiti (GPS). Hii itakuwezesha kupata mazao ya bei nafuu kabisa. Na sio tu kutafuta mazao yanayo patikana kwa urahisi- bali weka tangazo lako na wauzaji watataka kukuuzia wewe! Hii ni nafasi yako ya kuzalisha fedha kwa njia ya kununua mazao ya bei ya chini na kuuza kwa bei ya juu. Ila kumbuka, utathaminishwa na kila mtu utakae fanya nae biashara, hivyo kua muaminifu na jenga sifa nzuri ya biashara yako kwa mafanikio makubwa zaidi mbeleni.</p>
 
 	<% end %>
-
+	<% unless current_user %>
 	<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
 		<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 			this.src='<%= image_path("icons/facebook.png") %>'">
@@ -77,5 +79,6 @@
 	<% end %>
 
 	<%= link_to "#{t "devise.phrases.sign_up_now"}", new_user_registration_path, class: "button is-block" %>
+	<% end %>
 
 </div>
