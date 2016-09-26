@@ -34,14 +34,7 @@
 .primarynav-button {
 	display: block-inline;
 	vertical-align: middle;
-	margin: (($siteheaderHeight - $controlHeight) / 2) 40px 0 $padding !important;
-
-	@include mq($from: medium) {
-		margin-right: 70px !important;
-	}
-	@include mq($from: medium) {
-		margin-top: 0 !important;
-	}
+	
 }
 
 .primarynav-messages {
