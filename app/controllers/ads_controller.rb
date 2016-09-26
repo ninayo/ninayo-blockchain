@@ -19,6 +19,8 @@ class AdsController < ApplicationController
 		@ads = @ads.includes(:crop_type)
 					.includes(:user)
 					.includes(:region)
+					.includes(:district)
+					.includes(:ward)
 					.page(params[:page])
 
 		@crop_types = CropType.all.order(:sort_order)
