@@ -1,5 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
+  include Trackable
+
   def new
     super do
       @token = params[:invite_token]
