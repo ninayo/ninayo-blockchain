@@ -46,7 +46,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def track_registration
-    track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.phone_number}")
+    track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{resource.email || resource.phone_number}")
   end
 
   def is_valid_email?(str)
