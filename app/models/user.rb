@@ -2,14 +2,12 @@ require 'net/http'
 
 class User < ActiveRecord::Base
 
-	#trackable inclusion goes here instead of controller, since devise+oauth tends to make google analytics choke
-	include Trackable
 	attr_accessor :login
 
 	acts_as_messageable
 	#skip sending confirmation email if we've assigned a user a temp email
 	after_create :send_welcome_email, unless: Proc.new { self.email.nil? || self.email.include?("@ninayo.com") || self.email.blank? }
-	#after_create :track_registration
+
 	has_many :ads
 	has_many :user_logs
 	accepts_nested_attributes_for :ads
@@ -32,8 +30,6 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
-	#after_create :track_registration, :if => :new_record?
-
 	validates :name, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
 	validates :phone_number, uniqueness: true, allow_nil: true
@@ -49,35 +45,6 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable, :omniauthable,
 		:recoverable, :rememberable, :trackable, :validatable, :authentication_keys => { login: true }
 
-
-	# def seller_score
-	# 	if self.ratings.seller.exists?
-	# 		self.ratings.seller.average(:score).round
-	# 	else
-	# 		0
-	# 	end
-	# end
-
-	# def buyer_score
-	# 	if self.ratings.buyer.exists?
-	# 		self.ratings.buyer.average(:score).round
-	# 	else
-	# 		0
-	# 	end
-	# end
-
-	# def self.find_first_by_auth_conditions(warden_conditions)
-	#   conditions = warden_conditions.dup
-	#   if login = conditions.delete(:login)
-	#     where(conditions).where(["lower(phone_number) = :value OR lower(email) = :value", { :value => login.downcase }]).first
-	#   else
-	#     if conditions[:phone_number].nil?
-	#       where(conditions).first
-	#     else
-	#       where(phone_number: conditions[:phone_number]).first
-	#     end
-	#   end
-	# end
 
 	def self.find_for_database_authentication(warden_conditions)
 		conditions = warden_conditions.dup
@@ -183,10 +150,6 @@ class User < ActiveRecord::Base
 		return 0 if completed_ads.empty?
 		completed_ads.map{ |ad| ad.final_price }.inject(:+)
 	end
-	
-	# def track_registration
-	# 	track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.phone_number}")
-	# end
 
 	def info_needed?
 		phone_number.blank? || name.blank?

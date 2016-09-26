@@ -100,7 +100,7 @@ class Bot::BotController < ApplicationController
           "type": "template",
           "payload": {
             "template_type": "button",
-            "text": "Asante, tangazo lako imekuwa posted. Unaweza kuona tangazo lako katika kiungo huu:",
+            "text": "Bonyeza hapa www.NINAYO.com kuona tangazo lako au tembelea tovuti kuona bei za mazao mengine kebekebe nchini.",
             "buttons": [
               {
                 "type": "web_url",
