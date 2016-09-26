@@ -5,11 +5,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js<%= '?key=AIzaSyDwJl1dpqQQbiRyEWegkhSs7whiE5N9bGM' if Rails.env.production? %>"></script>
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-	<%= csrf_meta_tags %>
-</head>
-<body class="<%= "#{controller.controller_name}-#{controller.action_name}" %>">
 	<!-- Start GTM Copy -->
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MFH7JK"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -19,6 +14,12 @@
 	'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-MFH7JK');</script>
 	<!-- End GTM Copy -->
+	
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js<%= '?key=AIzaSyDwJl1dpqQQbiRyEWegkhSs7whiE5N9bGM' if Rails.env.production? %>"></script>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body class="<%= "#{controller.controller_name}-#{controller.action_name}" %>">
 	<%= render "layouts/siteheader" %>
 	<div class="wrapper <%="show-filter" if @show_filter == 'true' %>">
 		<%= render "layouts/alert" %>

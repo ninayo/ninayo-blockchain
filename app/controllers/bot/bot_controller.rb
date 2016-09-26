@@ -118,7 +118,7 @@ class Bot::BotController < ApplicationController
       ]
   end
 
-  def auth_link
+  def auth_link #why arent you werking
     render json: [
       {
         "attachment": {
