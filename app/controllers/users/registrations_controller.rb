@@ -2,6 +2,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   include Trackable
 
+  after_action :track_update, only: [:update]
+
   def new
     super do
       @token = params[:invite_token]
@@ -49,6 +51,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def track_registration
     track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{resource.email || resource.phone_number}")
+  end
+
+  def track_update
+    track_event('User Management', 'User Update', 'account update', "UPDATE AN ACCOUNT: #{resource.email || resource.phone_number}")
   end
 
   def is_valid_email?(str)
