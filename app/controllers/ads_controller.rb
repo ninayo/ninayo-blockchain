@@ -170,6 +170,7 @@ class AdsController < ApplicationController
 			# end
 			redirect_to ad_url(@ad.id), notice: "Karibu!"
 		else
+			track_failure
 			@ad.user = current_user
 			@crop_types = CropType.all.order(:sort_order)
 			render "new"
