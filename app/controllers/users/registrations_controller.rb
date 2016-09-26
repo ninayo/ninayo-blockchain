@@ -15,6 +15,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @invite.update(:receiver_id => resource.id)
       end
       cleanup_temp
+      track_registration
     end
   end
 
@@ -42,6 +43,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.errors.clear
     resource.errors.add(:login, 'is invalid. Please enter a valid email or phone number.')
     redirect_to new_user_registration_url, :alert => "Simu au barua pepe imesajiliwa"
+  end
+
+  def track_registration
+    track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.phone_number}")
   end
 
   def is_valid_email?(str)

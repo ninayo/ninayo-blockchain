@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 	after_initialize :set_default_language, :if => :new_record?
 	after_initialize :set_default_rating, :if => :new_record?
 
-	after_initialize :track_registration, :if => :new_record?
+	#after_create :track_registration, :if => :new_record?
 
 	validates :name, :phone_number, :agreement, presence: true, on: :save_ad
 	validates :agreement, presence: true, :on => :create
@@ -184,9 +184,9 @@ class User < ActiveRecord::Base
 		completed_ads.map{ |ad| ad.final_price }.inject(:+)
 	end
 	
-	def track_registration
-		track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.phone_number}")
-	end
+	# def track_registration
+	# 	track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{current_user.email || current_user.phone_number}")
+	# end
 
 	def info_needed?
 		phone_number.blank? || name.blank?
