@@ -6,7 +6,7 @@ a.button,
 	text-decoration: none;
 	height: $controlHeight;
 	line-height: $controlHeight;
-	background-color: $grey;
+	background-color: #4CAF50;
 	color: $white;
 	text-transform: uppercase;
 	text-align: center;
@@ -22,12 +22,12 @@ a.button,
 
 	&:hover,
 	&:focus {
-		background-color: darken($grey, 10%);
+		background-color: darken(#4CAF50, 10%);
 		outline: none;
 	}
 
 	&:active {
-		background-color: darken($grey, 20%);
+		background-color: darken(#4CAF50, 20%);
 	}
 
 	&.is-block {
