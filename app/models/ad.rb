@@ -70,7 +70,7 @@ class Ad < ActiveRecord::Base
 		if self.crop_type.id == 10
 			crop_type = self.other_crop_type
 		else
-			if I18n.locale == "sw"
+			if I18n.locale == :sw
 				crop_type = self.crop_type.name_sw
 			else
 				crop_type = self.crop_type.name
