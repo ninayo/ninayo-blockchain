@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require rails.validations
-//= require lib/geolocation.js
 //= require lib/jquery.cookie.js
 //= require lib/tablesaw.js
 //= require lib/markerclustererplus.js
