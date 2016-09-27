@@ -303,12 +303,12 @@ sw:
         heading: "Mambo"
 
       statistics:
-        heading: "takwimu"
+        heading: "Takwimu"
         favorites: "Vipaumbele"
         times:
-          zero: "hakuna"
-          one: "mara moja"
-          other: "mara %{count}"
+          zero: "Hakuna"
+          one: "Mara moja"
+          other: "Mara %{count}"
 
       filter:
         filter_ads: "Chuja matangazo"
