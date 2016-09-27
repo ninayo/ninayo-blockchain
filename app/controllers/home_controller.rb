@@ -4,7 +4,4 @@ class HomeController < ApplicationController
 		render :layout => "layouts/bare"
 	end
 
-	def geolocation_test
-
-	end
 end

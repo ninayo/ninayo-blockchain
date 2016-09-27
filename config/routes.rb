@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     get 'map' => 'ads#map'
 
     get 'terms' => 'home#terms', as: :terms
-    get 'geolocation_test' => 'home#geolocation_test', as: :geolocation_test
+    #get 'geolocation_test' => 'home#geolocation_test', as: :geolocation_test
 
     get 'mypage' => 'mypage#index', as: :mypage
     get 'mypage/current' => 'mypage#index', as: :mypage_current
