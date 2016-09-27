@@ -1,6 +1,6 @@
 <%= form_tag messages_path, method: :post do %>
 	<div class="form-group">
-		<strong><%= label_tag 'message[subject]', 'Subject' %></strong>
+		<strong><%= label_tag 'message[subject]', 'Mada' %></strong>
 		<p><%= Ad.find_by_id(params[:adid].to_i).title %></p>
 
 		<%= hidden_field_tag 'message[subject]', (current_user.name || current_user.phone_number || current_user.email) + " - " + Ad.find_by_id(params[:adid].to_i).title %>
@@ -8,14 +8,14 @@
 	</div>
 
 	<div class="form-group">
-		<strong><%= label_tag 'recipients', 'Sending to:' %></strong>
+		<strong><%= label_tag 'recipients', 'Kutuma kwa:' %></strong>
 		<p><%= User.find_by_id(params[:uid].to_i).name %></p>
 	</div>
 
 	<div class="form-group">
-		<strong><%= label_tag 'message[body]', 'Message:' %></strong>
+		<strong><%= label_tag 'message[body]', 'Ujumbe:' %></strong>
 		<%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
 	</div>
 
-	<%= submit_tag 'Send', name: "uid[#{params[:uid]}]", class: 'button is-primary is-block' %>
+	<%= submit_tag 'Kutuma Ujumbe', name: "uid[#{params[:uid]}]", class: 'button is-primary is-block' %>
 <% end %>
