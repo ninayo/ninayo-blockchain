@@ -44,8 +44,6 @@ Rails.application.routes.draw do
 
     resources :invites, only: [:index, :create]
 
-    #get 'messages/admin_message' => 'messages#admin_message', as: :admin_message
-
     get 'ads/:id/preview' => 'ads#preview', as: :preview_ad
     get 'ads/:id/archive' => 'ads#archive', as: :archive_ad
     delete 'ads/:id/delete' => 'ads#delete', as: :delete_ad
@@ -57,7 +55,6 @@ Rails.application.routes.draw do
     get 'map' => 'ads#map'
 
     get 'terms' => 'home#terms', as: :terms
-    #get 'geolocation_test' => 'home#geolocation_test', as: :geolocation_test
 
     get 'mypage' => 'mypage#index', as: :mypage
     get 'mypage/current' => 'mypage#index', as: :mypage_current
