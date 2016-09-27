@@ -3,7 +3,7 @@
 		<strong><%= label_tag 'message[subject]', 'Subject' %></strong>
 		<p><%= Ad.find_by_id(params[:adid].to_i).title %></p>
 
-		<%= hidden_field_tag 'message[subject]', current_user.name + " - " + Ad.find_by_id(params[:adid].to_i).title %>
+		<%= hidden_field_tag 'message[subject]', (current_user.name || current_user.phone_number || current_user.email) + " - " + Ad.find_by_id(params[:adid].to_i).title %>
 
 	</div>
 
