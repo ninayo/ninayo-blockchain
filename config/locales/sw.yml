@@ -149,6 +149,7 @@ sw:
     want_buy: "Ninataka kununua"
     about_me: "Jifunze zaidi"
     invite: "Waalike Wengine"
+    message: "Ujumbe"
 
     errors:
       zero: "hakuna makosa"

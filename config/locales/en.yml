@@ -169,6 +169,7 @@ en:
     want_buy: "I want to buy"
     about_me: "About"
     invite: "Invite Friends"
+    message: "Message"
 
     errors:
       zero: "no errors"
