@@ -7,7 +7,7 @@
 				</span>
 				<span class="rating" data-score="<%= ad.user.seller_rating ? ad.user.seller_rating.round(0) : 0 %>">
 					<span class="rating-user">
-						<%= t "common.by" %> <%= ad.user.name %>
+						<%= t "common.by" %> <%= ad.user.name.titleize %>
 					</span>
 					<span class="rating-score">
 						<span class="rating-score-inner"></span>
