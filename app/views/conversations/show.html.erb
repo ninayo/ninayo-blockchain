@@ -17,7 +17,7 @@
 						<img src=<%= "#{message.sender.photo_url}" %> class="avatar" style="margin-bottom: 12px;">
 					<% end %>
 					<div class="message-header">
-						<strong><%= message.sender.name %></strong>
+						<strong><%= message.sender.name || message.sender.phone_number || message.sender.email %></strong>
 					</div>
 					<div class="message-body">
 						<%= message.body %>
