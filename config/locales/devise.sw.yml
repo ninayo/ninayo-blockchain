@@ -3,7 +3,7 @@
 sw:
   devise:
     phrases:
-      characters_minimum: "kiasi cha herufi kwa nenosiri"
+      characters_minimum: "Kiasi cha herufi kwa nenosiri"
       log_in: "Ingia"
       sign_up: "Tengeneza akaunti"
       sign_up_now: "Tengeneza akaunti sasa"
@@ -27,16 +27,16 @@ sw:
     failure:
       already_authenticated: "Umekwisha ingia"
       inactive: "Akaunti yako haijawezeshwa."
-      invalid: "Batili %{authentication_keys} au password/ nenosiri."
+      invalid: "Batili %{authentication_keys} au nenosiri."
       locked: "Akaunti yako imefungwa."
       last_attempt: "Unahatua moja zaidi kabla akaunti yako haijafungwa."
-      not_found_in_database: "batili %{authentication_keys} au password/ nenosiri."
+      not_found_in_database: "Batili %{authentication_keys} au nenosiri."
       timeout: "Uko nje ya muda. Tafadhali ingia tena na endelea."
       unauthenticated: "Unahitaji kuingia au kufungua akaunti kabla hujaendelea."
       unconfirmed: "Unatakiwa kuthibitisha anuani yako ya baruapepe kabla hujaendelea."
     mailer:
       confirmation_instructions:
-        subject: "maelekezo ya uthibitisho"
+        subject: "Maelekezo ya uthibitisho"
       reset_password_instructions:
         subject: "Badili maelekezo ya nenosiri/ password"
       unlock_instructions:
@@ -64,7 +64,7 @@ sw:
       already_signed_out: "Umeandoka mafinikio."
     unlocks:
       send_instructions: "Utapokea baruapepe na maelekezo ya jinsi ya kufungua akaunti yako katika dakika chache."
-      send_paranoid_instructions: "IKama akaunti yako ipo, utakuwa kupokea baruapepe na maelekezo ya jinsi ya kufungua hilo katika dakika chache."
+      send_paranoid_instructions: "Ikama akaunti yako ipo, utakuwa kupokea baruapepe na maelekezo ya jinsi ya kufungua hilo katika dakika chache."
       unlocked: "Akaunti yako imefunguliwa kwa mafanikio. Tafadhali ingia ili kuendelea."
   errors:
     messages:
