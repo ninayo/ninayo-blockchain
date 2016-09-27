@@ -9,15 +9,15 @@
 	@include border-radius($borderRadius);
 
 	&.is-success {
-		background-color: $successColor;
+		background-color: #8BC34A;
 	}
 
 	&.is-warning {
-		background-color: $warningColor;
+		background-color: #FFC107;
 	}
 
 	&.is-error {
-		background-color: $alertColor;
+		background-color: #f44336;
 	}
 
 }
