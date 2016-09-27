@@ -265,7 +265,7 @@ sw:
         delete_confirmation: "Unauhakika unataka kufuta tangazo hili?"
         location: "Mahali"
       list:
-        could_not_find_heading: "hakuna tangazo lolote linaloendana na vigezo vyako"
+        could_not_find_heading: "Hakuna tangazo lolote linaloendana na vigezo vyako"
         could_not_find_body: "Jaribu kuondoa baadhi ya vigezo vyako"
 
       archive:
