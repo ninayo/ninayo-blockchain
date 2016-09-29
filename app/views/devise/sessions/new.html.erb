@@ -12,6 +12,7 @@
 				<% else %>
 					Jisajili na Facebooka
 				<% end %>
+			<% end %>
 
 			<div class="field">
 				<%= f.label (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
@@ -37,7 +38,6 @@
 				<div class="field-actions-column text-right">
 					<%= link_to "#{t "devise.phrases.forgot_your_password"}", new_password_path('user'), :class => "button is-link is-block"%>
 				</div>
-				<% end %>
 
 			</div>
 		<% end %>
