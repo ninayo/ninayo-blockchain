@@ -12,7 +12,7 @@ class Bot::BotController < ApplicationController
   end
 
   def link_facebook
-    phone     = params[:phone_number].gsub("+", "").split("/")[0]
+    phone     = params[:phone_number].gsub("+", "").gsub(" ", "").gsub("0255", "").split("/")[0]
     fb_bot_id = params[:fb_bot_id]
     user_name = [params[:fname], params[:lname]].join(" ").strip
 
@@ -89,6 +89,9 @@ class Bot::BotController < ApplicationController
     @ad.volume_unit = volume.split(" ")[0]
     @ad.volume = volume.split(" ")[1]
   end
+
+  def parse_phone(number)
+
 
   def bad_phone
     generic_message("Invalid phone number, please try again.")
