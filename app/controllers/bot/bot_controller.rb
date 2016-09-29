@@ -90,8 +90,6 @@ class Bot::BotController < ApplicationController
     @ad.volume = volume.split(" ")[1]
   end
 
-  def parse_phone(number)
-
 
   def bad_phone
     generic_message("Invalid phone number, please try again.")
