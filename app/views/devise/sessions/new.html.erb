@@ -7,7 +7,7 @@
 			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
 					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 						this.src='<%= image_path("icons/facebook.png") %>'">
-				<%if params[:locale] === "en" %>
+				<%if I18n.locale == :en %>
 					Log in with Facebook
 				<% else %>
 					Jisajili na Facebooka
@@ -15,13 +15,13 @@
 			<% end %>
 
 			<div class="field">
-				<%= f.label (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
- 				<%= f.text_field :login, placeholder: (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
+				<%= f.label (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
+ 				<%= f.text_field :login, placeholder: (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
 			</div>
 
 			<div class="field">
 				<%= f.label :password %>
-				<%= f.password_field :password, placeholder: (params[:locale] === "sw" ? "Nenosiri" : "Password"), autocomplete: "off", :validate => true %>
+				<%= f.password_field :password, placeholder: (I18n.locale == :sw ? "Nenosiri" : "Password"), autocomplete: "off", :validate => true %>
 			</div>
 
 			<% if devise_mapping.rememberable? -%>
