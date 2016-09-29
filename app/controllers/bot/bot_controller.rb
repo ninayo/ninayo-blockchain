@@ -71,9 +71,9 @@ class Bot::BotController < ApplicationController
     end
 
     @ad.user_id = @user.id
-    @ad.status = 1
 
     if @ad.save
+      @ad.update(:status => 1)
       ad_success
     else
       fail_message(@ad.errors.full_messages)
