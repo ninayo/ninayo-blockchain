@@ -14,6 +14,20 @@ body {
 	margin: 0;
 }
 
+.splash-instructions {
+    display: flex;
+    width: 290px;
+    height: auto;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    margin: 8px 40px 0 20px !important;
+    line-height: 32px;
+}
+
 .conversation-header {
 	margin: 0 0 0 10px;
 }
