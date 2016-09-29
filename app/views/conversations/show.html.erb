@@ -1,6 +1,6 @@
 <div class="panel panel-default">
 	<div class="panel-heading">
-		<p><%= link_to 'Inbox', conversations_path, class: 'button btn-primary'%></p>
+		<p><%= link_to 'Kijisanduka', conversations_path, class: 'button is-block'%></p>
 		<strong><h3><%= @conversation.subject %></h3></strong>
 	</div>
 
@@ -35,6 +35,6 @@
 		<div class="form-group">
 			<%= text_area_tag 'body', nil, cols: 3, class: 'form-control', placeholder: 'Andike ujumbe hapa', required: true %>
   		</div>
-  		<%= submit_tag "Peleke ujumbe", class: 'button btn-primary' %>
+  		<%= submit_tag "Peleke ujumbe", class: 'button is-block' %>
 	<% end %>
 </div>
