@@ -17,7 +17,7 @@
 					<img src=<%= "#{current_user.photo_url}" %> class="avatar">
 				<% end %>
 
-				<%if params[:locale] === "en" %>
+				<%if I18n.locale == :en %>
 					<% if current_user.name.nil? %>
 						<%= "  Welcome!" %>
 					<% else %>
@@ -42,7 +42,7 @@
 
 		<% else %>
 			<%= link_to get_started_path, :class => "primarynav-item is-secondary" do%>
-				<%if params[:locale] === "en" %>
+				<%if I18n.locale == :en %>
  					Get Started
   				<% else %>
 					Mwanzo

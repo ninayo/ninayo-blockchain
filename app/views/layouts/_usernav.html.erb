@@ -53,7 +53,7 @@
 			<%= link_to user_omniauth_authorize_path(:facebook), :class => "usernav-item is-secondary" do%>
 				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 					this.src='<%= image_path("icons/facebook.png") %>'">
-				<%if params[:locale] === "en" %>
+				<%if I18n.locale == :en %>
 					Login with Facebook
 				<% else %>
 					Jisajili na Facebooka
