@@ -4,7 +4,6 @@
 
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-			<div class="field-actions">
 			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
 					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 						this.src='<%= image_path("icons/facebook.png") %>'">
@@ -13,8 +12,6 @@
 				<% else %>
 					Jisajili na Facebooka
 				<% end %>
-
-			</div>
 
 			<div class="field">
 				<%= f.label (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
