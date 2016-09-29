@@ -48,8 +48,8 @@ class Bot::BotController < ApplicationController
     link_facebook unless @user && @user.id
 
     region    = Region.find_by_name(params[:region_name].titleize)
-    district  = District.find_by_name(params[:district_name].titleize) || region.district.first
-    ward      = Ward.find_by_name(params[:ward_name].titleize)
+    district  = District.find_by_name(params[:district_name].titleize) || region.districts.first
+    ward      = Ward.find_by_name(params[:ward_name].titleize) || district.wards.first
     crop_type = CropType.find_by(:name_sw => params[:crop_name].titleize)
 
     @ad = Ad.new(:region_id => region.id, :district_id => district.id)
