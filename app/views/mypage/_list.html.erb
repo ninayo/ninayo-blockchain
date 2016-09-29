@@ -102,13 +102,13 @@
 				</td>
 			<% end -%>
 			<% if current_view == "current" -%>
-			<td class="text-right is-buttonrow"><%= link_to("#{t "common.archive"}", archive_ad_path(ad), :class => "button is-block is-primary ads-table-button ") %></td>
+			<td class="text-right is-buttonrow"><%= link_to("#{t "common.archive"}", archive_ad_path(ad), :class => "button is-block ads-table-button ") %></td>
 			<% end -%>
 			<% if current_view == "favorites" -%>
 			<td class="text-right is-buttonrow">
 				<div class="button-group is-stacked">
 					<% if ad.buyer_id == current_user.id %>
-						<%= link_to("#{t "views.my_page.list.i_bought_this"}", rate_seller_path(ad), :class => "button is-block is-primary ads-table-button") -%>
+						<%= link_to("#{t "views.my_page.list.i_bought_this"}", rate_seller_path(ad), :class => "button is-block ads-table-button") -%>
 					<% else %>
 						<%= link_to("#{t "common.unfavorite"}", ad_favorite_path(ad, type: "unfavorite"), :class => "button is-block ads-table-button", :method => :put) if ad.favorite?(current_user) -%>
 					<% end %>

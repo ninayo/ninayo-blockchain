@@ -97,10 +97,10 @@
 
 	<div class="field-actions">
 		<% if @ad.published? %>
-			<%= f.submit("#{t "views.ad.new.save_changes"}", :class  => "button is-primary is-block") %>
+			<%= f.submit("#{t "views.ad.new.save_changes"}", :class  => "button is-block") %>
 		<% else %>
-			<%= f.submit("#{t "views.ad.preview.publish_button"}", :class  => "button is-primary is-block") %>
+			<%= f.submit("#{t "views.ad.preview.publish_button"}", :class  => "button is-block") %>
 		<% end %>
-		<%= link_to "#{t "views.ad.new.cancel"}", root_path, :class => "button is-block" %>
+		<%= link_to "#{t "views.ad.new.cancel"}", root_path, :class => "button is-danger is-block" %>
 	</div>
 <% end %>
