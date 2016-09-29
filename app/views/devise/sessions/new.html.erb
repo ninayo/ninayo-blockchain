@@ -4,6 +4,18 @@
 
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+			<div class="field-actions">
+			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
+					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+						this.src='<%= image_path("icons/facebook.png") %>'">
+				<%if params[:locale] === "en" %>
+					Log in with Facebook
+				<% else %>
+					Jisajili na Facebooka
+				<% end %>
+
+			</div>
+
 			<div class="field">
 				<%= f.label (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
  				<%= f.text_field :login, placeholder: (params[:locale] === "sw" ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
@@ -28,16 +40,7 @@
 				<div class="field-actions-column text-right">
 					<%= link_to "#{t "devise.phrases.forgot_your_password"}", new_password_path('user'), :class => "button is-link is-block"%>
 				</div>
-
-				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
-					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-						this.src='<%= image_path("icons/facebook.png") %>'">
-				<%if params[:locale] === "en" %>
-					Log in with Facebook
-				<% else %>
-					Jisajili na Facebooka
 				<% end %>
-		<% end %>
 
 			</div>
 		<% end %>
