@@ -9,7 +9,7 @@
 	@include border-radius($borderRadius);
 
 	&.is-success {
-		background-color: #8BC34A;
+		background-color: #C8E6C9;
 	}
 
 	&.is-warning {
@@ -17,7 +17,7 @@
 	}
 
 	&.is-error {
-		background-color: #f44336;
+		background-color: #ffcdd2;
 	}
 
 }
