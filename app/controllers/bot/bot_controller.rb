@@ -12,7 +12,7 @@ class Bot::BotController < ApplicationController
   end
 
   def link_facebook
-    phone     = params[:phone_number].gsub("+", "").gsub(" ", "").gsub("0255", "").split("/")[0]
+    phone     = params[:phone_number].gsub("+", "").gsub(" ", "").gsub("0255", "").split("/").map{|x| x[/\d+/]}.first
     fb_bot_id = params[:fb_bot_id]
     user_name = [params[:fname], params[:lname]].join(" ").strip
 
