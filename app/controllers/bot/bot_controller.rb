@@ -178,6 +178,6 @@ class Bot::BotController < ApplicationController
 
     (2.0 * intersection) / union
   end
-  end
+  
 
 end
