@@ -82,7 +82,7 @@ class Bot::BotController < ApplicationController
   end
 
   def parse_price(price)
-    @ad.price = price.split("/=")[0]
+    @ad.price = price.gsub(",", "").gsub(".", "").gsub(" ", "").split.map{|x| x[/\d+/]}.first
   end
 
   def parse_volume(volume)
@@ -151,6 +151,33 @@ class Bot::BotController < ApplicationController
 
   def valid_phone?(number)
     (number.length == 9) || (number.length == 10)
+  end
+
+  def string_similarity(str1, str2)
+    str1.downcase!
+
+    pairs1 = (0..str1.length - 2).collect{|i| str1[i ,2]}.reject {
+      |pair| pair.include?(" ") }
+
+    pairs2 = (0..str2.length - 2).collect{|i| str2[i, 2]}.reject {
+      |pair| pair.include?(" ") }
+
+    union = pairs1.size + pairs2.size
+
+    intersection = 0
+
+    pairs1.each do |p1|
+      0.upto(pairs2.size - 1) do |i|
+        if p1 == pairs2[i]
+          intersection += 1
+          pairs2.slice!(i)
+          break
+        end
+      end
+    end
+
+    (2.0 * intersection) / union
+  end
   end
 
 end
