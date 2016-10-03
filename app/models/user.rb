@@ -163,8 +163,6 @@ class User < ActiveRecord::Base
 		region_id.nil? || district_id.nil? || ward_id.nil? || village.blank?
 	end
 
-	protected
-
 	def track_fb_login
     track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT: #{auth.uid}")
   end
@@ -172,6 +170,9 @@ class User < ActiveRecord::Base
 	def track_fb_registration
     track_event('User Management', 'New FB User', 'New account creation', "CREATED A FB ACCOUNT: #{auth.uid}")
   end
+  
+	protected
+
 
 	def cleanup_temp
     self.phone_number[0..8] == ("TEMPPHONE") ? true : self.update(:email => nil)
