@@ -4,7 +4,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #for each additional service we want to support. twitter, google etc. they should have their own specifics
   #in terms of implementation details but all should be pretty similar to this
   def facebook
-    track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT: #{auth.uid}") 
+    track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT") 
     handle_redirect('devise.facebook_data', 'Facebook')
   end
 
