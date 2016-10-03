@@ -109,7 +109,7 @@ class User < ActiveRecord::Base
 		#check to see if a user already exists. if it does, merge oauth data with existing user
 		user = User.find_by_uid(auth.uid)
 		if user
-			track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT: #{auth.uid}")
+			Trackable.track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT: #{auth.uid}")
 			user.uid = auth.uid
 			user.name = auth.info.name
 			user.photo_url = JSON.parse(res.body)["data"]["url"]
@@ -117,7 +117,7 @@ class User < ActiveRecord::Base
 		end
 
 		#new registration, so set properties of the new user. requested info determined in devise.rb
-		track_event('User Management', 'New FB User', 'New account creation', "CREATED A FB ACCOUNT: #{auth.uid}")
+		Trackable.track_event('User Management', 'New FB User', 'New account creation', "CREATED A FB ACCOUNT: #{auth.uid}")
 		where(uid: auth.uid, email: auth.info.email).first_or_create do |user|
 			user.update(:uid => auth.uid,
 									:name => auth.info.name,
@@ -170,7 +170,7 @@ class User < ActiveRecord::Base
 	def track_fb_registration
     track_event('User Management', 'New FB User', 'New account creation', "CREATED A FB ACCOUNT: #{auth.uid}")
   end
-  
+
 	protected
 
 
