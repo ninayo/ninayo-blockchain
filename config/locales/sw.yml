@@ -15,7 +15,7 @@ sw:
     attributes:
       ad:
         description: "Maelezo"
-        price: "Bie za rejareja"
+        price: "Bei za rejareja"
         volume: "Kiasi kinacho uzwa"
         volume_unit: "unit"
         village: "Kijiji"
@@ -223,7 +223,7 @@ sw:
       ward: "Kata"
       village: "Kijiji"
       volume: "Ujazo zote unauza"
-      price: "Bie ya moya"
+      price: "Bei ya moja"
       crop: "Zao"
       lat: "Latitudo"
       lng: "Longitudo"
@@ -261,7 +261,7 @@ sw:
           text: ""
 
       edit:
-        heading: "hariri tangazo"
+        heading: "Hariri tangazo"
       show:
         delete_confirmation: "Unauhakika unataka kufuta tangazo hili?"
         location: "Mahali"
@@ -345,7 +345,7 @@ sw:
         title: "Cheo"
         seller: "Muuzaji"
         buyer: "Mnunuzi"
-        price: "Bie ya moja"
+        price: "Bei ya moja"
         final_price: "Bei ya mwisho"
         published: "Tolewa"
         archived: "Hifadhiwa"

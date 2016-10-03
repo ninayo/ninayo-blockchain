@@ -48,6 +48,7 @@ class Bot::BotController < ApplicationController
     link_facebook unless @user && @user.id
 
     region    = Region.find_by_name(params[:region_name].titleize)
+    #region    = best_match(params[:region_name], Region.all.map{|r| r.name}).titleize
     district  = District.find_by_name(params[:district_name].titleize) || region.districts.first
     ward      = Ward.find_by_name(params[:ward_name].titleize) || district.wards.first
     crop_type = CropType.find_by(:name_sw => params[:crop_name].titleize)
@@ -155,12 +156,10 @@ class Bot::BotController < ApplicationController
 
   def string_similarity(str1, str2)
     str1.downcase!
+    str2.downcase!
 
-    pairs1 = (0..str1.length - 2).collect{|i| str1[i ,2]}.reject {
-      |pair| pair.include?(" ") }
-
-    pairs2 = (0..str2.length - 2).collect{|i| str2[i, 2]}.reject {
-      |pair| pair.include?(" ") }
+    pairs1 = (0..str1.length - 2).collect{|i| str1[i, 2]}.reject { |pair| pair.include?(" ") }
+    pairs2 = (0..str2.length - 2).collect{|i| str2[i, 2]}.reject { |pair| pair.include?(" ") }
 
     union = pairs1.size + pairs2.size
 
@@ -177,6 +176,12 @@ class Bot::BotController < ApplicationController
     end
 
     (2.0 * intersection) / union
+  end
+
+  def best_match(user_input, master_strings)
+    confidence_hash = {}
+    master_strings.each { |candidate| confidence_hash[candidate] = string_similarity(user_input, candidate) }
+    confidence_hash.sort_by(&:last)
   end
   
 
