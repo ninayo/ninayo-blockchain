@@ -8,7 +8,7 @@
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
 		</div>
-		<div class="field other_crop_type <%= "is-hidden"  unless @ad.crop_type && @ad.crop_type.is_other %>">
+		<div class="field other_crop_type">
 			<%= f.label :other_crop_type, "#{t "views.ad.new.name_of_crop_type"}", :class => 'field-label' %>
 			<%= f.text_field :other_crop_type %>
 		</div>
