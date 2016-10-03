@@ -38,7 +38,7 @@
 			<% end %>
 
 			<div class="field field-checkbox">
-				<%= f.check_box :agreement %>
+				<%= f.check_box :agreement, checked: true %>
 				<label for="user_agreement">
 					<%= t "views.create_account.agreement_text_1" %>  <%= link_to "#{t "views.create_account.agreement_text_2"}", terms_path, :target => "_BLANK" %>
 				</label>
