@@ -24,6 +24,17 @@ class MessagesController < ApplicationController
     redirect_to root_path unless current_user && current_user.admin?
   end
 
+  def message_all
+    redirect_to root_path unless current_user && current_user.admin?
+    recipients = User.where(:region_id => nil, :created_at => Time.now.last_month.beginning_of_month..Time.now)
+
+    recipients.each do |recipient|
+      conversation = current_user.send_message(recipient, "body", "subject").conversation
+    end
+
+    redirect_to root_path, notice: "Announcement sent, delivery in progress"
+  end
+
   private
 
   def track_message
