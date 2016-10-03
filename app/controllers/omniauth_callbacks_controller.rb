@@ -1,8 +1,10 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  include Trackable
   #right now oauth only works for facebook, but it's set up so that we can make new methods in this controller
   #for each additional service we want to support. twitter, google etc. they should have their own specifics
   #in terms of implementation details but all should be pretty similar to this
-  def facebook 
+  def facebook
+    track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT: #{auth.uid}") 
     handle_redirect('devise.facebook_data', 'Facebook')
   end
 
