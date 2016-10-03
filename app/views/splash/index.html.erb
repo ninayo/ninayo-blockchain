@@ -2,7 +2,7 @@
 	<% if current_user && current_user.admin? %>
 		<%= link_to("Admin Page", admin_analytics_path, :class => "button primarynav-button is-primary") %>
 	<% end %>
-	<%= link_to("#{t "common.about_me"}", splash_instructions_path, :class => "button is-block") %>
 	<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 	<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
+	<%= link_to("#{t "common.about_me"}", splash_instructions_path, :class => "button is-block") %>
 </div>
