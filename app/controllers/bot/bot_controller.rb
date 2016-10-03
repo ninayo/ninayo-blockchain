@@ -47,11 +47,14 @@ class Bot::BotController < ApplicationController
 
     link_facebook unless @user && @user.id
 
-    region    = Region.find_by_name(params[:region_name].titleize)
-    #region    = best_match(params[:region_name], Region.all.map{|r| r.name}).titleize
-    district  = District.find_by_name(params[:district_name].titleize) || region.districts.first
-    ward      = Ward.find_by_name(params[:ward_name].titleize) || district.wards.first
+    #region    = Region.find_by_name(params[:region_name].titleize)
+    region    = best_match(params[:region_name], Region.all.map(&:name)).titleize
+    #district  = District.find_by_name(params[:district_name].titleize) || region.districts.first
+    district  = best_match(params[:district_name], District.all.map(&:name)) || region.districts.first
+    #ward      = Ward.find_by_name(params[:ward_name].titleize) || district.wards.first
+    ward      = best_match(params[:ward_name], Ward.all.map(&:name)) || district.wards.first
     crop_type = CropType.find_by(:name_sw => params[:crop_name].titleize)
+    #crop_type = best_match(params[:crop_name], CropType.all.map{|c| c.name_sw})
 
     @ad = Ad.new(:region_id => region.id, :district_id => district.id)
     
@@ -181,7 +184,7 @@ class Bot::BotController < ApplicationController
   def best_match(user_input, master_strings)
     confidence_hash = {}
     master_strings.each { |candidate| confidence_hash[candidate] = string_similarity(user_input, candidate) }
-    confidence_hash.sort_by(&:last)
+    confidence_hash.sort_by(&:last).last[0]
   end
   
 
