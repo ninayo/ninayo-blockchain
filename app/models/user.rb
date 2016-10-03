@@ -2,6 +2,8 @@ require 'net/http'
 
 class User < ActiveRecord::Base
 
+	include Trackable
+
 	attr_accessor :login
 
 	acts_as_messageable
@@ -107,6 +109,7 @@ class User < ActiveRecord::Base
 		#check to see if a user already exists. if it does, merge oauth data with existing user
 		user = User.find_by_uid(auth.uid)
 		if user
+			track_fb_login
 			user.uid = auth.uid
 			user.name = auth.info.name
 			user.photo_url = JSON.parse(res.body)["data"]["url"]
@@ -114,6 +117,7 @@ class User < ActiveRecord::Base
 		end
 
 		#new registration, so set properties of the new user. requested info determined in devise.rb
+		track_fb_registration
 		where(uid: auth.uid, email: auth.info.email).first_or_create do |user|
 			user.update(:uid => auth.uid,
 									:name => auth.info.name,
@@ -160,6 +164,14 @@ class User < ActiveRecord::Base
 	end
 
 	protected
+
+	def track_fb_login
+    track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT: #{auth.uid}")
+  end
+
+	def track_fb_registration
+    track_event('User Management', 'New FB User', 'New account creation', "CREATED A FB ACCOUNT: #{auth.uid}")
+  end
 
 	def cleanup_temp
     self.phone_number[0..8] == ("TEMPPHONE") ? true : self.update(:email => nil)
