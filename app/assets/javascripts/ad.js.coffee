@@ -26,3 +26,11 @@ jQuery ->
 		else
 			$('#ad_ward_id').empty()
 			$('#ad_ward_id').parent().hide()
+
+	$('#ad_crop_type_id').change ->
+		otherCropType = $('.other_crop_type')
+		$('.other_crop_type').toggleClass('is-hidden', $(this).val() != 10);
+
+		if (!otherCropType.hasClass('is-hidden')){
+			otherCropType.find('input').focus();
+		}
