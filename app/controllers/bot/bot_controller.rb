@@ -76,7 +76,7 @@ class Bot::BotController < ApplicationController
     @ad.status = 1
 
     if @ad.save
-      render json: ad_success
+      render json: ad_success and return
     else
       fail_message(@ad.errors.full_messages)
     end
