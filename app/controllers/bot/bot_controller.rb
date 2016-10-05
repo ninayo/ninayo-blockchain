@@ -23,11 +23,11 @@ class Bot::BotController < ApplicationController
     if @user && !@user.id.nil? #found preregistered user
       @user.update(:fb_bot_id => fb_bot_id, :name => user_name, :phone_number => phone)
     else
-      @user = User.create(:name => user_name, 
-                          :phone_number => phone, 
-                          :password => SecureRandom.urlsafe_base64(16), 
-                          :fb_bot_id => fb_bot_id, 
-                          :agreement => true)
+      # @user = User.create(:name => user_name, 
+      #                     :phone_number => phone, 
+      #                     :password => SecureRandom.urlsafe_base64(16), 
+      #                     :fb_bot_id => fb_bot_id, 
+      #                     :agreement => true)
 
       @user = User.new
       @user.name = user_name
