@@ -21,7 +21,7 @@ class Bot::BotController < ApplicationController
     @user = User.find_by_phone_number(phone) || User.find_by(:fb_bot_id => fb_bot_id)
 
     if @user && !@user.id.nil? #found preregistered user
-      if @user.update(:fb_bot_id => fb_bot_id, :name => user_name, :phone => phone)
+      if @user.update(:fb_bot_id => fb_bot_id, :name => user_name, :phone_number => phone)
         #generic_message("DEBUG: Account found, updated with fb_bot_id")
       else
         generic_message("DEBUG: Couldn't update user #{@user.id}, failed with #{@user.errors.full_messages}")
