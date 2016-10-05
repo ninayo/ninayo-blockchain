@@ -4,7 +4,7 @@ class Bot::BotController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
 
-  before_action :find_user_by_bot_id, only: [:post_ad]
+  #before_action :find_user_by_bot_id, only: [:post_ad]
 
   def find_user_by_bot_id
     @user = User.find_by(:fb_bot_id => params[:fb_bot_id])
@@ -90,6 +90,9 @@ class Bot::BotController < ApplicationController
     @ad.volume_unit = volume.split(" ")[0]
     @ad.volume = volume.split(" ")[1]
   end
+
+  def parse_volume(volume)
+    words = volume.split(" ")
 
 
   def bad_phone
