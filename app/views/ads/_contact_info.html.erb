@@ -1,7 +1,7 @@
 <table class="datatable">
 	<tr>
 		<th><%= t("common.phone") %>:</th>
-		<td><a href="tel:<%= user.phone_number %>"><%= user.phone_number %></a></td>
+		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<tr>
 		<% unless user.email.nil? || user.email.blank? || user.email.include?("@ninayo.com") %>

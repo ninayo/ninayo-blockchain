@@ -150,6 +150,7 @@ sw:
     about_me: "Jifunze zaidi kuhusu NINAYO"
     invite: "Waalike Wengine"
     message: "Ujumbe"
+    call: "Kupiga simu"
 
     errors:
       zero: "hakuna makosa"

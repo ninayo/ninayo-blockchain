@@ -170,6 +170,7 @@ en:
     about_me: "About"
     invite: "Invite Friends"
     message: "Message"
+    call: "Call phone"
 
     errors:
       zero: "no errors"
