@@ -76,7 +76,7 @@ class Bot::BotController < ApplicationController
     @ad.status = 1
 
     if @ad.save
-      ad_success
+      render json: ad_success
     else
       fail_message(@ad.errors.full_messages)
     end
@@ -96,7 +96,7 @@ class Bot::BotController < ApplicationController
   end
 
   def ad_success
-    render json: [
+    [
       {
         "attachment": {
           "type": "template",
