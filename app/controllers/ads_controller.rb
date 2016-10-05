@@ -85,6 +85,15 @@ class AdsController < ApplicationController
 		end
 	end
 
+	def call_contact
+		call_log 							= CallLog.new
+		call_log.ad_id 				= @ad.id
+		call_log.caller_id 		= current_user.id
+		call_log.receiver_id 	= @ad.user.id
+
+		redirect_to "tel: #{@ad.user.phone_number}"
+	end
+
 	def preview
 		if current_user.id != @ad.user.id
 			not_found
