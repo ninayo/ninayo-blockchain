@@ -21,23 +21,26 @@ class Bot::BotController < ApplicationController
     @user = User.find_by_phone_number(phone) || User.find_by(:fb_bot_id => fb_bot_id)
 
     if @user && !@user.id.nil? #found preregistered user
-      if @user.update(:fb_bot_id => fb_bot_id, :name => user_name, :phone_number => phone)
-        #generic_message("DEBUG: Account found, updated with fb_bot_id")
-      else
-        generic_message("DEBUG: Couldn't update user #{@user.id}, failed with #{@user.errors.full_messages}")
-      end
+      @user.update(:fb_bot_id => fb_bot_id, :name => user_name, :phone_number => phone)
     else
       @user = User.create(:name => user_name, 
                           :phone_number => phone, 
                           :password => SecureRandom.urlsafe_base64(16), 
                           :fb_bot_id => fb_bot_id, 
                           :agreement => true)
+
+      @user = User.new
+      @user.name = user_name
+      @user.phone_number = phone
+      @user.fb_bot_id => fb_bot_id
+      @user.agreement => true
+      @user.save
       
-      if @user.persisted?
-        #render json: [{"text": "Didn't find user, created one. ID is #{@user.id}"}]
-      else
-        render json: [{"text": "DEBUG: Couldn't persist user"}]
-      end
+      # if @user.save
+      #   #render json: [{"text": "Didn't find user, created one. ID is #{@user.id}"}]
+      # else
+      #   render json: [{"text": "DEBUG: Couldn't persist user"}]
+      # end
 
     end
 
