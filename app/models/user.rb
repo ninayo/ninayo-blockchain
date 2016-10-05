@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 	has_many :sent_invites, :class_name => "Invite", :foreign_key => "sender_id"
 
 	#call log stuff
-	has_many :calls_made, :class_name => "CallLog", :foreign_key => "sender_id"
+	has_many :calls_made, :class_name => "CallLog", :foreign_key => "caller_id"
 	has_many :calls_received, :class_name => "CallLog", :foreign_key => "receiver_id"
 
 	enum role: [:user, :vip, :admin]

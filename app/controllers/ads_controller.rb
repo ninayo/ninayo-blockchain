@@ -9,7 +9,7 @@ class AdsController < ApplicationController
 	after_action :track_contact_reveal, only: [:contact_info]
 	after_action :track_favorite, only: [:favorite]
 
-	before_action :set_ad, only: [:show, :infopanel, :contact_info, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
+	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
 
@@ -90,8 +90,9 @@ class AdsController < ApplicationController
 		call_log.ad_id 				= @ad.id
 		call_log.caller_id 		= current_user.id
 		call_log.receiver_id 	= @ad.user.id
+		call_log.save
 
-		redirect_to "tel: #{@ad.user.phone_number}"
+		redirect_to "tel:#{@ad.user.phone_number}"
 	end
 
 	def preview

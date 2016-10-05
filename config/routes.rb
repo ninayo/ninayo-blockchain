@@ -52,6 +52,8 @@ Rails.application.routes.draw do
     patch 'ads/:id/save_buy_info' => 'ads#save_buy_info', as: :save_buy_info
     post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
 
+    get 'ads/:id/call' => 'ads#call_contact', as: :call_contact
+
     get 'map' => 'ads#map'
 
     get 'terms' => 'home#terms', as: :terms
