@@ -32,8 +32,8 @@ class Bot::BotController < ApplicationController
       @user = User.new
       @user.name = user_name
       @user.phone_number = phone
-      @user.fb_bot_id => fb_bot_id
-      @user.agreement => true
+      @user.fb_bot_id = fb_bot_id
+      @user.agreement = true
       @user.save
       
       # if @user.save
