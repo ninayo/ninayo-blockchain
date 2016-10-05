@@ -8,6 +8,7 @@ class AdsController < ApplicationController
 
 	after_action :track_contact_reveal, only: [:contact_info]
 	after_action :track_favorite, only: [:favorite]
+	after_action :track_call, only: [:call_contact]
 
 	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
@@ -325,6 +326,10 @@ private
 
 	def track_contact_reveal
 		track_event('Engagement & Acquisition', 'Phone Reveal', "reveal contact details on #{@ad.ad_type} advert: #{crop_name(@ad.crop_type_id)}", "REVEAL #{@ad.ad_type.upcase} AD CONTACT: #{ga_info}")
+	end
+
+	def track_call
+		track_event('Engagement & Acquisition', 'Phone Call', "call made on #{@ad.ad_type} advert: #{crop_name(@ad.crop_type_id)}", "CALL #{@ad.ad_type.upcase} AD PHONE")
 	end
 
 	def track_favorite
