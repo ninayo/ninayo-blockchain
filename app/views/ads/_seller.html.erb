@@ -8,7 +8,7 @@
 			</span>
 		</span>
 	</p>
-	<% unless current_user && current_user = @ad.user %>
+	<% unless current_user && current_user.id = @ad.user.id %>
 		<div id="contact-info"></div>
 			<% if @show_contact_info %>
 				<%= render "contact_info", :user => @ad.user %>
