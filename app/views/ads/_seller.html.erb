@@ -8,12 +8,14 @@
 			</span>
 		</span>
 	</p>
-	<div id="contact-info"></div>
-	<% if @show_contact_info %>
-		<%= render "contact_info", :user => @ad.user %>
-	<% else %>
-		<%= form_tag(show_contact_info_path, :remote => true, :authenticity_token => true) do %>
-			<button id="contact-info-toggle" class="button is-block"><%= t "views.ad.seller.show_contact_information" %></button>
+	<% unless current_user && current_user = @ad.user %>
+		<div id="contact-info"></div>
+			<% if @show_contact_info %>
+				<%= render "contact_info", :user => @ad.user %>
+			<% else %>
+				<%= form_tag(show_contact_info_path, :remote => true, :authenticity_token => true) do %>
+					<button id="contact-info-toggle" class="button is-block"><%= t "views.ad.seller.show_contact_information" %></button>
+			<% end %>
 		<% end %>
 	<% end %>
 </div>
