@@ -53,6 +53,7 @@ Rails.application.routes.draw do
     post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
 
     get 'ads/:id/call' => 'ads#call_contact', as: :call_contact
+    get 'ads:id/text' => 'ads#text_contact', as: :text_contact
 
     get 'map' => 'ads#map'
 
