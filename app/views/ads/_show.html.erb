@@ -1,5 +1,5 @@
 <div class="ad">
-	<p><%= link_to("Back", session[:previous_url], :class => "button is-block") %></p>
+	<p><%= link_to("Back", :back, :class => "button is-block") %></p>
 	<div class="post-main">
 		<h3 class="supheading">
 			<%= t("views.ad.for_sale") if @ad.sell? %>
