@@ -11,7 +11,7 @@ class AdsController < ApplicationController
 	after_action :track_call, only: [:call_contact]
 	after_action :track_text, only: [:text_contact]
 
-	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
+	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :text_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
 
