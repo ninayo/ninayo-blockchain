@@ -4,9 +4,10 @@
 		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<tr>
-		<% unless user.email.nil? || user.email.blank? || user.email.include?("@ninayo.com") %>
-		<th><%= t("common.email") %>:</th>
-		<td><a href="mailto:<%= user.email %>"><%= user.email %></a></td>
-		<% end %>
+		<th><%= "SMS" %></th>
+		<td><%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %></td>
+	<tr>
+		<th><%= t("common.message") %>:</th>
+		<td><%= link_to "#{t "common.message"}", new_message_path(:uid => @ad.user.id, :adid => @ad.id), class: "button is-block" %></td>
 	</tr>
 </table>

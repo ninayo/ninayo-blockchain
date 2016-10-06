@@ -96,6 +96,16 @@ class AdsController < ApplicationController
 		redirect_to "tel:#{@ad.user.phone_number}"
 	end
 
+	def text_contact
+		text_log = TextLog.new
+		text_log.ad_id = @ad.id
+		text_log.sender_id = current_user.id
+		text_log.receiver_id = @ad.user.id
+		text_log.save
+
+		redirect_to "sms:#{@ad.user.phone_number}"
+	end
+
 	def preview
 		if current_user.id != @ad.user.id
 			not_found

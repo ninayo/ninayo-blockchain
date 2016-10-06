@@ -14,10 +14,10 @@
 		<%= render "logs" if current_user && current_user.admin? %>
 	</div>
 	<div class="post-sidebar">
-		<%= render "stats" if current_user && (current_user.id == @ad.user_id || current_user.admin?) %>
-		<%= render "facts" %>
-		<hr>
+		<%= render "stats" if current_user && current_user.admin? %>
 		<%= render "seller", :user => @ad.user %>
+		<hr>
+		<%= render "facts" %>
 		<hr>
 		<%= render "location" %>
 	</div>
