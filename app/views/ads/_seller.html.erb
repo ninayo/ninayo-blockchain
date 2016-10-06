@@ -1,6 +1,9 @@
 <div class="ad-contactinfo">
 	<h3><%= t "views.ad.seller.heading" %></h3>
 	<h4 class="ad-seller-name"><%=@ad.user.name.titleize %></h4>
+	<% if !@ad.user.photo_url.nil? %>
+		<p><img src=<%= "#{@ad.user.photo_url}" %> class="avatar"></p>
+	<% end %>
 	<p class="ad-seller-score">
 		<span class="rating" data-score="<%= @ad.user.seller_rating %>">
 			<span class="rating-score">
