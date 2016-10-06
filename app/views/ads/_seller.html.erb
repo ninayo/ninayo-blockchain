@@ -15,8 +15,10 @@
 		<% if @show_contact_info %>
 			<%= render "contact_info", :user => @ad.user %>
 		<% else %>
+			<% unless current_user && current_user.id == @ad.user.id %>
 			<%= form_tag(show_contact_info_path, :remote => true, :authenticity_token => true) do %>
 				<button id="contact-info-toggle" class="button is-block"><%= t "views.ad.seller.show_contact_information" %></button>
+			<% end %>
 			<% end %>
 		<% end %>
 </div>
