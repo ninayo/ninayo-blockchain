@@ -17,9 +17,7 @@
 		<% else %>
 			<% if current_user && current_user.id %>
 				<% unless current_user && current_user.id == @ad.user.id %>
-				<%= form_tag(show_contact_info_path, :remote => true, :authenticity_token => true) do %>
-					<button id="contact-info-toggle" class="button is-block"><%= t "views.ad.seller.show_contact_information" %></button>
-				<% end %>
+				<%= render "contact_info", :user => @ad.user %>
 				<% end %>
 			<% else %>
 				<h4><%= (I18n.locale == :sw ? "Tengeneza akaunti au ingia kujumbe huyu" : "Please sign up or log in to contact seller") %></h4>
