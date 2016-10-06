@@ -7,10 +7,7 @@
 
 		<input type="hidden" name="ad_type" id="ad_type" value="<%=@ad_type%>">
 		<div class="pagenav is-block has-2">
-			<div class="pagenav-buttongroup">
-				<button name="ad_type" value="sell" class="pagenav-item <%= "is-active" if @ad_type == 'sell'%>"><%= t "views.ad.for_sale" %></button>
-				<button name="ad_type" value="buy" class="pagenav-item <%= "is-active" if @ad_type == 'buy'%>"><%= t "views.ad.buying" %></button>
-			</div>
+			
 		</div>
 
 		<div class="field filter-field">
