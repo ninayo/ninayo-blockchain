@@ -12,6 +12,17 @@
 # # CropType.create!(:name => "Coffee", :name_sw => "Kahawa", :sort_order => 11)
 # # CropType.create!(:name => "Onions", :name_sw => "Vitunguu", :sort_order => 12)
 # #CropType.create!(:name => "Okra", :name_sw => "Bamia", :sort_order => 13)
+# CropType.create!(:name => "Sweet Potato", :name_sw => "Viazi Vitamu", :sort_order => 14)
+# CropType.create!(:name => "Sugar Cane", :name_sw => "Muwa", :sort_order => 15)
+# CropType.create!(:name => "Sunflower", :name_sw => "Alizeti", :sort_order => 16)
+# CropType.create!(:name => "Sorghum", :name_sw => "Mtama", :sort_order => 17)
+# CropType.create!(:name => "Groundnuts", :name_sw => "Karanga", :sort_order => 18)
+# CropType.create!(:name => "Ginger", :name_sw => "Tangawizi", :sort_order => 19)
+# CropType.create!(:name => "Watermelon", :name_sw => "Tikiti Maji", :sort_order => 20)
+# CropType.create!(:name => "Sisal", :name_sw => "Mkonge", :sort_order => 21)
+# CropType.create!(:name => "Cashew", :name_sw => "Korosho", :sort_order => 22)
+# CropType.create!(:name => "Millet", :name_sw => "Mtama", :sort_order => 23)
+# CropType.create!(:name => "Oil", :name_sw => "Mafuta", :sort_order => 24)
 
 
 # # puts 'CREATED 10 CROP_TYPES'
