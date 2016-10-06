@@ -18,4 +18,5 @@
 	</div>
 
 	<%= submit_tag 'Kutuma Ujumbe', name: "uid[#{params[:uid]}]", class: 'button is-block' %>
+	<%= link_to((I18n.locale == :sw ? "Rudisha" : "Back"), :back, :class => "button", :style => "background-color:gray") %>
 <% end %>
