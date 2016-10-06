@@ -14,7 +14,7 @@ sw:
         other: "Watumiaji"
     attributes:
       ad:
-        description: "Maelezo"
+        description: "Maelezo (hiari)"
         price: "Bei za rejareja"
         volume: "Kiasi kinacho uzwa"
         volume_unit: "unit"

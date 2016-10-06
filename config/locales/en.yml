@@ -34,7 +34,7 @@ en:
         other: "Users"
     attributes:
       ad:
-        description: "Description"
+        description: "Description (optional)"
         price: "Price per unit"
         volume: "Amount for sale"
         volume_unit: "Unit"
