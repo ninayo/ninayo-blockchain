@@ -235,6 +235,7 @@ sw:
       buying: "Kununua"
       sell: "Kuuza"
       buy: "Kununua"
+      seller_message: "Ujumbe ya muuzaji:"
 
       error_heading: "Tangazo hili limekataliwa kuhifadhiwa"
 

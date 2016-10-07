@@ -256,6 +256,7 @@ en:
       buying: "Buying"
       sell: "Sell"
       buy: "Buy"
+      seller_message: "Message from the seller:"
 
       error_heading: "prohibited this ad from being saved"
 

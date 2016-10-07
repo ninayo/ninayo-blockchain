@@ -6,6 +6,10 @@
 			<%= t("views.ad.buying") if @ad.buy? %>
 		</h3>
 		<h1><%= @ad.title %></h1>
+		<div class="supheading">
+			<% unless @ad.description.blank? %>
+			<%= t("views.ad.seller_message") %>
+			<% end %>
 		<div class="description">
 			<%= simple_format(@ad.description) %>
 		</div>
