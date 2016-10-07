@@ -1,6 +1,6 @@
 <div class="ad">
 	<p><%= link_to((I18n.locale == :sw ? "Rudisha" : "Back"), :back, :class => "button", :style => "background-color:gray") %>
-		<% if @ad.user.id == current_user.id %>
+		<% if current_user && @ad.user.id == current_user.id %>
 		<%= link_to("Tengeneza tena", new_ad_path, :class => "button") %>
 		<%= link_to("Ona bei", ads_url(:ad_type => "sell", :region_id => @ad.region.id), :class => "button") %>
 		<% end %>
