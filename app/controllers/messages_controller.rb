@@ -24,16 +24,16 @@ class MessagesController < ApplicationController
     redirect_to root_path unless current_user && current_user.admin?
   end
 
-  def message_all
-    redirect_to root_path unless current_user && current_user.admin?
-    recipients = User.where(:region_id => nil, :created_at => Time.now.last_month.beginning_of_month..Time.now)
+  # def message_all
+  #   redirect_to root_path unless current_user && current_user.admin?
+  #   recipients = User.where(:region_id => nil, :created_at => Time.now.last_month.beginning_of_month..Time.now)
 
-    recipients.each do |recipient|
-      conversation = User.find_by_id(4).send_message(recipient, "Habari, asante kwa kujiunga na NINAYO.com. Tuanze na kuweka tangazo lako. Unaweza kuuza zao/mazao lolote/yoyote hapa NINAYO. \n Ni rahisi! Kuanza, bonyeza 'NINATAKA KUUZA'. Usisite kuuliza kama utakua na mwaswali yoyote au kama utahitaji msaada wa ziada.", "Kuwakaribisha kwa NINAYO!").conversation
-    end
+  #   recipients.each do |recipient|
+  #     conversation = User.find_by_id(4).send_message(recipient, "Habari, asante kwa kujiunga na NINAYO.com. Tuanze na kuweka tangazo lako. Unaweza kuuza zao/mazao lolote/yoyote hapa NINAYO. \n Ni rahisi! Kuanza, bonyeza 'NINATAKA KUUZA'. Usisite kuuliza kama utakua na mwaswali yoyote au kama utahitaji msaada wa ziada.", "Kuwakaribisha kwa NINAYO!").conversation
+  #   end
 
-    redirect_to root_path, notice: "Announcement sent, delivery in progress"
-  end
+  #   redirect_to root_path, notice: "Announcement sent, delivery in progress"
+  # end
 
   private
 
