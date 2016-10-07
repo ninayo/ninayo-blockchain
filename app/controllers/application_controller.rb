@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
 	def store_location
 		# store last url as long as it isn't a /users path or a .json request
 
-		session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/ || request.fullpath =~ /\/new/ || request.fullpath =~ /\/contact-info/ || request.fullpath =~ /\/terms/ ||request.fullpath.include?(".json")
+		session[:previous_url] = request.fullpath unless request.fullpath =~ /\/users/ || request.fullpath =~ /\/ads\/new/ || request.fullpath =~ /\/contact-info/ || request.fullpath =~ /\/terms/ ||request.fullpath.include?(".json")
 	end
 
 	def configure_permitted_parameters
