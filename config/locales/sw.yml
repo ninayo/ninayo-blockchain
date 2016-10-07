@@ -293,7 +293,7 @@ sw:
       pagenav:
         list: "Orodha"
         map: "Ramani"
-        filter: "Vigezo"
+        filter: "Tafuta"
 
       rate:
         heading: "Thaminisha"
@@ -314,7 +314,7 @@ sw:
 
       filter:
         filter_ads: "Chuja matangazo"
-        reset_filter: "Badili vigezo"
+        reset_filter: "Badili tafuta"
 
       seller:
         heading: "Muuzaji"
