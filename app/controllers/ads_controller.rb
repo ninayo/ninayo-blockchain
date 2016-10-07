@@ -192,7 +192,7 @@ class AdsController < ApplicationController
 			# 	@ad.user = current_user
 			# 	render "new"
 			# end
-			redirect_to ad_url(@ad.id), notice: "Karibu!"
+			redirect_to ad_url(@ad.id), notice: "Hongera! Umepata Nyota kwa tangazo lako.\n Sasa, unataka #{link_to("kupatengeneza tena", new_ad_path, :class => "button")}\n Au tafuta bei katikati #{link_to("eno lako", ads_path, :class => "button")}"
 		else
 			track_failure
 			@ad.user = current_user
