@@ -8,7 +8,7 @@
 		<h1><%= @ad.title %></h1>
 		<div>
 			<% unless @ad.description.blank? %>
-			<%= t("views.ad.seller_message") %>
+			<strong><%= t("views.ad.seller_message") %></strong>
 			<% end %>
 		</div>
 		<div class="description">
