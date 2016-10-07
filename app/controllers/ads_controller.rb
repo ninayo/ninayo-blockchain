@@ -192,7 +192,7 @@ class AdsController < ApplicationController
 			# 	@ad.user = current_user
 			# 	render "new"
 			# end
-			redirect_to ad_url(@ad.id), notice: "Hongera! Umepata Nyota kwa tangazo lako."
+			redirect_to ad_url(@ad.id), notice: "Hongera! Umepata Nyota kwa tangazo lako. Sasa, unataka <a href='sw/ads/new'>kupatengeneza tena?</a> Au tafuta bei katikati <a href='sw/ads'>eno lako?</a>"
 		else
 			track_failure
 			@ad.user = current_user
