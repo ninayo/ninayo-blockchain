@@ -192,13 +192,13 @@ class AdsController < ApplicationController
 			# 	@ad.user = current_user
 			# 	render "new"
 			# end
-			#"Umepata Nyota kwa tangazo lako."
+
 			if @ad.user.seller_rating <= 4.0
 				@ad.user.seller_rating += 1.0
 				@ad.user.save
 			end
 
-			redirect_to ad_url(@ad.id), notice: "Hongera! Sasa, unataka kupatengeneza tena? Au tafuta bei katikati eno lako?"
+			redirect_to ad_url(@ad.id), notice: "Hongera! Umepata Nyota kwa tangazo lako. Sasa, unataka kupatengeneza tena? Au tafuta bei katikati eno lako?"
 		else
 			track_failure
 			@ad.user = current_user
