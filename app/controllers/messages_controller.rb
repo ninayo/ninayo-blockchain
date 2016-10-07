@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
     recipients = User.where(:region_id => nil, :created_at => Time.now.last_month.beginning_of_month..Time.now)
 
     recipients.each do |recipient|
-      conversation = current_user.send_message(recipient, "body", "subject").conversation
+      conversation = User.find_by_id(4).send_message(recipient, "Habari, asante kwa kujiunga na NINAYO.com. Tuanze na kuweka tangazo lako. Unaweza kuuza zao/mazao lolote/yoyote hapa NINAYO. \n Ni rahisi! Kuanza, bonyeza 'NINATAKA KUUZA'. Usisite kuuliza kama utakua na mwaswali yoyote au kama utahitaji msaada wa ziada.", "Kuwakaribisha kwa NINAYO!").conversation
     end
 
     redirect_to root_path, notice: "Announcement sent, delivery in progress"
