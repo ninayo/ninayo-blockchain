@@ -13,7 +13,7 @@ class AdsController < ApplicationController
 
 	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :text_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
-	before_action :authenticate_user!, :except => [:index, :map, :show, :infopanel]
+	before_action :authenticate_user!, :except => [:new, :create, :index, :map, :show, :infopanel]
 
 	respond_to :html, :json
 
@@ -134,55 +134,69 @@ class AdsController < ApplicationController
 		# if current_user.info_needed?
 		# 	current_user.update(user_params)
 		# end
+		if current_user
+			if current_user.location_needed?
 
-		if current_user.location_needed?
+				if current_user.region_id.nil?
+					current_user.update(:region_id => ad_params[:region_id])
+				end
 
-			if current_user.region_id.nil?
-				current_user.update(:region_id => ad_params[:region_id])
+				if current_user.district_id.nil?
+					current_user.update(:district_id => ad_params[:district_id])
+				end
+
+				if current_user.ward_id.nil?
+					current_user.update(:ward_id => ad_params[:ward_id])
+				end
+
+				if current_user.village.blank?
+					current_user.update(:village => ad_params[:village])
+				end
+
 			end
 
-			if current_user.district_id.nil?
-				current_user.update(:district_id => ad_params[:district_id])
-			end
+			if current_user.info_needed?
+				if current_user.phone_number.nil? || current_user.phone_number.blank?
+					current_user.update(:phone_number => user_params[:phone_number])
+				end
 
-			if current_user.ward_id.nil?
-				current_user.update(:ward_id => ad_params[:ward_id])
+				if current_user.name.nil? || current_user.name.blank?
+					current_user.update(:name => user_params[:name])
+				end
 			end
-
-			if current_user.village.blank?
-				current_user.update(:village => ad_params[:village])
-			end
-
 		end
-
-		if current_user.info_needed?
-			if current_user.phone_number.nil? || current_user.phone_number.blank?
-				current_user.update(:phone_number => user_params[:phone_number])
-			end
-
-			if current_user.name.nil? || current_user.name.blank?
-				current_user.update(:name => user_params[:name])
-			end
-		end
-
 
 		@ad 							= Ad.new(ad_params)
-		@ad.user 					= current_user
+		@ad.user 					= current_user || User.where(:phone_number => params[:ad][:user][:phone_number], :encrypted_password => params[:ad][:user][:password]).first_or_create do |user|
+			user.name = params[:ad][:user][:name]
+			user.region_id = ad_params[:region_id]
+			user.district_id = ad_params[:district_id]
+			user.ward_id = ad_params[:ward_id]
+			user.village =  ad_params[:village]
+			user.password = params[:ad][:user][:password]
+			user.password_confirmation = params[:ad][:user][:password_confirmation]
+			user.agreement = true
+			if user.save
+				sign_in user
+			else
+				#do something
+			end
+		end
 		#@ad.user.update(user_params)
 		@ad.crop_type_id 	= ad_params[:crop_type_id]
 		@ad.ad_type 			= 0 #i want to sell assumes you're going to sell
-		@ad.lat 					= current_user.district.lat
-		@ad.lng 					= current_user.district.lon
+		@ad.lat 					= @ad.user.district.lat
+		@ad.lng 					= @ad.user.district.lon
 		@ad.status 				= 1 #set to active automatically, skip preview
 
-		current_user.district_id 	= @ad.district_id if current_user.district_id.nil?
-		current_user.ward_id 			= @ad.ward_id if current_user.ward_id.nil?
-		current_user.village = @ad.village if current_user.village.nil?
+		@ad.user.district_id 	= @ad.district_id if @ad.user.district_id.nil?
+		@ad.user.ward_id 			= @ad.ward_id if @ad.user.ward_id.nil?
+		@ad.user.village = @ad.village if @ad.user.village.nil?
 
-		@ad.region_id = current_user.region_id
-		@ad.district_id = current_user.district_id
-		@ad.ward_id = current_user.ward_id
-		@ad.village = current_user.village
+		@ad.region_id = @ad.user.region_id
+		@ad.district_id = @ad.user.district_id
+		@ad.ward_id = @ad.user.ward_id
+		@ad.village = @ad.user.village
 
 		if @ad.save
 			# if @ad.save

@@ -41,12 +41,12 @@
 		</div>
 	</fieldset>
 
-	<% if current_user.location_needed?%>
+	<% unless current_user && !current_user.location_needed? %>
 	<fieldset>
 		<h3><%= t("views.ad.show.location").humanize %></h3>
 		<div class="field">
 			<%= f.label "#{t "views.ad.region"}", :class => 'field-label' %>
-			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => current_user.region_id %>
+			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => @ad.region_id %>
 		</div>
 		<div class="field">
 			<%= f.label "#{t "views.ad.district"}", class: "field-label" %>
@@ -68,31 +68,49 @@
 		<%= f.hidden_field :lng %>
 	</fieldset>
 	<% end %>
-	<fieldset>
-		<% if current_user.info_needed? %>
-		<h3><%= t("views.ad.new.contact_information").humanize %></h3>
-		<p><%= t "views.ad.new.review_contact_information" %>.</p>
-		<% end %>
-		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
-			<% if current_user.name.nil? || current_user.name.blank? %>
-			<div class="field">
-				<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
-				<%= user_fields.text_field :name, :validate => true %>
-			</div>
-			<% end %>
-			<% if current_user.phone_number.nil? || current_user.phone_number.blank? %>
-			<div class="field">
-				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
-				<div class="input-wrapper">
-					<div class="input-field">
-						<%= user_fields.telephone_field :phone_number, :validate => false, class: "is-inline" %>
-					</div>
-				</div>
-			</div>
-			<% end %>
 
-		<% end %>
+	
+	<% unless current_user %>
+	<fieldset>
+		<div class="login">
+			<div class="login-column">
+				<h4><%= (I18n.locale == :sw ? "Tengeneza akaunti au ingie kundelea" : "Please sign up or log in to post your ad") %></h4>
+				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
+					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+						this.src='<%= image_path("icons/facebook.png") %>'">
+					<%if params[:locale] === "en" %>
+						Log in with Facebook
+					<% else %>
+						Jisajili na Facebook
+					<% end %>
+				<% end %>
+
+				<hr>
+
+				<%= f.fields_for User.new do |ff| %>
+  					<div>
+    					<%= ff.label :phone_number, class: "field-label" %>
+	    				<%= ff.text_field :phone_number, placeholder: "Ingie namba ya simu au barua pepe" %>
+
+	    				<%= ff.label :name, class: "field-label" %>
+	    				<%= ff.text_field :name, placeholder: "Name" %>
+
+	    				<%= ff.label :password, class: "field-label" %>
+	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
+    					<% if @validatable %>
+    						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
+    					<% end %>
+
+    					<% ff.label :password_confirmation, class: "field-label" %>
+    					<%= ff.password_field :password_confirmation, autocomplete: "off", placeholder: "Andike nenosiri tena" %>
+    					<br>
+    					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
+  					</div>
+				<% end %>
+			</div>
+		</div>
 	</fieldset>
+	<% end %>
 
 
 	<div class="field-actions">
