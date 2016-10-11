@@ -5,6 +5,13 @@
 		<h3><%= t("views.ad.crop").humanize %></h3>
 
 		<div class="field">
+			<%= f.label :ad_type, "#{t "views.ad.new.ad_type_label"}", :class => 'field-label' %>
+			<%= f.radio_button_tag(:ad_type, "sell") %>
+			<%= f.label_tag(:ad_type, "Ninataka Kuuza") %>
+			<%= f.radio_button_tag(:ad_type, "buy") %>
+			<%= f.label_tag(:ad_type, "Ninataka Kununua") %>
+		</div>
+		<div class="field"
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
 		</div>
