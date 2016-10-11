@@ -65,7 +65,7 @@ sw:
     sack: "magunia"
     kg: "kilo"
     fungu: "fungu"
-    moja: "moja"
+    moja: "kwa moja"
     chane: "chane"
     debe: "debe"
     sado: "sado"
@@ -235,7 +235,7 @@ sw:
       buying: "Kununua"
       sell: "Kuuza"
       buy: "Kununua"
-      seller_message: "Ujumbe ya muuzaji:"
+      seller_message: "Ujumbe kutoka kwa muuzaji:"
 
       error_heading: "Tangazo hili limekataliwa kuhifadhiwa"
 

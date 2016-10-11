@@ -226,7 +226,7 @@ class AdsController < ApplicationController
 			# 	@ad.user.save
 			# end
 
-			redirect_to ad_url(@ad.id), notice: "Hongera! Umepata Nyota kwa tangazo lako. Sasa, unataka kupatengeneza tena? Au tafuta bei katikati eno lako?"
+			redirect_to ad_url(@ad.id), notice: "Hongera! Tangazo lako lipo mtandaoni. Sasa, unaweza kuweka tangazo lingine au kuona bei za bidhaa zinazouzwa maeneo ya jirani."
 		else
 			track_failure
 			@ad.user = current_user

@@ -74,7 +74,7 @@
 	<fieldset>
 		<div class="login">
 			<div class="login-column">
-				<h4><%= (I18n.locale == :sw ? "Tengeneza akaunti au ingie kundelea" : "Please sign up or log in to post your ad") %></h4>
+				<h4><%= (I18n.locale == :sw ? "Tafadhali ingia au tengeneza akaunti ili uweze kuweka tangazo lako la mauzo" : "Please sign up or log in to post your ad") %></h4>
 				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
 					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 						this.src='<%= image_path("icons/facebook.png") %>'">
