@@ -131,10 +131,10 @@
 				<%= f.fields_for User.new do |ff| %>
   					<div>
     					<%= ff.label :phone_number, class: "field-label" %>
-	    				<%= ff.text_field :phone_number, placeholder: "Ingie namba ya simu" %>
+	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu" %>
 
 	    				<%= ff.label :name, class: "field-label" %>
-	    				<%= ff.text_field :name, placeholder: "Name" %>
+	    				<%= ff.text_field :name, validate: true, placeholder: "Name" %>
 
 	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
 	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %> 

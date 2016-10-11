@@ -391,7 +391,7 @@ private
 	end
 
 	def track_failure
-		track_event('Engagement & Acquisition', 'Failed Post Advert Error', "failed to post #{@ad.ad_type} advert", "FAILED #{@ad.ad_type.upcase} AD: #{ga_info}")
+		track_event('Engagement & Acquisition', 'Failed Post Advert Error', "failed to post advert", "FAILED AD: #{ga_info}")
 	end
 
 	def update_user_location #if we don't have a location for a user, assign one once they post an ad with a location
