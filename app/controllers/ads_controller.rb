@@ -10,6 +10,7 @@ class AdsController < ApplicationController
 	after_action :track_favorite, only: [:favorite]
 	after_action :track_call, only: [:call_contact]
 	after_action :track_text, only: [:text_contact]
+	after_action :track_whatsapp, only: [:whatsapp_contact]
 
 	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :text_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
@@ -379,6 +380,10 @@ private
 
 	def track_text
 		track_event('Engagement & Acquisition', 'Text message', "text sent on #{@ad.ad_type} advert: #{crop_name(@ad.crop_type_id)}", "TEXT #{@ad.ad_type.upcase} AD PHONE")
+	end
+
+	def track_whatsapp
+		track_event('Engagement & Acquisition', 'Whatsapp message', "whatsapp sent on #{@ad.ad_type} advert: #{crop_name(@ad.crop_type_id)}", "WHATSAPP #{@ad.ad_type.upcase} AD CONTACT")
 	end
 
 	def track_favorite
