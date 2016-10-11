@@ -107,6 +107,17 @@ class AdsController < ApplicationController
 		redirect_to "sms:#{@ad.user.phone_number}"
 	end
 
+	def whatsapp_contact
+		whatsapp_log = WhatsAppLog.new
+		whatsapp_log.ad_id = @ad.id
+		whatsapp_log.sender_id = current_user.id
+		whatsapp_log.receiver_id = @ad.user.id
+		whatsapp_log.save
+
+		redirect_to "intent://send/#{@ad.user.whatsapp_id}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"
+	end
+
+
 	def preview
 		if current_user.id != @ad.user.id
 			not_found
@@ -168,13 +179,14 @@ class AdsController < ApplicationController
 
 		@ad 							= Ad.new(ad_params)
 		@ad.user 					= current_user || User.where(:phone_number => params[:ad][:user][:phone_number], :encrypted_password => params[:ad][:user][:password]).first_or_create do |user|
-			user.name = params[:ad][:user][:name]
-			user.email = "no_email#{rand(999999)}@ninayo.com"
-			user.region_id = ad_params[:region_id]
+			user.name 			= params[:ad][:user][:name]
+			user.email 			= "no_email#{rand(999999)}@ninayo.com"
+			user.whatsapp_id = params[:ad][:user][:whatsapp_id]
+			user.region_id 	= ad_params[:region_id]
 			user.district_id = ad_params[:district_id]
-			user.ward_id = ad_params[:ward_id]
-			user.village =  ad_params[:village]
-			user.password = params[:ad][:user][:password]
+			user.ward_id 		= ad_params[:ward_id]
+			user.village 		=  ad_params[:village]
+			user.password 	= params[:ad][:user][:password]
 			user.password_confirmation = params[:ad][:user][:password_confirmation]
 			user.agreement = true
 			if user.save
