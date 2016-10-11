@@ -12,7 +12,7 @@
 	<% unless @ad.user.whatsapp_id.blank? %>
 	<tr>
 		<th><%= "WhatsApp:" %></th>
-		<td><%= link_to("WhatsApp", whatsapp_contact_path(@ad.id), :class => "button is-block" %></td>
+		<td><%= link_to("WhatsApp", whatsapp_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<% end %>
 	<tr>
