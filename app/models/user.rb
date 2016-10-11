@@ -29,6 +29,12 @@ class User < ActiveRecord::Base
 	has_many :calls_made, :class_name => "CallLog", :foreign_key => "caller_id"
 	has_many :calls_received, :class_name => "CallLog", :foreign_key => "receiver_id"
 
+	has_many :texts_sent, :class_name => "TextLog", :foreign_key => "sender_id"
+	has_many :texts_received, :class_name => "TextLog", :foreign_key => "receiver_id"
+
+	has_many :whatsapp_sent, :class_name => "WhatsappLog", :foreign_key => "sender_id"
+	has_many :whatsapp_received, :class_name => "WhatsappLog", :foreign_key => "receiver_id"
+
 	enum role: [:user, :vip, :admin]
 	after_initialize :set_default_role, :if => :new_record?
 	after_initialize :set_default_language, :if => :new_record?

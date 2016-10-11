@@ -108,7 +108,7 @@ class AdsController < ApplicationController
 	end
 
 	def whatsapp_contact
-		whatsapp_log = WhatsAppLog.new
+		whatsapp_log = WhatsappLog.new
 		whatsapp_log.ad_id = @ad.id
 		whatsapp_log.sender_id = current_user.id
 		whatsapp_log.receiver_id = @ad.user.id
