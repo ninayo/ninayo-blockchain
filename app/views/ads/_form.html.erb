@@ -76,7 +76,7 @@
 	</fieldset>
 	<% end %>
 
-	<% unless current_user && current_user.info_needed? %>
+	<% if current_user && current_user.info_needed? %>
 	<fieldset>
 		<h3><%= t("views.ad.new.contact_information").humanize %></h3>
 		<p><%= t "views.ad.new.review_contact_information" %>.</p>
