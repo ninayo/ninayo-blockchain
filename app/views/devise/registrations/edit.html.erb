@@ -18,6 +18,11 @@
 				</div>
 
 				<div class="field">
+					<%= f.label "WhatsApp", class: "field-label" %>
+					<%= f.text_field :whatsapp_id, class: "is-small" %>
+				</div>
+
+				<div class="field">
 					<%= f.label :email, class: "field-label" %>
 					<%= f.email_field :email, :validate => true %>
 				</div>
