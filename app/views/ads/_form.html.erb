@@ -5,7 +5,6 @@
 		<h3><%= t("views.ad.crop").humanize %></h3>
 
 		<div class="field">
-			<%= f.label :ad_type, "#{t "views.ad.new.ad_type_label"}", :class => 'field-label' %>
 			<%= f.radio_button :ad_type, "sell", :checked => true %>
 			<%= f.label(:ad_type, "Ninataka Kuuza") %>
 			<%= f.radio_button(:ad_type, "buy") %>
