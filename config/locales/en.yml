@@ -251,7 +251,7 @@ en:
       crop: "Crop"
       lat: "Latitude"
       lng: "Longitude"
-      description: "Description"
+      description: "Description (optional)"
       for_sale: "For sale"
       buying: "Buying"
       sell: "Sell"

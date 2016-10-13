@@ -228,7 +228,7 @@ sw:
       crop: "Zao"
       lat: "Latitudo"
       lng: "Longitudo"
-      description: "Maelezo"
+      description: "Maelezo (hiari)"
       # for_sale: "Kwa ajili ya kuuza"
       # buying: "Kwa ajili ya kununua"
       for_sale: "Kuuza"
