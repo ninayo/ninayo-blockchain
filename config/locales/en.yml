@@ -264,6 +264,7 @@ en:
         heading: "Create an ad"
         select_a_crop_type: "Select a Crop Type"
         name_of_crop_type: "Name of other crop type"
+        other_crop_optional: "If you selected 'Other' as your crop type, enter it here"
 
         pick_your_location: "Pick your location"
         big_map: "Big map"
