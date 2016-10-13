@@ -292,8 +292,8 @@ en:
       list:
         could_not_find_heading: "Couldn't find any ads that match your criterias"
         could_not_find_body: "Try to remove some of your filters."
-        want_sell: "Ads to sell crops"
-        want_buy: "Ads to buy crops"
+        for_sale: "Ads to sell crops"
+        for_buy: "Ads to buy crops"
 
       archive:
         heading: "Archive ad"
