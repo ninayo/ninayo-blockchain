@@ -6,9 +6,9 @@
 
 		<div class="field">
 			<%= f.radio_button :ad_type, "sell", :checked => true %>
-			<%= f.label(:ad_type, "Ninataka Kuuza") %>
+			<%= f.label(:ad_type, (I18n.locale == :sw ? "Ninataka Kuuza" : "I want to sell")) %>
 			<%= f.radio_button(:ad_type, "buy") %>
-			<%= f.label(:ad_type, "Ninataka Kununua") %>
+			<%= f.label(:ad_type, (I18n.locale == :sw ? "Ninataka Kununua" : "I want to buy")) %>
 		</div>
 		<div class="field">
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
