@@ -271,7 +271,7 @@ sw:
         could_not_find_heading: "Hakuna tangazo lolote linaloendana na vigezo vyako"
         could_not_find_body: "Jaribu kuondoa baadhi ya vigezo vyako"
         for_sale: "Matangazo kuuza mazao"
-        for_buy: "Matanbazo kununua mazao"
+        for_buy: "Matangazo kununua mazao"
 
       archive:
         heading: "Hifadhi tangazo"
