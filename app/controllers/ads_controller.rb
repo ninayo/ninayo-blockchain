@@ -350,7 +350,11 @@ private
 			crop_type: @ad.crop_type_id,
 			region: @ad.region_id,
 			village: @ad.village,
-			amount: @ad.price
+			amount: @ad.price,
+			utm_source: params[:utm_source],
+			utm_medium: params[:utm_medium],
+			utm_campaign: params[:utm_campaign],
+			gclid: params[:gclid]
 		}
 	end
 

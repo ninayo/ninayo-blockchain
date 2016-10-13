@@ -50,11 +50,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def track_registration
-    track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{resource.email || resource.phone_number}")
+    track_event('User Management', 'New User', 'new account creation', "CREATED AN ACCOUNT: #{resource.email || resource.phone_number} PARAMS: #{gtm_info}")
   end
 
   def track_update
-    track_event('User Management', 'User Update', 'account update', "UPDATE AN ACCOUNT: #{resource.email || resource.phone_number}")
+    track_event('User Management', 'User Update', 'account update', "UPDATE AN ACCOUNT: #{resource.email || resource.phone_number} PARAMS: #{gtm_info}")
+  end
+
+  def gtm_info
+    {
+      utm_source: params[:utm_source],
+      utm_medium: params[:utm_medium],
+      utm_campaign: params[:utm_campaign],
+      gclid: params[:gclid]
+    }
   end
 
   def is_valid_email?(str)
