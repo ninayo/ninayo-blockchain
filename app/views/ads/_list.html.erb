@@ -1,4 +1,4 @@
-<h3><%= @ad_type == "sell" ? t "views.ad.list.for_sale" t "views.ad.list.for_buy" %></h3>
+<h3><%= @ad_type == "sell" ? t "views.ad.list.for_sale" : t "views.ad.list.for_buy" %></h3>
 
 <% if ads.length > 0 %>
 <div class="ads">
