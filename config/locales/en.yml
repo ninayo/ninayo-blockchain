@@ -128,9 +128,9 @@ en:
       one: "1 sado"
       other: "%{count} sado"
     gunia:
-      zero: ""
-      one: "1 gunia"
-      other: "%{count} gunia"
+      zero: "no sacks"
+      one: "1 sack"
+      other: "%{count} sacks"
     trees:
       zero: ""
       one: "1 tree"

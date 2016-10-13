@@ -108,9 +108,9 @@ sw:
       one: "1 sado"
       other: "%{count} sado"
     gunia:
-      zero: ""
+      zero: "sifuri gunia"
       one: "1 gunia"
-      other: "%{count} gunia"
+      other: "%{count} magunia"
     trees:
       zero: ""
       one: "1 tree"
