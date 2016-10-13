@@ -5,11 +5,7 @@
 		<p><img src=<%= "#{@ad.user.photo_url}" %> class="avatar-contact"></p>
 	<% end %>
 	<p class="ad-seller-score">
-		<span class="rating" data-score="<%= @ad.user.seller_rating %>">
-			<span class="rating-score">
-				<span class="rating-score-inner"></span>
-			</span>
-		</span>
+		
 	</p>
 		<div id="contact-info"></div>
 		<% if @show_contact_info %>
