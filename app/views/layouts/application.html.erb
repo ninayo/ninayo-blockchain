@@ -3,7 +3,7 @@
 <head>
 	<title><%= full_title(yield(:title)) %></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
 
 	<!-- Start GTM Copy -->
 	<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MFH7JK"
@@ -17,7 +17,7 @@
 	
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js<%= '?key=AIzaSyDwJl1dpqQQbiRyEWegkhSs7whiE5N9bGM' if Rails.env.production? %>"></script>
 	<link href="https://fonts.googleapis.com/css?family=Fira+Sans|Roboto" rel="stylesheet">
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 	<%= csrf_meta_tags %>
 </head>
 <body class="<%= "#{controller.controller_name}-#{controller.action_name}" %>">
