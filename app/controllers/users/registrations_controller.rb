@@ -62,7 +62,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       utm_source: params[:utm_source],
       utm_medium: params[:utm_medium],
       utm_campaign: params[:utm_campaign],
-      gclid: params[:gclid]
+      gclid: params[:gclid],
+      cid: google_analytics_client_id
     }
   end
 

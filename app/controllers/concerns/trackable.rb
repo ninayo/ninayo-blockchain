@@ -10,6 +10,10 @@ module Trackable
     push_to_google_analytics('pageview', dp: path)
   end
 
+  def google_analytics_client_id
+    cookies["_ga"].split(".").last(2).join(".")
+  end
+
   private
 
   def push_to_google_analytics(event_type, options)
