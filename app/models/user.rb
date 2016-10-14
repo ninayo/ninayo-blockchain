@@ -128,7 +128,6 @@ class User < ActiveRecord::Base
 			user.update(:uid => auth.uid,
 									:name => auth.info.name,
 									:email => auth.info.email || "no_email#{rand(999999)}@ninayo.com",
-									:gender => auth.info.gender,
 									:photo_url => JSON.parse(res.body)["data"]["url"],
 									:agreement => true 
 									)
