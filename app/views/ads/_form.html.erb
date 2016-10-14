@@ -138,7 +138,13 @@
 	    				<%= ff.text_field :name, validate: true, placeholder: "Name" %>
 
 	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
-	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %> 
+	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
+
+	    				<%= ff.radio_button(:gender, "male") %>
+						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanaume" : "I am a man")) %>
+						<br>
+						<%= ff.radio_button(:gender, "female") %>
+						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanamke" : "I am a woman")) %> 
 
 	    				<%= ff.label :password, class: "field-label" %>
 	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
