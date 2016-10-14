@@ -7,8 +7,6 @@ jQuery ->
 	districts = $('#ad_district_id').html()
 	wards = $('#ad_ward_id').html()
 
-	console.log(districts)
-
 	$('#ad_region_id').change ->
 		region = $('#ad_region_id :selected').text()
 		options = $(districts).filter("optgroup[label='#{region}']").html()
