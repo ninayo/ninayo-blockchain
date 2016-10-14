@@ -183,6 +183,7 @@ class AdsController < ApplicationController
 			user.name 			= params[:ad][:user][:name]
 			user.email 			= "no_email#{rand(999999)}@ninayo.com"
 			user.whatsapp_id = params[:ad][:user][:whatsapp_id]
+			user.gender 		= params[:ad][:user][:gender]
 			user.region_id 	= ad_params[:region_id]
 			user.district_id = ad_params[:district_id]
 			user.ward_id 		= ad_params[:ward_id]
