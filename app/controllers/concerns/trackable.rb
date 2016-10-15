@@ -20,7 +20,7 @@ module Trackable
     Net::HTTP.get_response URI 'https://www.google-analytics.com/collect?' + {
       v: 1, #Google Analytics Version
       tid: "UA-61742277-1",#tracking ID goes here
-      cid: 555, #Client ID, (555 = anonymous)
+      cid: google_analytics_client_id, #Client ID, (555 = anonymous)
       t: event_type
     }.merge(options).to_query if Rails.env.production?
   end
