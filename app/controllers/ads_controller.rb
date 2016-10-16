@@ -12,7 +12,7 @@ class AdsController < ApplicationController
 	after_action :track_text, only: [:text_contact]
 	after_action :track_whatsapp, only: [:whatsapp_contact]
 
-	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :text_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
+	before_action :set_ad, only: [:show, :infopanel, :contact_info, :call_contact, :text_contact, :whatsapp_contact, :edit, :preview, :archive, :update, :delete, :rate_seller, :save_buy_info]
 	before_action :get_ads, only: [:index, :map]
 	before_action :authenticate_user!, :except => [:new, :create, :index, :map, :show, :infopanel]
 
