@@ -11,7 +11,11 @@ module Trackable
   end
 
   def google_analytics_client_id
-    cookies["_ga"].split(".").last(2).join(".")
+    if cookies["_ga"]
+      cookies["_ga"].split(".").last(2).join(".")
+    else
+      555
+    end
   end
 
   private
