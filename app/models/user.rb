@@ -117,6 +117,8 @@ class User < ActiveRecord::Base
 		#check to see if a user already exists. if it does, merge oauth data with existing user
 		user = User.find_by_uid(auth.uid)
 		if user
+			user.update(:gender => auth.extra.raw_info.gender) if user.gender.nil?
+			user.update(:birthday => auth.info.birthday) if user.birthday.nil?
 			user.uid = auth.uid
 			user.name = auth.info.name
 			user.photo_url = JSON.parse(res.body)["data"]["url"]
