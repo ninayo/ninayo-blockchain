@@ -2,8 +2,8 @@
 	<%= render "layouts/alert" %>
 	<%= render "pagenav", :is_floating => false, :current => "list" %>
 
+	<%= render "filter", :ads => @ads %>
 	<%= render "list", :ads => @ads %>
 	<%= paginate @ads %>
-	<%= render "filter", :ads => @ads %>
 </div>
 
