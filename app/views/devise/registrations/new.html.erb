@@ -5,7 +5,7 @@
 		<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { novalidate: true } ) do |f| %>
 			<%= devise_error_messages! %>
 			<p>
-			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block" do%>
+			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
 				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 					this.src='<%= image_path("icons/facebook.png") %>'">
 				<%if I18n.locale == :en %>
