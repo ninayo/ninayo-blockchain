@@ -130,7 +130,7 @@ sw:
     update: "Boresha"
     save: "Hifadhi"
     cancel: "Ahirisha"
-    edit: "Hariri"
+    edit: "Hakiki"
     delete: "Futa"
     archive: "Kutunza"
     destroy: "haribu"
@@ -264,7 +264,7 @@ sw:
           text: ""
 
       edit:
-        heading: "Hariri tangazo"
+        heading: "Hakiki tangazo"
       show:
         delete_confirmation: "Unauhakika unataka kufuta tangazo hili?"
         location: "Mahali"
