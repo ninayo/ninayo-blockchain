@@ -43,6 +43,7 @@ class AdsController < ApplicationController
 	end
 
 	def show #i'm not sure what's going on in this method, but it works so i won't break it yet
+		@back_url = session[:previous_url]
 		if !@ad
 			not_found
 		elsif @ad.archived? || @ad.deleted?
