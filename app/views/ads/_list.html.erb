@@ -4,7 +4,7 @@
 <div class="ads">
 	<% ads.each do |ad| %>
 		<a href="<%= ad_path(ad) %>" class="posts-item">
-			<div class="ads-meta">
+			<div class="ads-meta" style="font-size: 16px">
 				<span class="ads-published_at"><%= t "common.published" %> <%= l(ad.published_at, format: :short) if ad.published_at %>
 				</span>
 				<span><%= "(" + time_ago_in_words(ad.published_at).titleize + ")" %></span>
@@ -14,9 +14,9 @@
 					</span>
 				</span>
 			</div>
-			<h2 class="ads-heading"><%= ad.title %></h2>
-			<div class="ads-price"><%= number_to_currency(ad.price, precision: 0) %> <%= t "common.per_unit" %></div>
-			<div class="posts-location">
+			<h2 class="ads-heading" style="font-size: 22px"><%= ad.title %></h2>
+			<div class="ads-price" style="font-size: 16px"><%= number_to_currency(ad.price, precision: 0) %> <%= t "common.per_unit" %></div>
+			<div class="posts-location" style="font-size: 16px">
 				<% unless ad.village.nil? || ad.village.blank? %><%= "#{ad.village.titleize}, " %><% end %> <%if ad.user.ward %><%= "#{ad.user.ward.name}, " %><% end %> <% if ad.user.district %><%= "#{ad.user.district.name}, " %> <% end %> <%= ad.region.name %>
 			</div>
 		</a>
