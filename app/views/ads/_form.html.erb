@@ -1,8 +1,8 @@
 <%= form_for @ad, validate: true do |f| %>
 	<%= render "shared/validation_errors", :model => @ad %>
 
+	<h3><%= t("views.ad.crop").humanize %></h3>
 	<fieldset>
-		<h3><%= t("views.ad.crop").humanize %></h3>
 
 		<div class="field">
 			<%= f.radio_button :ad_type, "sell", :checked => true %>
@@ -16,7 +16,7 @@
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
 		</div>
 		<div class="field other_crop_type">
-			<strong><%= f.label :other_crop_type, "#{t "views.ad.new.name_of_crop_type"}", :class => 'field-label' %></strong>
+			<%= f.label :other_crop_type, "#{t "views.ad.new.name_of_crop_type"}", :class => 'field-label' %>
 			<%= f.label t "views.ad.new.other_crop_optional", :class => 'field-label' %>
 			<%= f.text_field :other_crop_type %>
 		</div>
