@@ -1,17 +1,14 @@
 <table class="datatable">
 	<% unless @ad.user.phone_number.blank? %>
 	<tr>
-		<th><%= t("common.phone") %>:</th>
 		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<tr>
-		<th><%= "SMS:" %></th>
 		<td><%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<% end %>
 	<% unless @ad.user.whatsapp_id.blank? %>
 	<tr>
-		<th><%= "WhatsApp:" %></th>
 		<td><%= link_to("WhatsApp", whatsapp_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<% end %>
