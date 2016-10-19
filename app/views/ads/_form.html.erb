@@ -5,10 +5,10 @@
 
 		<div class="field">
 			<%= f.radio_button :ad_type, "sell", :checked => true %>
-			<%= f.label(:ad_type, (I18n.locale == :sw ? "Ninataka Kuuza" : "I want to sell")) %>
+			<strong><%= f.label(:ad_type, (I18n.locale == :sw ? "Ninataka Kuuza" : "I want to sell")) %></strong>
 			<br>
 			<%= f.radio_button(:ad_type, "buy") %>
-			<%= f.label(:ad_type, (I18n.locale == :sw ? "Ninataka Kununua" : "I want to buy")) %>
+			<strong><%= f.label(:ad_type, (I18n.locale == :sw ? "Ninataka Kununua" : "I want to buy")) %></strong>
 		</div>
 		<h3><%= t("views.ad.crop").humanize %></h3>
 		<div class="field">
