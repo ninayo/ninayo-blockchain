@@ -15,7 +15,7 @@ sw:
     attributes:
       ad:
         description: "Maelezo (hiari)"
-        price: "Bei za rejareja"
+        price: "Bei ya rejareja"
         volume: "Kiasi kinacho uzwa"
         volume_unit: "unit"
         village: "Kijiji"
@@ -49,7 +49,7 @@ sw:
         email: "Barua pepe"
         password: "Neno la siri"
         password_confirmation: "Uthibitisho wa nenosiri"
-        current_password: "Nenosiri sasa"
+        current_password: "Nenosiri la sasa"
         phone_number: "Nambari ya simu"
         role: "Mthamini"
         village: "Kijiji"
@@ -70,57 +70,57 @@ sw:
     debe: "debe"
     sado: "sado"
     gunia: "gunia"
-    trees: "trees"
+    trees: "miti"
     mkungu: "mkungu"
     tenga: "tenga"
 
   volume_units:
     bucket:
-      zero: "sifuri ndoo"
+      zero: "sifuri"
       one: "ndoo moja"
       other: "%{count} ndoo"
     sack:
-      zero: "sifuri gunia"
+      zero: "sifuri"
       one: "1 gunia"
       other: "%{count} magunia"
     kg:
-      zero: "0 kilo"
+      zero: "sifuri"
       one: "1 kilo"
       other: "%{count} kilo"
     fungu:
-      zero: "0 fungu"
+      zero: "sifuri"
       one: "1 fungu"
       other: "%{count} fungu"
     moja:
-      zero: "0 moja"
+      zero: "sifuri"
       one: "1 moja"
       other: "%{count} moja"
     chane:
-      zero: "0 chane"
+      zero: "sifuri"
       one: "1 chane"
       other: "%{count} chane"
     debe:
-      zero: "0 debe"
+      zero: "sifuri"
       one: "1 debe"
       other: "%{count} debe"
     sado:
-      zero: "0 sado"
+      zero: "sifuri"
       one: "1 sado"
       other: "%{count} sado"
     gunia:
-      zero: "sifuri gunia"
+      zero: "sifuri"
       one: "1 gunia"
       other: "%{count} magunia"
     trees:
-      zero: ""
+      zero: "sifuri"
       one: "1 tree"
       other: "%{count} trees"
     mkungu:
-      zero: ""
+      zero: "sifuri"
       one: "1 mkungu"
       other: "%{count} mkungu"
     tenga:
-      zero: ""
+      zero: "sifuri"
       one: "1 tenga"
       other: "%{count} tenga"
 
@@ -132,9 +132,9 @@ sw:
     cancel: "Ahirisha"
     edit: "Hakiki"
     delete: "Futa"
-    archive: "Kutunza"
+    archive: "Nyaraka"
     destroy: "haribu"
-    you_need_to_login_first: "Unatakiwa kuingia kwanza kabla ya kufanya tendo hili"
+    you_need_to_login_first: "Unatakiwa kuingia kwanza"
     favorite: "Unachopendelea"
     unfavorite: "Usichopendelea"
     phone: "Simu"
@@ -160,7 +160,7 @@ sw:
     facts: "Ukweli"
     price: "Bei za rejareja"
     volumne: "Kiasi kinacho uzwa"
-    published: "Tolewa"
+    published: "Limechapishwa"
 
     min: "Ndogo"
     max: "Kubwa"
@@ -169,7 +169,7 @@ sw:
   views:
     navigation:
       new_ad: "Tangazo jipya"
-      menu: "menyu"
+      menu: "Orodha"
       home: "Nyumbani"
       my_page: "Ukurasa wangu"
       edit_profile: "Hariri wasifu"
@@ -196,15 +196,15 @@ sw:
         text: "Tengeneza akaunti sasa na unaweza:"
         benefit_1: "Kuuza mazao yako kwa mtu yeyote"
         benefit_2: "Kununua mazao kutoka kwa mtu yeyote"
-        benefit_3: "Ona bei zilizopo nchini nzima"
-        benefit_4: "Wasiliana wanunuzi na wauzaji"
+        benefit_3: "Ona bei zilizopo nchi nzima"
+        benefit_4: "Wasiliana na wanunuzi na wauzaji"
 
     edit_profile:
       heading: "Hariri wasifu"
       waiting_for_confirmation: "kwasasa inasubiri uthibitisho wa"
       leave_blank: "Acha wazi kama hutaki kubdailisha"
       need_password_for: "Tunahitaji nenosiri lako la sasa ili kuthibitisha mabadaliko"
-      cancel_account: "Ahirisha akaunti yangu"
+      cancel_account: "Batishila akaunti yangu"
       unhappy?: "Haujafurahishwa?"
       address: "Anuani"
       change_password: "Badalisha nenosiri"
@@ -213,9 +213,9 @@ sw:
       select_region: "Chagua Mkoa"
       select_district: "Chagua Wilaya"
       select_ward: "Chagua Kata"
-      minimum_password_length: "%{length} kiasi cha herufi kwa nenosiri"
+      minimum_password_length: "%{length} kiasi cha herufi wa nenosiri"
 
-      preferred_language: "Lugha lako"
+      preferred_language: "Lugha yako"
 
     ad:
       crop_type: "Aina ya zao"
@@ -223,7 +223,7 @@ sw:
       district: "Wilaya"
       ward: "Kata"
       village: "Kijiji"
-      volume: "Ujazo zote unauza"
+      volume: "Wingi wa zao"
       price: "Bei ya moja"
       crop: "Zao"
       lat: "Latitudo"
@@ -240,7 +240,7 @@ sw:
       error_heading: "Tangazo hili limekataliwa kuhifadhiwa"
 
       new:
-        heading: "Kujenga tangazo"
+        heading: "Kutengeneza tangazo"
         select_a_crop_type: "Chagua aina ya zao"
         name_of_crop_type: "Jina la zao la aina nyingine"
         other_crop_optional: "Kama umechagua 'Nyingine' andika jina la zao hapo chini au ruka hatua hii"
@@ -256,11 +256,11 @@ sw:
 
         save_changes: "Hifadhi mabadiliko"
         preview_ad: "Pitia tangazo lako kabla hujatangaza"
-        cancel: "Ahirisha"
+        cancel: "Batalisha"
         ad_type_label: "Ninataka"
 
         sidebar:
-          heading: "Pata Bei Vizuri!"
+          heading: "Pata Bei Nzuri!"
           text: ""
 
       edit:
@@ -271,20 +271,20 @@ sw:
       list:
         could_not_find_heading: "Hakuna tangazo lolote linaloendana na vigezo vyako"
         could_not_find_body: "Jaribu kuondoa baadhi ya vigezo vyako"
-        for_sale: "Matangazo kuuza mazao"
-        for_buy: "Matangazo kununua mazao"
+        for_sale: "Matangazo ya kuuza mazao"
+        for_buy: "Matangazo ya kununua mazao"
 
       archive:
         heading: "Hifadhi tangazo"
         tell_us_final_price: "tafadhali, tujulishe bei ya mwisho ya zao lako ilikuwa kiasi gani."
         final_price: "Bei ya mwisho"
-        pick_buyer: "Tafadhali angalia kama unaweza kumpata mnunuzi kwenye ordha hapo chini"
+        pick_buyer: "Tafadhali angalia kama unaweza kumpata mnunuzi kwenye orodha hapo chini"
         please_select_the_buyer: "Tafadhali chagua mnunuzi"
 
       preview:
         title: "Pitia tangazo kabla hujatangaza"
         go_back_button: "Hariri tena"
-        publish_button: "Tangazwa"
+        publish_button: "Tangaza"
 
       rate_seller:
         haeading_1: "Umelipa kiasi gani"
@@ -318,11 +318,11 @@ sw:
 
       filter:
         filter_ads: "Chuja matangazo"
-        reset_filter: "Badili tafuta"
+        reset_filter: "Badili vigezo"
 
       seller:
         heading: "Muuzaji"
-        show_contact_information: "Onyesha taarifa ya mwasiliano"
+        show_contact_information: "Onyesha taarifa za mwasiliano"
 
     log:
       heading: "Logs"
@@ -339,13 +339,13 @@ sw:
         heading_1: "Ulinunua hii?"
         heading_2: "Vipaumbele"
       archive:
-        title: "Hifadhi"
+        title: "Nyaraka"
         heading_1: "Matangazo yaliyo uzwa"
         heading_2: "Matangazo yaliyonunuliwa"
       pagenav:
         current: "Sasa"
         favorites: "Vipaumbele"
-        archive: "Hifadhi"
+        archive: "Nyaraka"
       list:
         title: "Cheo"
         seller: "Muuzaji"
@@ -353,12 +353,12 @@ sw:
         price: "Bei ya moja"
         final_price: "Bei ya mwisho"
         published: "Tolewa"
-        archived: "Hifadhiwa"
+        archived: "Nyaraka"
         displayed: "Onyeshwa"
         displayed_contact_info: "Taarifa ya mwasiliano iliyoonyeshwa"
         favorites: "Vipaumbele"
         i_bought_this: "Nilinunua hii"
-        no_ads: "Hakuna matangazo la kuonyesha"
+        no_ads: "Hakuna matangazo ya kuonyesha"
 
     footer:
       contact: "Barua pepe"
@@ -482,7 +482,7 @@ sw:
   errors:
     format: "%{attribute} %{message}"
     messages:
-      accepted: lazima ikubaliwe
+      accepted: imekubaliwa
       blank: haitakiwi kuwa wazi
       confirmation: haifanani na hapo chini
       empty: haitakiwi kuwa tupu

@@ -3,7 +3,7 @@
 sw:
   devise:
     phrases:
-      characters_minimum: "Kiasi cha herufi kwa nenosiri"
+      characters_minimum: "Kiasi cha herufi wa nenosiri"
       log_in: "Ingia"
       sign_up: "Tengeneza akaunti"
       sign_up_now: "Tengeneza akaunti sasa"
@@ -31,14 +31,14 @@ sw:
       locked: "Akaunti yako imefungwa."
       last_attempt: "Unahatua moja zaidi kabla akaunti yako haijafungwa."
       not_found_in_database: "Batili %{authentication_keys} au nenosiri."
-      timeout: "Uko nje ya muda. Tafadhali ingia tena na endelea."
+      timeout: "Muda mwingi umepita bila shughuli kwenye akaunti. Tafadhali ingia tena kuendelea."
       unauthenticated: "Unahitaji kuingia au kufungua akaunti kabla hujaendelea."
       unconfirmed: "Unatakiwa kuthibitisha anuani yako ya baruapepe kabla hujaendelea."
     mailer:
       confirmation_instructions:
         subject: "Maelekezo ya uthibitisho"
       reset_password_instructions:
-        subject: "Badili maelekezo ya nenosiri/ password"
+        subject: "Maelekezo ya kubadili nenosiri / password"
       unlock_instructions:
         subject: "maelekezo ya kufungua"
     omniauth_callbacks:
@@ -48,19 +48,19 @@ sw:
       no_token: "Huwezi kupata ukurasa hii bila kutoka baruapepe ya badili maelekezo ye nenosiri. Kama unatoka baruapepe hii, tafadhali hakikisha kutumika URL kamili zinazotolew"
       send_instructions: "Utapokea baruapepe na maelekezo ya jinsi ya kuweka upya nenosiri yako katika dakika chache"
       send_paranoid_instructions: "Kama anwani ya baruapepe ipo katika database yetu, utapata password ahueni kiungo katika baruapepe yako katika dakika chache."
-      updated: "Password yako imekuwa iliyopita kwa mafanikio. Wewe ni sasa saini katika."
+      updated: "Umefanikiwa kubadilii nenosiri lako. Wewe ni sasa saini katika."
       updated_not_active: "Pasword yako imekuwa iliyopita kwa mafanikio."
     registrations:
       destroyed: "Kwa heri! Akaunti yako imekuwa mafanikio kufutwa . Tunatarajia kuoha wewe tena hivi karibuni."
-      signed_up: "Karibu! Una saini mafanikio."
+      signed_up: "Karibu! Sasa umejiunga na NINAYO."
       signed_up_but_inactive: "Una saini kwa mafanikio. Hata hivyo, tunaweza si ishara katika akaunti yako kwa sababu bado haijawezeshwa"
       signed_up_but_locked: "Una saini kwa mafanikio. Hata hivyo, tunaweza si ishara katika akaunti yako kwa sababu umefungwa."
       signed_up_but_unconfirmed: "Ujumbe na kiungo cha uthibitisho imetumwa kwa baruapepe yako. Tafadhali kufuata kiungo kuamsha akaunti yako"
       update_needs_confirmation: "Umebadilisha akaunti yako vizuri, lakini tunahitaji kuthibitisha anwani yako mpya. Tafadhali angalia baruapepe yako na kufuata kuthibitisha kiungo kuthibitisha anwani yako mpya."
-      updated: "Akaunti yako alikuuwa koboreshwa."
+      updated: "Akaunti yako imeboreshwa."
     sessions:
-      signed_in: "Umeingia mafinikio."
-      signed_out: "Kwa heri! Rudi karibuni."
+      signed_in: "Umeingia kwa mafinikio."
+      signed_out: "Kwa heri! Rudi tena hivi karibuni."
       already_signed_out: "Umeandoka mafinikio."
     unlocks:
       send_instructions: "Utapokea baruapepe na maelekezo ya jinsi ya kufungua akaunti yako katika dakika chache."
