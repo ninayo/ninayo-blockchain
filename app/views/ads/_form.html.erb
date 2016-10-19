@@ -25,7 +25,7 @@
 			<strong><%= f.label "#{t "views.ad.volume"}", :class => 'field-label' %></strong>
 			<div class="input-wrapper">
 				<div class="input-field">
-					<%= f.number_field :volume, :class => "is-inline" %>
+					<%= f.number_field :volume, :min => 1, :class => "is-inline" %>
 				</div>
 				<div class="input-label">
 					<%= f.select :volume_unit, Ad.volume_units.keys.to_a.map { |w| [I18n.t("volume_unit.#{w}"), w]}, {}, {:class => "is-inline"} %>
@@ -36,7 +36,7 @@
 			<strong><%= f.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
 			<div class="input-wrapper">
 				<div class="input-field">
-					<%= f.number_field :price, :class => "is-inline" %>
+					<%= f.number_field :price, :min => 1, :class => "is-inline" %>
 				</div>
 				<div class="input-label">
 					<span class="input-post">/=</span>
