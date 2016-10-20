@@ -27,7 +27,7 @@ sw:
     failure:
       already_authenticated: "Umekwisha ingia"
       inactive: "Akaunti yako haijawezeshwa."
-      invalid: "Batili %{authentication_keys} au nenosiri."
+      invalid: "%{authentication_keys} au nenosiri batili."
       locked: "Akaunti yako imefungwa."
       last_attempt: "Unahatua moja zaidi kabla akaunti yako haijafungwa."
       not_found_in_database: "Batili %{authentication_keys} au nenosiri."
@@ -42,8 +42,8 @@ sw:
       unlock_instructions:
         subject: "maelekezo ya kufungua"
     omniauth_callbacks:
-      failure: "Hawezi kukuthibitisha kutoka %{kind} kwa sababu \"%{reason}\"."
-      success: "Kuthibitisha kutoka %{kind} akaunti."
+      failure: "Hatuwezi kukuthibitisha kutoka %{kind} kwa sababu \"%{reason}\"."
+      success: "Umethibitishwa kupitia akaunti ya %{kind}."
     passwords:
       no_token: "Huwezi kupata ukurasa hii bila kutoka baruapepe ya badili maelekezo ye nenosiri. Kama unatoka baruapepe hii, tafadhali hakikisha kutumika URL kamili zinazotolew"
       send_instructions: "Utapokea baruapepe na maelekezo ya jinsi ya kuweka upya nenosiri yako katika dakika chache"
@@ -61,7 +61,7 @@ sw:
     sessions:
       signed_in: "Umeingia kwa mafinikio."
       signed_out: "Kwa heri! Rudi tena hivi karibuni."
-      already_signed_out: "Umeandoka mafinikio."
+      already_signed_out: "Umetoka kwenye akaunti yako."
     unlocks:
       send_instructions: "Utapokea baruapepe na maelekezo ya jinsi ya kufungua akaunti yako katika dakika chache."
       send_paranoid_instructions: "Ikama akaunti yako ipo, utakuwa kupokea baruapepe na maelekezo ya jinsi ya kufungua hilo katika dakika chache."

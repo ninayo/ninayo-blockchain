@@ -6,16 +6,16 @@
 		<div class="field filter-field">
 		<div class="filterdiv">
 		<div class="filterrow">
-		<span>Mimi nina </span>
+		<span>Mimi ni </span>
 		<%= select_tag "ad_type", options_for_select([['muuzaji', 'buy'], ['mnunuzi', 'sell']], @ad_type), style: "width: 135px;" %>
 		</div>
 		<div class="filterrow">
-		<span> Mimi ni kuangalia kwa </span>
+		<span> Mimi natafuta </span>
 			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), style: "width: 135px;", prompt: "all crops" if I18n.locale == :en %>
 			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name_sw", @crop_type_id), style: "width: 135px;", prompt: "mazao yote" if I18n.locale == :sw %>
 		</div>
 			<div class="filterrow">
-		<span> Orodha mazao mkoani </span>
+		<span> Orodha ya mazao kwa mkoa </span>
 			<%= select_tag "region_id", options_from_collection_for_select(@regions, "id", "name", @region_id), style: "width: 135px;", prompt: "popote" %>
 
 		</div>

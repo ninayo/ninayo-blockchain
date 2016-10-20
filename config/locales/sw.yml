@@ -17,11 +17,11 @@ sw:
         description: "Maelezo (hiari)"
         price: "Bei ya rejareja"
         volume: "Kiasi kinacho uzwa"
-        volume_unit: "unit"
+        volume_unit: "Kipimo"
         village: "Kijiji"
         crop_type: "Aina ya zao"
         status: "kiwango cha mauzo"
-        published_at: "Kuonyeshwa"
+        published_at: "Imetangazwa"
         lat: "Latitude"
         lng: "Longitude"
         region: "Mkoa"
@@ -41,7 +41,7 @@ sw:
       rating:
         rater: "Mthamini"
         user: "Mtumiaji"
-        role: "Wajibu"
+        role: "Nafasi ya mtumiaji"
         score: "Alama"
 
       user:
@@ -51,14 +51,14 @@ sw:
         password_confirmation: "Uthibitisho wa nenosiri"
         current_password: "Nenosiri la sasa"
         phone_number: "Nambari ya simu"
-        role: "Mthamini"
+        role: "Nafasi ya mtumiaji"
         village: "Kijiji"
         region: "Mkoa"
-        agreement: "Agreement"
+        agreement: "Makubaliano"
         remember_me: "Unikumbuke"
 
   validation:
-    message: "Marufuku %{name} hii kukoa"
+    message: "%{name} imeshindikana kuhifadhi"
 
   volume_unit:
     bucket: "ndoo"
@@ -176,7 +176,7 @@ sw:
       log_out: "Kutoka"
       sign_up: "Jisajili"
       login: "Ingia"
-      dashboard: "Dashboard"
+      dashboard: "Paneli ya Mtumiaji"
       facebook: "Jisajili na Facebook"
       enter_login: "Simu # au barua pepe"
       enter_password: "Chagua nenosiri"
@@ -189,7 +189,7 @@ sw:
       sign_up: "Jisajili"
       characters_minimum: "Kiwango cha chini cha herufi"
       agreement_text_1: "Mimi kukubaliana na"
-      agreement_text_2: "Terms of Service"
+      agreement_text_2: "Masharti ya Huduma"
 
       sidebar:
         heading: "Hauna Akaunti?"
@@ -275,8 +275,8 @@ sw:
         for_buy: "Matangazo ya kununua mazao"
 
       archive:
-        heading: "Hifadhi tangazo"
-        tell_us_final_price: "tafadhali, tujulishe bei ya mwisho ya zao lako ilikuwa kiasi gani."
+        heading: "Hifadhi tangazo kwenye nyaraka"
+        tell_us_final_price: "Tafadhali tujulishe bei ulioyouza zao lako ilikuwa ni kiasi gani"
         final_price: "Bei ya mwisho"
         pick_buyer: "Tafadhali angalia kama unaweza kumpata mnunuzi kwenye orodha hapo chini"
         please_select_the_buyer: "Tafadhali chagua mnunuzi"
@@ -289,8 +289,8 @@ sw:
       rate_seller:
         haeading_1: "Umelipa kiasi gani"
         text_1: ""
-        heading_2: "Je, wewe hatimaye kulipa kwa ajilia ya"
-        heading_3: "Ungethaminishaje?"
+        heading_2: "Je, hatimaye ulilipa kiasi gani kwa"
+        heading_3: "Je, mauzo/ununuzi umeendaje?"
 
 
 
@@ -325,7 +325,7 @@ sw:
         show_contact_information: "Onyesha taarifa za mwasiliano"
 
     log:
-      heading: "Logs"
+      heading: "Rekodi za akaunti"
       event: "Tukio"
       user: "Mtumiaji"
       time: "Muda"
@@ -352,7 +352,7 @@ sw:
         buyer: "Mnunuzi"
         price: "Bei ya moja"
         final_price: "Bei ya mwisho"
-        published: "Tolewa"
+        published: "Imetangazwa"
         archived: "Nyaraka"
         displayed: "Onyeshwa"
         displayed_contact_info: "Taarifa ya mwasiliano iliyoonyeshwa"
