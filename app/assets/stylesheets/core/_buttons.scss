@@ -53,6 +53,7 @@ a.button,
 	&.is-primary {
 		display: flex;
 	    width: 80vw;
+	    max-width: 320px;
 	    height: auto;
 	    justify-content: center;
 	    align-items: center;
