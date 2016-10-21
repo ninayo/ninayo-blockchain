@@ -3,8 +3,6 @@ a.button,
 	display: inline-block;
 	vertical-align: middle;
 	padding: 0 25px;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	text-decoration: none;
 	height: $controlHeight;
 	line-height: $controlHeight;
@@ -56,6 +54,8 @@ a.button,
 		display: flex;
 	    width: 80vw;
 	    max-width: 320px;
+	    padding-top: 10px;
+		padding-bottom: 10px;
 	    height: auto;
 	    justify-content: center;
 	    align-items: center;
