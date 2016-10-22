@@ -88,6 +88,12 @@
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<% end %>
+			<% if current_user.birthday.blank? %>
+			<div class="field">
+				<%= user_fields.label :birthday, :value => "Mwaka wa kuzaliwa", :class => "field-label" %>
+				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10)%>
+			</div>
+			<% end %>
 			<% if current_user.phone_number.nil? || current_user.phone_number.blank? %>
 			<div class="field">
 				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
@@ -135,7 +141,7 @@
 	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu" %>
 
 	    				<%= ff.label :name, class: "field-label" %>
-	    				<%= ff.text_field :name, validate: true, placeholder: "Name" %>
+	    				<%= ff.text_field :name, validate: true, placeholder: "Jina" %>
 
 	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
 	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
@@ -145,6 +151,9 @@
 						<br>
 						<%= ff.radio_button(:gender, "female", validate: true) %>
 						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanamke" : "I am a woman")) %> 
+
+						<%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %>
+						<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10) %>
 
 	    				<%= ff.label :password, class: "field-label" %>
 	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>

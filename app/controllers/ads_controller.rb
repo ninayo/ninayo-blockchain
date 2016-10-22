@@ -177,6 +177,10 @@ class AdsController < ApplicationController
 					current_user.update(:name => user_params[:name])
 				end
 			end
+
+			if current_user.birthday_needed?
+				current_user.update(:birthday => user_params[:birthday])
+			end
 		end
 
 		@ad 							= Ad.new(ad_params)
@@ -185,6 +189,7 @@ class AdsController < ApplicationController
 			user.email 			= "no_email#{rand(999999)}@ninayo.com"
 			user.whatsapp_id = params[:ad][:user][:whatsapp_id]
 			user.gender 		= params[:ad][:user][:gender]
+			user.birthday 	= params[:ad][:user][:birthday].to_s
 			user.region_id 	= ad_params[:region_id]
 			user.district_id = ad_params[:district_id]
 			user.ward_id 		= ad_params[:ward_id]
@@ -462,6 +467,6 @@ private
 		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :district_id, :ward_id, :position, :status, :lat, :lng, :final_price, :archived_at, :buyer_id, :buyer_price, :rating, :ad_type)
 	end
 	def user_params
-		params.require(:user).permit(:name, :email, :phone_number, :region_id, :district_id, :ward_id, :village)
+		params.require(:user).permit(:name, :email, :phone_number, :region_id, :district_id, :ward_id, :village, :birthday)
 	end
 end

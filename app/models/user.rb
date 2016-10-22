@@ -166,11 +166,15 @@ class User < ActiveRecord::Base
 	end
 
 	def info_needed?
-		phone_number.blank? || name.blank?
+		phone_number.blank? || name.blank? || birthday.blank?
 	end
 
 	def location_needed?
 		region_id.nil? || district_id.nil? || ward_id.nil? || village.blank?
+	end
+
+	def birthday_needed?
+		birthday.blank?
 	end
 
 	protected
