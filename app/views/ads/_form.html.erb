@@ -155,7 +155,12 @@
 				</div>
 				</div>
 			</div>
-			<% end %> 
+			<% end %>
+			<% if current_user.gender.blank? %>
+			<div class="field">
+				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
+			</div> 
+			<% end %>
 		<% end %>
 	</fieldset>
 	<% end %>
@@ -187,6 +192,8 @@
 
 	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
 	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
+
+	    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
 
 	    				<%= ff.radio_button(:gender, "male", validate: true) %>
 						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanaume" : "I am a man")) %>
