@@ -1,3 +1,4 @@
+<% unless current_user %>
 <h4><%= (I18n.locale == :sw ? "Tafadhali ingia au tengeneza akaunti ili uweze kuweka tangazo lako la mauzo" : "Please sign up or log in to post your ad") %></h4>
 				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
 					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
@@ -8,7 +9,7 @@
 						Jisajili na Facebook
 					<% end %>
 				<% end %>
-
+<% end %>
 <%= form_for @ad, validate: true do |f| %>
 	<%= render "shared/validation_errors", :model => @ad %>
 
