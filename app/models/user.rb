@@ -166,7 +166,7 @@ class User < ActiveRecord::Base
 	end
 
 	def info_needed?
-		phone_number.blank? || name.blank? || birthday.blank?
+		phone_number.blank? || name.blank? || birthday.blank? || gender.blank?
 	end
 
 	def location_needed?
