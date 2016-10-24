@@ -193,7 +193,7 @@
 	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
 	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
 
-	    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
+	    				<%= ff.select :gender, options_for_select([['Mimi ni mwanaume', "male"], ['Mimi ni mwanamke', "female"]]), style: "width: 135px;" %>
 
 	    				<%= ff.radio_button(:gender, "male", validate: true) %>
 						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanaume" : "I am a man")) %>
