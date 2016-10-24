@@ -1,3 +1,14 @@
+<h4><%= (I18n.locale == :sw ? "Tafadhali ingia au tengeneza akaunti ili uweze kuweka tangazo lako la mauzo" : "Please sign up or log in to post your ad") %></h4>
+				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
+					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+						this.src='<%= image_path("icons/facebook.png") %>'">
+					<%if params[:locale] === "en" %>
+						Log in with Facebook
+					<% else %>
+						Jisajili na Facebook
+					<% end %>
+				<% end %>
+
 <%= form_for @ad, validate: true do |f| %>
 	<%= render "shared/validation_errors", :model => @ad %>
 
@@ -48,6 +59,7 @@
 	<% if current_user %>
 		<table class="datatable">
 			<h4>Taarifa Zako</h4>
+			<h5><%= t "views.ad.new.review_contact_information" %></h5>
 			<% unless current_user.name.blank? %>
 			<tr>
 				<th><%= t "activerecord.attributes.user.name" %>:</th>
@@ -167,10 +179,10 @@
 				<%= f.fields_for User.new do |ff| %>
   					<div>
     					<%= ff.label :phone_number, class: "field-label" %>
-	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu" %>
+	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu (lazima)" %>
 
 	    				<%= ff.label :name, class: "field-label" %>
-	    				<%= ff.text_field :name, validate: true, placeholder: "Jina" %>
+	    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
 
 	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
 	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>

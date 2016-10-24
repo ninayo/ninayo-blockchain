@@ -241,7 +241,7 @@ sw:
 
       new:
         heading: "Kutengeneza tangazo"
-        select_a_crop_type: "Chagua aina ya zao"
+        select_a_crop_type: "Chagua aina ya zao (lazima)"
         name_of_crop_type: "Jina la zao la aina nyingine"
         other_crop_optional: "Kama umechagua 'Nyingine' andika jina la zao hapo chini au ruka hatua hii"
 
