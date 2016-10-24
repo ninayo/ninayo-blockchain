@@ -122,8 +122,7 @@
 
 	<% if current_user && current_user.info_needed? %>
 	<fieldset>
-		<h3><%= t("views.ad.new.contact_information").humanize %></h3>
-		<p><%= t "views.ad.new.review_contact_information" %>.</p>
+
  		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<% if current_user.name.nil? || current_user.name.blank? %>
 			<div class="field">
