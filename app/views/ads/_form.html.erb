@@ -50,14 +50,14 @@
 			<h4>Taarifa Zako</h4>
 			<% unless current_user.name.blank? %>
 			<tr>
-				<th><%= t "common.name" %>:</th>
+				<th><%= t "activerecord.attributes.user.name" %>:</th>
 				<td><%= current_user.name.titleize %></td>
 			</tr>
 			<% end %>
 
 			<% unless current_user.phone_number.blank? %>
 			<tr>
-				<th><%= t "common.phone_number" %>:</th>
+				<th><%= t "activerecord.attributes.user.phone_number" %>:</th>
 				<td><%= current_user.phone_number %></td>
 			</tr>
 			<% end %>
@@ -71,7 +71,7 @@
 
 			<% if current_user.region_id && !current_user.location_needed? %>
 			<tr>
-				<th><%= t "views.ads.show.location" %></th>
+				<th><%= t "views.ad.show.location" %></th>
 				<td><% unless current_user.village.blank? %><%= "#{current_user.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.user.region.name %></td>
 			</tr>
 			<% end %>
