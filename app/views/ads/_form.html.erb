@@ -184,7 +184,7 @@
 	    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
 
 						<strong><%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %></strong>
-						<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10) %>
+						<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10), default: 2000 %>
 
 	    				<strong><%= ff.label :password, class: "field-label" %></strong>
 	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
