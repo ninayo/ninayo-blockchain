@@ -28,6 +28,8 @@ class AdsController < ApplicationController
 
 		@crop_types = CropType.all.order(:sort_order)
 		@regions = Region.all.order(:name)
+		@districts = District.all.order(:name)
+		@wards = Ward.all.order(:name)
 
 		respond_to do |format|
 			format.html { render layout: 'startpage' } # index.html.erb
