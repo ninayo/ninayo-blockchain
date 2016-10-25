@@ -31,7 +31,7 @@
 }
 
 .siteheader-logo-full {
-	display: none;
+	display: block;
 	max-height: 20px;
 	height: $siteheaderHeight - 20px;
 	width: auto;
@@ -41,7 +41,7 @@
 	}
 }
 .siteheader-logo-emblem {
-	display: block;
+	display: none;
 	max-height: 40px;
 	height: $siteheaderHeight - 10px;
 	width: auto;
@@ -71,15 +71,15 @@
 
 .gold-stripe {
 	background-color: #FFEB3B;
-	height: 6px;
+	height: 4px;
 }
 
 .white-stripe {
 	background-color: white;
-	height: 6px;
+	height: 4px;
 }
 
 .green-stripe {
 	background-color: #4CAF50;
-	height: 6px;
+	height: 4px;
 }
