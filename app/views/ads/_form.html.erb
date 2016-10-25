@@ -195,12 +195,6 @@
 
 	    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
 
-	    				<%= ff.radio_button(:gender, "male", validate: true) %>
-						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanaume" : "I am a man")) %>
-						<br>
-						<%= ff.radio_button(:gender, "female", validate: true) %>
-						<%= ff.label(:gender, (I18n.locale == :sw ? "Mimi ni mwanamke" : "I am a woman")) %> 
-
 						<%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %>
 						<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10) %>
 
