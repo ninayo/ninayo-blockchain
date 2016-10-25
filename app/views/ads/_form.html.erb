@@ -184,28 +184,28 @@
 
 				<%= f.fields_for User.new do |ff| %>
   					<div>
-    					<%= ff.label :phone_number, class: "field-label" %>
+    					<strong><%= ff.label :phone_number, class: "field-label" %></strong>
 	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu (lazima)" %>
 
-	    				<%= ff.label :name, class: "field-label" %>
+	    				<strong><%= ff.label :name, class: "field-label" %></strong>
 	    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
 
-	    				<%= ff.label "WhatsApp (hiari)", class: "field-label" %>
+	    				<strong><%= ff.label "WhatsApp (hiari)", class: "field-label" %></strong>
 	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
 
 	    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
 
-						<%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %>
+						<strong><%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %></strong>
 						<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10) %>
 
-	    				<%= ff.label :password, class: "field-label" %>
+	    				<strong><%= ff.label :password, class: "field-label" %></strong>
 	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
     					<% if @validatable %>
     						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
     					<% end %>
 
-    					<% ff.label :password_confirmation, class: "field-label" %>
-    					<%= ff.password_field :password_confirmation, autocomplete: "off", placeholder: "Andike nenosiri tena" %>
+    					<strong><% ff.label :password_confirmation, class: "field-label" %></strong>
+    					<%= ff.password_field :password_confirmation, autocomplete: "off" %>
     					<br>
     					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
   					</div>
