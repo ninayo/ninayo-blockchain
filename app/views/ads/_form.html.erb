@@ -133,7 +133,7 @@
 			<% if current_user.birthday.blank? %>
 			<div class="field">
 				<%= user_fields.label :birthday, :value => "Mwaka wa kuzaliwa", :class => "field-label" %>
-				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10)%>
+				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), default: 2000%>
 			</div>
 			<% end %>
 			<% if current_user.phone_number.nil? || current_user.phone_number.blank? %>
