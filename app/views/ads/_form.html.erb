@@ -58,38 +58,65 @@
 		</div>
 	</fieldset>
 
+
 	<% if current_user %>
-		<table class="datatable">
-			<h4>Taarifa Zako</h4>
-			<h5><%= t "views.ad.new.review_contact_information" %></h5>
-			<% unless current_user.name.blank? %>
-			<tr>
-				<th><%= t "activerecord.attributes.user.name" %>:</th>
-				<td><%= current_user.name.titleize %></td>
-			</tr>
+
+		<fieldset>
+	 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
+				<h4>Taarifa Zako</h4>
+				<h5><%= t "views.ad.new.review_contact_information" %></h5>
+	
+				<div class="field">
+					<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
+					<%= user_fields.text_field :name, :default => current_user.name, :validate => true %>
+				</div>
+	
+
+				<div class="field">
+					<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
+					<div class="input-wrapper">
+						<div class="input-field">
+							<%= user_fields.telephone_field :phone_number, :default => current_user.phone_number, :validate => false, class: "is-inline" %>
+					</div>
+				</div>
+				</div>
+
+				<div class="field">
+					<%= user_fields.label :whatsapp_id, :value => "WhatsApp (hiari)", :class => "field-label" %>
+					<div class="input-wrapper">
+						<div class="input-field">
+							<%= user_fields.text_field :whatsapp_id, :validate => false, class: "is-inline" %>
+						</div>
+					</div>
+				</div>
+
+				<h3><%= t("views.ad.show.location").humanize %></h3>
+				<div class="field">
+					<%= user_fields.label "#{t "views.ad.region"}", :class => 'field-label' %>
+					<%= user_fields.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
+				</div>
+				<div class="field">
+					<%= user_fields.label "#{t "views.ad.district"}", class: "field-label" %>
+					<%= user_fields.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
+				</div>
+
+				<div class="field">
+					<%= user_fields.label "#{t "views.ad.ward"}", class: "field-label" %>
+					<%= user_fields.grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
+				</div>
+
+				<div class="field">
+					<%= user_fields.label "#{t "views.ad.village"}", :class => 'field-label' %>
+					<%= user_fields.text_field :village %>
+				</div>
+				<% if current_user.region_id && !current_user.location_needed? %>
+					<tr>
+						<th><%= t "views.ad.show.location" %></th>
+						<td><% unless current_user.village.blank? %><%= "#{current_user.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.user.region.name %></td>
+					</tr>
+				<% end %>
 			<% end %>
 
-			<% unless current_user.phone_number.blank? %>
-			<tr>
-				<th><%= t "activerecord.attributes.user.phone_number" %>:</th>
-				<td><%= current_user.phone_number %></td>
-			</tr>
-			<% end %>
-
-			<% unless current_user.whatsapp_id.blank? %>
-			<tr>
-				<th>WhatsApp: </th>
-				<td><%= current_user.whatsapp_id %></td>
-			</tr>
-			<% end %>
-
-			<% if current_user.region_id && !current_user.location_needed? %>
-			<tr>
-				<th><%= t "views.ad.show.location" %></th>
-				<td><% unless current_user.village.blank? %><%= "#{current_user.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.user.region.name %></td>
-			</tr>
-			<% end %>
-		</table>
 	<% end %>
 
 	<% unless current_user && !current_user.location_needed? %>

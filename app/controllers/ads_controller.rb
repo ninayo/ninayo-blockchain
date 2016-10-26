@@ -146,43 +146,8 @@ class AdsController < ApplicationController
 	end
 
 	def create
-		# if current_user.info_needed?
-		# 	current_user.update(user_params)
-		# end
-		if current_user
-			if current_user.location_needed?
-
-				if current_user.region_id.nil?
-					current_user.update(:region_id => ad_params[:region_id])
-				end
-
-				if current_user.district_id.nil?
-					current_user.update(:district_id => ad_params[:district_id])
-				end
-
-				if current_user.ward_id.nil?
-					current_user.update(:ward_id => ad_params[:ward_id])
-				end
-
-				if current_user.village.blank?
-					current_user.update(:village => ad_params[:village])
-				end
-
-			end
-
-			if current_user.info_needed?
-				if current_user.phone_number.nil? || current_user.phone_number.blank?
-					current_user.update(:phone_number => user_params[:phone_number])
-				end
-
-				if current_user.name.nil? || current_user.name.blank?
-					current_user.update(:name => user_params[:name])
-				end
-			end
-
-			if current_user.birthday_needed?
-				current_user.update(:birthday => user_params[:birthday])
-			end
+		if current_user && !current_user.id.nil?
+			current_user.update(user_params) unless user_params[:name].blank? || user_params[:phone_number].blank?
 		end
 
 		@ad 							= Ad.new(ad_params)
