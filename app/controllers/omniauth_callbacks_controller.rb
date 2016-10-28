@@ -4,7 +4,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #for each additional service we want to support. twitter, google etc. they should have their own specifics
   #in terms of implementation details but all should be pretty similar to this
   def facebook
-    track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT") 
     handle_redirect('devise.facebook_data', 'Facebook')
   end
 
@@ -14,6 +13,11 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     user = User.find_for_oauth(request.env["omniauth.auth"])
     if user.persisted?
+      if user.created_at <= 5.minutes.ago?
+        track_event('User Management', 'FB registration', 'FB account registration', "REGISTERED A FB ACCOUNT")
+      else
+        track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT")
+      end
       sign_in_and_redirect user, event: :authentication
       set_flash_message(:notice, :success, kind: kind) if is_navigational_format?
     else
