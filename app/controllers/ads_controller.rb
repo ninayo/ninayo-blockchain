@@ -334,35 +334,35 @@ private
 	end
 	#track_event(category, type, action, label)
 	def track_new
-		track_event('Engagement & Acquisition', 'Post Advert', "new #{@ad.ad_type} ad: #{@ad.region}", "NEW #{@ad.ad_type.upcase} AD: #{ga_info}")
+		track_event('Engagement & Acquisition', 'Post Advert', "new #{@ad.ad_type} ad: #{@ad.region.name}", "NEW #{@ad.ad_type.upcase} AD: #{ga_info}")
 	end
 
 	def track_update
-		track_event('Engagement & Acquisition', 'Advert Update', "update #{@ad.ad_type} ad: #{@ad.region}", "UPDATE #{@ad.ad_type.upcase} AD: #{ga_info}")
+		track_event('Engagement & Acquisition', 'Advert Update', "update #{@ad.ad_type} ad: #{@ad.region.name}", "UPDATE #{@ad.ad_type.upcase} AD: #{ga_info}")
 	end
 
 	def track_archive
-		track_event('Engagement & Acquisition', 'Advert Archive', "archive #{@ad.ad_type} ad: #{@ad.region}", "ARCHIVE #{@ad.ad_type.upcase} AD: #{ga_info}")
+		track_event('Engagement & Acquisition', 'Advert Archive', "archive #{@ad.ad_type} ad: #{@ad.region.name}", "ARCHIVE #{@ad.ad_type.upcase} AD: #{ga_info}")
 	end
 
 	def track_contact_reveal
-		track_event('Engagement & Acquisition', 'Phone Reveal', "reveal contact details on #{@ad.ad_type} ad: #{@ad.region}", "REVEAL #{@ad.ad_type.upcase} AD CONTACT: #{ga_info}")
+		track_event('Engagement & Acquisition', 'Phone Reveal', "reveal contact details on #{@ad.ad_type} ad: #{@ad.region.name}", "REVEAL #{@ad.ad_type.upcase} AD CONTACT: #{ga_info}")
 	end
 
 	def track_call
-		track_event('Engagement & Acquisition', 'Phone Call', "call made on #{@ad.ad_type} ad: #{@ad.region}", "CALL #{@ad.ad_type.upcase} AD PHONE")
+		track_event('Engagement & Acquisition', 'Phone Call', "call made on #{@ad.ad_type} ad: #{@ad.region.name}", "CALL #{@ad.ad_type.upcase} AD PHONE")
 	end
 
 	def track_text
-		track_event('Engagement & Acquisition', 'Text message', "text sent on #{@ad.ad_type} ad: #{@ad.region}", "TEXT #{@ad.ad_type.upcase} AD PHONE")
+		track_event('Engagement & Acquisition', 'Text message', "text sent on #{@ad.ad_type} ad: #{@ad.region.name}", "TEXT #{@ad.ad_type.upcase} AD PHONE")
 	end
 
 	def track_whatsapp
-		track_event('Engagement & Acquisition', 'Whatsapp message', "whatsapp sent on #{@ad.ad_type} ad: #{@ad.region}", "WHATSAPP #{@ad.ad_type.upcase} AD CONTACT")
+		track_event('Engagement & Acquisition', 'Whatsapp message', "whatsapp sent on #{@ad.ad_type} ad: #{@ad.region.name}", "WHATSAPP #{@ad.ad_type.upcase} AD CONTACT")
 	end
 
 	def track_favorite
-		track_event('Engagement & Acquisition', 'Advert Added to Favorite', "favorite #{@ad.ad_type} ad: #{@ad.region}", "FAVORITE #{@ad.ad_type.upcase} AD: #{ga_info}")
+		track_event('Engagement & Acquisition', 'Advert Added to Favorite', "favorite #{@ad.ad_type} ad: #{@ad.region.name}", "FAVORITE #{@ad.ad_type.upcase} AD: #{ga_info}")
 	end
 
 	def track_failure
