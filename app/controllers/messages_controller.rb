@@ -38,7 +38,7 @@ class MessagesController < ApplicationController
   private
 
   def track_message
-    track_event("Engagement & Acquisition", "Site message", "in-site message sent on #{@ad.ad_type} ad: #{@ad.region.name}", "SEND MESSAGE TO AD")
+    track_event("Engagement & Acquisition", "Site message", "in-site message sent", "SEND MESSAGE TO AD")
   end
 
 end
