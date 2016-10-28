@@ -13,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     user = User.find_for_oauth(request.env["omniauth.auth"])
     if user.persisted?
-      if user.created_at <= 5.minutes.ago
+      if user.sign_in_count <= 1
         track_event('User Management', 'FB registration', 'FB account registration', "REGISTERED A FB ACCOUNT")
       else
         track_event('User Management', 'FB login', 'FB account login', "LOGGED IN A FB ACCOUNT")
