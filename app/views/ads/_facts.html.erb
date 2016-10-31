@@ -5,11 +5,11 @@
 		<td><%= number_to_currency(@ad.price, precision: 0)%></td>
 	</tr>
 	<tr>
-		<th><%= t "common.volume" %>:</th>
-		<td><%= t("volume_units.#{@ad.volume_unit}", count: @ad.volume) %></td>
+		<th><%= @ad.negotiable ? "BEI INAONGEREKA 🙆" : "BEI HAIONGEREKI 🙅" %></th>
 	</tr>
 	<tr>
-		<th><%= @ad.negotiable ? "BEI INAONGEREKA 🙆" : "BEI HAIONGEREKI 🙅" %></th>
+		<th><%= t "common.volume" %>:</th>
+		<td><%= t("volume_units.#{@ad.volume_unit}", count: @ad.volume) %></td>
 	</tr>
 	<tr>
 		<th><%= t "common.published" %>:</th>
