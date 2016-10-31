@@ -23,6 +23,7 @@
 # CropType.create!(:name => "Cashew", :name_sw => "Korosho", :sort_order => 22)
 # CropType.create!(:name => "Millet", :name_sw => "Mtama", :sort_order => 23)
 # CropType.create!(:name => "Oil", :name_sw => "Mafuta", :sort_order => 24)
+# CropType.create!(:name => "Soybeans", :name_sw => "Soya", :sort_order => 25)
 
 
 # # puts 'CREATED 10 CROP_TYPES'
