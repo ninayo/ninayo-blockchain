@@ -27,8 +27,8 @@ class Ad < ActiveRecord::Base
 
 	has_many :ratings
 
-	has_many :calls
-	has_many :texts
+	has_many :calls, :class_name => "CallLog", :foreign_key => "ad_id"
+	has_many :texts, :class_name => "TextLog", :foreign_key => "ad_id"
 
 
 	# Validations
