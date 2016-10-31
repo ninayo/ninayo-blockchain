@@ -27,6 +27,9 @@ class Ad < ActiveRecord::Base
 
 	has_many :ratings
 
+	has_many :calls
+	has_many :texts
+
 
 	# Validations
 	# validates :lat, :lng, presence: true
