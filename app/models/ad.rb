@@ -122,6 +122,10 @@ class Ad < ActiveRecord::Base
 			.order("crop_type_id")
 	end
 
+	def self.contact_count
+		self.calls.count + self.texts.count
+	end
+
 protected
 
 	def adjust_price
