@@ -15,7 +15,7 @@
 	})(window,document,'script','dataLayer','GTM-MFH7JK');</script>
 	<!-- End GTM Copy -->
 	
-	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', :async => true, cache: true, 'data-turbolinks-track' => true %>
 	<%= csrf_meta_tags %>
 </head>
 <body class="<%= "#{controller.controller_name}-#{controller.action_name}" %>">
