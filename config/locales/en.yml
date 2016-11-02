@@ -93,7 +93,7 @@ en:
     sado: "sado"
     gunia: "gunia"
     trees: "trees"
-    mkungu: "mkungu"
+    mkungu: "bunches"
     tenga: "tenga"
 
   volume_units:
@@ -139,8 +139,8 @@ en:
       other: "%{count} trees"
     mkungu:
       zero: ""
-      one: "1 mkungu"
-      other: "%{count} mkungu"
+      one: "1 bunch"
+      other: "%{count} bunches"
     tenga:
       zero: ""
       one: "1 tenga"
