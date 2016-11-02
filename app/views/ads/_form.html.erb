@@ -77,13 +77,13 @@
 				<h5><%= t "views.ad.new.review_contact_information" %></h5>
 	
 				<div class="field">
-					<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
+					<strong><%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %></strong>
 					<%= user_fields.text_field :name, :default => current_user.name, :validate => true %>
 				</div>
 	
 
 				<div class="field">
-					<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
+					<strong><%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %></strong>
 					<div class="input-wrapper">
 						<div class="input-field">
 							<%= user_fields.telephone_field :phone_number, :default => current_user.phone_number, :validate => false, class: "is-inline" %>
@@ -92,7 +92,7 @@
 				</div>
 
 				<div class="field">
-					<%= user_fields.label :whatsapp_id, :value => (I18n.locale == :sw ? "WhatsApp (hiari)" : "WhatsApp (optional)"), :class => "field-label" %>
+					<strong><%= user_fields.label :whatsapp_id, :value => (I18n.locale == :sw ? "WhatsApp (hiari)" : "WhatsApp (optional)"), :class => "field-label" %></strong>
 					<div class="input-wrapper">
 						<div class="input-field">
 							<%= user_fields.text_field :whatsapp_id, :validate => false, class: "is-inline" %>
@@ -102,21 +102,21 @@
 
 				<h3><%= t("views.ad.show.location").humanize %></h3>
 				<div class="field">
-					<%= user_fields.label "#{t "views.ad.region"}", :class => 'field-label' %>
+					<strong><%= user_fields.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
 					<%= user_fields.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
 				</div>
 				<div class="field">
-					<%= user_fields.label "#{t "views.ad.district"}", class: "field-label" %>
+					<strong><%= user_fields.label "#{t "views.ad.district"}", class: "field-label" %></strong>
 					<%= user_fields.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
 				</div>
 
 				<div class="field">
-					<%= user_fields.label "#{t "views.ad.ward"}", class: "field-label" %>
+					<strong><%= user_fields.label "#{t "views.ad.ward"}", class: "field-label" %></strong>
 					<%= user_fields.grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
 				</div>
 
 				<div class="field">
-					<%= user_fields.label "#{t "views.ad.village"}", :class => 'field-label' %>
+					<strong><%= user_fields.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
 					<%= user_fields.text_field :village %>
 				</div>
 			<% end %>
@@ -127,21 +127,21 @@
 	<fieldset>
 		<h3><%= t("views.ad.show.location").humanize %></h3>
 		<div class="field">
-			<%= f.label "#{t "views.ad.region"}", :class => 'field-label' %>
+			<strong><%= f.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
 			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => @ad.region_id %>
 		</div>
 		<div class="field">
-			<%= f.label "#{t "views.ad.district"}", class: "field-label" %>
+			<strong><%= f.label "#{t "views.ad.district"}", class: "field-label" %></strong>
 			<%= f.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
 		</div>
 
 		<div class="field">
-			<%= f.label "#{t "views.ad.ward"}", class: "field-label" %>
+			<strong><%= f.label "#{t "views.ad.ward"}", class: "field-label" %></strong>
 			<%= f.grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
 		</div>
 
 		<div class="field">
-			<%= f.label "#{t "views.ad.village"}", :class => 'field-label' %>
+			<strong><%= f.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
 			<%= f.text_field :village %>
 		</div>
 		<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
@@ -158,14 +158,14 @@
 			<% if current_user.name.nil? || current_user.name.blank? %>
 			<br>
 			<div class="field">
-				<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
+				<strong><%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %></strong>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<% end %>
 			<% if current_user.birthday.blank? %>
 			<br>
 			<div class="field">
-				<%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %>
+				<strong><%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %></strong>
 				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
 			</div>
 			<% end %>
