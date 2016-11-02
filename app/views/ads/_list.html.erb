@@ -7,7 +7,7 @@
 			<div class="ads-meta" style="font-size: 16px">
 				<span class="ads-published_at"><%= t "common.published" %> <%= l(ad.published_at, format: :short) if ad.published_at %>
 				</span>
-				<span><%= "(" + time_ago_in_words(ad.published_at).titleize + ")" %></span>
+				<span><%= "(" + time_ago_in_words(ad.published_at).titleize + (I18n.locale == :sw ? "" : " ago") + ")" %></span>
 				<span class="rating" data-score="<%= ad.user.seller_rating ? ad.user.seller_rating.round(0) : 0 %>">
 					<span class="rating-user">
 						<%= t "common.by" %> <%= ad.user.name.titleize %>
