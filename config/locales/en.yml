@@ -143,8 +143,8 @@ en:
       other: "%{count} bunches"
     tenga:
       zero: ""
-      one: "1 tenga"
-      other: "%{count} tenga"
+      one: "1 piece"
+      other: "%{count} pieces"
 
   common:
     back: "Back"
