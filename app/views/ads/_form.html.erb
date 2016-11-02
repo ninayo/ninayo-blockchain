@@ -73,7 +73,7 @@
 
 		<fieldset>
 	 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
-				<h4><%= I18n.locale == :sw ? "Taarifa Zako" : "Contact information") %></h4>
+				<h4><%= (I18n.locale == :sw ? "Taarifa Zako" : "Contact information") %></h4>
 				<h5><%= t "views.ad.new.review_contact_information" %></h5>
 	
 				<div class="field">
