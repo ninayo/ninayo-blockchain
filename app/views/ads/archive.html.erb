@@ -41,8 +41,8 @@
 				<%= fields_for :user, @ad.user do |user_fields| %>
 					<%= user_fields.hidden_field :name %>
 				<% end %>
-				<%= link_to "#{t "common.cancel"}", mypage_current_path, :class => "button is-block" %>
-				<%= f.submit("#{t "common.archive"}", :class  => "button is-primary is-block") %>
+				<%= link_to "#{t "common.cancel"}", mypage_current_path, :class => "button is-danger is-block" %>
+				<%= f.submit("#{t "common.archive"}", :class  => "button is-block") %>
 			</div>
 		<% end %>
 	</div>
