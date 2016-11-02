@@ -153,6 +153,7 @@ sw:
     invite: "Waalike Wengine"
     message: "Ujumbe"
     call: "Piga simu"
+    sms: "Kutuma SMS"
 
     errors:
       zero: "hakuna makosa"

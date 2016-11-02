@@ -173,6 +173,7 @@ en:
     invite: "Invite Friends"
     message: "Message"
     call: "Call phone"
+    sms: "Send SMS"
 
     errors:
       zero: "no errors"
