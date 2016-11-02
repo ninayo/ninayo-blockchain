@@ -173,16 +173,7 @@
 				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
 			</div>
 			<% end %>
-			<% if current_user.phone_number.nil? || current_user.phone_number.blank? %>
-			<div class="field">
-				<%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %>
-				<div class="input-wrapper">
-					<div class="input-field">
-						<%= user_fields.telephone_field :phone_number, :validate => false, class: "is-inline" %>
-				</div>
-			</div>
-			</div>
-			<% end %>
+			
 			<% if current_user.gender.blank? || current_user.gender.nil? %>
 			<div class="field">
 				Mimi ni <%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
