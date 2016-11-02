@@ -51,8 +51,8 @@ en:
         buyer_price: "Buyer price"
         ad_type: "Type"
         location: "Location"
-        negotiable: "🙆Negotiable"
-        non_negotiable: "🙅Non-negotiable"
+        negotiable: "Negotiable"
+        non_negotiable: "Non-negotiable"
 
       ad_log:
         user: "User"
