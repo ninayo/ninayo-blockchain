@@ -119,12 +119,6 @@
 					<%= user_fields.label "#{t "views.ad.village"}", :class => 'field-label' %>
 					<%= user_fields.text_field :village %>
 				</div>
-				<% if current_user.region_id && !current_user.location_needed? %>
-					<tr>
-						<th><%= t "views.ad.show.location" %>: </th>
-						<td><% unless current_user.village.blank? %><%= "#{current_user.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.user.region.name %></td>
-					</tr>
-				<% end %>
 			<% end %>
 
 	<% end %>
