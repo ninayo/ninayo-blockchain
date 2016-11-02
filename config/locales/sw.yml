@@ -31,6 +31,8 @@ sw:
         buyer_price: "Bei ya Mnunuzi"
         ad_type: "Aina"
         location: "Mahali"
+        negotiable: "🙆 Inaongereka"
+        non_negotiable: "🙅 Haiongereki"
 
       ad_log:
         user: "Mtumiaji"
