@@ -25,7 +25,7 @@
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
 		</div>
 		<div class="field other_crop_type">
-			<%= f.label t "views.ad.new.other_crop_optional", :class => 'field-label' %>
+			<i><%= f.label t "views.ad.new.other_crop_optional", :class => 'field-label' %></i>
 			<%= f.text_field :other_crop_type %>
 		</div>
 
