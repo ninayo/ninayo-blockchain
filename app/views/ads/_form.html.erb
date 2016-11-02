@@ -100,6 +100,25 @@
 					</div>
 				</div>
 
+				<% if current_user.birthday.blank? %>
+				<br>
+				<div class="field">
+					<strong><%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %></strong>
+					<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
+				</div>
+				<% end %>
+				
+				<% if current_user.gender.blank? || current_user.gender.nil? %>
+				<br>
+				<div class="field">
+					<% if I18n.locale == :sw %>
+					Mimi ni <%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
+					<% else %>
+					I am a <%= user_fields.select :gender, options_for_select([['a man', "male"], ['a woman', "female"]]), style: "width: 135px;" %>
+					<% end %>
+				</div> 
+				<% end %>
+
 				<h3><%= t("views.ad.show.location").humanize %></h3>
 				<div class="field">
 					<strong><%= user_fields.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
@@ -148,36 +167,6 @@
 		<%= f.hidden_field :lat %>
 		<%#= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
 		<%= f.hidden_field :lng %>
-	</fieldset>
-	<% end %>
-
-	<% if current_user && current_user.info_needed? %>
-	<fieldset>
-
- 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
-			<% if current_user.name.nil? || current_user.name.blank? %>
-			<br>
-			<div class="field">
-				<strong><%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %></strong>
-				<%= user_fields.text_field :name, :validate => true %>
-			</div>
-			<% end %>
-			<% if current_user.birthday.blank? %>
-			<br>
-			<div class="field">
-				<strong><%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %></strong>
-				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
-			</div>
-			<% end %>
-			
-			<% if current_user.gender.blank? || current_user.gender.nil? %>
-			<br>
-			<div class="field">
-				Mimi ni <%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
-			</div> 
-			<% end %>
-			
-		<% end %>
 	</fieldset>
 	<% end %>
 
