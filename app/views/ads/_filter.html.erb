@@ -31,7 +31,7 @@
 			<%= select_tag "region_id", options_from_collection_for_select(@regions, "id", "name", @region_id), style: "width: 135px;", prompt: (I18n.locale == :sw ? "popote" : "anywhere") %>
 
 		</div>
-			<input type="submit" value=<%= I18n.locale == :sw ? "Chuja Vigezo Matangazo" : "Change search options" %> class="button is-primary is-block"/>
+			<input type="submit" value="<%= I18n.locale == :sw ? "Chuja Vigezo Matangazo" : "Change search options" %>" class="button is-primary is-block"/>
 		<h3 class="filter-heading"><a href="<%=request.path%>" class="filter-reset" style="color: #337AB7;"><%= t "views.ad.filter.reset_filter" %></a></h3>
 		</div>
 		
