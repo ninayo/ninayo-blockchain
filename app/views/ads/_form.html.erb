@@ -92,7 +92,7 @@
 				</div>
 
 				<div class="field">
-					<%= user_fields.label :whatsapp_id, :value => "WhatsApp (hiari)", :class => "field-label" %>
+					<%= user_fields.label :whatsapp_id, :value => (I18n.locale == :sw ? "WhatsApp (hiari)" : "WhatsApp (optional)"), :class => "field-label" %>
 					<div class="input-wrapper">
 						<div class="input-field">
 							<%= user_fields.text_field :whatsapp_id, :validate => false, class: "is-inline" %>
@@ -179,16 +179,7 @@
 				Mimi ni <%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
 			</div> 
 			<% end %>
-			<% if current_user.whatsapp_id.nil? || current_user.whatsapp_id.blank? %>
-			<div class="field">
-				<%= user_fields.label :whatsapp_id, :value => "WhatsApp (hiari)", :class => "field-label" %>
-				<div class="input-wrapper">
-				<div class="input-field">
-					<%= user_fields.text_field :whatsapp_id, :validate => false, class: "is-inline" %>
-				</div>
-				</div>
-			</div>
-			<% end %>
+			
 		<% end %>
 	</fieldset>
 	<% end %>
