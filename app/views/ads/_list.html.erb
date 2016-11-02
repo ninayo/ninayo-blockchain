@@ -15,7 +15,7 @@
 				</span>
 			</div>
 			<h2 class="ads-heading" style="font-size: 22px"><%= ad.title %></h2>
-			<div class="ads-price" style="font-size: 20px"><%= number_to_currency(ad.price, precision: 0) %> <%= t "common.per_unit" %> - <%= ad.negotiable ? 🙆 : 🙅 %> <%= ad.negotiable ? (t "attributes.ad.negotiable") : (t "attributes.ad.non_negotiable") %></div>
+			<div class="ads-price" style="font-size: 20px"><%= number_to_currency(ad.price, precision: 0) %> <%= t "common.per_unit" %> - <%= ad.negotiable ? "🙆" : "🙅" %> <%= ad.negotiable ? (t "attributes.ad.negotiable") : (t "attributes.ad.non_negotiable") %></div>
 			<div class="posts-location" style="font-size: 16px">
 				<% unless ad.village.nil? || ad.village.blank? %><%= "#{ad.village.titleize}, " %><% end %> <%if ad.user.ward %><%= "#{ad.user.ward.name}, " %><% end %> <% if ad.user.district %><%= "#{ad.user.district.name}, " %> <% end %> <%= ad.region.name %>
 			</div>
