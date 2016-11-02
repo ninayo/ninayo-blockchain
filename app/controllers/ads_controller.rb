@@ -387,11 +387,12 @@ private
 	end
 
 	def buyers(ad)
-		arr = []
-		AdLog.where(:ad => ad, :event_type_id => 2).each do |a|
-			arr.push(a.user)
-		end
-		buyers = arr.uniq{|u| u.id}
+		buyers = []
+
+		CallLog.where(:ad_id => ad.id).each { |a| buyers.push(a.caller) unless buyers.include?(a.caller) }
+		TextLog.where(:ad_id => ad.id).each { |a| buyers.push(a.sender) unless buyers.include?(a.sender) }
+		WhatsappLog.where(:ad_id => ad.id).each { |a| buyers.push(a.sender) unless buyers.include?(a.sender) }
+
 		buyers = buyers.sort! { |a,b| a.name.downcase <=> b.name.downcase }
 	end
 
