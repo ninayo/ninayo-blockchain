@@ -5,7 +5,10 @@
 		<td><%= number_to_currency(@ad.price, precision: 0)%></td>
 	</tr>
 	<tr>
-		<th><%= @ad.negotiable ? "BEI INAONGEREKA 🙆" : "BEI HAIONGEREKI 🙅" %></th>
+		<% if I18n.locale == :sw %>
+			<th><%= @ad.negotiable ? "BEI INAONGEREKA 🙆" : "BEI HAIONGEREKI 🙅" %></th>
+		<% else %>
+			<th><%= @ad.negotiable ? "PRICE NEGOTIABLE 🙆" : "NON-NEGOTIABLE 🙅" %></th>
 	</tr>
 	<tr>
 		<th><%= t "common.volume" %>:</th>
