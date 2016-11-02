@@ -17,7 +17,7 @@
 	<fieldset>
 
 		<div class="field">
-			<strong>Ninataka <%= f.select :ad_type, options_for_select([['kuuza', "sell"], ['kununua', "buy"]]), style: "width: 135px;" %></strong>
+			<strong><%= (I18n.locale == :sw ? "Ninataka " : "I want ") %> <%= f.select :ad_type, options_for_select([[(I18n.locale == :sw ? 'kuuza' : 'to sell'), "sell"], [(I18n.locale == :sw ? 'kununua' : 'to buy'), "buy"]]), style: "width: 135px;" %></strong>
 		</div>
 		<h3><%= t("views.ad.crop").humanize %></h3>
 		<div class="field">
@@ -56,8 +56,8 @@
 			<strong><%= f.label :negotiable, (I18n.locale == :sw ? "Ni bei yako inaongereka?" : "Is your price negotiable?"), :class => 'field-label' %></strong>
 			<div class="input-wrapper">
 				<div class="input-field">
-					<%= f.radio_button :negotiable, true %> Bei inaongereka <br>
-					<%= f.radio_button :negotiable, false %> Bei haiongereki 
+					<%= f.radio_button :negotiable, true %> <%= (I18n.locale == :sw ? "Bei inaongereka" : "Negotiable") %><br>
+					<%= f.radio_button :negotiable, false %> <%= (I18n.locale == :sw ? "Bei haiongereki" : "Non-negotiable") %> 
 				</div>
 			</div>
 		</div>
@@ -73,7 +73,7 @@
 
 		<fieldset>
 	 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
-				<h4>Taarifa Zako</h4>
+				<h4><%= I18n.locale == :sw ? "Taarifa Zako" : "Contact information") %></h4>
 				<h5><%= t "views.ad.new.review_contact_information" %></h5>
 	
 				<div class="field">
@@ -169,7 +169,7 @@
 			<% end %>
 			<% if current_user.birthday.blank? %>
 			<div class="field">
-				<%= user_fields.label :birthday, :value => "Mwaka wa kuzaliwa", :class => "field-label" %>
+				<%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %>
 				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
 			</div>
 			<% end %>
