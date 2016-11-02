@@ -183,7 +183,7 @@
 			</div>
 			</div>
 			<% end %>
-			<% if current_user.gender.blank? %>
+			<% if current_user.gender.blank? || current_user.gender.nil? %>
 			<div class="field">
 				Mimi ni <%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
 			</div> 
