@@ -430,6 +430,6 @@ private
 		params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :district_id, :ward_id, :position, :status, :negotiable, :lat, :lng, :final_price, :archived_at, :buyer_id, :buyer_price, :rating, :ad_type)
 	end
 	def user_params
-		params.require(:user).permit(:name, :email, :phone_number, :region_id, :district_id, :ward_id, :village, :birthday)
+		params.require(:user).permit(:name, :email, :gender, :phone_number, :region_id, :district_id, :ward_id, :village, :birthday)
 	end
 end
