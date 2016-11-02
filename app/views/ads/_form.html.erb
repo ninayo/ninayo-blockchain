@@ -169,6 +169,7 @@
 	<fieldset>
 		<div class="login">
 			<div class="login-column">
+				<h3><%= I18n.locale == :sw ? "Jisajili" : "Sign up" %></h3>
 
 				<%= f.fields_for User.new do |ff| %>
   					<div>
