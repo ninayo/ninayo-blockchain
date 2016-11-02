@@ -4,7 +4,7 @@
 		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<tr>
-		<td><%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %></td>
+		<td><%= link_to("#{t "common.sms"}", text_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<% end %>
 	<% unless @ad.user.whatsapp_id.blank? %>
