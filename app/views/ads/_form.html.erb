@@ -121,7 +121,7 @@
 				</div>
 				<% if current_user.region_id && !current_user.location_needed? %>
 					<tr>
-						<th><%= t "views.ad.show.location" %></th>
+						<th><%= t "views.ad.show.location" %>: </th>
 						<td><% unless current_user.village.blank? %><%= "#{current_user.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.user.region.name %></td>
 					</tr>
 				<% end %>
@@ -162,12 +162,14 @@
 
  		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 			<% if current_user.name.nil? || current_user.name.blank? %>
+			<br>
 			<div class="field">
 				<%= user_fields.label :name, :value => "#{t "activerecord.attributes.user.name"}", :class => "field-label" %>
 				<%= user_fields.text_field :name, :validate => true %>
 			</div>
 			<% end %>
 			<% if current_user.birthday.blank? %>
+			<br>
 			<div class="field">
 				<%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %>
 				<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
@@ -175,6 +177,7 @@
 			<% end %>
 			
 			<% if current_user.gender.blank? || current_user.gender.nil? %>
+			<br>
 			<div class="field">
 				Mimi ni <%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
 			</div> 
