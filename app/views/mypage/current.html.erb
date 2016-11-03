@@ -1,0 +1,6 @@
+<% provide(:title, "#{t "views.my_page.current.title"}") %>
+<%= render "pagenav", :current_view => "current" %>
+
+<div class="tabs-content">
+	<%= render "current", :current_view => "current" %>
+</div>
