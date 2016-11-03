@@ -2,7 +2,7 @@
 	<p class="conversation-header"><strong><%= "Karibu katika mfumo wa ujumbe wa NINAYO!" %></strong></p>
 
 
-    <div class="pagenav is-block">
+    <div class="pagenav is-block" style="display: flex; justify-content: center;">
     	<%= mailbox_section 'inbox', @box, :class => "pagenav-item" %>
 		<%= mailbox_section 'sent', @box,  :class => "pagenav-item" %>
     </div>
