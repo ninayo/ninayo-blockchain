@@ -4,6 +4,13 @@
 <div class="tabs-content">
 	<%= render "current", :current_view => "current" %>
 </div>
+
+<%= link_to conversations_path, :class => "button is-block" do %>
+			<img src="<%= image_path("icons/mail.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/mail.png") %>'">
+			<%= (I18n.locale == :sw ? "Ujumbe Wangu" : "My Messages") %>
+			<% end %>
+
+
 <%= link_to destroy_user_session_path, method: :delete, :class => "button is-danger is-block"  do %>
 				<img src="<%= image_path("icons/sign-out.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/sign-out.png") %>'">
 				<%= t "views.navigation.log_out" %>
