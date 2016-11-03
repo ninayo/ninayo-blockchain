@@ -3,6 +3,11 @@
 			<img src="<%= image_path("icons/mail.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/mail.png") %>'">
 			<%= (I18n.locale == :sw ? "Ujumbe Wangu" : "My Messages") %>
 			<% end %>
+
+<%= link_to edit_user_registration_path, :class => "button is-block" do %>
+			<img src="<%= image_path("icons/user.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/user.png") %>'">
+			<%= (I18n.locale == :sw ? "Hariri Habari Yangu" : "Edit my info") %>
+			<% end %>
 <%= render "pagenav", :current_view => "current" %>
 
 <div class="tabs-content">
