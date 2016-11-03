@@ -23,6 +23,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def update_resource(resource, params)
+    if !current_user.uid.nil?
+      params.delete("current_password")
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
+    end
+  end
+
   def build_login
     login = params[:user][:login].delete(" ")
 
