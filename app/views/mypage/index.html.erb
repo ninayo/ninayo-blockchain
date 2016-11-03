@@ -4,12 +4,15 @@
 			<%= (I18n.locale == :sw ? "Ujumbe Wangu" : "My Messages") %>
 			<% end %>
 
+<%= link_to mypage_current_path, :class => "button is-block" do %>
+	<img src="<%= image_path("icons/tachometer.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/tachometer.png") %>'">
+		<%= (I18n.locale == :sw ? "Matangazo Yangu" : "My active ads") %>
+		<% end %>
+
 <%= link_to edit_user_registration_path, :class => "button is-block" do %>
 			<img src="<%= image_path("icons/user.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null; this.src='<%= image_path("icons/user.png") %>'">
 			<%= (I18n.locale == :sw ? "Hariri Habari Yangu" : "Edit my info") %>
 			<% end %>
-
-<%= link_to (I18n.locale == :sw ? "Matangazo Yangu " : "My active ads"), mypage_current_path, :class => "button is-block" %>
 
 
 <%= link_to destroy_user_session_path, method: :delete, :class => "button is-danger is-block"  do %>
