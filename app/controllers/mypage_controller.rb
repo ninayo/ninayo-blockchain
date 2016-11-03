@@ -2,16 +2,7 @@ class MypageController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		#@ads = current_user.ads.where(:status => "published")
-		@ads = current_user.ads
-							.published
-							.includes(:crop_type)
-							.page(params[:page])
-		@view = "current"
-
-		respond_to do |format|
-			format.html # index.html.erb
-		end
+		
 	end
 
 	def favorites
@@ -30,6 +21,19 @@ class MypageController < ApplicationController
 
 		respond_to do |format|
 			format.html
+		end
+	end
+
+	def current
+		#@ads = current_user.ads.where(:status => "published")
+		@ads = current_user.ads
+							.published
+							.includes(:crop_type)
+							.page(params[:page])
+		@view = "current"
+
+		respond_to do |format|
+			format.html # index.html.erb
 		end
 	end
 
