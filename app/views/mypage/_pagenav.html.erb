@@ -1,4 +1,4 @@
-<div class="pagenav is-block">
+<div class="pagenav is-block" style="display: flex; justify-content: center;">
 	<div class="pagenav-group pagenav-buttongroup">
 		<%= link_to "#{ t "views.my_page.pagenav.current"}", mypage_path, :class => current_view == "current" ? "pagenav-item is-active" : "pagenav-item" %>
 		<%= link_to "#{ t "views.my_page.pagenav.archive"}", mypage_archive_path, :class => current_view == "archive" ? "pagenav-item is-active" : "pagenav-item" %>
