@@ -9,9 +9,7 @@
 			<%= (I18n.locale == :sw ? "Hariri Habari Yangu" : "Edit my info") %>
 			<% end %>
 
-<%= link_to "My active ads", mypage_current_path, :class => "button is-block" %>
-
-<%= link_to "My archived ads", mypage_archive_path, :class => "button" %>
+<%= link_to (I18n.locale == :sw ? "Matangazo Yangu " : "My active ads"), mypage_current_path, :class => "button is-block" %>
 
 
 <%= link_to destroy_user_session_path, method: :delete, :class => "button is-danger is-block"  do %>
