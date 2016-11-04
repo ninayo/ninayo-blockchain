@@ -24,7 +24,7 @@ class ConversationsController < ApplicationController
 
   def reply
     current_user.reply_to_conversation(@conversation, params[:body])
-    flash[:success] = "Reply sent"
+    flash[:success] = (I18n.locale == :sw ? "Ujumbe wako umetumwa" : "Your message has been sent")
     redirect_to conversation_path(@conversation)
   end
 
