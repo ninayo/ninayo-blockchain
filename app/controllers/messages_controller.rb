@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
   def create
     recipients = User.where(id: params['recipients']) || [User.find_by_id(params[:uid].keys.first)]
     conversation = current_user.send_message(recipients, params[:message][:body], params[:message][:subject]).conversation
-    flash[:success] = "Message sent"
+    flash[:success] = (I18n.locale == :sw ? "Ujumbe wako umetumwa" : "Your message has been sent")
     redirect_to conversation_path(conversation)
   end
   #subject is hardcoded in messages/new.html.erb but we can replace the hidden with a normal field if we want
