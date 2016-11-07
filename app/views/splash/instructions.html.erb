@@ -11,9 +11,7 @@
 		<p>To return to the home page, select the NINAYO logo at the top of the screen at any time.</p>
 
 		<p>Let us know what you think about NINAYO: Send us an email with your feedback and suggestions at <a href="mailto:info@ninayo.com.com" target="_top">info@ninayo.com</a>. If you have questions or a problem, please email us at <a href="mailto:support@ninayo.com.com" target="_top">support@ninayo.com</a></p>
-
-		<%= link_to (I18n.locale == :sw ? "Rudi ukurasa wa mwanzo" : "Back to homepage"), root_path, :class => "button is-block" %>
-
+		
 	<% else %>
 
 		<p><strong>Karibu NINAYO! Mtandao wa bure unaotoa huduma za mauzo na ununuzi wa mazao unaotumiwa na maelfu ya wakulima Tanzania. Hakuna gharama za kuweka matangazo ya kununua na kuuza mazao, na ni njia rahisi ya kupata pesa zaidi kutokana na mazao yako.</strong></p>
@@ -26,8 +24,6 @@
 
 		<p>Tupe maoni au mapendekezo yako kuhusu NINAYO kwa kupitia <a href="mailto:info@ninayo.com.com" target="_top">info@ninayo.com</a></p>
 		<p>Kama una maswali au tatizo, tafadhali wasiliana nasi kwa kupitia <a href="mailto:support@ninayo.com.com" target="_top">support@ninayo.com</a></p>
-
-		<%= link_to (I18n.locale == :sw ? "Rudi ukurasa wa mwanzo" : "Back to homepage"), root_path, :class => "button is-block", :style => "background-color: gray;" %>
 	<% end %>
 
 	<% unless current_user %>
@@ -38,5 +34,7 @@
 				<%= link_to((I18n.locale == :sw ? "Jisajili" : "Sign up"), new_user_registration_url, :class => "button") %>
 				<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
 	<% end %>
+
+	<%= link_to (I18n.locale == :sw ? "Rudi ukurasa wa mwanzo" : "Back to homepage"), root_path, :class => "button is-block", :style => "background-color: gray;" %>
 
 </div>
