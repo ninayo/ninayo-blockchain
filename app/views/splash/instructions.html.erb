@@ -4,17 +4,6 @@
 
 		<p><strong>Welcome to NINAYO, the free crop-trading service used by over ten thousand Tanzanian farmers. There's no cost to post an advertisement to buy and sell, and it's an easy way to make more money from your crops.</strong></p>
 
-		<p>The simplest way to get started buying and selling your crops is to log in via Facebook. It's easy, free, and the fastest way to use NINAYO.</p>
-
-		<p>If you don’t have Facebook, you can sign up and login using your email address or phone number.</p>
-
-		<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-facebook" do%>
-					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-						this.src='<%= image_path("icons/facebook.png") %>'">
-				<% end %>
-		<%= link_to((I18n.locale == :sw ? "Jisajili" : "Sign up"), new_user_registration_url, :class => "button") %>
-		<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
-
 		<p>To post a free ad to buy or sell products/crops, select the option to buy and sell on the home page. Fill in the form, press submit(used post), and you're done. Interested buyers and sellers will contact you.</p>
 
 		<p>To find crops already for sale, select the option to view crops and prices on the home page. Change the settings at the top of the screen to view specific crops or places, then select an ad you're interested in. Use the "Call Sim", "SMS”, and  "Message" buttons to get in touch with the ad poster and negotiate your sale.</p>
@@ -26,17 +15,6 @@
 	<% else %>
 
 		<p><strong>Karibu NINAYO! Mtandao wa bure unaotoa huduma za mauzo na ununuzi wa mazao unaotumiwa na maelfu ya wakulima Tanzania. Hakuna gharama za kuweka matangazo ya kununua na kuuza mazao, na ni njia rahisi ya kupata pesa zaidi kutokana na mazao yako.</strong></p>
-
-		<p>Njia rahisi kabisa ya bure na haraka ya kuanza kununua au kuuza mazao yako na NINAYO ni kupitia Facebook.</p>
-
-		<p>Kama huna akaunti ya Facebook, unaweza kujiunga na NINAYO kwa kutumia anwani yako ya barua pepe au nambari ya simu.</p>
-
-		<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-facebook" do%>
-					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-						this.src='<%= image_path("icons/facebook.png") %>'">
-				<% end %>
-		<%= link_to((I18n.locale == :sw ? "Jisajili" : "Sign up"), new_user_registration_url, :class => "button") %>
-		<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
 
 		<p>Kuweka tangazo la bure la kununua au kuuza bidhaa/mazao, chagua “kununua na kuuza” katika ukurasa wa mwanzo. Jaza fomu, kisha bofya “tangaza” na umemaliza! Wanunuzi na wauzaji watawasiliana nawe wakivutiwa na tangazo lako.</p>
 
