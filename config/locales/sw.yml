@@ -175,7 +175,7 @@ sw:
       menu: "Orodha"
       home: "Nyumbani"
       my_page: "Ukurasa wangu"
-      edit_profile: "Hariri wasifu"
+      edit_profile: "Hariri maelezo"
       log_out: "Kutoka"
       sign_up: "Jisajili"
       login: "Ingia"
@@ -203,7 +203,7 @@ sw:
         benefit_4: "Wasiliana na wanunuzi na wauzaji"
 
     edit_profile:
-      heading: "Hariri wasifu"
+      heading: "Hariri maelezo"
       waiting_for_confirmation: "kwasasa inasubiri uthibitisho wa"
       leave_blank: "Acha wazi kama hutaki kubdailisha"
       need_password_for: "Tunahitaji nenosiri lako la sasa ili kuthibitisha mabadaliko"
@@ -272,8 +272,8 @@ sw:
         delete_confirmation: "Unauhakika unataka kufuta tangazo hili?"
         location: "Mahali"
       list:
-        could_not_find_heading: "Hakuna tangazo lolote linaloendana na vigezo vyako"
-        could_not_find_body: "Jaribu kuondoa baadhi ya vigezo vyako"
+        could_not_find_heading: "Hatukuweza kupata matangazo yoyote yanayofanana  na vigezo vyako"
+        could_not_find_body: "Tafadhali badili vigezo, au jaribu kuweka tangazo jipya la utafutacho ili kupata majibu kutoka kwa watumiaji wengine wa NINAYO."
         for_sale: "Matangazo ya kuuza mazao"
         for_buy: "Matangazo ya kununua mazao"
 

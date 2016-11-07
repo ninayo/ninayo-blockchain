@@ -293,8 +293,8 @@ en:
         delete_confirmation: "Are you sure you want to delete this ad?"
         location: "Location"
       list:
-        could_not_find_heading: "Couldn't find any ads that match your criterias"
-        could_not_find_body: "Try to remove some of your filters."
+        could_not_find_heading: "We couldn't find any advertisements that match your criteria"
+        could_not_find_body: "Please change your search settings, or try posting a new ad to get responses from other NINAYO users"
         for_sale: "Ads to sell crops"
         for_buy: "Ads to buy crops"
 

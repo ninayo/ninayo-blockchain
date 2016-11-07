@@ -26,4 +26,5 @@
 <% else %>
 	<h3><%= t "views.ad.list.could_not_find_heading" %></h3>
 	<p><%= t "views.ad.list.could_not_find_body" %></p>
+	<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 <% end %>
