@@ -62,7 +62,7 @@
 
 		<div class="field">
 			<strong><%= f.label :transport_type, (I18n.locale == :sw ? "Una usafiri wa mazao?" : "Can you provide transport?"), :class => 'field-label' %></strong>
-			<%= f.select :transport_type, options_for_select([[(I18n.locale == :sw ? 'hamna' : 'none'), "none"], [(I18n.locale == :sw ? 'lori' : 'truck'), "truck"], [(I18n.locale == :sw ? 'gari' : 'car'), "car"]]), style: "width: 135px;" %>
+			<%= f.select :transport_type, options_for_select([[(I18n.locale == :sw ? 'Hamna' : 'None'), "none"], [(I18n.locale == :sw ? 'Lori' : 'Truck'), "truck"], [(I18n.locale == :sw ? 'Gari' : 'Car'), "car"]]), style: "width: 135px;" %>
 		</div>
 
 		<div class="field">
