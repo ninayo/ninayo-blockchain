@@ -10,7 +10,6 @@
 
 			</div>
 			<div class="sitefooter-second">
-				<div class="fb-like" data-href="https://www.facebook.com/pages/NINAYOcom/588982287904802" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
 
 				<% if I18n.locale == :sw %>
 					<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
@@ -25,8 +24,7 @@
 		</div>
 		<div class="copy sitefooter-copy">
 			&copy; 2015 Ninayo
-		</p>
+			<%= image_tag("free_basics.png", alt: "NINAYO") %>
+		</div>
 	</div>
 </div>
-
-<div id="fb-root"></div>
