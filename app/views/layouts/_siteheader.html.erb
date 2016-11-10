@@ -18,13 +18,13 @@
 				<% end %>
 
 				<%if I18n.locale == :en %>
-					<% if current_user.name.nil? %>
+					<% if current_user.name.blank? || current_user.name.nil? %>
 						<%= "  Welcome!" %>
 					<% else %>
 						<%= "  #{current_user.name.split(" ")[0]}" %>
 					<% end %>
 				<% else %>
-					<% if current_user.name.nil? %>
+					<% if current_user.name.blank? || current_user.name.nil? %>
 						<%= "  Karibu!" %>
 					<% else %>
 						<%= "  #{current_user.name.split(" ")[0]}" %>
