@@ -13,8 +13,8 @@
 		<br>
 	<% end %>
 	</div>
-	<%= link_to((I18n.locale == :sw ? "Nini NINAYO?" : "What is NINAYO?") splash_instructions_path, :class => "button is-block")%>
 	<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 	<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
+	<%= link_to((I18n.locale == :sw ? "Nini NINAYO?" : "What is NINAYO?") splash_instructions_path, :class => "button is-block")%>
 
 </div>
