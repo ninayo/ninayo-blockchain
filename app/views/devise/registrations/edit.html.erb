@@ -55,7 +55,7 @@
 					<%= f.text_field :village, :validate => true %>
 				</div>
 			</fieldset>
-
+			<% unless current_user.uid.blank? %>
 			<fieldset>
 				<h4><%= t "view.edit_profile.change_password" %></h4>
 				<p><%=t("views.edit_profile.leave_blank")%></p>
@@ -80,15 +80,13 @@
 
 			<fieldset>
 				<h4><%= t "views.edit_profile.confirm_your_changes" %></h4>
-				<% if current_user.password_required? %>
 				<div class="field">
 					<%= f.label :current_password, class: "field-label" %>
 					<%= f.password_field :current_password, :validate => true, autocomplete: "off" %>
 					<span class="field-hint"><%=t "views.edit_profile.need_password_for"%></span>
 				</div>
-				<% end %>
 			</fieldset>
-
+			<% end %>
 			<div class="actions">
 				<%= f.submit "#{t "views.edit_profile.save_changes"}", class: "button is-block" %>
 			</div>
