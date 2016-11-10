@@ -33,6 +33,8 @@ gem 'devise'
 gem 'puma'
 gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations", branch: "4-2-stable"
 
+gem 'heroku_rails_deflate', :group => :production
+
 gem 'markdown-rails'
 
 gem 'roo'
