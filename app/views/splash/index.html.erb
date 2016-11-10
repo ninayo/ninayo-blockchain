@@ -5,41 +5,15 @@
 	<div class="splashtext">
 	<% if I18n.locale == :sw %>
 	<p><strong>Asante kwa kutembelea NINAYO, mtandao bure unaotumiwa na maelfu ya wakulima</strong></p> 
-	<% if current_user.nil? %>
-		<p><strong>Kuanza, kuingia kwa Facebook na bofya moja ya vitufe hapa chini:</strong></p>
-		<br>
-		<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
-			<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-				this.src='<%= image_path("icons/facebook.png") %>'">
-			<%if params[:locale] === "en" %>
-				Log in with Facebook
-			<% else %>
-				Jisajili na Facebook
-			<% end %>
-		<% end %>
-	<% else %>
 		<p><strong>Kuanza, bofya moja ya vitufe hapa chini:</strong></p>
-	<% end %>
+		<br>
 	<% else %>
 	<p><strong>Welcome to NINAYO, the free network used by thousands of farmers</strong></p>
-	<% if current_user.nil? %>
-		<p><strong>To get started, login with Facebook and choose one of the options below:</strong></p>
-		<br>
-		<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
-			<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-				this.src='<%= image_path("icons/facebook.png") %>'">
-			<%if params[:locale] === "en" %>
-				Log in with Facebook
-			<% else %>
-				Jisajili na Facebook
-			<% end %>
-		<% end %>
-	<% else %>
 		<p><strong>To get started, choose one of the options below:</strong></p>
-	<% end %>
+		<br>
 	<% end %>
 	</div>
-
+	<%= link_to((I18n.locale == :sw ? "Nini NINAYO?" : "What is NINAYO?") splash_instructions_path, :class => "button is-block")%>
 	<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 	<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
 
