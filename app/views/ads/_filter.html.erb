@@ -32,6 +32,12 @@
 			<%= select_tag "district_id", options_from_collection_for_select(@districts, "id", "name", @district_id), style: "width: 135px;", prompt: (I18n.locale == :sw ? "popote" : "anywhere") %>
 			<%= select_tag "ward_id", options_from_collection_for_select(@wards, "id", "name", @ward_id), style: "width: 135px;", prompt: (I18n.locale == :sw ? "popote" : "anywhere") %>
 
+			<%= select_tag :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
+
+			<%= grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
+
+			<%= grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
+
 		</div>
 			<input type="submit" value="<%= I18n.locale == :sw ? "Chuja Matangazo" : "Change search options" %>" class="button is-primary is-block"/>
 		<h3 class="filter-heading"><a href="<%=request.path%>" class="filter-reset" style="color: #337AB7;"><%= t "views.ad.filter.reset_filter" %></a></h3>
