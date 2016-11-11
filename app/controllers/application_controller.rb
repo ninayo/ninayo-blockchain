@@ -29,7 +29,9 @@ class ApplicationController < ActionController::Base
 
 	def after_sign_in_path_for(resource)
 		#root_path
-		session[:previous_url]
+		redirect = session[:previous_url]
+		return redirect if redirect.present?
+		root_path
 	end
 
 	protected
