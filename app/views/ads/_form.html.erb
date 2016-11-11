@@ -152,7 +152,7 @@
 		</div>
 		<div class="field">
 			<strong><%= f.label "#{t "views.ad.district"}", class: "field-label" %></strong>
-			<%= f.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
+			<%= f.grouped_collection_select :district_id, Region.includes(:wards).order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
 		</div>
 
 		<div class="field">
