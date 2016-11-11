@@ -408,6 +408,8 @@ private
 		@price_min = params[:price_min]
 		@price_max = params[:price_max]
 		@region_id = params[:region_id]
+		@district_id = params[:district_id]
+		@ward_id = params[:ward_id]
 		@show_filter = cookies[:show_filter]
 
 		@ads = Ad.published
