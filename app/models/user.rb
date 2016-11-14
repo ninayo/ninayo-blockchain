@@ -119,6 +119,7 @@ class User < ActiveRecord::Base
 		if user
 			user.update(:gender => auth.extra.raw_info.gender) if user.gender.nil?
 			user.update(:birthday => auth.info.birthday) if user.birthday.nil?
+			user.update(:email => nil) if user.email.include?("no_email#")
 			user.uid = auth.uid
 			user.name = auth.info.name
 			user.photo_url = JSON.parse(res.body)["data"]["url"]
