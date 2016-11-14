@@ -127,12 +127,12 @@
 				</div>
 				<div class="field">
 					<strong><%= user_fields.label "#{t "views.ad.district"}", class: "field-label" %></strong>
-					<%= user_fields.grouped_collection_select :district_id, Region.order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
+					<%= user_fields.grouped_collection_select :district_id, Region.includes(:districts).order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
 				</div>
 
 				<div class="field">
 					<strong><%= user_fields.label "#{t "views.ad.ward"}", class: "field-label" %></strong>
-					<%= user_fields.grouped_collection_select :ward_id, District.order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
+					<%= user_fields.grouped_collection_select :ward_id, District.includes(:wards).order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
 				</div>
 
 				<div class="field">
