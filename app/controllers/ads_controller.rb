@@ -226,13 +226,13 @@ class AdsController < ApplicationController
 					@rating = Rating.new(:rater_id => @ad.user_id, :ad => @ad, :score => params[:score], :role => "buyer", :user_id => @ad.buyer_id)
 
 					if @rating.save
-						redirect_to mypage_archive_path, notice: "Your ad has been archived!"
+						redirect_to mypage_archive_path, notice: "Tangazo umekuwa jalada!"
 					else
 						@buyers = buyers(@ad)
 						render "archive"
 					end
 				else
-					redirect_to mypage_archive_path, notice: "Your ad has been archived!"
+					redirect_to mypage_archive_path, notice: "Tangazo umekuwa jalada!"
 				end
 			else
 				redirect_to :action => "preview", :id => @ad.id
