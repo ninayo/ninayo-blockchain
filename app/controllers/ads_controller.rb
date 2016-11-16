@@ -174,8 +174,8 @@ class AdsController < ApplicationController
 		#@ad.user.update(user_params)
 		@ad.crop_type_id 	= ad_params[:crop_type_id]
 		#@ad.ad_type 			= 0 #i want to sell assumes you're going to sell
-		@ad.lat 					= District.find_by_id(ad_params[:district_id]).lat || @ad.user.district.lat unless @ad.user.district.nil?
-		@ad.lng 					= District.find_by_id(ad_params[:district_id]).lon || @ad.user.district.lon unless @ad.user.district.nil?
+		@ad.lat 					= @ad.user.district.lat unless @ad.user.district.nil?
+		@ad.lng 					= @ad.user.district.lon unless @ad.user.district.nil?
 		@ad.status 				= 1 #set to active automatically, skip preview
 
 		@ad.user.district_id 	= @ad.district_id if @ad.user.district_id.nil?
