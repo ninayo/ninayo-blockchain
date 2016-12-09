@@ -42,6 +42,48 @@
 				<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
 	<% end %>
 
+	<div>
+
+	<strong>Kutana na uongozi wa Ninayo.com</strong>
+	<p>Wawakilishi wetu wako tiyari kukusaidia upate bei nzuri zinazopatikana</p>
+	<p>Kama utakuwa unahitaji msaada, jisikie huru kuwasiliana nao.</p>
+	<p>Watakuwa wanakupigia simu Mara kwa Mara ili kuwasiliana na we we.</p>
+	<hr>
+	<div class="team-member-div">
+		<img src="<%= image_path("maurus_compressor.gif") %>" class="team-member-photo">
+		<div class="team-member-info">
+			<div class="team-member-name">
+				<b>Jina:</b> Maurus Nchimbi
+			</div>
+			<div class="team-member-phone">
+				<b>Simu:</b> 0765520038
+			</div>
+			<div class="team-member-location">
+				<b>Mahali:</b> Ruvuma/Dar
+			</div>
+			<div class="team-member-email">
+				<b>Barua pepe:</b> </br>
+				<a href="mailto:maurus@ninayo.com">maurus@ninayo.com</a>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="team-member-div">
+		<img src="<%= image_path("bovan_compressor.gif") %>" class="team-member-photo">
+		<div class="team-member-info">
+			<div class="team-member-name">
+				<b>Jina:</b> Bovan M Jankey
+			</div>
+			<div class="team-member-phone">
+				<b>Simu:</b> 0713352562
+			</div>
+			<div class="team-member-location">
+				<b>Mahali:</b> Iringa/Njombe/Morogoro
+			</div>
+		</div>
+	</div>
+	</div>
+
 	<%= link_to (I18n.locale == :sw ? "Rudi ukurasa wa mwanzo" : "Back to homepage"), root_path, :class => "button is-block", :style => "background-color: gray;" %>
 
 </div>
