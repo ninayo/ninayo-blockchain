@@ -10,7 +10,7 @@
 				<span><%= "(" + time_ago_in_words(ad.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span>
 				<span class="rating" data-score="<%= ad.user.seller_rating ? ad.user.seller_rating.round(0) : 0 %>">
 					<span class="rating-user">
-						<%= t "common.by" %> <%= ad.user.name.titleize %>
+						<%= t "common.by" %> <%= ad.user.name.titleize || ad.user.phone_number %>
 					</span>
 				</span>
 			</div>
