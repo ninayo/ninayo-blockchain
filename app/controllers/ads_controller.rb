@@ -364,7 +364,7 @@ class AdsController < ApplicationController
     @ad.user.region_id = @ad.region_id if !@ad.user.region_id && @ad.region_id
     @ad.user.district_id = @ad.district_id if !@ad.user.district_id && @ad.district_id
     @ad.user_ward_id = @ad.ward_id if !@ad.user.ward_id && @ad.ward_id
-    @ad.user.village = @ad.village if !ad.user.village && @ad.village
+    @ad.user.village = @ad.village if !@ad.user.village && @ad.village
     @ad.user.save
   end
 
