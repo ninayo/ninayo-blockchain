@@ -59,6 +59,7 @@ gem 'omniauth-facebook'
 gem 'mailboxer'
 
 gem 'split', require: 'split/dashboard'
+gem 'redis-namespace'
 
 #gem 'skylight'
 
