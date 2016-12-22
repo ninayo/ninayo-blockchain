@@ -58,7 +58,7 @@ gem 'omniauth-facebook'
 
 gem 'mailboxer'
 
-gem 'split'
+gem 'split', require: 'split/dashboard'
 
 #gem 'skylight'
 

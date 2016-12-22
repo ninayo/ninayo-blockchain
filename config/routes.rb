@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
+  mount Split::Dashboard, at: 'split'
+
   scope "(:locale)", locale: /en|sw/ do
 
     namespace :api, defaults: {format: :json} do
