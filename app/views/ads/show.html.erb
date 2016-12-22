@@ -1,5 +1,62 @@
+
 <% provide(:title, @ad.title) %>
+
+<% ab_test "ad show page", "card", "original" do |style| %>
+	<% if style == "card" %>
+	<div class="ad-info-flex" style="height: 85vh;">
+		<div class="ad-info-facts" style="height: auto;">
+			<h3 class="supheading" style="margin-bottom: 5px;">
+				<%= t("views.ad.for_sale") if @ad.sell? %>
+				<%= t("views.ad.buying") if @ad.buy? %>
+			</h3>
+			<h3 style="margin-bottom: 5px;"><%= @ad.title %></h3>
+			<strong><%= t "common.price" %>:</strong>
+			<%= number_to_currency(@ad.price, precision: 0)%>
+			<div class="posts-location">
+			<i><% unless @ad.village.nil? || @ad.village.blank? %><%= "#{@ad.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.region.name %>
+			<p><%= l(@ad.published_at, format: :short) %> <%= "(" + time_ago_in_words(@ad.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></p>
+			</div></i>
+			<div>
+			<strong><%= t("views.ad.seller_message") %>: </strong><br>
+			<%= simple_format(@ad.description) unless @ad.description.blank? %>
+			<% unless @ad.description.blank? %>
+				<strong><%= t("views.ad.seller_message") %></strong>
+			<% end %>
+			</div>
+		<div class="description">
+			<%= simple_format(@ad.description) %>
+		</div>
+		</div>
+		<hr>
+		<div class="ad-info-seller" style="height: auto;">
+			<div class="whateverthing" style="display: flex; flex-direction: row; justify-content:space-around">
+			<div class="ad-info-seller-avatar" style="display: flex; flex-direction: column; align-items: center; align-content: center;">
+			<% if !@ad.user.photo_url.nil? %>
+				<p><img src=<%= "#{@ad.user.photo_url}" %> class="avatar-contact"></p>
+			<% else %>
+				<p><img src="<%= image_path("") %>" class="avatar-contact"></p>
+			<% end %>
+			<h5 class="ad-seller-name"><%="#{@ad.seller.name}" %></h5>
+			<div class="posts-location">
+				<i>New user</i>
+			</div>
+			</div>
+			<div class="ad-info-contact" style="display: flex; flex-direction: column; justify-content: space-around;">
+			<% unless @ad.user.phone_number.blank? %>
+				<%= link_to("SIMU", call_contact_path(@ad.id), :class => "button is-block") %>
+				<%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %>
+			<% end %>
+			</div>
+			</div>
+		</div>
+	</div>
+	<% end %>
+
+<% if style == "original" %>
 <%= render "show" %>
+<% end %>
+
+<% end %>
 
 <script>
 	$(document).on('ajaxError', function(event, xhr) {
