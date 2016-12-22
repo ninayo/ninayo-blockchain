@@ -18,15 +18,11 @@
 			<p><%= l(@ad.published_at, format: :short) %> <%= "(" + time_ago_in_words(@ad.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></p>
 			</div></i>
 			<div>
-			<strong><%= t("views.ad.seller_message") %>: </strong><br>
-			<%= simple_format(@ad.description) unless @ad.description.blank? %>
 			<% unless @ad.description.blank? %>
 				<strong><%= t("views.ad.seller_message") %></strong>
+				<%= simple_format(@ad.description) unless @ad.description.blank? %>
 			<% end %>
 			</div>
-		<div class="description">
-			<%= simple_format(@ad.description) %>
-		</div>
 		</div>
 		<hr>
 		<div class="ad-info-seller" style="height: auto;">
