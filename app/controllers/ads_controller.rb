@@ -96,6 +96,8 @@ class AdsController < ApplicationController
     call_log.receiver_id  = @ad.user.id
     call_log.save
 
+    ab_finished("ad show page")
+
     redirect_to "tel:#{@ad.user.phone_number}"
   end
 
@@ -105,6 +107,8 @@ class AdsController < ApplicationController
     text_log.sender_id = current_user.id
     text_log.receiver_id = @ad.user.id
     text_log.save
+
+    ab_finished("ad show page")
 
     redirect_to "sms:#{@ad.user.phone_number}"
   end
