@@ -58,6 +58,8 @@ gem 'omniauth-facebook'
 
 gem 'mailboxer'
 
+gem 'split'
+
 #gem 'skylight'
 
 group :development do
