@@ -20,7 +20,7 @@
 			<div>
 			<% unless @ad.description.blank? %>
 				<strong><%= t("views.ad.seller_message") %></strong>
-				<%= simple_format(@ad.description) unless @ad.description.blank? %>
+				<%= simple_format(@ad.description) %>
 			<% end %>
 			</div>
 		</div>
@@ -31,11 +31,11 @@
 			<% if !@ad.user.photo_url.nil? %>
 				<p><img src=<%= "#{@ad.user.photo_url}" %> class="avatar-contact"></p>
 			<% else %>
-				<p><img src="<%= image_path("") %>" class="avatar-contact"></p>
+				<p><img src="<%= image_path("no-image.png") %>" class="avatar-contact"></p>
 			<% end %>
 			<h5 class="ad-seller-name"><%="#{@ad.user.name}" %></h5>
 			<div class="posts-location">
-				<i>New user</i>
+				<i>Muuzaji mpya</i>
 			</div>
 			</div>
 			<div class="ad-info-contact" style="display: flex; flex-direction: column; justify-content: space-around;">
