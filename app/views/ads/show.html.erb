@@ -38,13 +38,23 @@
 				<i>Muuzaji mpya</i>
 			</div>
 			</div>
+			<% if current_user && current_user.id %>
 			<div class="ad-info-contact" style="display: flex; flex-direction: column; justify-content: space-around;">
 			<% unless @ad.user.phone_number.blank? %>
 				<%= link_to("SIMU", call_contact_path(@ad.id), :class => "button is-block") %>
 				<%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %>
 			<% end %>
 			</div>
+			<% else %>
+			<h4><%= (I18n.locale == :sw ? "Tengeneza akaunti au ingia kujumbe huyu" : "Please sign up or log in to contact seller") %></h4>
+				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-facebook" do%>
+					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+						this.src='<%= image_path("icons/facebook.png") %>'">
+				<% end %>
+				<%= link_to((I18n.locale == :sw ? "Jisajili" : "Sign up"), new_user_registration_url, :class => "button") %>
+				<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
 			</div>
+			<% end %>
 		</div>
 	</div>
 	<% end %>
