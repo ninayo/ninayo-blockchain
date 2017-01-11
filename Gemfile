@@ -61,6 +61,8 @@ gem 'mailboxer'
 gem 'split', require: 'split/dashboard'
 gem 'redis-namespace'
 
+gem 'social-share-button'
+
 #gem 'skylight'
 
 group :development do
