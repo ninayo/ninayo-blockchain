@@ -106,38 +106,6 @@
 
 	<hr>
 
-	<div class="splashfeatured">
-		
-		<span>Kuuza mpya:</span>
-		
-		
-		<div class="featuredsub1" style="display: flex; flex-direction: column;">
-		<h4><%= @featured_ad.title %></h4>
-
-		<div class="feature-container" style="display: flex; flex-direction: row; justify-content:space-around; align-items: center;">
-			<div class="ad-info-seller-avatar" style="display: flex; flex-direction: column; align-items: center; align-content: center;">
-			<% if !@featured_ad.user.photo_url.nil? %>
-				<p><img src=<%= "#{@featured_ad.user.photo_url}" %> class="avatar-contact"></p>
-			<% else %>
-				<p><img src="<%= image_path("no-image.png") %>" class="avatar-contact"></p>
-			<% end %>
-			<h5 class="ad-seller-name"><%="#{@featured_ad.user.name}" %></h5>
-			</div>
-
-		<table class="datatable">
-			<tr>
-				<td><%= number_to_currency(@featured_ad.price, precision: 0)%></td>
-			</tr>
-			<tr>
-				<td><% if @featured_ad.user.district %><%= "#{@featured_ad.user.district.name}, " %> <% end %> <%= @featured_ad.region.name %></td>
-			</tr>
-		</table>
-
-		</div>
-
-		</div>
-	</div>
-
 	<div class="splashsell" style="display: block;">
 			<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 	</div>
