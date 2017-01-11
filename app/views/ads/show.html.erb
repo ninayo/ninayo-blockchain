@@ -24,6 +24,7 @@
 			<% end %>
 			</div>
 		</div>
+		<%= social_share_button_tag("#{@ad.title} - #{@ad.region.name}") %> <span>Kushiriki tangazo hili katika Facebook</span>
 		<hr>
 		<div class="ad-info-seller" style="height: auto;">
 			<div class="whateverthing" style="display: flex; flex-direction: row; justify-content:space-around">
@@ -71,7 +72,6 @@
 
 	<%= link_to "#{t "common.delete"}", delete_ad_path(@ad), data: { confirm: 'Are you sure you want to delete this article?'}, method: :delete, class: "button is-danger" if current_user && current_user.admin? %>
 	</div>
-	<%= social_share_button_tag("#{@ad.title} - #{@ad.region.name}") %>
 	<% end %>
 
 <% if style == "original" %>
