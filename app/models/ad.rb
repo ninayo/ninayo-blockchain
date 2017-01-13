@@ -52,6 +52,8 @@ class Ad < ActiveRecord::Base
 
 	validates :buyer_price, presence: true, on: :save_buyer_info
 
+	validates :region_id, :district_id, presence: true, on: :create
+
 
 	# Enums
 	enum volume_unit: [:bucket, :sack, :kg, :gunia, :trees, :mkungu, :fungu, :tenga, :moja, :debe, :chane, :sado]
