@@ -17,7 +17,7 @@
 	</div>
 	<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 	<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
-	<%= link_to((I18n.locale == :sw ? "Nini NINAYO?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block")%>
+	<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block")%>
 <% end %>
 
 <% if style == "complex" %>
@@ -104,7 +104,7 @@
 				<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
 	</div>
 
-	<%= link_to((I18n.locale == :sw ? "Nini NINAYO?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block")%>
+	<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block")%>
 
 	<hr style="width: 100%;">
 
