@@ -7,11 +7,12 @@ class User < ActiveRecord::Base
   # skip sending confirmation email if we've assigned a user a temp email
   after_create :send_welcome_email, unless: proc { email.nil? || email.include?('@ninayo.com') || email.blank? }
 
-  accepts_nested_attributes_for :ads
   has_many :ads
   has_many :user_logs
   has_many :ad_logs
   has_many :ratings
+  
+  accepts_nested_attributes_for :ads
 
   has_many :favorite_ads
   has_many :favorites, through: :favorite_ads, source: :ad
