@@ -401,7 +401,6 @@ class AdsController < ApplicationController
     @show_filter = cookies[:show_filter]
 
     @ads = Ad.published
-             .where(:created_at => (Date.today - 30)..(Date.today + 1))
              .filter(params.slice(:crop_type_id))
              .filter(params.slice(:volume_min))
              .filter(params.slice(:volume_max))
