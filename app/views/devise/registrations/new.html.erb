@@ -20,7 +20,10 @@
  				<%= f.text_field :login, placeholder: (I18n.locale == :sw ? "Ingie namba ya simu au barua pepe" : "Please enter your email or phone number") %>
 			</div>
 
-			<hr>
+			<div class="field">
+				<%= f.label (I18n.locale == :sw ? "Jina" : "Name"), class: "field-label" %>
+				<%= f.text_field :name, placeholder: (I18n.locale == :sw ? "Ingie jina" : "Please enter your name") %>
+			</div>
 
 			<% if f.object.password_required? %>
 				<div class="field">
@@ -43,7 +46,7 @@
 					<%= t "views.create_account.agreement_text_1" %>  <%= link_to "#{t "views.create_account.agreement_text_2"}", terms_path, :target => "_BLANK" %>
 				</label>
 			</div>
-
+			<hr>
 			<div class="field-actions">
 				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-block" %>
 			</div>
