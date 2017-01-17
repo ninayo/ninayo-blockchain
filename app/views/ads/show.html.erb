@@ -84,7 +84,7 @@
 		<%= form_for [@ad, Comment.new] do |f| %>
 		<%= hidden_field_tag 'ad_id', @ad.id %>
 		<%= f.text_area :body, placeholder: "Maoni" %><br/>
-		<%= f.submit "Maoni" %>
+		<%= f.submit "#{t "common.save"}", :class => "button is-primary is-block" %>
 		<% end %>
 		<% end %>
 	<div>
