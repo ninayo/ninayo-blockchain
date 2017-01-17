@@ -32,6 +32,11 @@ Rails.application.routes.draw do
 
     resources :ads do
       put :favorite
+      resources :comments
+    end
+
+    resources :comments do
+      resources :comments
     end
 
     resources :conversations, only: [:index, :show, :destroy] do

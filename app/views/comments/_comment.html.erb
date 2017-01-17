@@ -1,0 +1,18 @@
+<% if comment.author == @ad.user %>
+<div class="messages-item-mine">
+<% else %>
+<div class="messages-item">
+<% end %>
+	<% if !comment.author.photo_url.nil? %>
+		<img src=<%= "#{comment.author.photo_url}" %> class="avatar" style="margin-bottom: 12px;">
+	<% end %>
+	<div class="comment-header">
+		<strong><%= comment.author.name || comment.author.phone_number || comment.author.email %></strong>
+	</div>
+	<div class="comment-body">
+		<%= comment.body %>
+	</div>
+	<div class="comment-footer">
+		<small><i><%= comment.created_at.strftime("%H:%M") + " - " + comment.created_at.strftime("%A %e %B, %Y")%></i></small>
+	</div>
+</div>
