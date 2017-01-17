@@ -17,6 +17,8 @@ class User < ActiveRecord::Base
   has_many :favorite_ads
   has_many :favorites, through: :favorite_ads, source: :ad
 
+  has_many :comments, class_name: 'Comment', foreign_key: 'author_id'
+
   belongs_to :region
   belongs_to :district
   belongs_to :ward
