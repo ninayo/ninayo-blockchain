@@ -4,7 +4,7 @@
 <% ab_test "ad show page", "card", "original" do |style| %>
 	<% if style == "card" %>
 	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %>
-	<div class="ad-info-flex" style="height: 85vh;">
+	<div class="ad-info-flex">
 		<div class="ad-info-facts" style="height: auto;">
 			<h3 class="supheading" style="margin-bottom: 5px;">
 				<%= t("views.ad.for_sale") if @ad.sell? %>
@@ -84,7 +84,7 @@
 		<%= form_for [@ad, Comment.new] do |f| %>
 		<%= hidden_field_tag 'ad_id', @ad.id %>
 		<%= f.text_area :body, placeholder: "Maoni" %><br/>
-		<%= f.submit "Kuacha Maoni" %>
+		<%= f.submit "Maoni" %>
 		<% end %>
 		<% end %>
 	<div>
