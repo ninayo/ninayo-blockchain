@@ -157,8 +157,8 @@ sw:
 
     errors:
       zero: "hakuna makosa"
-      one: "kosa moja"
-      other: "makosa %{count}"
+      one: "Kosa moja limefanyika"
+      other: "Makosa %{count} yamefanyika"
 
     facts: "Ukweli"
     price: "Bei za rejareja"
