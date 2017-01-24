@@ -1,25 +1,6 @@
 <div>
 
-	<%if I18n.locale == :en %>
-
-		<p><strong>Welcome to NINAYO, the free crop-trading service used by over ten thousand Tanzanian farmers. There's no cost to post an advertisement to buy and sell, and it's an easy way to make more money from your crops.</strong></p>
-
-		<p>To post a free ad to buy or sell products/crops, select the option to buy and sell on the home page. Fill in the form, press submit, and you're done. Interested buyers and sellers will contact you.</p>
-
-		<p>To find crops already for sale, select the option to view crops and prices on the home page. Change the settings at the top of the screen to view specific crops or places, then select an ad you're interested in. Use the "Call Sim", "SMS”, and  "Message" buttons to get in touch with the ad poster and negotiate your sale.</p>
-
-		<p>To return to the home page, select the NINAYO logo at the top of the screen at any time.</p>
-
-		<p>Let us know what you think about NINAYO: Send us an email with your feedback and suggestions at <a href="mailto:info@ninayo.com" target="_top">info@ninayo.com</a>. If you have questions or a problem, please email us at <a href="mailto:support@ninayo.com" target="_top">support@ninayo.com</a></p>
-
-		<p>For more information about NINAYO and the problem our website solves:</p>
-
-		<a href="https://medium.com/@NINAYOcom/what-ninayo-does-and-why-9f3ad7a314ae#.oe41d17am">https://medium.com/@NINAYOcom/what-ninayo-does-and-why-9f3ad7a314ae#.oe41d17am</a></br>
-		<a href="http://www.aroundthecoin.com/tag/ninayo/">http://www.aroundthecoin.com/tag/ninayo/</a></br>
-
-		<p>For information on open positions, such as Head of Product Development or Business Development in Tanzania, please email <a href="mailto:jobs@ninayo.com">jobs@ninayo.com</a></p>
-		
-	<% else %>
+	<%if I18n.locale == :sw %>
 
 		<p><strong>Karibu NINAYO! Mtandao wa bure unaotoa huduma za mauzo na ununuzi wa mazao unaotumiwa na maelfu ya wakulima Tanzania. Hakuna gharama za kuweka matangazo ya kununua na kuuza mazao, na ni njia rahisi ya kupata pesa zaidi kutokana na mazao yako.</strong></p>
 
@@ -31,6 +12,61 @@
 
 		<p>Tupe maoni au mapendekezo yako kuhusu NINAYO kwa kupitia <a href="mailto:info@ninayo.com" target="_top">info@ninayo.com</a></p>
 		<p>Kama una maswali au tatizo, tafadhali wasiliana nasi kwa kupitia <a href="mailto:support@ninayo.com" target="_top">support@ninayo.com</a></p>
+		
+	<% else %>
+
+		<p>NINAYO.com is an online trading platform for agriculture in East Africa. NINAYO launched in Tanzania in 2015, and uses crowd-sourced data to provide actionable business intelligence for its users. NINAYO users, typically small holder farmers with an average annual income of $637, are earning $100’s more with this tool.</p>
+
+		<hr>
+			<div class="info-pictures" style="display:flex; flex-direction: row;">
+				<img src="<%= image_path("info_village.jpg") %>">
+				<img src="<%= image_path("info_truck.jpg") %>">
+			</div>
+		<hr>
+
+		<p>Founder Jack Langworthy has conducted business in the Tanzanian agriculture sector since 2009.  NINAYO.com is a tool to solve specific problems he faced in that sector:</p>
+
+		<ul>
+			<li>Lack of supply visibility (buyers don’t know what crops farmers are selling)</li>
+			<li>Lack of demand visibility (farmers don’t know how much buyers are willing to pay)</li>
+			<li>Lack of logistical coordination (inefficient transportation skyrockets costs)</li>
+		</ul>
+
+		<p>An understanding of emerging markets is necessary to explain our value proposition. As Tanzania exemplifies these markets, consider:</p>
+
+		<ul>
+			<li>80% of Tanzania’s work force are independent farmers</li>
+			<li>Farmers have little bargaining power over the sale of their crops due to poor infrastructure and a lack of communication with food processors (markets)</li>
+			<li>Internet access has recently become widespread, even in poor and remote villages</li>
+		</ul>
+
+		<hr>
+			<div class="info-pictures" style="display:flex; flex-direction: row;">
+				<img src="<%= image_path("info_bricks.jpg") %>">
+				<img src="<%= image_path("info_avocado") %>">
+			</div>
+		<hr>
+
+		<p>By enabling Tanzanian farmers to post their supply of crops they gain access to a far wider range of demand.  Food processors, likewise, have a much clearer view of the crops available in their regions.  Each side of the value chain is incentivized to use this service.</p>
+
+		<p>Over 30% of food rots in Tanzania, while malnutrition and poverty run rampant.  If there were ever an industry in need of disruption, it’s this one.  By improving supply visibility, demand visibility and logistical coordination, more food will go to those in need at a fairer price.</p>
+
+		<hr>
+			<div class="info-pictures" style="display:flex; flex-direction: row;">
+			
+			</div>
+		<hr>
+
+		<strong>Partners</strong>
+
+		<p>NINAYO is based in Tanzania, but backed by Silicon Valley’s greatest investors, entrepreneurs and engineers http://expa.com and http://www.science-inc.com. Our world class team is dedicated to building simple user friendly tech solutions.</p>
+
+		<p>Our active user base and high quality product has led to crucial partnerships with the UNCDF, NAFAKA, Technoserve and Peace Corps. Together, we are leveraging private sector solutions to sustainably improve African agriculture.</p>
+
+		<p>Thank you,<br>
+		NINAYO Inc.</p>
+
+		
 	<% end %>
 
 	<% unless current_user %>
