@@ -75,8 +75,18 @@ sw:
     trees: "miti"
     mkungu: "mkungu"
     tenga: "tenga"
+    tonne: "tonne"
+    litre: "litre"
 
   volume_units:
+    tonne:
+      zero: "sifuri"
+      one: "1 tonne"
+      other: "%{count} tonnes"
+    litre:
+      zero: "sifuri"
+      one: "1 litre"
+      other: "%{count} litres"
     bucket:
       zero: "sifuri"
       one: "ndoo moja (20kg)"

@@ -95,8 +95,18 @@ en:
     trees: "trees"
     mkungu: "bunches"
     tenga: "tenga"
+    tonne: "tonne"
+    litre: "litre"
 
   volume_units:
+    tonne:
+      zero: "sifuri"
+      one: "1 tonne"
+      other: "%{count} tonnes"
+    litre:
+      zero: "sifuri"
+      one: "1 litre"
+      other: "%{count} litres"
     bucket:
       zero: "no buckets"
       one: "1 bucket"

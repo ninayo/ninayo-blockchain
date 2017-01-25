@@ -33,7 +33,7 @@
 					<%= f.number_field :volume, :min => 1, :class => "is-inline" %>
 				</div>
 				<div class="input-label">
-					<%= f.select :volume_unit, (Ad.volume_units.keys.to_a - ["gunia", "bucket", "sack", "trees", "tenga", "moja", "sado", "mkungu"]).map { |w| [I18n.t("volume_unit.#{w}"), w]}, {}, {:class => "is-inline"} %>
+					<%= f.select :volume_unit, (Ad.volume_units.keys.to_a - ["gunia", "bucket", "sack", "trees", "tenga", "moja", "sado", "debe", "fungu"]).map { |w| [I18n.t("volume_unit.#{w}"), w]}, {}, {:class => "is-inline"} %>
 				</div>
 			</div>
 		</div>
