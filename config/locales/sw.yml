@@ -63,15 +63,15 @@ sw:
     message: "%{name} imeshindikana kuhifadhi"
 
   volume_unit:
-    bucket: "ndoo"
-    sack: "magunia"
+    bucket: "ndoo (20kg)"
+    sack: "magunia (100kg)"
     kg: "kilo"
     fungu: "fungu"
     moja: "kwa moja"
     chane: "chane"
     debe: "debe"
     sado: "sado"
-    gunia: "gunia"
+    gunia: "gunia (100kg)"
     trees: "miti"
     mkungu: "mkungu"
     tenga: "tenga"
@@ -79,12 +79,12 @@ sw:
   volume_units:
     bucket:
       zero: "sifuri"
-      one: "ndoo moja"
-      other: "%{count} ndoo"
+      one: "ndoo moja (20kg)"
+      other: "%{count} ndoo (%{count * 20}kg)"
     sack:
       zero: "sifuri"
-      one: "1 gunia"
-      other: "%{count} magunia"
+      one: "1 gunia (100kg)"
+      other: "%{count} magunia (%{count * 100})"
     kg:
       zero: "sifuri"
       one: "1 kilo"
@@ -111,8 +111,8 @@ sw:
       other: "%{count} sado"
     gunia:
       zero: "sifuri"
-      one: "1 gunia"
-      other: "%{count} magunia"
+      one: "1 gunia (100kg)"
+      other: "%{count} magunia (%{count * 100})"
     trees:
       zero: "sifuri"
       one: "1 tree"
