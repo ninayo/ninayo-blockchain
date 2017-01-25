@@ -80,11 +80,11 @@ sw:
     bucket:
       zero: "sifuri"
       one: "ndoo moja (20kg)"
-      other: "%{count} ndoo (#{count * 20}kg)"
+      other: "%{count} ndoo"
     sack:
       zero: "sifuri"
       one: "1 gunia (100kg)"
-      other: "%{count} magunia (#{count * 100})"
+      other: "%{count} magunia"
     kg:
       zero: "sifuri"
       one: "1 kilo"
@@ -112,7 +112,7 @@ sw:
     gunia:
       zero: "sifuri"
       one: "1 gunia (100kg)"
-      other: "%{count} magunia (#{count * 100})"
+      other: "%{count} magunia"
     trees:
       zero: "sifuri"
       one: "1 tree"
