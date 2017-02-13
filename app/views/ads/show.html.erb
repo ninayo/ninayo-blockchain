@@ -43,6 +43,7 @@
 			<% unless @ad.user.phone_number.blank? %>
 				<%= link_to("SIMU", call_contact_path(@ad.id), :class => "button is-block") %>
 				<%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %>
+				<%= link_to "#{t "common.message"}", new_message_path(:uid => @ad.user.id, :adid => @ad.id), class: "button is-block" %>
 			<% end %>
 			</div>
 			<% else %>
