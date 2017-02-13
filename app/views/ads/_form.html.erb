@@ -50,20 +50,15 @@
 		</div>
 
 		<div class="field">
-			<strong><%= f.label :negotiable, (I18n.locale == :sw ? "Ni bei yako inaongereka?" : "Is your price negotiable?"), :class => 'field-label' %></strong>
+			<strong><%= f.label :negotiable, (I18n.locale == :sw ? "Ni bei yako makubaliano?" : "Is your price negotiable?"), :class => 'field-label' %></strong>
 			<div class="input-wrapper">
 				<div class="input-field">
-					<%= f.radio_button :negotiable, true %> <%= (I18n.locale == :sw ? "Bei inaongereka" : "Negotiable") %><br>
-					<%= f.radio_button :negotiable, false %> <%= (I18n.locale == :sw ? "Bei haiongereki" : "Non-negotiable") %> 
+					<%= f.radio_button :negotiable, true %> <%= (I18n.locale == :sw ? "Bei makubaliano" : "Negotiable") %><br>
+					<%= f.radio_button :negotiable, false %> <%= (I18n.locale == :sw ? "Siyo makubaliano" : "Non-negotiable") %> 
 				</div>
 			</div>
 		</div>
 
-
-		<div class="field">
-			<strong><%= f.label :transport_type, (I18n.locale == :sw ? "Una usafiri wa mazao?" : "Can you provide transport?"), :class => 'field-label' %></strong>
-			<%= f.select :transport_type, options_for_select([[(I18n.locale == :sw ? 'Hamna' : 'None'), "none"], [(I18n.locale == :sw ? 'Lori' : 'Truck'), "truck"], [(I18n.locale == :sw ? 'Gari' : 'Car'), "car"]]), style: "width: 135px;" %>
-		</div>
 
 		<div class="field">
 			<strong><%= f.label "#{t "views.ad.description"}", :class => 'field-label' %></strong>
