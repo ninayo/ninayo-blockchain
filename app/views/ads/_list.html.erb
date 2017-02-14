@@ -23,7 +23,7 @@
 				</span>
 			</div>
 			<h2 class="ads-heading" style="font-size: 22px"><%= ad.title %></h2>
-			<div class="ads-price" style="font-size: 20px"><%= number_to_currency(ad.price, precision: 0) %> <%= "kwa #{ad.volume_unit}" %> - <%= ad.negotiable ? (I18n.locale == :sw ? "🙆 Makubaliano" : "🙆 Negotiable") : (I18n.locale == :sw ? "🙅 Siyo Makubaliano" : "🙅 Non-negotiable") %></div>
+			<div class="ads-price" style="font-size: 20px"><%= number_to_currency(ad.price, precision: 0) %> <%= "kwa #{ad.volume_unit}" %> - <%= ad.negotiable ? (I18n.locale == :sw ? "🙆 Inaongereka" : "🙆 Negotiable") : (I18n.locale == :sw ? "🙅 Haiongereki" : "🙅 Non-negotiable") %></div>
 			<div class="posts-location" style="font-size: 16px">
 				<% unless ad.village.nil? || ad.village.blank? %><%= "#{ad.village.titleize}, " %><% end %> <%if ad.user.ward %><%= "#{ad.user.ward.name}, " %><% end %> <% if ad.user.district %><%= "#{ad.user.district.name}, " %> <% end %> <%= ad.region.name %>
 			</div>
