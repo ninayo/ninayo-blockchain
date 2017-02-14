@@ -74,5 +74,5 @@ sw:
       not_found: "halikupatikana"
       not_locked: "hukuwa imefungwa"
       not_saved:
-        one: "kosa 1 marufuku %{resource} hii kukoa:"
-        other: "%{count} makosa marufuku %{resource} hii kukoa:"
+        one: "Kosa limefanyika %{resource}:"
+        other: "Makosa %{count} yamefanyika %{resource}:"
