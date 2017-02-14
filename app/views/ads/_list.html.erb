@@ -1,4 +1,4 @@
-<% if @region_name && @crop_name %>
+<% if !@region_name.nil? && !@crop_name.nil? %>
 	<h3 style="font-size: 32px"><%= "#{@crop_name} kwa ajili ya kuuza katika #{region_name}" %></h3>
 <% elsif !@region_name.nil? && @crop_name.nil? %>
 	<h3 style="font-size: 32px"><%= "Mazao kwa ajili ya kuuza katika #{@region_name}" %></h3>
