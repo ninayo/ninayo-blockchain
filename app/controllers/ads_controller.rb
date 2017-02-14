@@ -30,11 +30,11 @@ class AdsController < ApplicationController
     @districts = District.all.order(:name)
     @wards = Ward.all.order(:name)
 
-    if params[:region_id] && !params[:region_id].nil?
+    if params[:region_id] && !params[:region_id].blank?
       @region_name ||= Region.find_by_id(params[:region_id]).name
     end
 
-    if params[:crop_type_id] && !params[:crop_type_id].nil?
+    if params[:crop_type_id] && !params[:crop_type_id].blank?
       @crop_name ||= CropType.find_by_id(params[:crop_type_id]).name_sw
     end
 
