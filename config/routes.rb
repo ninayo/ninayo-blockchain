@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   mount Split::Dashboard, at: 'split'
 
+  match "/metabase" => redirect("https://ninayometabase.herokuapp.com"), :as => :metabase
+
   scope "(:locale)", locale: /en|sw/ do
 
     namespace :api, defaults: {format: :json} do
