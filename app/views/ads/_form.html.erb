@@ -129,70 +129,68 @@
 	<% end %>
 
 	<% unless current_user %>
-	<fieldset>
-		<h3><%= t("views.ad.show.location").humanize %></h3>
-		<div class="field">
-			<strong><%= f.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
-			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => @ad.region_id %>
-		</div>
-		<div class="field">
-			<strong><%= f.label "#{t "views.ad.district"}", class: "field-label" %></strong>
-			<%= f.grouped_collection_select :district_id, Region.includes(:districts).order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
-		</div>
-
-		<div class="field">
-			<strong><%= f.label "#{t "views.ad.ward"}", class: "field-label" %></strong>
-			<%= f.grouped_collection_select :ward_id, District.includes(:wards).order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
-		</div>
-
-		<div class="field">
-			<strong><%= f.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
-			<%= f.text_field :village %>
-		</div>
-		<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
-		<%= f.hidden_field :lat %>
-		<%#= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
-		<%= f.hidden_field :lng %>
-	</fieldset>
-	<% end %>
-
-	<% unless current_user %>
-	<fieldset>
-		<div class="login">
-			<div class="login-column">
-				<h3><%= I18n.locale == :sw ? "Jisajili" : "Sign up" %></h3>
-
-				<%= f.fields_for User.new do |ff| %>
-  					<div>
-    					<strong><%= ff.label :phone_number, class: "field-label" %></strong>
-	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu (lazima)" %>
-
-	    				<strong><%= ff.label :name, class: "field-label" %></strong>
-	    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
-
-	    				<strong><%= ff.label "WhatsApp (hiari)", class: "field-label" %></strong>
-	    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
-
-	    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
-
-						<strong><%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %></strong>
-						<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
-
-	    				<strong><%= ff.label :password, class: "field-label" %></strong>
-	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
-    					<% if @validatable %>
-    						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
-    					<% end %>
-
-    					<strong><%= ff.label "Andike tena nenosiri", class: "field-label" %></strong>
-    					<%= ff.password_field :password_confirmation, autocomplete: "off" %>
-    					<br>
-    					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
-  					</div>
-				<% end %>
+		<fieldset>
+			<h3><%= t("views.ad.show.location").humanize %></h3>
+			<div class="field">
+				<strong><%= f.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
+				<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"}, :selected => @ad.region_id %>
 			</div>
-		</div>
-	</fieldset>
+			<div class="field">
+				<strong><%= f.label "#{t "views.ad.district"}", class: "field-label" %></strong>
+				<%= f.grouped_collection_select :district_id, Region.includes(:districts).order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
+			</div>
+
+			<div class="field">
+				<strong><%= f.label "#{t "views.ad.ward"}", class: "field-label" %></strong>
+				<%= f.grouped_collection_select :ward_id, District.includes(:wards).order(:name), :wards, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_ward"}"} %>
+			</div>
+
+			<div class="field">
+				<strong><%= f.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
+				<%= f.text_field :village %>
+			</div>
+			<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
+			<%= f.hidden_field :lat %>
+			<%#= f.label "#{t "views.ad.lng"}", :class => 'field-label' %>
+			<%= f.hidden_field :lng %>
+		</fieldset>
+
+		<fieldset>
+			<div class="login">
+				<div class="login-column">
+					<h3><%= I18n.locale == :sw ? "Jisajili" : "Sign up" %></h3>
+
+					<%= f.fields_for User.new do |ff| %>
+	  					<div>
+	    					<strong><%= ff.label :phone_number, class: "field-label" %></strong>
+		    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu (lazima)" %>
+
+		    				<strong><%= ff.label :name, class: "field-label" %></strong>
+		    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
+
+		    				<strong><%= ff.label "WhatsApp (hiari)", class: "field-label" %></strong>
+		    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
+
+		    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
+
+							<strong><%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %></strong>
+							<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
+
+		    				<strong><%= ff.label :password, class: "field-label" %></strong>
+		    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
+	    					<% if @validatable %>
+	    						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
+	    					<% end %>
+
+	    					<strong><%= ff.label "Andike tena nenosiri", class: "field-label" %></strong>
+	    					<%= ff.password_field :password_confirmation, autocomplete: "off" %>
+	    					<br>
+	    					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
+	  					</div>
+					<% end %>
+				</div>
+			</div>
+		</fieldset>
 	<% end %>
 
 
