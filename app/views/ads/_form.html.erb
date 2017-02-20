@@ -180,7 +180,7 @@
 	    						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
 	    					<% end %>
 
-	    					<strong><%= ff.label "Andike tena nenosiri", class: "field-label" %></strong>
+	    					<strong><%= ff.label "Andika tena nenosiri", class: "field-label" %></strong>
 	    					<%= ff.password_field :password_confirmation, autocomplete: "off" %>
 	    					<br>
 	    					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
