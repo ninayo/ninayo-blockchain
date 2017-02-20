@@ -192,8 +192,8 @@ sw:
       dashboard: "Paneli ya Mtumiaji"
       facebook: "Jisajili na Facebook"
       enter_login: "Simu # au barua pepe"
-      enter_password: "Chagua nenosiri"
-      confirm_password: "Andike nenosiri tena"
+      enter_password: "Chagua nenosiri au PIN"
+      confirm_password: "Andike nenosiri/PIN tena"
 
 
     create_account:
@@ -206,11 +206,11 @@ sw:
 
       sidebar:
         heading: "Hauna Akaunti?"
-        text: "Tengeneza akaunti sasa na unaweza:"
+        text: "Tengeneza akaunti sasa na uweze:"
         benefit_1: "Kuuza mazao yako kwa mtu yeyote"
         benefit_2: "Kununua mazao kutoka kwa mtu yeyote"
-        benefit_3: "Ona bei zilizopo nchi nzima"
-        benefit_4: "Wasiliana na wanunuzi na wauzaji"
+        benefit_3: "Kuona bei zilizopo nchi nzima"
+        benefit_4: "Kuwasiliana na wanunuzi na wauzaji"
 
     edit_profile:
       heading: "Hariri maelezo"
