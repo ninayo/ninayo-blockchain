@@ -58,7 +58,6 @@
 
 
 	<% if current_user %>
-
 		<fieldset>
 	 		<%= fields_for :user, @ad.user, validate: true do |user_fields| %>
 				<h4><%= (I18n.locale == :sw ? "Taarifa Zako" : "Contact information") %></h4>
@@ -89,20 +88,20 @@
 				</div>
 
 				<% if current_user.birthday.blank? %>
-				<div class="field">
-					<strong><%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %></strong>
-					<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
-				</div>
+					<div class="field">
+						<strong><%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %></strong>
+						<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
+					</div>
 				<% end %>
 				
 				<% if current_user.gender.blank? || current_user.gender.nil? %>
-				<div class="field">
-					<% if I18n.locale == :sw %>
-					<strong>Mimi ni </strong><%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
-					<% else %>
-					<strong>I am a </strong><%= user_fields.select :gender, options_for_select([['man', "male"], ['woman', "female"]]), style: "width: 135px;" %>
-					<% end %>
-				</div> 
+					<div class="field">
+						<% if I18n.locale == :sw %>
+						<strong>Mimi ni </strong><%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
+						<% else %>
+						<strong>I am a </strong><%= user_fields.select :gender, options_for_select([['man', "male"], ['woman', "female"]]), style: "width: 135px;" %>
+						<% end %>
+					</div> 
 				<% end %>
 
 				<h3><%= t("views.ad.show.location").humanize %></h3>
@@ -125,7 +124,6 @@
 					<%= user_fields.text_field :village %>
 				</div>
 			<% end %>
-
 	<% end %>
 
 	<% unless current_user %>
