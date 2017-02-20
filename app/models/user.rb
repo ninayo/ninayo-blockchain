@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   validates :name, :phone_number, :agreement, presence: true, on: :save_ad
   validates :name, :agreement, presence: true, :on => :create
   validates :phone_number, uniqueness: true, allow_nil: true
-  validates :phone_number, numericality: true
+  #validates :phone_number, numericality: true
   validates :email, uniqueness: true, allow_nil: true 
 
   accepts_nested_attributes_for :ratings, allow_destroy: true
