@@ -40,17 +40,6 @@
 		</div>
 
 		<div class="field">
-			<strong><%= f.label :negotiable, (I18n.locale == :sw ? "Ni bei yako inaongereka?" : "Is your price negotiable?"), :class => 'field-label' %></strong>
-			<div class="input-wrapper">
-				<div class="input-field">
-					<%= f.radio_button :negotiable, true %> <%= (I18n.locale == :sw ? "Bei inaongereka" : "Negotiable") %><br>
-					<%= f.radio_button :negotiable, false %> <%= (I18n.locale == :sw ? "Haiongereki" : "Non-negotiable") %> 
-				</div>
-			</div>
-		</div>
-
-
-		<div class="field">
 			<strong><%= f.label "#{t "views.ad.description"}", :class => 'field-label' %></strong>
 			<%= f.text_area :description %>
 		</div>
@@ -74,35 +63,9 @@
 					<div class="input-wrapper">
 						<div class="input-field">
 							<%= user_fields.telephone_field :phone_number, :default => current_user.phone_number, :validate => false, class: "is-inline" %>
-					</div>
-				</div>
-				</div>
-
-				<div class="field">
-					<strong><%= user_fields.label :whatsapp_id, :value => (I18n.locale == :sw ? "WhatsApp (hiari)" : "WhatsApp (optional)"), :class => "field-label" %></strong>
-					<div class="input-wrapper">
-						<div class="input-field">
-							<%= user_fields.text_field :whatsapp_id, :validate => false, class: "is-inline" %>
 						</div>
 					</div>
 				</div>
-
-				<% if current_user.birthday.blank? %>
-					<div class="field">
-						<strong><%= user_fields.label :birthday, :value => (I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth"), :class => "field-label" %></strong>
-						<%= user_fields.select :birthday,  (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
-					</div>
-				<% end %>
-				
-				<% if current_user.gender.blank? || current_user.gender.nil? %>
-					<div class="field">
-						<% if I18n.locale == :sw %>
-						<strong>Mimi ni </strong><%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
-						<% else %>
-						<strong>I am a </strong><%= user_fields.select :gender, options_for_select([['man', "male"], ['woman', "female"]]), style: "width: 135px;" %>
-						<% end %>
-					</div> 
-				<% end %>
 
 				<h3><%= t("views.ad.show.location").humanize %></h3>
 				<div class="field">
@@ -165,14 +128,6 @@
 
 		    				<strong><%= ff.label :name, class: "field-label" %></strong>
 		    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
-
-		    				<strong><%= ff.label "WhatsApp (hiari)", class: "field-label" %></strong>
-		    				<%= ff.text_field :whatsapp_id, placeholder: "WhatsApp" %>
-
-		    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
-
-							<strong><%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %></strong>
-							<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10), :selected => '2000' %>
 
 		    				<strong><%= ff.label :password, class: "field-label" %></strong>
 		    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
