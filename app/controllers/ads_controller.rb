@@ -25,7 +25,7 @@ class AdsController < ApplicationController
                .includes(:ward)
                .page(params[:page])
 
-    @crop_types = CropType.all.order(&:name_sw)
+    @crop_types = CropType.all.order(:name_sw)
     @regions = Region.all.order(:name)
     @districts = District.all.order(:name)
     @wards = Ward.all.order(:name)
@@ -228,7 +228,7 @@ class AdsController < ApplicationController
         redirect_to mypage_archive_path, notice: 'Tangazo umekuwa jalada!'
       end
     else
-      @crop_types = CropType.all.order(&:name_sw)
+      @crop_types = CropType.all.order(:name_sw)
       render 'edit'
     end
   end
