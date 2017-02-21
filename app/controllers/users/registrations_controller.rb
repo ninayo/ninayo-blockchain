@@ -85,7 +85,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def temp_email
-    "no_email#{rand(999999)}@ninayo.com"
+    "no_email#{rand(9999999999)}@ninayo.com"
   end
 
   def temp_phone
