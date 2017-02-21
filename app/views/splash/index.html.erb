@@ -6,17 +6,17 @@
 	<% end %>
 	<div class="splashtext">
 	<% if I18n.locale == :sw %>
-	<p><strong>Asante kwa kutembelea NINAYO, mtandao bora unaotumiwa na maelfu ya wakulima</strong></p> 
+	<strong>Asante kwa kutembelea NINAYO, mtandao bora unaotumiwa na maelfu ya wakulima</strong>
 		<p><strong>Kuanza, bofya moja ya vitufe hapa chini:</strong></p>
 		<br>
 	<% else %>
-	<p><strong>Welcome to NINAYO, the free network used by thousands of farmers</strong></p>
-		<p><strong>To get started, choose one of the options below</strong></p>
+	<strong>Welcome to NINAYO, the free network used by thousands of farmers</strong>
+	<strong>To get started, choose one of the options below</strong>
 		<br>
 	<% end %>
 	</div>
 	<% unless current_user && current_user.id %>
-	<p><strong><%= (I18n.locale == :en ? "Connect to NINAYO with Facebook:" : "Kuungana na NINAYO na Facebook:") %></strong></p>
+	<strong><%= (I18n.locale == :en ? "Connect to NINAYO with Facebook:" : "Kuungana na NINAYO na Facebook:") %></strong>
 	<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
 				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 					this.src='<%= image_path("icons/facebook.png") %>'">
