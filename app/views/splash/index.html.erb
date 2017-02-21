@@ -11,12 +11,28 @@
 		<br>
 	<% else %>
 	<p><strong>Welcome to NINAYO, the free network used by thousands of farmers</strong></p>
-		<p><strong>To get started, choose one of the options below:</strong></p>
+		<p><strong>To get started, choose one of the options below</strong></p>
 		<br>
 	<% end %>
 	</div>
-	<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
-	<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
+	<% unless current_user && current_user.id %>
+	<p><strong><%= (I18n.locale == :en ? "Connect to NINAYO with Facebook:" : "Kuungana na NINAYO na Facebook:") %></strong></p>
+	<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
+				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+					this.src='<%= image_path("icons/facebook.png") %>'">
+				<%if I18n.locale == :en %>
+					Log in with Facebook
+				<% else %>
+					Jisajili na Facebook
+				<% end %>
+			<% end %>
+	<p><strong><%= (I18n.locale == :en ? "Don't have a Facebook account? Create an account with NINAYO:" : "Huna akaunti Facebook? Fungua akaunti na NINAYO") %> </strong></p>
+	<%= link_to("#{t "views.navigation.sign_up"}", new_user_registration_path, :class => "button primarynav-button is-primary") %>
+	<% end %>
+	<div class="fp-buttons">
+		<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
+		<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
+	</div>
 	<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block")%>
 <% end %>
 
