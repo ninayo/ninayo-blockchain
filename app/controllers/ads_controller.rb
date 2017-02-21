@@ -25,7 +25,7 @@ class AdsController < ApplicationController
                .includes(:ward)
                .page(params[:page])
 
-    @crop_types = CropType.all.order(:sort_order)
+    @crop_types = CropType.all.order(&:name_sw)
     @regions = Region.all.order(:name)
     @districts = District.all.order(:name)
     @wards = Ward.all.order(:name)
