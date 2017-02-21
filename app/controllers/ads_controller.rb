@@ -228,7 +228,7 @@ class AdsController < ApplicationController
         redirect_to mypage_archive_path, notice: 'Tangazo umekuwa jalada!'
       end
     else
-      @crop_types = CropType.all.order(:sort_order)
+      @crop_types = CropType.all.order(&:name_sw)
       render 'edit'
     end
   end
