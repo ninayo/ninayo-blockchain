@@ -8,6 +8,7 @@ class SplashController < ApplicationController
   end
 
   def get_started
+  	redirect_to root_url if current_user && current_user.id
   end
 
 end
