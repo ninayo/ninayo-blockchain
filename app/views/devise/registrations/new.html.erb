@@ -16,8 +16,7 @@
 			<% end %>
 			</p>
 			<hr>
-			<br>
-			<p><%= (I18n.locale == :en ? "Don't have a Facebook account? Use your phone number or email" : "Kama wewe huna akaunti Facebook, kutumia namba yako ya simu au barua pepe.") %></p>
+			<p><strong><%= (I18n.locale == :en ? "Don't have a Facebook account? Use your phone number or email" : "Kama wewe huna akaunti Facebook, kutumia namba yako ya simu au barua pepe.") %></strong></p>
 
 			<div class="field">
 				<%= f.label (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Phone number or email"), class: "field-label" %>
