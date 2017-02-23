@@ -9,5 +9,11 @@
 	<div class="congrats-text">
 		Congratulations on your sale. Make your next harvest even bigger with quality Yara agricultural inputs!
 	</div>
-	Buy Now Button
+	<%= link_to root_path, :class => "button is-block" do %>
+		Yes, purchase inputs
+	<% end %>
+
+	<%= link_to root_path, :class => "button is-block is-danger" do %>
+		No thanks
+	<% end %>
 </div>
