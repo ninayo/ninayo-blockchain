@@ -79,6 +79,7 @@ Rails.application.routes.draw do
     get 'splash/instructions' => 'splash#instructions', as: :splash_instructions
     get 'splash/get_started' => 'splash#get_started', as: :get_started
     get 'splash/team' => 'splash#team', as: :team
+    get 'splash/congrats' => 'splash#congrats', as: :congrats
 
     #devise_for :users, :controllers => { :sessions => "track_sessions" }
     # The priority is based upon order of creation: first created -> highest priority.
