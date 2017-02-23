@@ -11,4 +11,8 @@ class SplashController < ApplicationController
   	redirect_to root_url if current_user && current_user.id
   end
 
+  def congrats
+  	redirect_to root_url unless current_user && current_user.admin?
+  end
+
 end
