@@ -4,7 +4,6 @@
 					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 						this.src='<%= image_path("icons/facebook.png") %>'">
 				<% end %>
-				<%= link_to((I18n.locale == :sw ? "Jisajili" : "Sign up"), new_user_registration_url, :class => "button") %>
 				<%= link_to((I18n.locale == :sw ? "Ingia" : "Login"), new_user_session_path, :class => "button") %>
 <% end %>
 <br>
