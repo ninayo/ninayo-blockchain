@@ -5,6 +5,7 @@ class SplashController < ApplicationController
   end
 
   def instructions
+    ab_finished("what-is-ninayo")
   end
 
   def get_started

@@ -17,7 +17,6 @@ class AdsController < ApplicationController
   respond_to :html, :json
 
   def index
-    ab_finished("frontpage")
     @ads = @ads.includes(:crop_type)
                .includes(:user)
                .includes(:region)
@@ -139,7 +138,6 @@ class AdsController < ApplicationController
   end
 
   def new
-    ab_finished("frontpage")
     @ad = Ad.new
     @ad.user = current_user
     @crop_types = CropType.all.order(:sort_order)

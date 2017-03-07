@@ -1,12 +1,11 @@
 <div class="indexoptions">
-<% ab_test "frontpage", "simple", "complex" do |style| %>
-<% if style == "simple" %>
+<% ab_test "what-is-ninayo", "text", "button" do |style| %>
 	<% if current_user && current_user.admin? %>
 		<%= link_to("Admin Page", admin_analytics_path, :class => "button primarynav-button is-primary") %>
 	<% end %>
 	<div class="splashtext">
 	<% if I18n.locale == :sw %>
-	<strong>Asante kwa kutembelea NINAYO, mtandao bora unaotumiwa na maelfu ya wakulima</strong>
+	<strong>Asante kwa kutembelea NINAYO, mtandao bora unaotumiwa na maelfu ya wakulima</strong><% if style == "text" %><a href="https://www.ninayo.com/sw/splash/instructions">NINAYO ni nini?</a><% end %>
 	<hr>
 	<% else %>
 	<strong>Welcome to NINAYO, the free network used by thousands of farmers</strong>
@@ -33,8 +32,8 @@
 		<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 		<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
 	</div>
-	<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block", :style => "width: 80vw; max-width: 320px;")%>
-<% end %>
+	<%if style == "button"%><%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block", :style => "width: 80vw; max-width: 320px;")%><% end %>
+
 
 <% if style == "complex" %>
 	<% if current_user && current_user.id %>	
