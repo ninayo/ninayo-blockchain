@@ -56,6 +56,8 @@ class Ad < ActiveRecord::Base
 
 	validates :region_id, :district_id, presence: true, on: :create
 
+	validates :other_crop_type, :exclusion => { :in => %w(marijuana malijuana bangi) }
+
 
 	# Enums
 	enum volume_unit: [:bucket, :sack, :kg, :gunia, :trees, :mkungu, :fungu, :tenga, :moja, :debe, :chane, :sado, :tonne, :litre]
