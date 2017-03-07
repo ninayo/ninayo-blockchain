@@ -14,7 +14,7 @@
 	<% end %>
 	</div>
 	<% unless current_user && current_user.id %>
-	<strong><%= (I18n.locale == :en ? "Connect to NINAYO with Facebook:" : "Kuungana na NINAYO na Facebook:") %></strong>
+	<p><strong><%= (I18n.locale == :en ? "Connect to NINAYO with Facebook:" : "Kuungana na NINAYO na Facebook:") %></strong></p>
 	<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook", :style => "width: 80vw; max-width: 320px;" do%>
 				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 					this.src='<%= image_path("icons/facebook.png") %>'">
@@ -24,10 +24,11 @@
 					Jisajili na Facebook
 				<% end %>
 			<% end %>
+			<br>
 	<p><strong><%= (I18n.locale == :en ? "Don't have a Facebook account? Create an account with NINAYO:" : "Huna akaunti Facebook? Fungua akaunti na NINAYO") %> </strong></p>
 	<%= link_to("#{t "views.navigation.sign_up"}", new_user_registration_path, :class => "button is-block is-primary") %>
+	<div><hr></div>
 	<% end %>
-	<hr>
 	<div class="fp-buttons">
 		<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 		<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
