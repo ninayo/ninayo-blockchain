@@ -56,7 +56,7 @@ class Ad < ActiveRecord::Base
 
 	validates :region_id, :district_id, presence: true, on: :create
 
-	validates :other_crop_type, :exclusion => { :in => ["marijuana", "malijuana", "bangi"] }, if: "crop_type.id == 10"
+	validates :other_crop_type, :exclusion => { :in => %w(marijuana malijuana bangi) }, if: "crop_type.id == 10"
 
 
 	# Enums
