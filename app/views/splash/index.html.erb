@@ -26,13 +26,13 @@
 			<% end %>
 	<p><strong><%= (I18n.locale == :en ? "Don't have a Facebook account? Create an account with NINAYO:" : "Huna akaunti Facebook? Fungua akaunti na NINAYO") %> </strong></p>
 	<%= link_to("#{t "views.navigation.sign_up"}", new_user_registration_path, :class => "button primarynav-button is-primary") %>
-	<hr>
 	<% end %>
+	<hr>
 	<div class="fp-buttons">
 		<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
 		<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
 	</div>
-	<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block")%>
+	<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block" :style => "width: 80vw; max-width: 320px;")%>
 <% end %>
 
 <% if style == "complex" %>
