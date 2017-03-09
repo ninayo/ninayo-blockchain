@@ -63,6 +63,11 @@ gem 'redis-namespace'
 
 gem 'social-share-button'
 
+# stuff for price page
+gem 'chartkick'
+gem 'hightop'
+gem 'groupdate'
+
 #gem 'skylight'
 
 group :development do
