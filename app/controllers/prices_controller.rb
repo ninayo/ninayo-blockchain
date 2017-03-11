@@ -18,7 +18,7 @@ class PricesController < ApplicationController
   end
 
   def dar
-    @prices = Price.all
+    @prices = Price.find_by(region_id: 2)
 
     @view = 'dar'
 
@@ -28,7 +28,7 @@ class PricesController < ApplicationController
   end
 
   def iringa
-    @prices = Price.where('region_id IS 5')
+    @prices = Price.find_by(region_id: 5)
                     .includes(:crop_type)
                     .page(params[:page])
 
@@ -40,7 +40,7 @@ class PricesController < ApplicationController
   end
 
   def mbeya
-    @prices = Price.where('region_id IS 13')
+    @prices = Price.find_by(region_id: 13)
                     .includes(:crop_type)
                     .page(params[:page])
 
