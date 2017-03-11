@@ -18,7 +18,7 @@ class PricesController < ApplicationController
   end
 
   def dar
-    @prices = Price.includes(:crop_type_id)
+    @prices = Price.includes(:crop_type)
                     .order('created_at desc')
                     .select { |p| p.region_id == 2 }
 
@@ -30,7 +30,7 @@ class PricesController < ApplicationController
   end
 
   def iringa
-    @prices = Price.includes(:crop_type_id)
+    @prices = Price.includes(:crop_type)
                     .order('created_at desc')
                     .select { |p| p.region_id == 5 }
 
@@ -42,7 +42,7 @@ class PricesController < ApplicationController
   end
 
   def mbeya
-    @prices = Price.includes(:crop_type_id)
+    @prices = Price.includes(:crop_type)
                     .order('created_at desc')
                     .select { |p| p.region_id == 13 }
 
