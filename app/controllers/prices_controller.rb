@@ -18,7 +18,7 @@ class PricesController < ApplicationController
   end
 
   def dar
-    @prices = Price.find_by(region_id: 2)
+    @prices = Price.order('created_at desc').select { |p| p.region_id == 2 }
 
     @view = 'dar'
 
@@ -28,7 +28,7 @@ class PricesController < ApplicationController
   end
 
   def iringa
-    @prices = Price.find_by(region_id: 5)
+    @prices = Price.all
                     .includes(:crop_type)
                     .page(params[:page])
 
