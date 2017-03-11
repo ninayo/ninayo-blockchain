@@ -33,6 +33,8 @@
 					<%= Region.find_by_id(price.region_id).name %>
 				</strong>
 			</td>
+
+			<td> class="text-right"><%= CropType.find_by_id(price.crop_type_id).name %></td>
 			
 			<td class="text-right"><%= number_to_currency(price.price, precision: 0) %></td>
 			
