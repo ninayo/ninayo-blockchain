@@ -1,4 +1,5 @@
 <div class="pagenav is-block" style="display: flex; justify-content: center;">
-		<%= link_to "#{ t "views.my_page.pagenav.current"}", mypage_path, :class => current_view == "current" ? "pagenav-item is-active" : "pagenav-item" %>
-		<%= link_to "#{ t "views.my_page.pagenav.archive"}", mypage_archive_path, :class => current_view == "archive" ? "pagenav-item is-active" : "pagenav-item" %>
+		<%= link_to "DAR", dar_price_path, :class => current_view == "dar" ? "pagenav-item is-active" : "pagenav-item" %>
+		<%= link_to "MBEYA", mbeya_price_path, :class => current_view == "mbeya" ? "pagenav-item is-active" : "pagenav-item" %>
+		<%= link_to "IRINGA", iringa_price_path, :class => current_view == "iringa" ? "pagenav-item is-active" : "pagenav-item" %>
 </div>
