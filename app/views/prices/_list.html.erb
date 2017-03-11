@@ -38,31 +38,6 @@
 			
 			<td><%= l(price.created_at, format: :short) %></td>
 
-			<% if current_view != "favorites" && current_view != "bought_ads" -%>
-				<td class="text-right">
-					<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
-					<% if displayed.length > 0 %>
-						<% displayed.each do |s| %>
-							<%=  s[1] %>
-						<% end -%>
-					<% else -%>
-						0
-					<% end -%>
-				</td>
-				<td class="text-right">
-					<% contact_displayed = ad.ad_logs.where(:event_type_id => 2).group(:event_type).count %>
-					<% if contact_displayed.length > 0 %>
-						<% contact_displayed.each do |s| %>
-							<%=  s[1] %>
-						<% end -%>
-					<% else -%>
-						0
-					<% end -%>
-				</td>
-				<td class="text-right">
-					<%= ad.favorited_by.count%>
-				</td>
-			<% end -%>
 			<% if current_view == "current" -%>
 			<td class="text-right is-buttonrow"><%= link_to("#{t "common.archive"}", archive_ad_path(ad), :class => "button is-block ads-table-button ") %></td>
 			<% end -%>
