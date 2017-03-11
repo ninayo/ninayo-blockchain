@@ -1,26 +1,11 @@
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
-		<th><%= t "views.my_page.list.title" %></th>
-		<% if current_view == "favorites" || current_view == "bought_ads" -%>
-			<th><%= t "views.my_page.list.seller" %></th>
-		<% end -%>
-		<th class="text-right"><%= t "views.my_page.list.price" %></th>
-		<% if current_view == "sold_ads" -%>
-			<th class="text-right"><%= t "views.my_page.list.final_price" %></th>
-			<th><%= t "views.my_page.list.buyer" %></th>
-		<% end -%>
-		<% if current_view == "bought_ads" -%>
-			<th class="text-right"><%= t "views.my_page.list.final_price" %></th>
-		<% end -%>
-		<th><%= t "views.my_page.list.published" %></th>
-		<% if current_view == "sold_ads" -%>
-			<th><%= t "views.my_page.list.archived" %></th>
-		<% end -%>
-		<% if current_view != "favorites" && current_view != "bought_ads" -%>
-			<th class="text-right"><%= t "views.my_page.list.displayed" %></th>
-			<th class="text-right"><%= t "views.my_page.list.displayed_contact_info" %></th>
-			<th class="text-right"><%= t "views.my_page.list.favorites" %></th>
-		<% end -%>
+		<th><%= t "activerecord.attributes.ad.location" %></th>
+		<th class="text-right"><%= t "views.ad.crop_type" %></th>
+		<th><%= t "views.my_page.list.price" %></th>
+		<th class="text-right"><%= t "views.my_page.list.published" %></th>
+		<th class="text-right"><%= t "views.my_page.list.displayed_contact_info" %></th>
+		<th class="text-right"><%= t "views.my_page.list.favorites" %></th>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
