@@ -28,9 +28,7 @@ class PricesController < ApplicationController
   end
 
   def iringa
-    @prices = Price.all
-                    .includes(:crop_type)
-                    .page(params[:page])
+    @prices = Price.order('created_at desc').select { |p| p.region_id == 5 }
 
     @view = 'iringa'
 
@@ -40,9 +38,7 @@ class PricesController < ApplicationController
   end
 
   def mbeya
-    @prices = Price.find_by(region_id: 13)
-                    .includes(:crop_type)
-                    .page(params[:page])
+    @prices = Price.order('created_at desc').select { |p| p.region_id == 13 }
 
     @view = 'mbeya'
 
