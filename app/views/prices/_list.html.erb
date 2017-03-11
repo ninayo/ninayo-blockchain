@@ -30,46 +30,14 @@
 		<tr>
 			<td>
 				<strong>
-					<%= price.created_at %>
+					<%= Region.find_by_id(price.region_id).name %>
 				</strong>
 			</td>
-			<% if current_view == "favorites" || current_view == "bought_ads" -%>
-				<td>
-					<span class="rating" data-score="<%= ad.user.seller_rating.round(0) %>">
-						<span class="rating-user">
-							<%= ad.user.name %>
-						</span>
-						<span class="rating-score">
-							<span class="rating-score-inner"></span>
-						</span>
-					</span>
-				</td>
-			<% end -%>
-			<td class="text-right"><%= number_to_currency(ad.price, precision: 0) %></td>
-			<% if current_view == "sold_ads" -%>
-				<td class="text-right"><%= number_to_currency(ad.final_price, precision: 0) %></td>
-				<td>
-					<% if ad.buyer -%>
-					<span class="rating" data-score="<%= ad.user.buyer_rating.round(0) %>">
-						<span class="rating-user">
-							<%= ad.buyer.name %>
-						</span>
-						<span class="rating-score">
-							<span class="rating-score-inner"></span>
-						</span>
-					</span>
-					<% else -%>
-						-
-					<% end -%>
-				</td>
-			<% end -%>
-			<% if current_view == "bought_ads" -%>
-				<td class="text-right"><%= number_to_currency(ad.buyer_price, precision: 0)  %></td>
-			<% end -%>
-			<td><%= l(ad.published_at, format: :short) %></td>
-			<% if current_view == "sold_ads" -%>
-				<td><%= l(ad.archived_at, format: :short) %></td>
-			<% end -%>
+			
+			<td class="text-right"><%= number_to_currency(price.price, precision: 0) %></td>
+			
+			<td><%= l(price.created_at, format: :short) %></td>
+
 			<% if current_view != "favorites" && current_view != "bought_ads" -%>
 				<td class="text-right">
 					<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
