@@ -1,11 +1,8 @@
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
-		<th><%= t "activerecord.attributes.ad.location" %></th>
 		<th class="text-right"><%= t "views.ad.crop_type" %></th>
 		<th><%= t "views.my_page.list.price" %></th>
 		<th class="text-right"><%= t "views.my_page.list.published" %></th>
-		<th class="text-right"><%= t "views.my_page.list.displayed_contact_info" %></th>
-		<th class="text-right"><%= t "views.my_page.list.favorites" %></th>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
@@ -13,11 +10,6 @@
 	<tbody>
 	<% prices.each do |price| -%>
 		<tr>
-			<td>
-				<strong>
-					<%= Region.find_by_id(price.region_id).name %>
-				</strong>
-			</td>
 
 			<td class="text-right"><%= CropType.find_by_id(price.crop_type_id).name %></td>
 			
