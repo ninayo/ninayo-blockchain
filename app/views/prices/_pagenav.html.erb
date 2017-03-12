@@ -1,4 +1,4 @@
-<div style="display: flex; justify-content: center;">Current market prices: <strong><%= "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}" %></strong></div>
+<div style="display: flex; justify-content: center;"><p>Current market prices: <strong><%= "#{Time.now.day}/#{Time.now.month}/#{Time.now.year}" %></strong></p></div>
 <div class="pagenav is-block" style="display: flex; justify-content: center;">
 		<%= link_to "DAR", dar_price_path, :class => current_view == "dar" ? "pagenav-item is-active" : "pagenav-item" %>
 		<%= link_to "MBEYA", mbeya_price_path, :class => current_view == "mbeya" ? "pagenav-item is-active" : "pagenav-item" %>
