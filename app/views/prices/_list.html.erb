@@ -13,9 +13,9 @@
 		<td class="text-right"><%= "Avocado" %></td>
 		<td class="text-right"><%= number_to_currency(@avocado_prices.last.price, precision: 0) %></td>
 		<% if @avocado_prices[-2].price < @avocado_prices.last.price %>
-			<td><span style="color: green;">▲</span></td>
+			<td><span style="color: green;">▲</span>(<%= @avocado_prices.last.price - @avocado_prices[-2].price %>)</td>
 		<% elsif @avocado_prices[-2].price > @avocado_prices.last.price %>
-			<td><span style="color: red;">▼</span></td>
+			<td><span style="color: red;">▼</span>(<%= @avocado_prices.last.price - @avocado_prices[-2].price %>)</td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
@@ -25,9 +25,9 @@
 		<td class="text-right"><%= "Maize" %></td>
 		<td class="text-right"><%= number_to_currency(@maize_prices.last.price, precision: 0) %></td>
 		<% if @maize_prices[-2].price < @maize_prices.last.price %>
-			<td><span style="color: green;">▲</span></td>
+			<td><span style="color: green;">▲</span>(<%= @maize_prices.last.price - @maize_prices[-2].price %>)</td>
 		<% elsif @maize_prices[-2].price > @maize_prices.last.price %>
-			<td><span style="color: red;">▼</span></td>
+			<td><span style="color: red;">▼</span>(<%= @maize_prices.last.price - @maize_prices[-2].price %>)</td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
@@ -37,9 +37,9 @@
 		<td class="text-right"><%= "Tomato" %></td>
 		<td class="text-right"><%= number_to_currency(@tomato_prices.last.price, precision: 0) %></td>
 		<% if @tomato_prices[-2].price < @tomato_prices.last.price %>
-			<td><span style="color: green;">▲</span></td>
+			<td><span style="color: green;">▲</span>(<%= @tomato_prices.last.price - @tomato_prices[-2].price %>)</td>
 		<% elsif @tomato_prices[-2].price > @tomato_prices.last.price %>
-			<td><span style="color: red;">▼</span></td>
+			<td><span style="color: red;">▼</span>(<%= @tomato_prices.last.price - @tomato_prices[-2].price %>)</td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
@@ -49,9 +49,9 @@
 		<td class="text-right"><%= "Onion" %></td>
 		<td class="text-right"><%= number_to_currency(@onion_prices.last.price, precision: 0) %></td>
 		<% if @onion_prices[-2].price < @onion_prices.last.price %>
-			<td><span style="color: green;">▲</span></td>
+			<td><span style="color: green;">▲</span>(<%= @onion_prices.last.price - @onion_prices[-2].price %>)</td>
 		<% elsif @onion_prices[-2].price > @onion_prices.last.price %>
-			<td><span style="color: red;">▼</span></td>
+			<td><span style="color: red;">▼</span>(<%= @onion_prices.last.price - @onion_prices[-2].price %>)</td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
@@ -61,9 +61,9 @@
 		<td class="text-right"><%= "Potato" %></td>
 		<td class="text-right"><%= number_to_currency(@potato_prices.last.price, precision: 0) %></td>
 		<% if @potato_prices[-2].price < @potato_prices.last.price %>
-			<td><span style="color: green;">▲</span></td>
+			<td><span style="color: green;">▲</span>(<%= @potato_prices.last.price - @potato_prices[-2].price %>)</td>
 		<% elsif @potato_prices[-2].price > @potato_prices.last.price %>
-			<td><span style="color: red;">▼</span></td>
+			<td><span style="color: red;">▼</span>(<%= @potato_prices.last.price - @potato_prices[-2].price %>)</td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
