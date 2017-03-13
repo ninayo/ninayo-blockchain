@@ -4,7 +4,7 @@ class SplashController < ApplicationController
 
   # page for letsencrypt verification
   def letsencrypt_verify
-    respond_with 'QIwU9n6QegA0awHuZT4CDBBGSo6MHida1rX4hWC1ShU.f7vLMOThcyEXB9qAI5BSN_yaTVOEKeyNNW23TFYNCRA'
+    render body: '-psVTriG2kn-BOKuC52nnPuie6YQ9L8-6yd97DlA78g.f7vLMOThcyEXB9qAI5BSN_yaTVOEKeyNNW23TFYNCRA'
   end
 
   def index
