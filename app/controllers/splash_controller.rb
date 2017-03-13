@@ -1,8 +1,10 @@
 class SplashController < ApplicationController
 
+  respond_to :html
+
   # page for letsencrypt verification
   def letsencrypt_verify
-    respond_with 'ccKlTTfnBriKWsrnUwKrQDcfhuF8GOZUgUDFq6sPlNc.f7vLMOThcyEXB9qAI5BSN_yaTVOEKeyNNW23TFYNCRA'
+    respond_with 'QIwU9n6QegA0awHuZT4CDBBGSo6MHida1rX4hWC1ShU.f7vLMOThcyEXB9qAI5BSN_yaTVOEKeyNNW23TFYNCRA'
   end
 
   def index
