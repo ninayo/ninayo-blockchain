@@ -93,7 +93,7 @@ Rails.application.routes.draw do
 
   end
 
-  get '.well-known/acme-challenge/b6LjPkmXSE43hN2MmKoNCWEY9dIIw_xWvAjOH-2vtMU' => 'analytics#letsencrypt_verify'
+  get '/.well-known/acme-challenge/b6LjPkmXSE43hN2MmKoNCWEY9dIIw_xWvAjOH-2vtMU' => 'analytics#letsencrypt_verify'
 
   get '/:locale' => 'splash#index'
   root 'splash#index'
