@@ -3,11 +3,6 @@ class Admin::AnalyticsController < Admin::BaseController
 
 	helper_method :ads_posted_this_month, :users_registered_this_month, :user_of_month
 
-	# page for letsencrypt verification
-	def letsencrypt_verify
-
-	end
-
 	def index
 		@ads = Ad.all
 		@users = User.all

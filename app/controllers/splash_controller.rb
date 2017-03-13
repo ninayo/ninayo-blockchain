@@ -1,5 +1,10 @@
 class SplashController < ApplicationController
 
+  # page for letsencrypt verification
+  def letsencrypt_verify
+
+  end
+
   def index
     @featured_ad = Ad.last(5).sample
   end
