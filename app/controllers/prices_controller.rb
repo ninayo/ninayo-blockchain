@@ -19,14 +19,14 @@ class PricesController < ApplicationController
 
   def dar
     @prices = Price.includes(:crop_type)
-                    .order('created_at desc')
-                    .select { |p| p.region_id == 2 }
+                   .order('created_at desc')
+                   .select { |p| p.region_id == 2 }
 
-    @maize_prices    = @prices.select { |p| p.crop_type_id = 1}
-    @potato_prices   = @prices.select { |p| p.crop_type_id = 2}
-    @avocado_prices  = @prices.select { |p| p.crop_type_id = 6}
-    @onion_prices    = @prices.select { |p| p.crop_type_id = 13}
-    @tomato_prices   = @prices.select { |p| p.crop_type_id = 8}
+    @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
+    @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
+    @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
+    @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
+    @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'dar'
 
@@ -37,8 +37,8 @@ class PricesController < ApplicationController
 
   def iringa
     @prices = Price.includes(:crop_type)
-                    .order('created_at desc')
-                    .select { |p| p.region_id == 5 }
+                   .order('created_at desc')
+                   .select { |p| p.region_id == 5 }
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
@@ -55,8 +55,8 @@ class PricesController < ApplicationController
 
   def mbeya
     @prices = Price.includes(:crop_type)
-                    .order('created_at desc')
-                    .select { |p| p.region_id == 13 }
+                   .order('created_at desc')
+                   .select { |p| p.region_id == 13 }
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
