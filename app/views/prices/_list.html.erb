@@ -8,16 +8,66 @@
 		<% end -%>
 	</thead>
 	<tbody>
-	<% prices.each do |price| -%>
-		<tr>
 
-			<td class="text-right"><%= CropType.find_by_id(price.crop_type_id).name %></td>
-			
-			<td class="text-right"><%= number_to_currency(price.price, precision: 0) %></td>
-			
+	<tr>
+		<td class="text-right"><%= "Avocado" %></td>
+		<td class="text-right"><%= number_to_currency(@avocado_prices.last.price, precision: 0) %></td>
+		<% if @avocado_prices[-2].price < @avocado_prices.last.price %>
 			<td><span style="color: green;">▲</span></td>
+		<% elsif @avocado_prices[-2].price < @avocado_prices.last.price %>
+			<td><span style="color: red;">▼</span></td>
+		<% else %>
+			<td><strong><span style="color: orange;">=</span></strong></td>
+		<% end %>
+	</tr>
+	
+	<tr>
+		<td class="text-right"><%= "Maize" %></td>
+		<td class="text-right"><%= number_to_currency(@maize_prices.last.price, precision: 0) %></td>
+		<% if @maize_prices[-2].price < @maize_prices.last.price %>
+			<td><span style="color: green;">▲</span></td>
+		<% elsif @maize_prices[-2].price < @maize_prices.last.price %>
+			<td><span style="color: red;">▼</span></td>
+		<% else %>
+			<td><strong><span style="color: orange;">=</span></strong></td>
+		<% end %>
+	</tr>
 
-		</tr>
-	<% end -%>
+	<tr>
+		<td class="text-right"><%= "Tomato" %></td>
+		<td class="text-right"><%= number_to_currency(@tomato_prices.last.price, precision: 0) %></td>
+		<% if @tomato_prices[-2].price < @tomato_prices.last.price %>
+			<td><span style="color: green;">▲</span></td>
+		<% elsif @tomato_prices[-2].price < @tomato_prices.last.price %>
+			<td><span style="color: red;">▼</span></td>
+		<% else %>
+			<td><strong><span style="color: orange;">=</span></strong></td>
+		<% end %>
+	</tr>
+
+	<tr>
+		<td class="text-right"><%= "Onion" %></td>
+		<td class="text-right"><%= number_to_currency(@onion_prices.last.price, precision: 0) %></td>
+		<% if @onion_prices[-2].price < @onion_prices.last.price %>
+			<td><span style="color: green;">▲</span></td>
+		<% elsif @onion_prices[-2].price < @onion_prices.last.price %>
+			<td><span style="color: red;">▼</span></td>
+		<% else %>
+			<td><strong><span style="color: orange;">=</span></strong></td>
+		<% end %>
+	</tr>
+
+	<tr>
+		<td class="text-right"><%= "Potato" %></td>
+		<td class="text-right"><%= number_to_currency(@potato_prices.last.price, precision: 0) %></td>
+		<% if @potato_prices[-2].price < @potato_prices.last.price %>
+			<td><span style="color: green;">▲</span></td>
+		<% elsif @potato_prices[-2].price < @potato_prices.last.price %>
+			<td><span style="color: red;">▼</span></td>
+		<% else %>
+			<td><strong><span style="color: orange;">=</span></strong></td>
+		<% end %>
+	</tr>
+
 	</tbody>
 </table>
