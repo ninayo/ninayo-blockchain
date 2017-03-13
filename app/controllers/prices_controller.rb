@@ -40,11 +40,11 @@ class PricesController < ApplicationController
                     .order('created_at desc')
                     .select { |p| p.region_id == 5 }
 
-    @maize_prices    = @prices.select { |p| p.crop_type_id = 1 }
-    @potato_prices   = @prices.select { |p| p.crop_type_id = 2 }
-    @avocado_prices  = @prices.select { |p| p.crop_type_id = 6 }
-    @onion_prices    = @prices.select { |p| p.crop_type_id = 13 }
-    @tomato_prices   = @prices.select { |p| p.crop_type_id = 8 }
+    @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
+    @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
+    @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
+    @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
+    @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'iringa'
 
@@ -58,11 +58,11 @@ class PricesController < ApplicationController
                     .order('created_at desc')
                     .select { |p| p.region_id == 13 }
 
-    @maize_prices    = @prices.select { |p| p.crop_type_id = 1 }
-    @potato_prices   = @prices.select { |p| p.crop_type_id = 2 }
-    @avocado_prices  = @prices.select { |p| p.crop_type_id = 6 }
-    @onion_prices    = @prices.select { |p| p.crop_type_id = 13 }
-    @tomato_prices   = @prices.select { |p| p.crop_type_id = 8 }
+    @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
+    @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
+    @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
+    @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
+    @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'mbeya'
 
