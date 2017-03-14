@@ -5,11 +5,21 @@ class PricesController < ApplicationController
   def index
   end
 
+  def create
+    @price = Price.new(price_params)
+
+    if @price.save
+      redirect_to root_url, message: "Price uploaded"
+    else
+      redirect_to dar_price_url, message: "Upload failed"
+    end
+  end
+
   def current
     @prices = Price.all
-                       .published
-                       .includes(:crop_type)
-                       .page(params[:page])
+                   .published
+                   .includes(:crop_type)
+                   .page(params[:page])
     @view = 'current'
 
     respond_to do |format|
@@ -69,5 +79,11 @@ class PricesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
     end
+  end
+
+  private
+
+  def price_params
+    params.require(:price).permit(:region_id, :crop_type_id, :price)
   end
 end
