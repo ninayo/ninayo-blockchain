@@ -5,6 +5,9 @@ class PricesController < ApplicationController
   def index
   end
 
+  def new
+  end
+
   def create
     @price = Price.new(price_params)
 
