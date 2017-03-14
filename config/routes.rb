@@ -41,6 +41,10 @@ Rails.application.routes.draw do
       resources :comments
     end
 
+    resources :prices do
+      resources :prices
+    end
+
     resources :conversations, only: [:index, :show, :destroy] do
       member do
         post :reply

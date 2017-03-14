@@ -1,0 +1,31 @@
+<%= form_for :price, validate: true do |f| %>
+	<%= render "shared/validation_errors", :model => @ad %>
+
+	<fieldset>
+		<div class="field">
+			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
+			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
+		</div>
+
+		<div class="field">
+			<strong><%= f.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+			<div class="input-wrapper">
+				<div class="input-field">
+					<%= f.number_field :price, :min => 1, :class => "is-inline" %>
+				</div>
+				<div class="input-label">
+					<span class="input-post">/=</span>
+				</div>
+			</div>
+		</div>
+
+		<h3><%= t("views.ad.show.location").humanize %></h3>
+		<div class="field">
+			<strong><%= f.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
+			<%= user_fields.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
+		</div>
+
+		<%= f.submit("Submit", :class  => "button is-block") %>
+	</fieldset>
+
+<% end %>
