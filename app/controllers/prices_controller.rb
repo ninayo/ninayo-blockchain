@@ -6,6 +6,9 @@ class PricesController < ApplicationController
   end
 
   def new
+    @price = Price.new
+    @crop_types = CropType.all.order(:sort_order)
+    respond_with(@price)
   end
 
   def create
