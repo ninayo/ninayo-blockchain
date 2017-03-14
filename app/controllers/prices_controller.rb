@@ -8,6 +8,7 @@ class PricesController < ApplicationController
   def new
     @price = Price.new
     @crop_types = CropType.all.order(:sort_order)
+    render :new
   end
 
   def create
