@@ -22,7 +22,7 @@
 		<h3><%= t("views.ad.show.location").humanize %></h3>
 		<div class="field">
 			<strong><%= f.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
-			<%= user_fields.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
+			<%= f.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
 		</div>
 
 		<%= f.submit("Submit", :class  => "button is-block") %>
