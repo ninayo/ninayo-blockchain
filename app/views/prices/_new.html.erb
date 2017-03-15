@@ -18,13 +18,15 @@
 			</div>
 		</div>
 
-		<h3><%= t("views.ad.show.location").humanize %></h3>
-		<div class="field">
-			<strong><%= f.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
-			<%= f.select :region_id, Region.all.select{ |r| ["Dar es Salaam", "Mbeya", "Iringa"].include? r.name }.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
-		</div>
+		<% if current_view == "dar" %>
+			<%= f.hidden_field :region_id, :value => 2 %>
+		<% elsif current_view == "iringa" %>
+			<%= f.hidden_field :region_id, :value => 5 %>
+		<% else %>
+			<%= f.hidden_field :region_id, :value => 13%>
+		<% end %>
 
-		<%= f.submit("Submit", :class  => "button is-block") %>
+		<%= f.submit("Submit", :class  => "button") %>
 	</fieldset>
 
 <% end %>
