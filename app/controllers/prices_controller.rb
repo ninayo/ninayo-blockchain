@@ -2,12 +2,6 @@
 class PricesController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-  end
-  
-  def show
-  end
-
   def new
     @price = Price.new
     @crop_types = CropType.all.order(:sort_order)
@@ -48,8 +42,6 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'dar'
-
-    render :dar
   end
 
   def iringa

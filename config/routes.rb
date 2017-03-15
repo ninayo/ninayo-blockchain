@@ -41,13 +41,6 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-    namespace :prices do
-      get 'new' => 'prices#new', as: :new_price
-      get 'dar' => 'prices#dar', as: :dar_price
-      get 'mbeya' => 'prices#mbeya', as: :mbeya_price
-      get 'iringa' => 'prices#iringa', as: :iringa_price
-    end
-
     resources :conversations, only: [:index, :show, :destroy] do
       member do
         post :reply
@@ -87,6 +80,11 @@ Rails.application.routes.draw do
     get 'splash/get_started' => 'splash#get_started', as: :get_started
     get 'splash/team' => 'splash#team', as: :team
     get 'splash/congrats' => 'splash#congrats', as: :congrats
+
+    get 'prices/new' => 'prices#new', as: :new_price
+    get 'prices/dar' => 'prices#dar', as: :dar_price
+    get 'prices/mbeya' => 'prices#mbeya', as: :mbeya_price
+    get 'prices/iringa' => 'prices#iringa', as: :iringa_price
 
     #devise_for :users, :controllers => { :sessions => "track_sessions" }
     # The priority is based upon order of creation: first created -> highest priority.
