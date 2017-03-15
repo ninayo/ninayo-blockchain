@@ -41,11 +41,11 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-    resources :prices do
-      resources :prices
-      get 'prices/dar' => 'prices#dar', as: :dar_price
-      get 'prices/mbeya' => 'prices#mbeya', as: :mbeya_price
-      get 'prices/iringa' => 'prices#iringa', as: :iringa_price
+    namespace :prices do
+      get 'new' => 'prices#new', as: :new_price
+      get 'dar' => 'prices#dar', as: :dar_price
+      get 'mbeya' => 'prices#mbeya', as: :mbeya_price
+      get 'iringa' => 'prices#iringa', as: :iringa_price
     end
 
     resources :conversations, only: [:index, :show, :destroy] do
