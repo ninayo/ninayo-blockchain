@@ -12,9 +12,15 @@ class PricesController < ApplicationController
     @price = Price.new(price_params)
 
     if @price.save
-      redirect_to price_url, message: "Price uploaded"
+      if @price.region_id == 2
+        redirect_to dar_price_url, message: "Price uploaded"
+      elsif @price.region_id == 5
+        redirect_to iringa_price_url, message: "Price uploaded"
+      else
+        redirect_to mbeya_price_url, message: "Price uploaded"
+      end
     else
-      redirect_to price_url, message: "Upload failed"
+      redirect_to prices_url, message: "Upload failed"
     end
   end
 
