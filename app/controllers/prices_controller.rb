@@ -49,9 +49,7 @@ class PricesController < ApplicationController
 
     @view = 'dar'
 
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    render :dar
   end
 
   def iringa
