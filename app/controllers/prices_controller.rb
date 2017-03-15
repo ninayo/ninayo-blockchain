@@ -63,10 +63,7 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'iringa'
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    @price = Price.new(:region_id => 5)
   end
 
   def mbeya
@@ -81,10 +78,7 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'mbeya'
-
-    respond_to do |format|
-      format.html # index.html.erb
-    end
+    @price = Price.new(:region_id => 13)
   end
 
   private
