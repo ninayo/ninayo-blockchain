@@ -1,6 +1,8 @@
 <% provide(:title, "IRINGA PRICES") %>
 <%= render "pagenav", :current_view => "iringa" %>
-
+<div class="new-price-form">
+	<%= render "new", :current_view => "iringa" %>
+</div>
 <div class="tabs-content">
 	<%= render "iringa", :current_view => "iringa" %>
 </div>
