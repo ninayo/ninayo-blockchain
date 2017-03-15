@@ -5,7 +5,7 @@ class Price < ActiveRecord::Base
   belongs_to :crop_type
   belongs_to :region
 
-  validates :region_id, :crop_type, :price, presence: true
+  validates :region_id, :crop_type_id, :price, presence: true
   validates :price, numericality: { less_than_or_equal_to: 999_999_999 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
