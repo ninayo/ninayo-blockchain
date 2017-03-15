@@ -42,6 +42,7 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'dar'
+    @price = Price.new(:region_id => 2)
   end
 
   def iringa
