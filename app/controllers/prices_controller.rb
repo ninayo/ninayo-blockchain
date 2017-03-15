@@ -12,9 +12,9 @@ class PricesController < ApplicationController
     @price = Price.new(price_params)
 
     if @price.save
-      redirect_to root_url, message: "Price uploaded"
+      redirect_to price_url, message: "Price uploaded"
     else
-      redirect_to dar_price_url, message: "Upload failed"
+      redirect_to price_url, message: "Upload failed"
     end
   end
 
