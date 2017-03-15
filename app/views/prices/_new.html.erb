@@ -2,8 +2,8 @@
 
 	<fieldset>
 		<div class="field">
-			<%= f.select :crop_type_id, @crop_types.all.select{ |c|["Potatoes", "Avocadoes", "Tomatoes", "Maize", "Onions"].include? c.name }.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
-			<%= f.select :crop_type_id, @crop_types.all.select{ |c|["Potatoes", "Avocadoes", "Tomatoes", "Maize", "Onions"].include? c.name }.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
+			<%= f.select :crop_type_id, CropType.all.select{ |c|["Potatoes", "Avocadoes", "Tomatoes", "Maize", "Onions"].include? c.name }.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
+			<%= f.select :crop_type_id, CropType.all.select{ |c|["Potatoes", "Avocadoes", "Tomatoes", "Maize", "Onions"].include? c.name }.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
 		</div>
 
 		<div class="field">
