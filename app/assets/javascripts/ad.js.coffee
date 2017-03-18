@@ -20,7 +20,5 @@ jQuery ->
 		options = $(wards).filter("optgroup[label='#{district}']").html()
 		if options
 			$('#ad_ward_id').html(options)
-			$('#ad_ward_id').parent().show()
 		else
 			$('#ad_ward_id').empty()
-			$('#ad_ward_id').parent().hide()
