@@ -3,7 +3,6 @@
 ##special characters in the name but there aren't any in TZ, which is convenient
 
 jQuery -> 
-	$('#ad_ward_id').parent().hide()
 	districts = $('#ad_district_id').html()
 	wards = $('#ad_ward_id').html()
 
