@@ -84,7 +84,7 @@
 				</div>
 
 				<div class="field">
-					<strong><%= user_fields.label "#{t "views.ad.village"} (#{I18n.locale == :sw ? "Hiari" : "Optional"})", :class => 'field-label' %></strong>
+					<strong><%= user_fields.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
 					<%= user_fields.text_field :village %>
 				</div>
 			<% end %>
@@ -103,7 +103,7 @@
 			</div>
 
 			<div class="field">
-				<strong><%= f.label "#{t "views.ad.village"} (#{I18n.locale == :sw ? "Hiari" : "Optional")}", :class => 'field-label' %></strong>
+				<strong><%= f.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
 				<%= f.text_field :village %>
 			</div>
 			<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
