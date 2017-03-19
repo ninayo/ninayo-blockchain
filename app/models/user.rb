@@ -38,15 +38,15 @@ class User < ActiveRecord::Base
   has_many :whatsapp_received, class_name: 'WhatsappLog', foreign_key: 'receiver_id'
 
   enum role: [:user, :vip, :admin]
-  after_initialize :set_default_role, :if => :new_record?
-  after_initialize :set_default_language, :if => :new_record?
-  after_initialize :set_default_rating, :if => :new_record?
+  after_initialize :set_default_role, if: :new_record?
+  after_initialize :set_default_language, if: :new_record?
+  after_initialize :set_default_rating, if: :new_record?
 
   validates :name, :phone_number, :agreement, presence: true, on: :save_ad
-  validates :name, :agreement, presence: true, :on => :create
-  validates :phone_number, uniqueness: true, allow_nil: true
-  #validates :phone_number, numericality: true
-  validates :email, uniqueness: true, allow_nil: true 
+  validates :name, :agreement, presence: true, on: :create
+  validates :phone_number, uniqueness: true, allow_blank: true
+  # validates :phone_number, numericality: true
+  validates :email, uniqueness: { case_sensitive: false }, allow_blank: true
 
   accepts_nested_attributes_for :ratings, allow_destroy: true
 
@@ -125,14 +125,14 @@ class User < ActiveRecord::Base
     end
 
     # new registration, set properties. requested info determined in devise.rb
-    where(uid: auth.uid, email: auth.info.email).first_or_create do |user|
-      user.update(uid: auth.uid,
-                  name: auth.info.name,
-                  email: auth.info.email || "no_email#{rand(999999)}@ninayo.com",
-                  gender: auth.extra.raw_info.gender,
-                  birthday: auth.info.birthday,
-                  photo_url: JSON.parse(res.body)['data']['url'],
-                  agreement: true)
+    where(uid: auth.uid, email: auth.info.email).first_or_create do |u|
+      u.update(uid: auth.uid,
+               name: auth.info.name,
+               email: auth.info.email || "no_email#{rand(999999999)}@ninayo.com",
+               gender: auth.extra.raw_info.gender,
+               birthday: auth.info.birthday,
+               photo_url: JSON.parse(res.body)['data']['url'],
+               agreement: true)
     end
   end
 
@@ -187,7 +187,7 @@ class User < ActiveRecord::Base
   end
 
   def set_default_email
-    self.email ||=  "no_email#{rand(999999)}@ninayo.com"
+    self.email ||=  "no_email#{rand(999999999)}@ninayo.com"
   end
 
   def set_default_language

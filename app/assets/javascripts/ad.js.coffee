@@ -3,6 +3,7 @@
 ##special characters in the name but there aren't any in TZ, which is convenient
 
 jQuery -> 
+	$('#ad_ward_id').parent().hide()
 	districts = $('#ad_district_id').html()
 	wards = $('#ad_ward_id').html()
 
@@ -19,5 +20,7 @@ jQuery ->
 		options = $(wards).filter("optgroup[label='#{district}']").html()
 		if options
 			$('#ad_ward_id').html(options)
+			$('#ad_ward_id').parent().show()
 		else
 			$('#ad_ward_id').empty()
+			$('#ad_ward_id').parent().hide()
