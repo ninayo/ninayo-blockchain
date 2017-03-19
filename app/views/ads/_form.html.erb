@@ -82,13 +82,9 @@
 					<strong><%= user_fields.label "#{t "views.ad.region"}", :class => 'field-label' %></strong>
 					<%= user_fields.select :region_id, Region.all.collect {|a| [ a.name, a.id ] }, {prompt: "#{t "views.edit_profile.select_region"}"} %>
 				</div>
-				<div class="field">
-					<strong><%= user_fields.label "#{t "views.ad.district"}", class: "field-label" %></strong>
-					<%= user_fields.grouped_collection_select :district_id, Region.includes(:districts).order(:name), :districts, :name, :id, :name, {prompt: "#{t "views.edit_profile.select_district"}"} %>
-				</div>
 
 				<div class="field">
-					<strong><%= user_fields.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
+					<strong><%= user_fields.label "#{t "views.ad.village"} (#{I18n.locale == :sw ? "Hiari" : "Optional"})", :class => 'field-label' %></strong>
 					<%= user_fields.text_field :village %>
 				</div>
 			<% end %>
@@ -107,7 +103,7 @@
 			</div>
 
 			<div class="field">
-				<strong><%= f.label "#{t "views.ad.village"}", :class => 'field-label' %></strong>
+				<strong><%= f.label "#{t "views.ad.village"} (#{I18n.locale == :sw ? "Hiari" : "Optional")}", :class => 'field-label' %></strong>
 				<%= f.text_field :village %>
 			</div>
 			<%#= f.label "#{t "views.ad.lat"}", :class => 'field-label' %>
