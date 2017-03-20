@@ -11,7 +11,7 @@
 		<% else %>
 			<span>I am </span>
 		<% end%>
-		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'muuzaji' : 'a seller'), 'buy'], [(I18n.locale == :sw ? 'mlanguzi' : 'a buyer'), 'sell']], @ad_type), style: "width: 135px;" %>
+		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'muuzaji' : 'a seller'), 'buy'], [(I18n.locale == :sw ? 'mnunuzi' : 'a buyer'), 'sell']], @ad_type), style: "width: 135px;" %>
 		</div>
 		<div class="filterrow">
 		<% if I18n.locale == :sw %>
