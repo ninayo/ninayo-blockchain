@@ -10,7 +10,7 @@
 	<tbody>
 
 	<tr>
-		<td class="text-right"><%= "Avocado" %></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Avocado" : "Maparachichi" %></td>
 		<td class="text-right"><%= number_to_currency(@avocado_prices.first.price, precision: 0) %></td>
 		<% if @avocado_prices.second.price < @avocado_prices.first.price %>
 			<td><span style="color: green;">▲</span>(<%= @avocado_prices.first.price - @avocado_prices.second.price %>)</td>
@@ -25,7 +25,7 @@
 	</tr>
 	
 	<tr>
-		<td class="text-right"><%= "Maize" %></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
 		<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
 		<% if @maize_prices.second.price < @maize_prices.first.price %>
 			<td><span style="color: green;">▲</span>(<%= @maize_prices.first.price - @maize_prices.second.price %>)</td>
@@ -40,7 +40,7 @@
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= "Tomato" %></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Tomato" : "Nyanya" %></td>
 		<td class="text-right"><%= number_to_currency(@tomato_prices.first.price, precision: 0) %></td>
 		<% if @tomato_prices.second.price < @tomato_prices.first.price %>
 			<td><span style="color: green;">▲</span>(<%= @tomato_prices.first.price - @tomato_prices.second.price %>)</td>
@@ -55,7 +55,7 @@
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= "Onion" %></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Onion" : "Vitunguu" %></td>
 		<td class="text-right"><%= number_to_currency(@onion_prices.first.price, precision: 0) %></td>
 		<% if @onion_prices.second.price < @onion_prices.first.price %>
 			<td><span style="color: green;">▲</span>(<%= @onion_prices.first.price - @onion_prices.second.price %>)</td>
@@ -70,7 +70,7 @@
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= "Potato" %></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Potato" : "Viazi" %></td>
 		<td class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
 		<% if @potato_prices.second.price < @potato_prices.first.price %>
 			<td><span style="color: green;">▲</span>(<%= @potato_prices.first.price - @potato_prices.second.price %>)</td>
