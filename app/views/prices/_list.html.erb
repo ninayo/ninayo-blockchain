@@ -20,7 +20,7 @@
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= t "common.published" %> <%= l(@avocado_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@avocado_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@avocado_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
@@ -35,7 +35,7 @@
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= t "common.published" %> <%= l(@maize_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@maize_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@maize_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
@@ -50,7 +50,7 @@
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= t "common.published" %> <%= l(@tomato_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@tomato_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@tomato_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
@@ -65,7 +65,7 @@
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= t "common.published" %> <%= l(@onion_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@onion_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@onion_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
@@ -80,7 +80,7 @@
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= t "common.published" %> <%= l(@potato_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@potato_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@potato_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
