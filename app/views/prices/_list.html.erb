@@ -3,7 +3,7 @@
 		<th class="text-right"><%= t "views.ad.crop_type" %>:</th>
 		<th class="text-right"><%= t "views.my_page.list.price" %>:</th>
 		<th class="text-right"><%= "Change" %>:</th>
-		<th class="text-right"><%= t "common.published" %>:</th>
+		<th class="text-right"><%= I18n.locale == :en ? "Published" : "Tarehe" %>:</th>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
