@@ -1,8 +1,10 @@
-<% provide(:title, "MBEYA PRICES") %>
+<% provide(:title, "Current market prices: Mbeya") %>
 <%= render "pagenav", :current_view => "mbeya" %>
-<div class="new-price-form">
-	<%= link_to("Publish New Prices", new_price_path, :class => "button is-primary") %>
-</div>
 <div class="tabs-content">
 	<%= render "mbeya", :current_view => "mbeya" %>
+</div>
+<hr>
+<div class="new-price-form">
+	<strong>Publish New Prices</strong>
+	<%= render "new", :current_view => "mbeya" %>
 </div>
