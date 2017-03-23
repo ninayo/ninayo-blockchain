@@ -3,7 +3,7 @@ class PricesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @prices = []
+    @new_prices = []
     5.times do
       @prices << Price.new
     end
@@ -42,6 +42,11 @@ class PricesController < ApplicationController
                    .order('created_at desc')
                    .select { |p| p.region_id == 2 }
 
+    @new_prices = []
+    5.times do
+      @prices << Price.new
+    end
+
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
     @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
@@ -57,6 +62,11 @@ class PricesController < ApplicationController
                    .order('created_at desc')
                    .select { |p| p.region_id == 5 }
 
+    @new_prices = []
+    5.times do
+      @prices << Price.new
+    end
+
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
     @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
@@ -71,6 +81,11 @@ class PricesController < ApplicationController
     @prices = Price.includes(:crop_type)
                    .order('created_at desc')
                    .select { |p| p.region_id == 13 }
+
+    @new_prices = []
+    5.times do
+      @prices << Price.new
+    end
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }

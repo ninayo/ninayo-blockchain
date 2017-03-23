@@ -1,6 +1,6 @@
 <%= form_tag create_price_path, validate:true do %>
 	
-	<%=fields_for 'prices[]', @prices[0] do |price| %>
+	<%=fields_for 'prices[]', @new_prices[0] do |price| %>
 		<fieldset>
 			<div class="field">
 				<strong>Maize</strong>
@@ -28,7 +28,7 @@
 		</fieldset>
 	<% end %>
 
-	<%=fields_for 'prices[]', @prices[1] do |price| %>
+	<%=fields_for 'prices[]', @new_prices[1] do |price| %>
 		<fieldset>
 			<div class="field">
 				<strong>Potatoes</strong>
@@ -56,7 +56,7 @@
 		</fieldset>
 	<% end %>
 
-	<%=fields_for 'prices[]', @prices[2] do |price| %>
+	<%=fields_for 'prices[]', @new_prices[2] do |price| %>
 		<fieldset>
 			<div class="field">
 				<strong>Avocadoes</strong>
@@ -84,7 +84,7 @@
 		</fieldset>
 	<% end %>
 
-	<%=fields_for 'prices[]', @prices[3] do |price| %>
+	<%=fields_for 'prices[]', @new_prices[3] do |price| %>
 		<fieldset>
 			<div class="field">
 				<strong>Tomatoes</strong>
@@ -112,7 +112,7 @@
 		</fieldset>
 	<% end %>
 
-	<%=fields_for 'prices[]', @prices[4] do |price| %>
+	<%=fields_for 'prices[]', @new_prices[4] do |price| %>
 		<fieldset>
 			<div class="field">
 				<strong>Onions</strong>
