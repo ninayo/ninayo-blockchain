@@ -3,7 +3,7 @@
 	<%=fields_for 'prices[]', @prices[0] do |price| %>
 		<fieldset>
 			<div class="field">
-				<strong><%= price.label :crop_type_id, "Potatoes", :class => 'field-label' %></strong>
+				<strong>Potatoes</strong>
 				<%= price.hidden_field :crop_type_id, 2 %>
 			</div>
 
