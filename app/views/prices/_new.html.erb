@@ -1,4 +1,4 @@
-<%= form_tag price_path, validate:true do %>
+<%= form_tag create_price_path, validate:true do %>
 
 	<%=fields_for 'prices[]', @prices[0] do |price| %>
 		<fieldset>
