@@ -44,7 +44,7 @@ class PricesController < ApplicationController
 
     @new_prices = []
     5.times do
-      @prices << Price.new
+      @new_prices << Price.new
     end
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
@@ -64,7 +64,7 @@ class PricesController < ApplicationController
 
     @new_prices = []
     5.times do
-      @prices << Price.new
+      @new_prices << Price.new
     end
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
@@ -84,7 +84,7 @@ class PricesController < ApplicationController
 
     @new_prices = []
     5.times do
-      @prices << Price.new
+      @new_prices << Price.new
     end
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
