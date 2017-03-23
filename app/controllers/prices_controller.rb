@@ -12,19 +12,17 @@ class PricesController < ApplicationController
   end
 
   def create
-    @price = Price.new(price_params)
-
-    if @price.save
-      if @price.region_id == 2
-        redirect_to dar_price_url, message: "Price uploaded"
-      elsif @price.region_id == 5
-        redirect_to iringa_price_url, message: "Price uploaded"
-      else
-        redirect_to mbeya_price_url, message: "Price uploaded"
-      end
+    if params.key?('price')
+      Price.create(price_params(params['price']))
     else
-      redirect_to prices_url, message: "Upload failed"
+      params['prices'].each do |price|
+        unless price['price'].blank? || price['region_id'].blank? || price['crop_type_id'].blank?
+          Price.create(price_params(price))
+        end
+      end
     end
+
+    redirect_to prices_path
   end
 
   def current
@@ -86,7 +84,7 @@ class PricesController < ApplicationController
 
   private
 
-  def price_params
-    params.require(:price).permit(:region_id, :crop_type_id, :price)
+  def price_params(params_hash)
+    params_hash.permit(:region_id, :crop_type_id, :price)
   end
 end
