@@ -3,7 +3,10 @@ class PricesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @price = Price.new
+    @prices = []
+    5.times do
+      @prices << Price.new
+    end
     @crop_types = CropType.all.order(:sort_order)
     render :new
   end

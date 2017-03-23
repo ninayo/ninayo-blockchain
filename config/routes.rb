@@ -82,7 +82,8 @@ Rails.application.routes.draw do
     get 'splash/congrats' => 'splash#congrats', as: :congrats
 
     get 'prices' => 'prices#dar', as: :prices
-    post 'prices' => 'prices#create', as: :new_price
+    get 'prices/new' => 'prices#new', as: :new_price
+    post 'prices' => 'prices#create', as: :create_price
     get 'prices/dar' => 'prices#dar', as: :dar_price
     get 'prices/mbeya' => 'prices#mbeya', as: :mbeya_price
     get 'prices/iringa' => 'prices#iringa', as: :iringa_price
