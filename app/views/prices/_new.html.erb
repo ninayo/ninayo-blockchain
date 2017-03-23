@@ -1,6 +1,6 @@
 <%= form_tag price_path, validate:true do %>
 
-	<%=f ields_for prices[0], do |pp| %>
+	<%=fields_for prices[0], do |pp| %>
 		<fieldset>
 			<div class="field">
 				<strong><%= pp.label :crop_type_id, "Potatoes", :class => 'field-label' %></strong>
