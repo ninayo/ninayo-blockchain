@@ -1,5 +1,6 @@
+<% current_view = view %>
 <%= form_tag create_price_path, validate:true do %>
-
+	
 	<%=fields_for 'prices[]', @prices[0] do |price| %>
 		<fieldset>
 			<div class="field">
