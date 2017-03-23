@@ -1,4 +1,3 @@
-<% current_view = view %>
 <%= form_tag create_price_path, validate:true do %>
 	
 	<%=fields_for 'prices[]', @prices[0] do |price| %>
@@ -19,9 +18,9 @@
 					</div>
 				</div>
 			</div>
-			<% if current_view =="dar" %>
+			<% if view =="dar" %>
 				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
+			<% elsif view == "iringa" %>
 				<%= price.hidden_field :region_id, :value => 5 %>
 			<% else %>
 				<%= price.hidden_field :region_id, :value => 13 %>
@@ -47,9 +46,9 @@
 					</div>
 				</div>
 			</div>
-			<% if current_view =="dar" %>
+			<% if view =="dar" %>
 				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
+			<% elsif view == "iringa" %>
 				<%= price.hidden_field :region_id, :value => 5 %>
 			<% else %>
 				<%= price.hidden_field :region_id, :value => 13 %>
@@ -75,9 +74,9 @@
 					</div>
 				</div>
 			</div>
-			<% if current_view =="dar" %>
+			<% if view =="dar" %>
 				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
+			<% elsif view == "iringa" %>
 				<%= price.hidden_field :region_id, :value => 5 %>
 			<% else %>
 				<%= price.hidden_field :region_id, :value => 13 %>
@@ -103,9 +102,9 @@
 					</div>
 				</div>
 			</div>
-			<% if current_view =="dar" %>
+			<% if view =="dar" %>
 				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
+			<% elsif view == "iringa" %>
 				<%= price.hidden_field :region_id, :value => 5 %>
 			<% else %>
 				<%= price.hidden_field :region_id, :value => 13 %>
@@ -131,9 +130,9 @@
 					</div>
 				</div>
 			</div>
-			<% if current_view =="dar" %>
+			<% if view =="dar" %>
 				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
+			<% elsif view == "iringa" %>
 				<%= price.hidden_field :region_id, :value => 5 %>
 			<% else %>
 				<%= price.hidden_field :region_id, :value => 13 %>
