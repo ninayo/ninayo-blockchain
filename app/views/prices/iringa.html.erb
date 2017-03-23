@@ -1,7 +1,7 @@
 <% provide(:title, "IRINGA PRICES") %>
 <%= render "pagenav", :current_view => "iringa" %>
 <div class="new-price-form">
-	<%= render "new", :current_view => "iringa" %>
+	<%= link_to("Publish New Prices", new_price_path, :class => "button is-primary") %>
 </div>
 <div class="tabs-content">
 	<%= render "iringa", :current_view => "iringa" %>

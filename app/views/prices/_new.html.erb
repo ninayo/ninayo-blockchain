@@ -3,6 +3,34 @@
 	<%=fields_for 'prices[]', @prices[0] do |price| %>
 		<fieldset>
 			<div class="field">
+				<strong>Maize</strong>
+				<%= price.hidden_field :crop_type_id, :value => 1 %>
+			</div>
+
+			<div class="field">
+				<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+				<div class="input-wrapper">
+					<div class="input-field">
+						<%= price.number_field :price, :min => 1, :class => "is-inline" %>
+					</div>
+					<div class="input-label">
+						<span class="input-post">/=</span>
+					</div>
+				</div>
+			</div>
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		</fieldset>
+	<% end %>
+
+	<%=fields_for 'prices[]', @prices[1] do |price| %>
+		<fieldset>
+			<div class="field">
 				<strong>Potatoes</strong>
 				<%= price.hidden_field :crop_type_id, :value => 2 %>
 			</div>
@@ -27,6 +55,91 @@
 			<% end %>
 		</fieldset>
 	<% end %>
+
+	<%=fields_for 'prices[]', @prices[2] do |price| %>
+		<fieldset>
+			<div class="field">
+				<strong>Avocadoes</strong>
+				<%= price.hidden_field :crop_type_id, :value => 6 %>
+			</div>
+
+			<div class="field">
+				<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+				<div class="input-wrapper">
+					<div class="input-field">
+						<%= price.number_field :price, :min => 1, :class => "is-inline" %>
+					</div>
+					<div class="input-label">
+						<span class="input-post">/=</span>
+					</div>
+				</div>
+			</div>
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		</fieldset>
+	<% end %>
+
+	<%=fields_for 'prices[]', @prices[3] do |price| %>
+		<fieldset>
+			<div class="field">
+				<strong>Tomatoes</strong>
+				<%= price.hidden_field :crop_type_id, :value => 8 %>
+			</div>
+
+			<div class="field">
+				<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+				<div class="input-wrapper">
+					<div class="input-field">
+						<%= price.number_field :price, :min => 1, :class => "is-inline" %>
+					</div>
+					<div class="input-label">
+						<span class="input-post">/=</span>
+					</div>
+				</div>
+			</div>
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		</fieldset>
+	<% end %>
+
+	<%=fields_for 'prices[]', @prices[4] do |price| %>
+		<fieldset>
+			<div class="field">
+				<strong>Onions</strong>
+				<%= price.hidden_field :crop_type_id, :value => 13 %>
+			</div>
+
+			<div class="field">
+				<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+				<div class="input-wrapper">
+					<div class="input-field">
+						<%= price.number_field :price, :min => 1, :class => "is-inline" %>
+					</div>
+					<div class="input-label">
+						<span class="input-post">/=</span>
+					</div>
+				</div>
+			</div>
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		</fieldset>
+	<% end %>
+
 	<%= submit_tag("Publish", :class => "button") %>
 
  <% end %>
