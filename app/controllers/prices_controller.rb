@@ -3,11 +3,7 @@ class PricesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @new_prices = []
-    5.times do
-      @prices << Price.new
-    end
-    @crop_types = CropType.all.order(:sort_order)
+    new_prices
     render :new
   end
 
@@ -38,76 +34,64 @@ class PricesController < ApplicationController
   end
 
   def dar
-    @prices = Price.includes(:crop_type)
-                   .order('created_at desc')
-                   .select { |p| p.region_id == 2 }
-
-    @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
-    @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
-    @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
-    @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
-    @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
+    get_prices(2)
 
     @view = 'dar'
   end
 
   def iringa
-    @prices = Price.includes(:crop_type)
-                   .order('created_at desc')
-                   .select { |p| p.region_id == 5 }
-
-    @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
-    @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
-    @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
-    @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
-    @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
+    get_prices(5)
 
     @view = 'iringa'
   end
 
   def mbeya
+    get_prices(13)
+
+    @view = 'mbeya'
+  end
+
+  def new_dar_price
+    get_prices(2)
+    new_prices
+
+    render :new_dar
+  end
+
+  def new_iringa_price
+    get_prices(5)
+    new_prices
+
+    render :new_iringa
+  end
+
+  def new_mbeya_price
+    get_prices(13)
+    new_prices
+    
+    render :new_mbeya
+  end
+
+
+  private
+
+  def new_prices
+    @new_prices = []
+    5.times { @new_prices << Price.new }
+    @crop_types = CropType.all.order(:sort_order)
+  end
+
+  def get_prices(region_id)
     @prices = Price.includes(:crop_type)
                    .order('created_at desc')
-                   .select { |p| p.region_id == 13 }
+                   .select { |p| p.region_id == region_id }
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
     @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
     @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
-
-    @view = 'mbeya'
   end
-
-  def new_dar_price
-    @new_prices = []
-    5.times do
-      @new_prices << Price.new
-    end
-    @crop_types = CropType.all.order(:sort_order)
-    render :new_dar
-  end
-
-  def new_iringa_price
-    @new_prices = []
-    5.times do
-      @new_prices << Price.new
-    end
-    @crop_types = CropType.all.order(:sort_order)
-    render :new_iringa
-  end
-
-  def new_mbeya_price
-    @new_prices = []
-    5.times do
-      @new_prices << Price.new
-    end
-    @crop_types = CropType.all.order(:sort_order)
-    render :new_mbeya
-  end
-
-
-  private
 
   def price_params(params_hash)
     params_hash.permit(:region_id, :crop_type_id, :price)
