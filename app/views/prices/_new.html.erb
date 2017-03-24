@@ -14,68 +14,40 @@
 	<tbody>
 
 	<tr>
-	<%=fields_for 'prices[]', @new_prices[0] do |price| %>
-		
-			
-				<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
-				<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
-				<%= price.hidden_field :crop_type_id, :value => 1 %>
-			
-
-			
-				<div class="input-wrapper">
-					<td class="text-right">
-						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
-					</td>
-					
-				</div>
-			
-			<% if current_view =="dar" %>
-				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
-				<%= price.hidden_field :region_id, :value => 5 %>
-			<% else %>
-				<%= price.hidden_field :region_id, :value => 13 %>
-			<% end %>
-		
-	<% end %>
-	</tr>
-
-	<tr>
-	<%=fields_for 'prices[]', @new_prices[1] do |price| %>
-		
-			
-				<td class="text-right"><%= I18n.locale == :en ? "Potatoes" : "Viazi" %></td>
-				<td class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
-				<%= price.hidden_field :crop_type_id, :value => 2 %>
-			
-
-			
-				<div class="input-wrapper">
-					<td class="text-right">
-						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
-					</td>
-					
-				</div>
-			
-			<% if current_view =="dar" %>
-				<%= price.hidden_field :region_id, :value => 2 %>
-			<% elsif current_view == "iringa" %>
-				<%= price.hidden_field :region_id, :value => 5 %>
-			<% else %>
-				<%= price.hidden_field :region_id, :value => 13 %>
-			<% end %>
-		
-	<% end %>
-	</tr>
-
-	<tr>
 	<%=fields_for 'prices[]', @new_prices[2] do |price| %>
 		
 			
 				<td class="text-right"><%= I18n.locale == :en ? "Avocado" : "Maparachichi" %></td>
 				<td class="text-right"><%= number_to_currency(@avocado_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 6 %>
+			
+
+			
+				<div class="input-wrapper">
+					<td class="text-right">
+						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
+					</td>
+					
+				</div>
+			
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		
+	<% end %>
+	</tr>
+
+	<tr>
+	<%=fields_for 'prices[]', @new_prices[0] do |price| %>
+		
+			
+				<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
+				<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 1 %>
 			
 
 			
@@ -132,6 +104,34 @@
 				<td class="text-right"><%= I18n.locale == :en ? "Onions" : "Vitunguu" %></td>
 				<td class="text-right"><%= number_to_currency(@onion_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 13 %>
+			
+
+			
+				<div class="input-wrapper">
+					<td class="text-right">
+						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
+					</td>
+					
+				</div>
+			
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		
+	<% end %>
+	</tr>
+
+	<tr>
+	<%=fields_for 'prices[]', @new_prices[1] do |price| %>
+		
+			
+				<td class="text-right"><%= I18n.locale == :en ? "Potatoes" : "Viazi" %></td>
+				<td class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 2 %>
 			
 
 			
