@@ -97,7 +97,7 @@ class PricesController < ApplicationController
     render :new_iringa
   end
 
-  def nice_mbeya_price
+  def new_mbeya_price
     @new_prices = []
     5.times do
       @new_prices << Price.new
