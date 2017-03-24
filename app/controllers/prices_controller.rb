@@ -82,7 +82,7 @@ class PricesController < ApplicationController
   def new_dar_price
     @new_prices = []
     5.times do
-      @prices << Price.new
+      @new_prices << Price.new
     end
     @crop_types = CropType.all.order(:sort_order)
     render :new_dar
@@ -91,7 +91,7 @@ class PricesController < ApplicationController
   def new_iringa_price
     @new_prices = []
     5.times do
-      @prices << Price.new
+      @new_prices << Price.new
     end
     @crop_types = CropType.all.order(:sort_order)
     render :new_iringa
@@ -100,7 +100,7 @@ class PricesController < ApplicationController
   def nice_mbeya_price
     @new_prices = []
     5.times do
-      @prices << Price.new
+      @new_prices << Price.new
     end
     @crop_types = CropType.all.order(:sort_order)
     render :new_mbeya
