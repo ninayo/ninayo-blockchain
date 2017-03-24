@@ -1,3 +1,5 @@
+
+<%= form_tag create_price_path, validate:true do %>
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
 		<th class="text-right"><%= t "views.ad.crop_type" %>:</th>
@@ -10,8 +12,6 @@
 		<% end -%>
 	</thead>
 	<tbody>
-
-<%= form_tag create_price_path, validate:true do %>
 
 	<tr>
 	<%=fields_for 'prices[]', @new_prices[0] do |price| %>
@@ -153,10 +153,9 @@
 	<% end %>
 	</tr>
 
-	<%= submit_tag("Publish", :class => "button") %>
-
- <% end %>
-
-
 	</tbody>
 </table>
+	<div style="display: flex; justify-content: center;">
+		<%= submit_tag("Publish", :class => "button is-block") %>
+	</div>
+ <% end %>
