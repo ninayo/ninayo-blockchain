@@ -87,6 +87,9 @@ Rails.application.routes.draw do
     get 'prices/dar' => 'prices#dar', as: :dar_price
     get 'prices/mbeya' => 'prices#mbeya', as: :mbeya_price
     get 'prices/iringa' => 'prices#iringa', as: :iringa_price
+    get 'prices/dar_new' => 'prices#new_dar_price', as: :new_dar_price
+    get 'prices/iringa_new' => 'prices#new_iringa_price', as: :new_iringa_price
+    get 'prices/mbeya_new' => 'prices#new_mbeya_price', as: :new_mbeya_price
 
     #devise_for :users, :controllers => { :sessions => "track_sessions" }
     # The priority is based upon order of creation: first created -> highest priority.

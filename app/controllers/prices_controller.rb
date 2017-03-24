@@ -79,6 +79,34 @@ class PricesController < ApplicationController
     @view = 'mbeya'
   end
 
+  def new_dar_price
+    @new_prices = []
+    5.times do
+      @prices << Price.new
+    end
+    @crop_types = CropType.all.order(:sort_order)
+    render :new_dar
+  end
+
+  def new_iringa_price
+    @new_prices = []
+    5.times do
+      @prices << Price.new
+    end
+    @crop_types = CropType.all.order(:sort_order)
+    render :new_iringa
+  end
+
+  def nice_mbeya_price
+    @new_prices = []
+    5.times do
+      @prices << Price.new
+    end
+    @crop_types = CropType.all.order(:sort_order)
+    render :new_mbeya
+  end
+
+
   private
 
   def price_params(params_hash)
