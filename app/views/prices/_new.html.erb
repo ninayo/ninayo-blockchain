@@ -1,16 +1,30 @@
+<table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
+	<thead>
+		<th class="text-right"><%= t "views.ad.crop_type" %>:</th>
+		<th class="text-right"><%= t "views.my_page.list.price" %>:</th>
+		<th class="text-right"><%= "Change" %>:</th>
+		<th class="text-right"><%= "Update" %>:</th>
+		<th class="text-right"><%= I18n.locale == :en ? "Published" : "Tarehe" %>:</th>
+		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
+			<th class="is-buttonrow"></th>
+		<% end -%>
+	</thead>
+	<tbody>
+
 <%= form_tag create_price_path, validate:true do %>
 	<hr>
+	<tr>
 	<%=fields_for 'prices[]', @new_prices[0] do |price| %>
 		<fieldset>
 			<div class="field">
-				<strong><%= I18n.locale == :en ? "Maize" : "Mahindi" %></strong>
-				<span class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
+				<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
+				<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 1 %>
 			</div>
 
 			<div class="field">
 				<div class="input-wrapper">
-					<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+					<td class="text-right"><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></td>
 					<div class="input-field">
 						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
 					</div>
@@ -28,18 +42,20 @@
 			<% end %>
 		</fieldset>
 	<% end %>
+	</tr>
 	<hr>
+	<tr>
 	<%=fields_for 'prices[]', @new_prices[1] do |price| %>
 		<fieldset>
 			<div class="field">
-				<strong><%= I18n.locale == :en ? "Potatoes" : "Viazi" %></strong>
-				<span class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
+				<td class="text-right"><%= I18n.locale == :en ? "Potatoes" : "Viazi" %></td>
+				<td class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 2 %>
 			</div>
 
 			<div class="field">
 				<div class="input-wrapper">
-					<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+					<td class="text-right"><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></td>
 					<div class="input-field">
 						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
 					</div>
@@ -57,18 +73,20 @@
 			<% end %>
 		</fieldset>
 	<% end %>
+	</tr>
 	<hr>
+	<tr>
 	<%=fields_for 'prices[]', @new_prices[2] do |price| %>
 		<fieldset>
 			<div class="field">
-				<strong><%= I18n.locale == :en ? "Avocado" : "Maparachichi" %></strong>
-				<span class="text-right"><%= number_to_currency(@avocado_prices.first.price, precision: 0) %></td>
+				<td class="text-right"><%= I18n.locale == :en ? "Avocado" : "Maparachichi" %></td>
+				<td class="text-right"><%= number_to_currency(@avocado_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 6 %>
 			</div>
 
 			<div class="field">
 				<div class="input-wrapper">
-					<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+					<td class="text-right"><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></td>
 					<div class="input-field">
 						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
 					</div>
@@ -86,18 +104,20 @@
 			<% end %>
 		</fieldset>
 	<% end %>
+	</tr>
 	<hr>
+	<tr>
 	<%=fields_for 'prices[]', @new_prices[3] do |price| %>
 		<fieldset>
 			<div class="field">
-				<strong><%= I18n.locale == :en ? "Tomatoes" : "Nyanya" %></strong>
-				<span class="text-right"><%= number_to_currency(@tomato_prices.first.price, precision: 0) %></td>
+				<td class="text-right"><%= I18n.locale == :en ? "Tomatoes" : "Nyanya" %></td>
+				<td class="text-right"><%= number_to_currency(@tomato_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 8 %>
 			</div>
 
 			<div class="field">
 				<div class="input-wrapper">
-					<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+					<td class="text-right"><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></td>
 					<div class="input-field">
 						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
 					</div>
@@ -115,18 +135,20 @@
 			<% end %>
 		</fieldset>
 	<% end %>
+	</tr>
 	<hr>
+	<tr>
 	<%=fields_for 'prices[]', @new_prices[4] do |price| %>
 		<fieldset>
 			<div class="field">
-				<strong><%= I18n.locale == :en ? "Onions" : "Vitunguu" %></strong>
-				<span class="text-right"><%= number_to_currency(@onion_prices.first.price, precision: 0) %></td>
+				<td class="text-right"><%= I18n.locale == :en ? "Onions" : "Vitunguu" %></td>
+				<td class="text-right"><%= number_to_currency(@onion_prices.first.price, precision: 0) %></td>
 				<%= price.hidden_field :crop_type_id, :value => 13 %>
 			</div>
 
 			<div class="field">
 				<div class="input-wrapper">
-					<strong><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></strong>
+					<td class="text-right"><%= price.label :price, "#{t "views.ad.price"}", :class => 'field-label' %></td>
 					<div class="input-field">
 						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
 					</div>
@@ -144,7 +166,12 @@
 			<% end %>
 		</fieldset>
 	<% end %>
+	</tr>
 	<hr>
 	<%= submit_tag("Publish", :class => "button") %>
 
  <% end %>
+
+
+	</tbody>
+</table>
