@@ -42,11 +42,6 @@ class PricesController < ApplicationController
                    .order('created_at desc')
                    .select { |p| p.region_id == 2 }
 
-    @new_prices = []
-    5.times do
-      @new_prices << Price.new
-    end
-
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
     @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
@@ -54,18 +49,12 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'dar'
-    @price = Price.new(:region_id => 2)
   end
 
   def iringa
     @prices = Price.includes(:crop_type)
                    .order('created_at desc')
                    .select { |p| p.region_id == 5 }
-
-    @new_prices = []
-    5.times do
-      @new_prices << Price.new
-    end
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
@@ -74,18 +63,12 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'iringa'
-    @price = Price.new(:region_id => 5)
   end
 
   def mbeya
     @prices = Price.includes(:crop_type)
                    .order('created_at desc')
                    .select { |p| p.region_id == 13 }
-
-    @new_prices = []
-    5.times do
-      @new_prices << Price.new
-    end
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
     @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
@@ -94,7 +77,6 @@ class PricesController < ApplicationController
     @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
 
     @view = 'mbeya'
-    @price = Price.new(:region_id => 13)
   end
 
   private
