@@ -13,12 +13,12 @@ class PricesController < ApplicationController
 
     if params.key?('price')
       Price.create(price_params(params['price']))
-      @region_id = price_params(params['price']).region_id
+      @region_id = price_params(params['price'])["region_id"]
     else
       params['prices'].each do |price|
         unless price['price'].blank? || price['region_id'].blank? || price['crop_type_id'].blank?
           Price.create(price_params(price))
-          @region_id = price_params(price).region_id
+          @region_id = price_params(price)["region_id"]
         end
       end
     end
