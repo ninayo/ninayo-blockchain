@@ -18,7 +18,7 @@ class PricesController < ApplicationController
       end
     end
 
-    redirect_to prices_path
+    redirect_to session[:previous_url]
   end
 
   def current
