@@ -8,17 +8,30 @@ class PricesController < ApplicationController
   end
 
   def create
+    
+    @region_id = nil
+
     if params.key?('price')
       Price.create(price_params(params['price']))
+      @region_id = price_params(params['price']).region_id
     else
       params['prices'].each do |price|
         unless price['price'].blank? || price['region_id'].blank? || price['crop_type_id'].blank?
           Price.create(price_params(price))
+          @region_id = price_params(price).region_id
         end
       end
     end
 
-    redirect_to session[:previous_url]
+    if @region_id == 2
+      redirect_to dar_price_path, message: "Dar prices uploaded"
+    elsif @region_id == 5
+      redirect_to iringa_price_path, message: "Iringa prices uploaded"
+    elsif @region_id == 13
+      redirect_to mbeya_price_path, message: "Mbeya prices uploaded"
+    else
+      redirect_to prices_path, error: "Something went wrong."
+    end
   end
 
   def current
