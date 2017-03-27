@@ -23,15 +23,7 @@ class PricesController < ApplicationController
       end
     end
 
-    if @region_id == 2
-      redirect_to dar_price_path, notice: "Dar prices uploaded"
-    elsif @region_id == 5
-      redirect_to iringa_price_path, notice: "Iringa prices uploaded"
-    elsif @region_id == 13
-      redirect_to mbeya_price_path, notice: "Mbeya prices uploaded"
-    else
-      redirect_to prices_path, alert: "Something went wrong."
-    end
+    redirect_to session[:previous_url], notice: "Prices uploaded successfully"
   end
 
   def current
