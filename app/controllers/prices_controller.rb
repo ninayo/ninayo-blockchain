@@ -82,7 +82,7 @@ class PricesController < ApplicationController
 
   def new_prices
     @new_prices = []
-    5.times { @new_prices << Price.new }
+    6.times { @new_prices << Price.new }
     @crop_types = CropType.all.order(:sort_order)
   end
 
@@ -92,10 +92,11 @@ class PricesController < ApplicationController
                    .select { |p| p.region_id == region_id }
 
     @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
-    @potato_prices   = @prices.select { |p| p.crop_type_id == 2 }
-    @avocado_prices  = @prices.select { |p| p.crop_type_id == 6 }
-    @onion_prices    = @prices.select { |p| p.crop_type_id == 13 }
-    @tomato_prices   = @prices.select { |p| p.crop_type_id == 8 }
+    @nut_prices   = @prices.select { |p| p.crop_type_id == 19 }
+    @wheat_prices   = @prices.select { |p| p.crop_type_id == 30 }
+    @bean_prices  = @prices.select { |p| p.crop_type_id == 5 }
+    @soy_prices    = @prices.select { |p| p.crop_type_id == 26 }
+    @rice_prices   = @prices.select { |p| p.crop_type_id == 11 }
   end
 
   def price_params(params_hash)

@@ -17,12 +17,40 @@
 	<%=fields_for 'prices[]', @new_prices[2] do |price| %>
 		
 			
-				<td class="text-right"><%= I18n.locale == :en ? "Avocado" : "Maparachichi" %></td>
-				<td class="text-right"><%= number_to_currency(@avocado_prices.first.price, precision: 0) %></td>
-				<%= price.hidden_field :crop_type_id, :value => 6 %>
+				<td class="text-right"><%= I18n.locale == :en ? "Groundnuts" : "Karanga" %></td>
+				<td class="text-right"><%= number_to_currency(@nut_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 19 %>
 			
-				<td><span class="ads-published_at"><%= l(@onion_prices.first.created_at, format: :short) %>
-				</span><span><%= "(" + time_ago_in_words(@onion_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+				<td><span class="ads-published_at"><%= l(@nut_prices.first.created_at, format: :short) %>
+				</span><span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+			
+				<div class="input-wrapper">
+					<td class="text-right">
+						<%= price.number_field :price, :min => 1, :class => "is-inline", :style => "width: 100px;" %>
+					</td>
+				</div>
+			
+			<% if current_view =="dar" %>
+				<%= price.hidden_field :region_id, :value => 2 %>
+			<% elsif current_view == "iringa" %>
+				<%= price.hidden_field :region_id, :value => 5 %>
+			<% else %>
+				<%= price.hidden_field :region_id, :value => 13 %>
+			<% end %>
+		
+	<% end %>
+	</tr>
+
+	<tr>
+	<%=fields_for 'prices[]', @new_prices[5] do |price| %>
+		
+			
+				<td class="text-right"><%= I18n.locale == :en ? "Wheat" : "Ngano" %></td>
+				<td class="text-right"><%= number_to_currency(@wheat_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 30 %>
+			
+				<td><span class="ads-published_at"><%= l(@wheat_prices.first.created_at, format: :short) %>
+				</span><span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 			
 				<div class="input-wrapper">
 					<td class="text-right">
@@ -74,12 +102,12 @@
 	<%=fields_for 'prices[]', @new_prices[3] do |price| %>
 		
 			
-				<td class="text-right"><%= I18n.locale == :en ? "Tomatoes" : "Nyanya" %></td>
-				<td class="text-right"><%= number_to_currency(@tomato_prices.first.price, precision: 0) %></td>
-				<%= price.hidden_field :crop_type_id, :value => 8 %>
+				<td class="text-right"><%= I18n.locale == :en ? "Beans" : "Maharage" %></td>
+				<td class="text-right"><%= number_to_currency(@bean_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 5 %>
 			
-				<td><span class="ads-published_at"><%= l(@tomato_prices.first.created_at, format: :short) %>
-				</span><span><%= "(" + time_ago_in_words(@tomato_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+				<td><span class="ads-published_at"><%= l(@bean_prices.first.created_at, format: :short) %>
+				</span><span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 			
 				<div class="input-wrapper">
 					<td class="text-right">
@@ -103,12 +131,12 @@
 	<%=fields_for 'prices[]', @new_prices[4] do |price| %>
 		
 			
-				<td class="text-right"><%= I18n.locale == :en ? "Onions" : "Vitunguu" %></td>
-				<td class="text-right"><%= number_to_currency(@onion_prices.first.price, precision: 0) %></td>
-				<%= price.hidden_field :crop_type_id, :value => 13 %>
+				<td class="text-right"><%= I18n.locale == :en ? "Soybeans" : "Soya" %></td>
+				<td class="text-right"><%= number_to_currency(@soy_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 26 %>
 			
-				<td><span class="ads-published_at"><%= l(@onion_prices.first.created_at, format: :short) %>
-				</span><span><%= "(" + time_ago_in_words(@onion_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+				<td><span class="ads-published_at"><%= l(@soy_prices.first.created_at, format: :short) %>
+				</span><span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 			
 				<div class="input-wrapper">
 					<td class="text-right">
@@ -132,12 +160,12 @@
 	<%=fields_for 'prices[]', @new_prices[1] do |price| %>
 		
 			
-				<td class="text-right"><%= I18n.locale == :en ? "Potatoes" : "Viazi" %></td>
-				<td class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
-				<%= price.hidden_field :crop_type_id, :value => 2 %>
+				<td class="text-right"><%= I18n.locale == :en ? "Rice" : "Mpunga" %></td>
+				<td class="text-right"><%= number_to_currency(@rice_prices.first.price, precision: 0) %></td>
+				<%= price.hidden_field :crop_type_id, :value => 11 %>
 			
-				<td><span class="ads-published_at"><%= l(@potato_prices.first.created_at, format: :short) %>
-				</span><span><%= "(" + time_ago_in_words(@potato_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+				<td><span class="ads-published_at"><%= l(@rice_prices.first.created_at, format: :short) %>
+				</span><span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 			
 				<div class="input-wrapper">
 					<td class="text-right">

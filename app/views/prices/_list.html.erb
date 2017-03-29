@@ -11,20 +11,35 @@
 	<tbody>
 
 	<tr>
-		<td class="text-right"><%= I18n.locale == :en ? "Avocado" : "Maparachichi" %></td>
-		<td class="text-right"><%= number_to_currency(@avocado_prices.first.price, precision: 0) %></td>
-		<% if @avocado_prices.second.price < @avocado_prices.first.price %>
-			<td><span style="color: green;">▲ </span><strong><%= @avocado_prices.first.price - @avocado_prices.second.price %></strong></td>
-		<% elsif @avocado_prices.second.price > @avocado_prices.first.price %>
-			<td><span style="color: red;">▼ </span><strong><%= @avocado_prices.first.price - @avocado_prices.second.price %></strong></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Groundnuts" : "Karanga" %></td>
+		<td class="text-right"><%= number_to_currency(@nut_prices.first.price, precision: 0) %></td>
+		<% if @nut_prices.second.price < @nut_prices.first.price %>
+			<td><span style="color: green;">▲ </span><strong><%= @nut_prices.first.price - @nut_prices.second.price %></strong></td>
+		<% elsif @nut_prices.second.price > @nut_prices.first.price %>
+			<td><span style="color: red;">▼ </span><strong><%= @nut_prices.first.price - @nut_prices.second.price %></strong></td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= l(@avocado_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@nut_prices.first.created_at, format: :short) %>
 				</span>
-		<span><%= "(" + time_ago_in_words(@avocado_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 	
+	<tr>
+		<td class="text-right"><%= I18n.locale == :en ? "Wheat" : "Ngano" %></td>
+		<td class="text-right"><%= number_to_currency(@wheat.first.price, precision: 0) %></td>
+		<% if @wheat.second.price < @wheat.first.price %>
+			<td><span style="color: green;">▲ </span><strong><%= @wheat.first.price - @wheat.second.price %></strong></td>
+		<% elsif @wheat.second.price > @wheat.first.price %>
+			<td><span style="color: red;">▼ </span><strong><%= @wheat.first.price - @wheat.second.price %></strong></td>
+		<% else %>
+			<td><strong><span style="color: orange;">=</span></strong></td>
+		<% end %>
+		<td><span class="ads-published_at"><%= l(@wheat.first.created_at, format: :short) %>
+				</span>
+		<span><%= "(" + time_ago_in_words(@wheat.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+	</tr>
+
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
 		<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
@@ -41,48 +56,48 @@
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= I18n.locale == :en ? "Tomato" : "Nyanya" %></td>
-		<td class="text-right"><%= number_to_currency(@tomato_prices.first.price, precision: 0) %></td>
-		<% if @tomato_prices.second.price < @tomato_prices.first.price %>
-			<td><span style="color: green;">▲ </span><strong><%= @tomato_prices.first.price - @tomato_prices.second.price %></strong></td>
-		<% elsif @tomato_prices.second.price > @tomato_prices.first.price %>
-			<td><span style="color: red;">▼ </span><strong><%= @tomato_prices.first.price - @tomato_prices.second.price %></strong></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Beans" : "Maharage" %></td>
+		<td class="text-right"><%= number_to_currency(@bean_prices.first.price, precision: 0) %></td>
+		<% if @bean_prices.second.price < @bean_prices.first.price %>
+			<td><span style="color: green;">▲ </span><strong><%= @bean_prices.first.price - @bean_prices.second.price %></strong></td>
+		<% elsif @bean_prices.second.price > @bean_prices.first.price %>
+			<td><span style="color: red;">▼ </span><strong><%= @bean_prices.first.price - @bean_prices.second.price %></strong></td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= l(@tomato_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@bean_prices.first.created_at, format: :short) %>
 				</span>
-		<span><%= "(" + time_ago_in_words(@tomato_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= I18n.locale == :en ? "Onion" : "Vitunguu" %></td>
-		<td class="text-right"><%= number_to_currency(@onion_prices.first.price, precision: 0) %></td>
-		<% if @onion_prices.second.price < @onion_prices.first.price %>
-			<td><span style="color: green;">▲ </span><strong><%= @onion_prices.first.price - @onion_prices.second.price %></strong></td>
-		<% elsif @onion_prices.second.price > @onion_prices.first.price %>
-			<td><span style="color: red;">▼ </span><strong><%= @onion_prices.first.price - @onion_prices.second.price %></strong></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Soybeans" : "Soya" %></td>
+		<td class="text-right"><%= number_to_currency(@soy_prices.first.price, precision: 0) %></td>
+		<% if @soy_prices.second.price < @soy_prices.first.price %>
+			<td><span style="color: green;">▲ </span><strong><%= @soy_prices.first.price - @soy_prices.second.price %></strong></td>
+		<% elsif @soy_prices.second.price > @soy_prices.first.price %>
+			<td><span style="color: red;">▼ </span><strong><%= @soy_prices.first.price - @soy_prices.second.price %></strong></td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= l(@onion_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@soy_prices.first.created_at, format: :short) %>
 				</span>
-		<span><%= "(" + time_ago_in_words(@onion_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= I18n.locale == :en ? "Potato" : "Viazi" %></td>
-		<td class="text-right"><%= number_to_currency(@potato_prices.first.price, precision: 0) %></td>
-		<% if @potato_prices.second.price < @potato_prices.first.price %>
-			<td><span style="color: green;">▲ </span><strong><%= @potato_prices.first.price - @potato_prices.second.price %></strong></td>
-		<% elsif @potato_prices.second.price > @potato_prices.first.price %>
-			<td><span style="color: red;">▼ </span><strong><%= @potato_prices.first.price - @potato_prices.second.price %></strong></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Rice" : "Mpunga" %></td>
+		<td class="text-right"><%= number_to_currency(@rice_prices.first.price, precision: 0) %></td>
+		<% if @rice_prices.second.price < @rice_prices.first.price %>
+			<td><span style="color: green;">▲ </span><strong><%= @rice_prices.first.price - @rice_prices.second.price %></strong></td>
+		<% elsif @rice_prices.second.price > @rice_prices.first.price %>
+			<td><span style="color: red;">▼ </span><strong><%= @rice_prices.first.price - @rice_prices.second.price %></strong></td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= l(@potato_prices.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@rice_prices.first.created_at, format: :short) %>
 				</span>
-		<span><%= "(" + time_ago_in_words(@potato_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
 	</tbody>
