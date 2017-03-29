@@ -27,17 +27,17 @@
 	
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Wheat" : "Ngano" %></td>
-		<td class="text-right"><%= number_to_currency(@wheat.first.price, precision: 0) %></td>
-		<% if @wheat.second.price < @wheat.first.price %>
-			<td><span style="color: green;">▲ </span><strong><%= @wheat.first.price - @wheat.second.price %></strong></td>
-		<% elsif @wheat.second.price > @wheat.first.price %>
-			<td><span style="color: red;">▼ </span><strong><%= @wheat.first.price - @wheat.second.price %></strong></td>
+		<td class="text-right"><%= number_to_currency(@wheat_prices.first.price, precision: 0) %></td>
+		<% if @wheat_prices.second.price < @wheat_prices.first.price %>
+			<td><span style="color: green;">▲ </span><strong><%= @wheat_prices.first.price - @wheat_prices.second.price %></strong></td>
+		<% elsif @wheat_prices.second.price > @wheat_prices.first.price %>
+			<td><span style="color: red;">▼ </span><strong><%= @wheat_prices.first.price - @wheat_prices.second.price %></strong></td>
 		<% else %>
 			<td><strong><span style="color: orange;">=</span></strong></td>
 		<% end %>
-		<td><span class="ads-published_at"><%= l(@wheat.first.created_at, format: :short) %>
+		<td><span class="ads-published_at"><%= l(@wheat_prices.first.created_at, format: :short) %>
 				</span>
-		<span><%= "(" + time_ago_in_words(@wheat.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
 	<tr>
