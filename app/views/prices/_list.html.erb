@@ -1,7 +1,7 @@
 <table class="ads-table tablesaw tablesaw-stack" data-tablesaw-mode="stack">
 	<thead>
 		<th class="text-right"><%= t "views.ad.crop_type" %>:</th>
-		<th class="text-right"><%= t "views.my_page.list.price" %>:</th>
+		<th class="text-right"><%= t "views.my_page.list.price" %> (kg):</th>
 		<th class="text-right"><%= "Change" %>:</th>
 		<th class="text-right"><%= I18n.locale == :en ? "Published" : "Tarehe" %>:</th>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
@@ -12,7 +12,7 @@
 
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Groundnuts" : "Karanga" %></td>
-		<td class="text-right"><%= number_to_currency(@nut_prices.first.price, precision: 0) %>/kg</td>
+		<td class="text-right"><%= number_to_currency(@nut_prices.first.price, precision: 0) %></td>
 		<% if @nut_prices.second.price < @nut_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @nut_prices.first.price - @nut_prices.second.price %></strong></td>
 		<% elsif @nut_prices.second.price > @nut_prices.first.price %>
@@ -27,7 +27,7 @@
 	
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Wheat" : "Ngano" %></td>
-		<td class="text-right"><%= number_to_currency(@wheat_prices.first.price, precision: 0) %>/kg</td>
+		<td class="text-right"><%= number_to_currency(@wheat_prices.first.price, precision: 0) %></td>
 		<% if @wheat_prices.second.price < @wheat_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @wheat_prices.first.price - @wheat_prices.second.price %></strong></td>
 		<% elsif @wheat_prices.second.price > @wheat_prices.first.price %>
@@ -42,7 +42,7 @@
 
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
-		<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %>/kg</td>
+		<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
 		<% if @maize_prices.second.price < @maize_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @maize_prices.first.price - @maize_prices.second.price %></strong></td>
 		<% elsif @maize_prices.second.price > @maize_prices.first.price %>
@@ -57,7 +57,7 @@
 
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Beans" : "Maharage" %></td>
-		<td class="text-right"><%= number_to_currency(@bean_prices.first.price, precision: 0) %>/kg</td>
+		<td class="text-right"><%= number_to_currency(@bean_prices.first.price, precision: 0) %></td>
 		<% if @bean_prices.second.price < @bean_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @bean_prices.first.price - @bean_prices.second.price %></strong></td>
 		<% elsif @bean_prices.second.price > @bean_prices.first.price %>
@@ -72,7 +72,7 @@
 
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Soybeans" : "Soya" %></td>
-		<td class="text-right"><%= number_to_currency(@soy_prices.first.price, precision: 0) %>/kg</td>
+		<td class="text-right"><%= number_to_currency(@soy_prices.first.price, precision: 0) %></td>
 		<% if @soy_prices.second.price < @soy_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @soy_prices.first.price - @soy_prices.second.price %></strong></td>
 		<% elsif @soy_prices.second.price > @soy_prices.first.price %>
@@ -87,7 +87,7 @@
 
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Rice" : "Mpunga" %></td>
-		<td class="text-right"><%= number_to_currency(@rice_prices.first.price, precision: 0) %>/kg</td>
+		<td class="text-right"><%= number_to_currency(@rice_prices.first.price, precision: 0) %></td>
 		<% if @rice_prices.second.price < @rice_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @rice_prices.first.price - @rice_prices.second.price %></strong></td>
 		<% elsif @rice_prices.second.price > @rice_prices.first.price %>
