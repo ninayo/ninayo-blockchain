@@ -3,9 +3,15 @@
 <div class="update-button" style="display: flex; justify-content: center;">
 	<%= link_to("Update Prices", new_iringa_price_path, :class => "button is-block") %>
 </div>
-<div class="disclaimer-content" style="display: flex; justify-content: center; max-width: 300px;">
-	<p style="text-align: center;"><small>Price information reflects daily, average market prices. These are intended to provide Ninayo users with approximate pricing guidance.  Actual market prices are subject to current trading conditions.</small>
-</div>
+<% if I18n.locale == :en %>
+	<div class="disclaimer-content" style="display: flex; justify-content: center; max-width: 300px;">
+		<p style="text-align: center;"><small>Price information reflects daily, average market prices. These are intended to provide Ninayo users with approximate pricing guidance.  Actual market prices are subject to current trading conditions.</small></p>
+	</div>
+<% else %>
+	<div class="disclaimer-content" style="display: flex; justify-content: center; max-width: 300px;">
+		<p class="text-align: center;"><small>Hizi ni Taarifa za Bei zinazoonesha Wastani wa Bei za soko za kila siku. Bei hizi ni kwa ajili ya kuwasaidia watumiaji wa Ninayo kupata Muongozo wa Bei elekezi za soko kulingana na hali halisi ya soko na Mazingira ya Biashara</small></p>
+	</div>
+<% end %>
 <div class="tabs-content">
 	<%= render "iringa", :current_view => "iringa" %>
 </div>
