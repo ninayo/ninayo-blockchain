@@ -1,7 +1,9 @@
 <% provide(:title, "Current market prices: Mbeya") %>
 <%= render "pagenav", :current_view => "mbeya" %>
 <div class="update-button" style="display: flex; justify-content: center;">
+	<% if current_user && current_user.admin? %>
 	<%= link_to("Update Prices", new_mbeya_price_path, :class => "button is-block") %>
+	<% end %>
 </div>
 <div class="tabs-content">
 	<%= render "mbeya", :current_view => "mbeya" %>
