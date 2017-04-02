@@ -1,7 +1,7 @@
 <div class="posts-wrapper">
 	<%= render "layouts/alert" %>
 
-
+	<%= link_to("#{t "common.prices"}", prices_path, :class => "button primarynav-button is-primary") %>
 	<%= render "filter", :ads => @ads %>
 	<%= render "list", :ads => @ads %>
 	<%= paginate @ads %>

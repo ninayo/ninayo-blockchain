@@ -164,6 +164,7 @@ sw:
     message: "Ujumbe"
     call: "Piga simu"
     sms: "Kutuma SMS"
+    prices: "Bei ya mazao"
 
     errors:
       zero: "hakuna makosa"
