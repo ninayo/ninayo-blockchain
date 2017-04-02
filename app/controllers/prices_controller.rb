@@ -1,8 +1,8 @@
 # Controller for pricing pages
 class PricesController < ApplicationController
-  before_action :authenticate_user!
-
+  
   def new
+    redirect_to prices_path unless current_user && current_user.admin?
     new_prices
     render :new
   end
@@ -57,6 +57,7 @@ class PricesController < ApplicationController
   end
 
   def new_dar_price
+    redirect_to prices_path unless current_user && current_user.admin?
     get_prices(2)
     new_prices
 
@@ -64,6 +65,7 @@ class PricesController < ApplicationController
   end
 
   def new_iringa_price
+    redirect_to prices_path unless current_user && current_user.admin?
     get_prices(5)
     new_prices
 
@@ -71,6 +73,7 @@ class PricesController < ApplicationController
   end
 
   def new_mbeya_price
+    redirect_to prices_path unless current_user && current_user.admin?
     get_prices(13)
     new_prices
     
