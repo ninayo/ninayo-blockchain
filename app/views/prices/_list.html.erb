@@ -86,7 +86,7 @@
 	</tr>
 
 	<tr>
-		<td class="text-right"><%= I18n.locale == :en ? "Rice" : "Mpunga" %></td>
+		<td class="text-right"><%= I18n.locale == :en ? "Mbeya Rice" : "Mchele kutoka Kyela" %></td>
 		<td class="text-right"><%= number_to_currency(@rice_prices.first.price, precision: 0) %></td>
 		<% if @rice_prices.second.price < @rice_prices.first.price %>
 			<td><span style="color: green;">▲ </span><strong><%= @rice_prices.first.price - @rice_prices.second.price %></strong></td>
