@@ -184,7 +184,7 @@ en:
     message: "Message"
     call: "Call phone"
     sms: "Send SMS"
-    prices: "View crop prices"
+    prices: "View market prices"
 
     errors:
       zero: "no errors"
