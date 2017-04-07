@@ -2,7 +2,7 @@
 class PricesController < ApplicationController
   
   def new
-    redirect_to prices_path unless current_user && current_user.admin?
+    redirect_to prices_path unless admin_user?
     new_prices
     render :new
   end
