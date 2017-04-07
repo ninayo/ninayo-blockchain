@@ -1,7 +1,7 @@
 # Controller for pricing pages
 class PricesController < ApplicationController
 
-  before_action :check_role, only: :new, :create, :new_dar_price, :new_iringa_price, :new_mbeya_price
+  before_action :check_role, only: [:new, :create, :new_dar_price, :new_iringa_price, :new_mbeya_price]
   
   def new
     new_prices
