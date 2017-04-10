@@ -14,5 +14,6 @@ class TextMessagesController < ApplicationController
             from: params[:From],
             body: params[:Body]
         }
+    end
 
 end
