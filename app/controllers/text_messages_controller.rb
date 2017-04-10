@@ -7,7 +7,19 @@ class TextMessagesController < ApplicationController
         head :ok #need to have this or we run into errors with twilio api
     end
 
+    def send_outgoing
+        client.messages.create(
+            to: to,
+            from: from,
+            body: body
+        )
+    end
+
     private
+
+    def client
+        @client ||= Twilio::REST::Client.new
+    end
 
     def message_attributes
         {   to: params[:To],
