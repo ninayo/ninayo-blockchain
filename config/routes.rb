@@ -99,6 +99,8 @@ Rails.application.routes.draw do
 
   end
 
+  post 'text', to: 'text_messages#create'
+
   get '/.well-known/acme-challenge/-psVTriG2kn-BOKuC52nnPuie6YQ9L8-6yd97DlA78g' => 'splash#letsencrypt_verify'
 
   get '/:locale' => 'splash#index'
