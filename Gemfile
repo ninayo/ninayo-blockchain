@@ -68,6 +68,8 @@ gem 'chartkick'
 gem 'hightop'
 gem 'groupdate'
 
+gem 'twilio-ruby'
+
 #gem 'skylight'
 
 group :development do
