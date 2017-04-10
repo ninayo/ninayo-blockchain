@@ -17,7 +17,7 @@
 			<strong><%= (I18n.locale == :sw ? "Ninataka " : "I want ") %> <%= f.select :ad_type, options_for_select([[(I18n.locale == :sw ? 'kuuza' : 'to sell'), "sell"], [(I18n.locale == :sw ? 'kununua' : 'to buy'), "buy"]]), style: "width: 135px;" %></strong>
 		</div>
 		<h3><%= t("views.ad.crop").humanize %></h3>
-		<h4><strong><font color="#4CAF50"><%= (I18n.locale == :sw ? "Bonyeza hapa kwa kuanza" : "Click here to begin") %> ⇩</font></strong></h4>
+		<h4><strong><font color="#4CAF50"><%= (I18n.locale == :sw ? "Bonyeza vitufe vifuatavyo kwa kuanza" : "Click here to begin") %> ⇩</font></strong></h4>
 		<div class="field">
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :en %>
 			<%= f.select :crop_type_id, @crop_types.all.collect {|c| [ c.name_sw, c.id ] }, {prompt: "#{t "views.ad.new.select_a_crop_type"}"} if I18n.locale == :sw %>
