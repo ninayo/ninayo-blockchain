@@ -176,7 +176,34 @@ class User < ActiveRecord::Base
     birthday.blank?
   end
 
+  #first public-facing twilio implementation
+  def sms_pw_reset
+    #TODO: check to see if we've got a phone number first
+    (redirect_to mypage_path, :flash => { error: "Please enter a phone number" }) if self.phone_number.blank?
+
+    @twilio_number = ENV['TWILIO_NUMBER']
+    @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+
+    new_pw = new_random_pin
+    message = (I18n.locale == :sw ? "PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}" : "Your PIN has been reset. Your new PIN is #{new_pw}")
+
+    if self.reset_password(new_pw, new_pw)
+      payload = @client.account.messages.create(
+        :from => @twilio_number,
+        :to => self.phone_number.
+        :body => message,
+      )
+      puts message.to
+    else
+      redirect_to reset_pw_path, :flash => { error: "Couldn't reset password, please try again" }
+    end
+  end
+
   protected
+
+  def new_random_pin
+    rand(0000..9999)
+  end
 
   def cleanup_temp
     phone_number[0..8] == 'TEMPPHONE' ? true : update(email: nil)
