@@ -190,7 +190,7 @@ class User < ActiveRecord::Base
     if self.reset_password(new_pw, new_pw)
       payload = @client.account.messages.create(
         :from => @twilio_number,
-        :to => self.phone_number.
+        :to => self.phone_number,
         :body => message
       )
       puts message.to
