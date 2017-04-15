@@ -191,7 +191,7 @@ class User < ActiveRecord::Base
       payload = @client.account.messages.create(
         :from => @twilio_number,
         :to => self.phone_number.
-        :body => message,
+        :body => message
       )
       puts message.to
     else
