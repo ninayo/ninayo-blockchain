@@ -1,10 +1,15 @@
 <table class="datatable" style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around;">
+	<tr>
+	<div style="background: 2px solid red">
+	 <%= I18n.locale == :sw ? "Tunashauri SMS kwa simu kutumika kama nija muhimu ya kuwasiliana na wakulima ambao hawapatikani kwa kuwapigia moja kwa moja" : "We recommend SMS as the best way to contact farmers, who are often unavailable to speak by phone" %>
+	</div>
+	<tr>
 	<% unless @ad.user.phone_number.blank? %>
 	<tr>
-		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
+		<td><%= link_to("#{t "common.sms"}", text_contact_path(@ad.id), :class => "button is-block" :style => "background: 3px solid red;") %></td>
 	</tr>
 	<tr>
-		<td><%= link_to("#{t "common.sms"}", text_contact_path(@ad.id), :class => "button is-block") %></td>
+		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
 	</tr>
 	<% end %>
 	<% unless @ad.user.whatsapp_id.blank? %>
