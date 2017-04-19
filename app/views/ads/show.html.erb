@@ -40,8 +40,8 @@
 			</div>
 			<% if current_user && current_user.id %>
 			<div class="ad-info-contact" style="display: flex; flex-direction: column; justify-content: space-around;">
-			<div style="outline: 2px solid red; font-size: 10px">
-	 			<i><%= I18n.locale == :sw ? "Tunashauri SMS" : "We recommend SMS" %></i>
+			<div style="font-size: 10px; text-align: center;">
+	 			<i><p><%= I18n.locale == :sw ? "Tunashauri SMS" : "We recommend SMS" %></p></i>
 			</div>
 			<% unless @ad.user.phone_number.blank? %>
 				<%= link_to("SIMU", call_contact_path(@ad.id), :class => "button is-block", :style => "outline: 3px solid red") %>
