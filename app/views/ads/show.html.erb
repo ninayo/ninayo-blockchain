@@ -40,8 +40,11 @@
 			</div>
 			<% if current_user && current_user.id %>
 			<div class="ad-info-contact" style="display: flex; flex-direction: column; justify-content: space-around;">
+			<div style="outline: 2px solid red">
+	 			<%= I18n.locale == :sw ? "Tunashauri SMS kwa simu kutumika kama nija muhimu ya kuwasiliana na wakulima ambao hawapatikani kwa kuwapigia moja kwa moja" : "We recommend SMS as the best way to contact farmers, who are often unavailable to speak by phone" %>
+			</div>
 			<% unless @ad.user.phone_number.blank? %>
-				<%= link_to("SIMU", call_contact_path(@ad.id), :class => "button is-block") %>
+				<%= link_to("SIMU", call_contact_path(@ad.id), :class => "button is-block" :style => "outline: 3px solid red") %>
 				<%= link_to("SMS", text_contact_path(@ad.id), :class => "button is-block") %>
 				<%= link_to "#{t "common.message"}", new_message_path(:uid => @ad.user.id, :adid => @ad.id), class: "button is-block" %>
 			<% end %>
