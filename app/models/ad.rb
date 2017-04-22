@@ -108,7 +108,7 @@ class Ad < ActiveRecord::Base
     end
   end
 
-  def self.related_ads
+  def related_ads
 
     if self.ad_type == "sell"
       return Ad.where(:ad_type => "buy", 
