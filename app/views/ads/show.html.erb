@@ -3,7 +3,7 @@
 
 <% ab_test "ad show page", "card", "original" do |style| %>
 	<% if style == "card" %>
-	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %>
+	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %></p>
 	<div class="ad-info-flex">
 		<div class="ad-info-facts" style="height: auto;">
 			<h3 class="supheading" style="margin-bottom: 5px;">
