@@ -108,6 +108,23 @@ class Ad < ActiveRecord::Base
     end
   end
 
+  def self.related_ads
+
+    if self.ad_type == "sell"
+      return Ad.where(:ad_type => "buy", 
+                      :crop_type_id => self.crop_type_id, 
+                      :volume_unit => self.volume_unit,
+                      :region_id => self.region_id).order("published_at").last(3)
+    else
+      return Ad.where(:ad_Type => "sell",
+                      :crop_type_id => self.crop_type_id,
+                      :volume_unit => self.volume_unit,
+                      :region_id => self.region_id).order("published_at").last(3)
+    end
+
+
+  end
+
   def self.ads_per_day
     select("date(published_at) as ad_date, count(*) as ad_count").group("date(published_at)").order("date(published_at)")
   end
