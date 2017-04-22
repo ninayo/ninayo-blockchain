@@ -116,7 +116,7 @@ class Ad < ActiveRecord::Base
                       :volume_unit => self.volume_unit,
                       :region_id => self.region_id).order("published_at").last(3)
     else
-      return Ad.where(:ad_Type => "sell",
+      return Ad.where(:ad_type => "sell",
                       :crop_type_id => self.crop_type_id,
                       :volume_unit => self.volume_unit,
                       :region_id => self.region_id).order("published_at").last(3)
