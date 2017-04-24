@@ -6,7 +6,8 @@
 	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %></p>
 	<% if current_user && current_user.admin? && @ad.related_ads.length > 0 %>
 	<% @ad.related_ads.each do |a| %>
-		Buying: <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+		<%= t("views.ad.for_sale") if a.sell? %>
+		<%= t("views.ad.buying") if a.buy? %> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 		<hr>
 	<% end %>
 	<% end %>
