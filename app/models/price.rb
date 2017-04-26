@@ -13,4 +13,9 @@ class Price < ActiveRecord::Base
     self.price = self.price.sub!(',', '.') if self.price && self.price.is_a?(String) && self.price.count(',') > 0
   end
 
+  def related_ads
+  	Ad.where(:ad_type => 0,
+	          :crop_type_id => self.crop_type_id,
+	          :region_id => self.region_id).order("published_at").last(3).reverse
+  end
 end

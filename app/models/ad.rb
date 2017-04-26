@@ -109,7 +109,6 @@ class Ad < ActiveRecord::Base
   end
 
   def related_ads
-
     if self.ad_type == "sell"
       return Ad.where(:ad_type => 1, 
                       :crop_type_id => self.crop_type_id, 
@@ -121,8 +120,6 @@ class Ad < ActiveRecord::Base
                       :volume_unit => Ad.volume_units[self.volume_unit],
                       :region_id => self.region_id).order("published_at").last(3).reverse
     end
-
-
   end
 
   def self.ads_per_day
