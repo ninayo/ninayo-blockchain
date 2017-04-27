@@ -110,8 +110,8 @@ class Ad < ActiveRecord::Base
 
   def related_ads
     if self.ad_type == "sell"
-      return Ad.where(:ad_type => 1, 
-                       ("created_at >= :date OR updated_at >= :date", date: 2.weeks.ago),
+      return Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago)
+               .where(:ad_type => 1,
                       :crop_type_id => self.crop_type_id, 
                       :volume_unit => Ad.volume_units[self.volume_unit],
                       :region_id => self.region_id).order("published_at").last(3).reverse
