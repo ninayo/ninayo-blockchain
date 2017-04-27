@@ -6,9 +6,17 @@
 	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %></p>
 		<% if current_user && current_user.admin? && @ad.related_ads.length > 0 %>
 			<% if I18n.locale == :sw %>
-				<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name_sw} zinanunuliwa #{@ad.region.name}" %></h3>
+				<% if @ad.ad_type == "sell" %>
+					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name_sw} ya kununuliwa katika #{@ad.region.name}" %></h3>
+				<% else %>
+					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name_sw} zinanunuliwa #{@ad.region.name}" %></h3>
+				<% end %>
 			<% else %>
-				<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name} for sale in #{@ad.region.name}" %></h3>
+				<% if @ad.ad_type == "sell" %>
+					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name} being bought in #{@ad.region.name}" %></h3>
+				<% else %>
+					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name} for sale in #{@ad.region.name}" %></h3>
+				<% end %>
 			<% end %>
 			<% @ad.related_ads.each do |a| %>
 				<b><%= t("views.ad.for_sale") if a.sell? %>
