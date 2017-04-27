@@ -116,7 +116,8 @@ class Ad < ActiveRecord::Base
                       :volume_unit => Ad.volume_units[self.volume_unit],
                       :region_id => self.region_id).order("published_at").last(3).reverse
     else
-      return Ad.where(:ad_type => 0,
+      return Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
+               .where(:ad_type => 0,
                       :crop_type_id => self.crop_type_id,
                       :volume_unit => Ad.volume_units[self.volume_unit],
                       :region_id => self.region_id).order("published_at").last(3).reverse
