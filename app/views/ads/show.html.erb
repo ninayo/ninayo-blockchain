@@ -13,7 +13,7 @@
 				<% end %>
 			<% else %>
 				<% if @ad.ad_type == "sell" %>
-					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name} being bought in #{@ad.region.name}" %></h3>
+					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name} being purchased in #{@ad.region.name}" %></h3>
 				<% else %>
 					<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name} for sale in #{@ad.region.name}" %></h3>
 				<% end %>
