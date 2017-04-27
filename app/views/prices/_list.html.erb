@@ -48,6 +48,14 @@
 		<span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
+	<% if current_user && current_user.admin? && @wheat_prices.first.related_ads.length > 0 %>
+	<% @wheat_prices.first.related_ads.first do |a| %>
+		<b><%= t("views.ad.for_sale") if a.sell? %>
+		<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+		<hr>
+	<% end %>
+	<% end %>
+
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Maize" : "Mahindi" %></td>
 		<td class="text-right"><%= number_to_currency(@maize_prices.first.price, precision: 0) %></td>
@@ -62,6 +70,14 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@maize_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
+
+	<% if current_user && current_user.admin? && @maize_prices.first.related_ads.length > 0 %>
+	<% @maize_prices.first.related_ads.first do |a| %>
+		<b><%= t("views.ad.for_sale") if a.sell? %>
+		<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+		<hr>
+	<% end %>
+	<% end %>
 
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Beans" : "Maharage" %></td>
@@ -78,6 +94,14 @@
 		<span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
+	<% if current_user && current_user.admin? && @bean_prices.first.related_ads.length > 0 %>
+	<% @bean_prices.first.related_ads.first do |a| %>
+		<b><%= t("views.ad.for_sale") if a.sell? %>
+		<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+		<hr>
+	<% end %>
+	<% end %>
+
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Soybeans" : "Soya" %></td>
 		<td class="text-right"><%= number_to_currency(@soy_prices.first.price, precision: 0) %></td>
@@ -93,6 +117,14 @@
 		<span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
 
+	<% if current_user && current_user.admin? && @soy_prices.first.related_ads.length > 0 %>
+	<% @soy_prices.first.related_ads.first do |a| %>
+		<b><%= t("views.ad.for_sale") if a.sell? %>
+		<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+		<hr>
+	<% end %>
+	<% end %>
+
 	<tr>
 		<td class="text-right"><%= I18n.locale == :en ? "Mbeya Rice" : "Mchele kutoka Kyela" %></td>
 		<td class="text-right"><%= number_to_currency(@rice_prices.first.price, precision: 0) %></td>
@@ -107,6 +139,14 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 	</tr>
+
+	<% if current_user && current_user.admin? && @rice_prices.first.related_ads.length > 0 %>
+	<% @rice_prices.first.related_ads.first do |a| %>
+		<b><%= t("views.ad.for_sale") if a.sell? %>
+		<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+		<hr>
+	<% end %>
+	<% end %>
 
 	</tbody>
 </table>
