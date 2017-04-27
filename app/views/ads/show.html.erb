@@ -5,7 +5,7 @@
 	<% if style == "card" %>
 	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %></p>
 		<% if current_user && current_user.admin? && @ad.related_ads.length > 0 %>
-			<h3 style="font-size: 12px"><%= "#{@ad.crop_type} zinanunuliwa #{@ad.region.name}" %></h3>
+			<h3 style="font-size: 14px"><%= "#{@ad.crop_type.name_sw} zinanunuliwa #{@ad.region.name}" %></h3>
 			<% @ad.related_ads.each do |a| %>
 				<b><%= t("views.ad.for_sale") if a.sell? %>
 				<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
