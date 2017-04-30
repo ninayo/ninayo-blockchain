@@ -18,76 +18,66 @@
 	</div>
 <% end %>
 
+<% if current_user && current_user.admin? %>
 
-	<% if current_user && current_user.admin? %>
-		<% if !@nut_prices.first.related_ads.empty? %>
+	<% if !@nut_prices.first.related_ads.empty? %>
 		<% @nut_prices.first.related_ads.first do |a| %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 		<% end %>
-		<% else %>
-			<%= "No matches" %>
-		<% end %>
+	<% else %>
+		<%= "No matches" %>
 	<% end %>
-
-	<% if current_user && current_user.admin? %>
+	<hr>
 	<% if !@wheat_prices.first.related_ads.empty? %>
 		<% @wheat_prices.first.related_ads.first do |a| %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 		<% end %>
-		<% else %>
-			<%= "No matches" %>
-		<% end %>
+	<% else %>
+		<%= "No matches" %>
 	<% end %>
-
-
-	<% if current_user && current_user.admin? %>
+	<hr>
 	<% if !@maize_prices.first.related_ads.empty? %>
 		<% @maize_prices.first.related_ads.first do |a| %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 		<% end %>
-		<% else %>
-			<%= "No matches" %>
-		<% end %>
+	<% else %>
+		<%= "No matches" %>
 	<% end %>
-
-	<% if current_user && current_user.admin? %>
+	<hr>
 	<% if !@bean_prices.first.related_ads.empty? %>
 		<% @bean_prices.first.related_ads.first do |a| %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 		<% end %>
-		<% else %>
-			<%= "No matches" %>
-		<% end %>
+	<% else %>
+		<%= "No matches" %>
 	<% end %>
-
-	<% if current_user && current_user.admin? %>
+	<hr>
 	<% if !@soy_prices.first.related_ads.empty? %>
 		<% @soy_prices.first.related_ads.first do |a| %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 		<% end %>
-		<% else %>
-			<%= "No matches" %>
-		<% end %>
+	<% else %>
+		<%= "No matches" %>
 	<% end %>
-
-	<% if current_user && current_user.admin? %>
+	<hr>
 	<% if !@rice_prices.first.related_ads.empty? %>
 		<% @rice_prices.first.related_ads.first do |a| %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 		<% end %>
-		<% else %>
-			<%= "No matches" %>
-		<% end %>
+	<% else %>
+		<%= "No matches" %>
 	<% end %>
+
+<% end %>
