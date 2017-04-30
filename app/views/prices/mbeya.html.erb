@@ -23,7 +23,7 @@
 	<% if !@nut_prices.first.related_ads.empty? %>
 		<% a = @nut_prices.first.related_ads.first %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
-			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price + "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 	<% else %>
 		<%= "No groundnut matches" %>
@@ -32,7 +32,7 @@
 	<% if !@wheat_prices.first.related_ads.empty? %>
 		<% a = @wheat_prices.first.related_ads.first %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
-			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price + "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 	<% else %>
 		<%= "No wheat matches" %>
@@ -50,7 +50,7 @@
 	<% if !@bean_prices.first.related_ads.empty? %>
 		<% a = @bean_prices.first.related_ads.first %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
-			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price + "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 	<% else %>
 		<%= "No bean matches" %>
@@ -59,7 +59,7 @@
 	<% if !@soy_prices.first.related_ads.empty? %>
 		<% a = @soy_prices.first.related_ads.first %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
-			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price + "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 	<% else %>
 		<%= "No soy matches" %>
@@ -68,7 +68,7 @@
 	<% if !@rice_prices.first.related_ads.empty? %>
 		<% a = @rice_prices.first.related_ads.first %>
 			<b><%= t("views.ad.for_sale") if a.sell? %>
-			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.price + "/= - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
 	<% else %>
 		<%= "No rice matches" %>
