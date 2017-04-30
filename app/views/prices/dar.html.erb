@@ -25,7 +25,6 @@
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
-		<% end %>
 	<% else %>
 		<%= "No groundnut matches" %>
 	<% end %>
@@ -35,7 +34,6 @@
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
-		<% end %>
 	<% else %>
 		<%= "No wheat matches" %>
 	<% end %>
@@ -45,7 +43,6 @@
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
-		<% end %>
 	<% else %>
 		<%= "No maize matches" %>
 	<% end %>
@@ -55,7 +52,6 @@
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
-		<% end %>
 	<% else %>
 		<%= "No bean matches" %>
 	<% end %>
@@ -65,7 +61,6 @@
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
-		<% end %>
 	<% else %>
 		<%= "No soy matches" %>
 	<% end %>
@@ -75,7 +70,6 @@
 			<b><%= t("views.ad.for_sale") if a.sell? %>
 			<%= t("views.ad.buying") if a.buy? %>:</b> <%= link_to(a.title, ad_path(a)) %> <%= " - " + a.user.name + " - " + l(a.published_at, format: :short) + "(" + time_ago_in_words(a.published_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 			<hr>
-		<% end %>
 	<% else %>
 		<%= "No rice matches" %>
 	<% end %>
