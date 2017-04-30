@@ -17,6 +17,6 @@ class Price < ActiveRecord::Base
   	Ad.where("created_at >= ? OR updated_at >= ?", 6.weeks.ago, 6.weeks.ago)
       .where(:ad_type => 0,
 	          :crop_type_id => self.crop_type_id,
-	          :region_id => self.region_id).order("updated_at").last
+	          :region_id => self.region_id).order("updated_at").last(3).reverse
   end
 end
