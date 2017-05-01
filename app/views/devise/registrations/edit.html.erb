@@ -55,7 +55,7 @@
 					<%= f.text_field :village, :validate => true %>
 				</div>
 			</fieldset>
-			<% unless current_user.uid.blank? %>
+			<% unless !current_user.uid.blank? %>
 			<fieldset>
 				<h4><%= t "view.edit_profile.change_password" %></h4>
 				<p><%=t("views.edit_profile.leave_blank")%></p>
@@ -64,7 +64,6 @@
 					<%= f.label :password, class: "field-label" %>
 					<%= f.password_field :password, autocomplete: "off" %>
 					<% if @validatable %>
-					<p>adsjlfkjsd</p>
 						<span class="field-hint">(<%= t("views.edit_profile.minimum_password_length", :length =>  @minimum_password_length) %>)</span>
 					<% end %>
 				</div>
@@ -75,7 +74,7 @@
 				</div>
 
 			</fieldset>
-
+			<% end %>
 
 
 			<fieldset>
