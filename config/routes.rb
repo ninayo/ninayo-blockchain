@@ -67,7 +67,7 @@ Rails.application.routes.draw do
     get 'ads/:id/text' => 'ads#text_contact', as: :text_contact
     get 'ads/:id/whatsapp' => 'ads#whatsapp_contact', as: :whatsapp_contact
 
-    #get 'map' => 'ads#map'
+    get 'map' => 'ads#map'
 
     get 'terms' => 'home#terms', as: :terms
 
