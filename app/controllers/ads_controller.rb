@@ -48,6 +48,7 @@ class AdsController < ApplicationController
     @ads = @ads.includes(:crop_type) # determines map markers, use .where
     @crop_types = CropType.all.order(:sort_order)
     @regions = Region.all.order(:name)
+    render 'map'
   end
 
   def show # not sure what's going on in this method, won't break it yet
