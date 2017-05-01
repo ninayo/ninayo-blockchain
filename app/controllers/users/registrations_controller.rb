@@ -45,18 +45,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     resource.save
   end
 
-  def find_for_sms_reset
-    redirect_to root_url if params[:phone_number].blank?
-    u = User.find_by(:phone_number => params[:phone_number])
-
-    if u.exists?
-      u.sms_pw_reset
-      redirect_to root_url, :flash => { notice: "Your PIN has been reset and sent to you via SMS" }
-    else
-      redirect_to root_url, :flash => { error: "Phone number not found, please try again" }
-    end
-  end
-
   private
 
   def cleanup_temp
