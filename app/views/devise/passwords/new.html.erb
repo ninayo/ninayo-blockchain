@@ -2,12 +2,12 @@
 	<div class="login-column">
 		<h2><%= t "devise.phrases.reset_password" %></h2>
 
-		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+		<%= form_for(resource, as: resource_name, url: sms_reset(resource_name), html: { method: :patch }) do |f| %>
 			<%= devise_error_messages! %>
 
 			<div class="field">
-				<%= f.label :email %>
-				<%= f.email_field :email, autofocus: true %>
+				<%= f.label :phone_number %>
+				<%= f.email_field :phone_number, autofocus: true %>
 			</div>
 
 			<div class="field-actions">

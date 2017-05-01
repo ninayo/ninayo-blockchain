@@ -101,6 +101,8 @@ Rails.application.routes.draw do
 
   post 'text', to: 'text_messages#create'
 
+  patch 'sms_reset/:phone_number' => 'registrations#find_for_sms_reset', as: :sms_reset 
+
   get '/.well-known/acme-challenge/-psVTriG2kn-BOKuC52nnPuie6YQ9L8-6yd97DlA78g' => 'splash#letsencrypt_verify'
 
   get '/:locale' => 'splash#index'
