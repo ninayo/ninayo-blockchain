@@ -193,7 +193,6 @@ class User < ActiveRecord::Base
         :to => self.phone_number,
         :body => message
       )
-      puts message.to
     else
       redirect_to reset_pw_path, :flash => { error: "Couldn't reset password, please try again" }
     end
