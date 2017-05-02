@@ -68,7 +68,6 @@
 					<%= user_fields.text_field :name, :default => current_user.name, :validate => true %>
 				</div>
 	
-
 				<div class="field">
 					<strong><%= user_fields.label :phone_number, :value => "#{t "activerecord.attributes.user.phone_number"}", :class => "field-label" %></strong>
 					<div class="input-wrapper">
@@ -77,6 +76,16 @@
 						</div>
 					</div>
 				</div>
+
+				<% if current_user.gender.blank? || current_user.gender.nil? %>			
+					<div class="field">
+						<% if I18n.locale == :sw %>
+							<strong>Mimi ni </strong><%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
+						<% else %>
+							<strong>I am a </strong><%= user_fields.select :gender, options_for_select([['man', "male"], ['woman', "female"]]), style: "width: 135px;" %>
+						<% end %>
+					</div> 
+				<% end %>
 
 				<h3><%= t("views.ad.show.location").humanize %></h3>
 				<div class="field">
@@ -122,15 +131,6 @@
 			<%= f.hidden_field :lng %>
 		</fieldset>
 
-		<% if current_user.gender.blank? || current_user.gender.nil? %>			
-			<div class="field">
-				<% if I18n.locale == :sw %>
-					<strong>Mimi ni </strong><%= user_fields.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %>
-				<% else %>
-					<strong>I am a </strong><%= user_fields.select :gender, options_for_select([['man', "male"], ['woman', "female"]]), style: "width: 135px;" %>
-				<% end %>
-			</div> 
-		<% end %>
 
 		<fieldset>
 			<div class="login">
@@ -144,6 +144,8 @@
 
 		    				<strong><%= ff.label :name, class: "field-label" %></strong>
 		    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
+
+		    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
 
 		    				<strong><%= ff.label :password, class: "field-label" %></strong>
 		    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
