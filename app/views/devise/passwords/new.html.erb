@@ -2,7 +2,7 @@
 	<div class="login-column">
 		<h2><%= t "devise.phrases.reset_password" %></h2>
 
-		<%= form_for(resource, as: resource_name, url: sms_reset_path(resource_name), html: { method: :patch }) do |f| %>
+		<%= form_for(:reset_request, url: sms_reset_path(:reset_request), html: { method: :patch }) do |f| %>
 			<%= devise_error_messages! %>
 
 			<div class="field">

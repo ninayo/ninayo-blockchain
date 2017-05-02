@@ -16,10 +16,10 @@ class TextMessagesController < ApplicationController
     end
 
     def find_for_sms_reset
-    redirect_to root_url if params[:phone_number].blank?
-    u = User.find_by(:phone_number => params[:phone_number])
+    redirect_to root_url if params[:reset_request][:phone_number].blank?
+    u = User.find_by(:phone_number => params[:reset_request][:phone_number])
 
-        if u.exists?
+        if !u.nil?
           u.sms_pw_reset
           redirect_to root_url, :flash => { notice: "Your PIN has been reset and sent to you via SMS" }
         else
