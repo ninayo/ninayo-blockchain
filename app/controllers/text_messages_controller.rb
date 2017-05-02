@@ -22,7 +22,7 @@ class TextMessagesController < ApplicationController
           u.sms_pw_reset
           redirect_to root_url, :flash => { notice: "Your PIN has been reset and sent to you via SMS" }
         else
-          redirect_to new_user_password_path, :flash => { error: "Phone number not found, please try again" }
+          redirect_to(new_user_password_path, {:flash => { error: "Phone number not found, please try again" } } )
         end
     end
 
