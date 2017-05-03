@@ -192,9 +192,9 @@ class User < ActiveRecord::Base
 
     if self.reset_password(new_pw, new_pw)
       payload = @client.account.messages.create(
-        :from => @twilio_number,
-        :to => outgoing_num,
-        :body => message
+        from: @twilio_number,
+        to: outgoing_num,
+        body: message
       )
     else
       redirect_to reset_pw_path, :flash => { error: "Couldn't reset password, please try again" }
