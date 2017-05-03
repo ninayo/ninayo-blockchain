@@ -188,9 +188,7 @@ class User < ActiveRecord::Base
     message = (I18n.locale == :sw ? "PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}" : "Your PIN has been reset. Your new PIN is #{new_pw}")
     outgoing_num = self.phone_number
 
-    if outgoing_num[0..3] != "+255"
-      outgoing_num = "+255" + outgoing_num
-    end
+    (outgoing_num = ('+255' + outgoing_num)) if outgoing_num[0..3] != '+255'
 
     if self.reset_password(new_pw, new_pw)
       payload = @client.account.messages.create(
