@@ -27,7 +27,11 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
+		<% if @ninayo_prices["Rice"] %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
+		<% end %>
+		<% else %>
+			0/=
 		<% end %>
 	</tr>
 	
@@ -45,7 +49,11 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
+		<% if @ninayo_prices["Rice"] %>
 		<td class="text-right"><%= link_to ad_path(@ninayo_prices["Wheat"]), number_to_currency(@ninayo_prices["Wheat"].price, precision: 0) %></td>
+		<% else %>
+			0/=
+		<% end %>
 		<% end %>
 	</tr>
 
@@ -63,7 +71,11 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@maize_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
+		<% if @ninayo_prices["Rice"] %>
 		<td class="text-right"><%= link_to ad_path(@ninayo_prices["Maize"]), number_to_currency(@ninayo_prices["Maize"].price, precision: 0) %></td>
+		<% else %>
+			0/=
+		<% end %>
 		<% end %>
 	</tr>
 
@@ -81,7 +93,11 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
+		<% if @ninayo_prices["Rice"] %>
 		<td class="text-right"><%= link_to ad_path(@ninayo_prices["Beans"]), number_to_currency(@ninayo_prices["Beans"].price, precision: 0) %></td>
+		<% else %>
+			0/=
+		<% end %>
 		<% end %>
 	</tr>
 
@@ -99,7 +115,11 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
+		<% if @ninayo_prices["Rice"] %>
 		<td class="text-right"><%= link_to ad_path(@ninayo_prices["Soy"]), number_to_currency(@ninayo_prices["Soy"].price, precision: 0) %></td>
+		<% else %>
+			0/=
+		<% end %>
 		<% end %>
 	</tr>
 
@@ -117,7 +137,11 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
+		<% if @ninayo_prices["Rice"] %>
 		<td class="text-right"><%= link_to ad_path(@ninayo_prices["Rice"]), number_to_currency(@ninayo_prices["Rice"].price, precision: 0) %></td>
+		<% else %>
+			0/=
+		<% end %>
 		<% end %>
 	</tr>
 
