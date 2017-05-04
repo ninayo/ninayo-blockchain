@@ -7,6 +7,7 @@
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
+		<th class="text-right"><%= "NINAYO price:" %></th>
 	</thead>
 	<tbody>
 
@@ -23,6 +24,7 @@
 		<td><span class="ads-published_at"><%= l(@nut_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"], precision: 0) %></td>
 	</tr>
 	
 	<tr>
@@ -38,6 +40,7 @@
 		<td><span class="ads-published_at"><%= l(@wheat_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<td class="text-right"><%= number_to_currency(@ninayo_prices["Wheat"], precision: 0) %></td>
 	</tr>
 
 	<tr>
@@ -53,6 +56,7 @@
 		<td><span class="ads-published_at"><%= l(@maize_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@maize_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<td class="text-right"><%= number_to_currency(@ninayo_prices["Maize"], precision: 0) %></td>
 	</tr>
 
 	<tr>
@@ -68,6 +72,7 @@
 		<td><span class="ads-published_at"><%= l(@bean_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<td class="text-right"><%= number_to_currency(@ninayo_prices["Beans"], precision: 0) %></td>
 	</tr>
 
 	<tr>
@@ -83,6 +88,7 @@
 		<td><span class="ads-published_at"><%= l(@soy_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<td class="text-right"><%= number_to_currency(@ninayo_prices["Soy"], precision: 0) %></td>
 	</tr>
 
 	<tr>
@@ -98,6 +104,7 @@
 		<td><span class="ads-published_at"><%= l(@rice_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
+		<td class="text-right"><%= number_to_currency(@ninayo_prices["Rice"], precision: 0) %></td>
 	</tr>
 
 	</tbody>

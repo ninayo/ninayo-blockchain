@@ -97,12 +97,27 @@ class PricesController < ApplicationController
                    .order('created_at desc')
                    .select { |p| p.region_id == region_id }
 
-    @maize_prices    = @prices.select { |p| p.crop_type_id == 1 }
-    @nut_prices   = @prices.select { |p| p.crop_type_id == 19 }
-    @wheat_prices   = @prices.select { |p| p.crop_type_id == 30 }
-    @bean_prices  = @prices.select { |p| p.crop_type_id == 5 }
+    @maize_prices = @prices.select { |p| p.crop_type_id == 1 }
+    @nut_prices = @prices.select { |p| p.crop_type_id == 19 }
+    @wheat_prices = @prices.select { |p| p.crop_type_id == 30 }
+    @bean_prices = @prices.select { |p| p.crop_type_id == 5 }
     @soy_prices    = @prices.select { |p| p.crop_type_id == 26 }
     @rice_prices   = @prices.select { |p| p.crop_type_id == 11 }
+
+    @recent_sell_ads = Ad.where("created_at > ?", 4.weeks.ago).select { |a| a.ad_type.zero? }
+    @ninayo_prices = {}
+    @ninayo_prices['Maize'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 1 })
+    @ninayo_prices['Groundnuts'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 19 })
+    @ninayo_prices['Wheat'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 30 })
+    @ninayo_prices['Beans'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 5 })
+    @ninayo_prices['Soy'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 26 })
+    @ninayo_prices['Rice'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 11 })
+  end
+
+  def extract_price_and_average(ads)
+    total = 0
+    ads.each { |a| total += a.price }
+    total / ads.length
   end
 
   def price_params(params_hash)
