@@ -105,7 +105,7 @@ class PricesController < ApplicationController
     @rice_prices   = @prices.select { |p| p.crop_type_id == 11 }
 
     @recent_sell_ads = Ad.where("created_at > ?", 4.weeks.ago)
-                         .select { |a| a.ad_type.zero? }
+                         .select { |a| a.ad_type == "sell" }
                          .select { |a| a.volume_unit == 2 }
 
     @ninayo_prices = {}
