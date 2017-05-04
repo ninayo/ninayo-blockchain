@@ -122,7 +122,7 @@ class PricesController < ApplicationController
 
   def extract_lowest_price(ads)
     return 0 if ads.empty?
-    ads.sort_by(&:price).reverse.first.price
+    ads.sort_by(&:price).reverse.first
   end
 
   def price_params(params_hash)
