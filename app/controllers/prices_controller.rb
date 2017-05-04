@@ -106,7 +106,7 @@ class PricesController < ApplicationController
 
     @recent_sell_ads = Ad.where("created_at > ?", 4.weeks.ago)
                          .select { |a| a.ad_type == "sell" }
-                         .select { |a| a.volume_unit == 2 }
+                         .select { |a| a.volume_unit == "kg" }
 
     @ninayo_prices = {}
     @ninayo_prices['Maize'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 1 })
