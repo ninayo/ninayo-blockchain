@@ -29,9 +29,9 @@
 		<% if current_user && current_user.admin? %>
 		<% if @ninayo_prices["Groundnuts"] %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
-		<% end %>
 		<% else %>
 			0/=
+		<% end %>
 		<% end %>
 	</tr>
 	
