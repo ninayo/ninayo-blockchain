@@ -104,7 +104,10 @@ class PricesController < ApplicationController
     @soy_prices    = @prices.select { |p| p.crop_type_id == 26 }
     @rice_prices   = @prices.select { |p| p.crop_type_id == 11 }
 
-    @recent_sell_ads = Ad.where("created_at > ?", 4.weeks.ago).select { |a| a.ad_type.zero? }
+    @recent_sell_ads = Ad.where("created_at > ?", 4.weeks.ago)
+                         .select { |a| a.ad_type.zero? }
+                         .select { |a| a.volume_unit == 2 }
+
     @ninayo_prices = {}
     @ninayo_prices['Maize'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 1 })
     @ninayo_prices['Groundnuts'] = extract_price_and_average(@recent_sell_ads.select { |a| a.crop_type_id == 19 })
