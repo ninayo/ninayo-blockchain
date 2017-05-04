@@ -4,7 +4,9 @@
 		<th class="text-right"><%= t "views.my_page.list.price" %> (kg):</th>
 		<th class="text-right"><%= "Change" %>:</th>
 		<th class="text-right"><%= I18n.locale == :en ? "Published" : "Tarehe" %>:</th>
+		<% if current_user && current_user.admin? %>
 		<th class="text-right"><%= "NINAYO price:" %></th>
+		<% end %>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
