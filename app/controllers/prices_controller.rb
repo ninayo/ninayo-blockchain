@@ -118,6 +118,7 @@ class PricesController < ApplicationController
   end
 
   def extract_price_and_average(ads)
+    return 0 if ads.empty?
     total = 0
     ads.each { |a| total += a.price }
     total / ads.length
