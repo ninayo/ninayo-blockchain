@@ -86,7 +86,7 @@ sw:
     litre:
       zero: "sifuri"
       one: "1 lita"
-      other: "lita %{count}"
+      other: "Lita %{count}"
     bucket:
       zero: "sifuri"
       one: "ndoo moja (20kg)"
