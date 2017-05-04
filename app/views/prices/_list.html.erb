@@ -4,10 +4,10 @@
 		<th class="text-right"><%= t "views.my_page.list.price" %> (kg):</th>
 		<th class="text-right"><%= "Change" %>:</th>
 		<th class="text-right"><%= I18n.locale == :en ? "Published" : "Tarehe" %>:</th>
+		<th class="text-right"><%= "NINAYO price:" %></th>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
-		<th class="text-right"><%= "NINAYO price:" %></th>
 	</thead>
 	<tbody>
 
