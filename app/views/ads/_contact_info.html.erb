@@ -4,7 +4,7 @@
 	</div>
 	<% unless @ad.user.phone_number.blank? %>
 	<tr>
-		<td><%= link_to("#{t "common.sms"}", text_contact_path(@ad.id), :class => "button is-block" :style => "outline: 3px solid red;") %></td>
+		<td><%= link_to("#{t "common.sms"}", text_contact_path(@ad.id), :class => "button is-block", :style => "outline: 3px solid red;") %></td>
 	</tr>
 	<tr>
 		<td><%= link_to("#{t "common.call"}", call_contact_path(@ad.id), :class => "button is-block") %></td>
