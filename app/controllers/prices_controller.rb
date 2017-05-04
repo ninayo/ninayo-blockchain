@@ -1,15 +1,12 @@
 # Controller for pricing pages
 class PricesController < ApplicationController
-
   before_action :check_role, only: [:new, :create, :new_dar_price, :new_iringa_price, :new_mbeya_price]
-  
   def new
     new_prices
     render :new
   end
 
   def create
-    
     @region_id = nil
 
     if params.key?('price')
@@ -74,14 +71,12 @@ class PricesController < ApplicationController
   def new_mbeya_price
     get_prices(13)
     new_prices
-    
+
     render :new_mbeya
   end
 
   def check_role
-    unless admin_user?
-      redirect_to root_url, alert: "Permission denied"
-    end
+    redirect_to root_url unless admin_user?
   end
 
   private
@@ -127,7 +122,7 @@ class PricesController < ApplicationController
 
   def extract_lowest_price(ads)
     return 0 if ads.empty?
-    ads.sort_by{ |a| a.price }.reverse.first.price
+    ads.sort_by(&:price).reverse.first.price
   end
 
   def price_params(params_hash)
