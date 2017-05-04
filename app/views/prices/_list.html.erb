@@ -28,7 +28,7 @@
 		<span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
 		<% if !@ninayo_prices["Groundnuts"].nil? %>
-		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
+		<td class="text-right"><%= link_to ad_path(@ninayo_prices["Groundnuts"]), number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
 		<% else %>
 			0/=
 		<% end %>
