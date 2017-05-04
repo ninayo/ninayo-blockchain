@@ -121,7 +121,7 @@ class PricesController < ApplicationController
   end
 
   def extract_lowest_price(ads)
-    return 0 if ads.empty?
+    return Ad.new(:price => 0) if ads.empty?
     ads.sort_by(&:price).reverse.first
   end
 

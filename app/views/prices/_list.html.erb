@@ -27,11 +27,7 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
-		<% if @ninayo_prices["Groundnuts"].class != "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
-		<% else %>
-			<td>0/=</td>
-		<% end %>
 		<% end %>
 	</tr>
 	
@@ -49,11 +45,7 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
-		<% if @ninayo_prices["Wheat"].class != "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Wheat"].price, precision: 0) %></td>
-		<% else %>
-			<td>0/=</td>
-		<% end %>
 		<% end %>
 	</tr>
 
@@ -71,11 +63,7 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@maize_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
-		<% if @ninayo_prices["Maize"].class != "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Maize"].price, precision: 0) %></td>
-		<% else %>
-			<td>0/=</td>
-		<% end %>
 		<% end %>
 	</tr>
 
@@ -93,11 +81,7 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
-		<% if @ninayo_prices["Beans"].class != "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Beans"].price, precision: 0) %></td>
-		<% else %>
-			<td>0/=</td>
-		<% end %>
 		<% end %>
 	</tr>
 
@@ -115,11 +99,7 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
-		<% if @ninayo_prices["Soy"].class != "Fixnum" %>
 			<td class="text-right"><%= number_to_currency(@ninayo_prices["Soy"].price, precision: 0) %></td>
-		<% else %>
-			<td>0/=</td>
-		<% end %>
 		<% end %>
 	</tr>
 
@@ -137,11 +117,7 @@
 				</span>
 		<span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
 		<% if current_user && current_user.admin? %>
-		<% if @ninayo_prices["Rice"].class != "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Rice"].price, precision: 0) %></td>
-		<% else %>
-			<td>0/=</td>
-		<% end %>
 		<% end %>
 	</tr>
 
