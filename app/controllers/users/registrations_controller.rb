@@ -87,8 +87,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def format_phone_number(num)
-    if num.length == 10
-      num = ('0' + num) unless num[0] == '0'
+    if num.length == 9
+      num = ('0' + num)
     end
   end
 

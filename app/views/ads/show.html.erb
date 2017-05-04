@@ -32,7 +32,7 @@
 			</h3>
 			<h3 style="margin-bottom: 5px;"><%= @ad.title %></h3>
 			<strong><%= t "common.price" %>:</strong>
-			<%= number_to_currency(@ad.price, precision: 0)%>
+			<%= number_to_currency(@ad.price, delimiter: ",", precision: 0)%>
 			<div class="posts-location">
 			<i><% unless @ad.village.nil? || @ad.village.blank? %><%= "#{@ad.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.region.name %>
 			<p><%= l(@ad.updated_at, format: :short) %> <%= "(" + time_ago_in_words(@ad.updated_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></p>
