@@ -30,7 +30,7 @@
 		<% if !@ninayo_prices["Groundnuts"].class == "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
 		<% else %>
-			0/=
+			<td>0/=</td>
 		<% end %>
 		<% end %>
 	</tr>
@@ -52,7 +52,7 @@
 		<% if !@ninayo_prices["Wheat"].class == "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Wheat"].price, precision: 0) %></td>
 		<% else %>
-			0/=
+			<td>0/=</td>
 		<% end %>
 		<% end %>
 	</tr>
@@ -74,7 +74,7 @@
 		<% if !@ninayo_prices["Maize"].class == "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Maize"].price, precision: 0) %></td>
 		<% else %>
-			0/=
+			<td>0/=</td>
 		<% end %>
 		<% end %>
 	</tr>
@@ -96,7 +96,7 @@
 		<% if !@ninayo_prices["Beans"].class == "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Beans"].price, precision: 0) %></td>
 		<% else %>
-			0/=
+			<td>0/=</td>
 		<% end %>
 		<% end %>
 	</tr>
@@ -118,7 +118,7 @@
 		<% if !@ninayo_prices["Soy"].class == "Fixnum" %>
 			<td class="text-right"><%= number_to_currency(@ninayo_prices["Soy"].price, precision: 0) %></td>
 		<% else %>
-			0/=
+			<td>0/=</td>
 		<% end %>
 		<% end %>
 	</tr>
@@ -140,7 +140,7 @@
 		<% if !@ninayo_prices["Rice"].class == "Fixnum" %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Rice"].price, precision: 0) %></td>
 		<% else %>
-			0/=
+			<td>0/=</td>
 		<% end %>
 		<% end %>
 	</tr>
