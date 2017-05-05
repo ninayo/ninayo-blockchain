@@ -121,7 +121,7 @@ class PricesController < ApplicationController
   end
 
   def extract_lowest_price(ads, crop_type_fallback)
-    return (Ad.where('created_at > ?', 6.weeks.ago).where(crop_type_id: crop_type_fallback, ad_type: 'sell', volume_unit: 'kg').sort_by(&:price).first || Ad.new(price: 0)) if ads.empty?
+    return (Ad.where('created_at > ?', 6.weeks.ago).where(crop_type_id: crop_type_fallback, ad_type: 0, volume_unit: 2).sort_by(&:price).first || Ad.new(price: 0)) if ads.empty?
     ads.sort_by(&:price).reverse.first
   end
 
