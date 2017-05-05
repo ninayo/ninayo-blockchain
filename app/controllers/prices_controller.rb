@@ -121,7 +121,7 @@ class PricesController < ApplicationController
   end
 
   def extract_lowest_price(ads, crop_type_fallback)
-    return Ad.where(crop_type_id: crop_type_fallback) if ads.empty?
+    return Ad.where(crop_type_id: crop_type_fallback).first if ads.empty?
     ads.sort_by(&:price).reverse.first
   end
 
