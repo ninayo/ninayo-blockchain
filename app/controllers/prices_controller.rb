@@ -100,17 +100,17 @@ class PricesController < ApplicationController
     @rice_prices   = @prices.select { |p| p.crop_type_id == 11 }
 
     @recent_sell_ads = Ad.where("created_at > ?", 6.weeks.ago)
-                         .select{ |a| a.region_id == region_id }
+                         .select { |a| a.region_id == region_id }
                          .select { |a| a.ad_type == "sell" }
                          .select { |a| a.volume_unit == "kg" }
 
     @ninayo_prices = {}
-    @ninayo_prices['Maize'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 1 })
-    @ninayo_prices['Groundnuts'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 19 })
-    @ninayo_prices['Wheat'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 30 })
-    @ninayo_prices['Beans'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 5 })
-    @ninayo_prices['Soy'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 26 })
-    @ninayo_prices['Rice'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 11 })
+    @ninayo_prices['Maize'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 1 }, 1)
+    @ninayo_prices['Groundnuts'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 19 }, 19)
+    @ninayo_prices['Wheat'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 30 }, 30)
+    @ninayo_prices['Beans'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 5 }, 5)
+    @ninayo_prices['Soy'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 26 }, 26)
+    @ninayo_prices['Rice'] = extract_lowest_price(@recent_sell_ads.select { |a| a.crop_type_id == 11 }, 11)
   end
 
   def extract_price_and_average(ads)
@@ -120,8 +120,8 @@ class PricesController < ApplicationController
     total / ads.length
   end
 
-  def extract_lowest_price(ads)
-    return Ad.new(:price => 0) if ads.empty?
+  def extract_lowest_price(ads, crop_type_fallback)
+    return Ad.where(crop_type_id: crop_type_fallback) if ads.empty?
     ads.sort_by(&:price).reverse.first
   end
 
