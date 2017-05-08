@@ -182,7 +182,7 @@ class User < ActiveRecord::Base
     new_pw = new_random_pin
     message = "PIN yako imekuwa UPYA. PIN yako mpya ni #{new_pw}"
 
-    self.reset_password(new_pw, new_pw) ? send_sms(message) : redirect_to reset_pw_path
+    self.reset_password(new_pw, new_pw) ? send_sms(message) : redirect_to(reset_pw_path)
   end
 
   protected
