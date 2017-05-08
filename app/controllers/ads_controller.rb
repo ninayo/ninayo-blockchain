@@ -122,15 +122,18 @@ class AdsController < ApplicationController
     redirect_to "sms:#{@ad.user.phone_number}"
   end
 
-  def whatsapp_contact
-    whatsapp_log = WhatsappLog.new
-    whatsapp_log.ad_id = @ad.id
-    whatsapp_log.sender_id = current_user.id
-    whatsapp_log.receiver_id = @ad.user.id
-    whatsapp_log.save
+  # this used to result in a new whatsapp message with the contact number pre-filled,
+  # but it only worked on android and whatsapp seems to have closed the method
+  # nothing to do for now until they release an API
+  # def whatsapp_contact
+  #   whatsapp_log = WhatsappLog.new
+  #   whatsapp_log.ad_id = @ad.id
+  #   whatsapp_log.sender_id = current_user.id
+  #   whatsapp_log.receiver_id = @ad.user.id
+  #   whatsapp_log.save
 
-    redirect_to "intent://send/#{@ad.user.whatsapp_id}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"
-  end
+  #   redirect_to "intent://send/#{@ad.user.whatsapp_id}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"
+  # end
 
   def preview
     not_found if current_user.id != @ad.user.id
