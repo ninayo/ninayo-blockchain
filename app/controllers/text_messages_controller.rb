@@ -16,13 +16,11 @@ class TextMessagesController < ApplicationController
     )
   end
 
-  def twilio_init
+  def send_sms(message)
     @twilio_number = ENV['TWILIO_NUMBER']
     @outgoing_num = format_number(@u.phone_number)
     @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN'])
-  end
-
-  def send_sms(message)
+    
     payload = @client.messages.create(
       from: @twilio_number,
       to: @outgoing_num,
