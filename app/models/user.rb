@@ -3,8 +3,6 @@ require 'net/http'
 class User < ActiveRecord::Base
   attr_accessor :login
 
-  include Textable
-
   acts_as_messageable
   # skip sending confirmation email if we've assigned a user a temp email
   after_create :send_welcome_email, unless: proc { email.nil? || email.include?('@ninayo.com') || email.blank? }
@@ -178,11 +176,14 @@ class User < ActiveRecord::Base
     birthday.blank?
   end
 
-  def sms_pw_reset
+  def pin_reset
     new_pw = new_random_pin
-    message = "PIN yako imekuwa UPYA. PIN yako mpya ni #{new_pw}"
 
-    self.reset_password(new_pw, new_pw) ? send_sms(message) : redirect_to(reset_pw_path)
+    if self.reset_password(new_pw, new_pw)
+      return new_pw
+    else
+      return false
+    end
   end
 
   protected
