@@ -33,7 +33,7 @@ class TextMessagesController < ApplicationController
   def find_for_sms_reset
     @u = User.find_by(phone_number: params[:reset_request][:phone_number])
 
-    if !u.nil?
+    if !@u.nil?
       new_pw = @u.pin_reset
       message = "PIN yako imekuwa UPYA. PIN yako mpya ni #{new_pw}"
       send_sms(message)
