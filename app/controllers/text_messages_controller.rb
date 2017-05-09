@@ -21,11 +21,12 @@ class TextMessagesController < ApplicationController
     @outgoing_num = format_number(@u.phone_number)
     @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
 
-    payload = @client.messages.create(
-      from: @twilio_number,
-      to: @outgoing_num,
-      body: message
-    )
+    if @client.messages.create(from: @twilio_number, to: @outgoing_num, body: message)
+      redirect_to root_url, :flash => { notice: (I18n.locale == :en ? "Your PIN has been reset and sent to you via SMS" : "Nywila yako imewekwa upya na kupelekwa kupitia SMS") }
+    else
+      redirect_to new_user_password_path, flash: { alert: "Namba ya Simu haipatikani, tafadhali jaribu tena" }
+    end
+
   end
 
   def find_for_sms_reset
@@ -33,9 +34,8 @@ class TextMessagesController < ApplicationController
 
     if !@u.nil?
       new_pw = @u.pin_reset
-      message = "PIN yako imekuwa UPYA. PIN yako mpya ni #{new_pw}"
+      message = "PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}"
       send_sms(message)
-      redirect_to root_url, :flash => { notice: (I18n.locale == :en ? "Your PIN has been reset and sent to you via SMS" : "Nywila yako imewekwa upya na kupelekwa kupitia SMS") }
     else
       redirect_to(new_user_password_path, {:flash => { alert: (I18n.locale == :en ? "Phone number not found, please try again" : "Namba ya Simu haipatikani, tafadhali jaribu tena") } } )
     end
