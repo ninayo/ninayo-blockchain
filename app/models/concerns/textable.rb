@@ -4,7 +4,7 @@ module Textable
   def twilio_init
     @twilio_number = ENV['TWILIO_NUMBER']
     @outgoing_num = format_number(self.phone_number)
-    @client = Twilio::REST::Client.new ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN']
+    @client = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_AUTH_TOKEN'])
   end
 
   def send_sms(message)
