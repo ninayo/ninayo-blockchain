@@ -20,6 +20,12 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  textmessage:
+    new_ads_in_location: ""There are [number] new ads on NINAYO.COM for [crop] in [location] this week. Please visit [specific link] to make a trade with a live seller""
+    new_buyer_in_location: "There is a new buyer available on NINAYO.COM for [crop] in [location]. Please visit [link] to contact the buyer and propose a trade."
+    new_seller_in_location: "There is a new seller available on NINAYO.COM for [crop] in [location]. Please visit [link] to contact the seller and propose a trade."
+    new_message_received: "You have a new message from [name] on NINAYO.COM. Please visit [link] to view the message and reply."
+    new_comment_received: "Your ad for [crop] on NINAYO.COM has received a comment from [commenter name]. Please visit [link] to view the comment and reply."
   mailboxer:
     message_mailer:
       subject_new: "You have a new message on NINAYO!"

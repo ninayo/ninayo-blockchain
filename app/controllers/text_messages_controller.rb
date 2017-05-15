@@ -1,8 +1,6 @@
 class TextMessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  before_action :twilio_init, only: [:send_sms]
-
   def create
     TextMessage.create(message_attributes)
     head :ok # need to have this or we run into errors with twilio api
