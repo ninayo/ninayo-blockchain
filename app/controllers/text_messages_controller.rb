@@ -29,13 +29,12 @@ class TextMessagesController < ApplicationController
 
   end
  
-
   def find_for_sms_reset
     @u = User.find_by(phone_number: params[:reset_request][:phone_number])
 
     if !@u.nil?
       new_pw = @u.pin_reset
-      message = "PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}"
+      message = "NINAYO.COM PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}"
       if send_sms(@u, message)
         redirect_to root_url, :flash => { notice: (I18n.locale == :en ? "Your PIN has been reset and sent to you via SMS" : "Nywila yako imewekwa upya na kupelekwa kupitia SMS") }
       else
