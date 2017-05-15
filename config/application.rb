@@ -40,6 +40,9 @@ module Ninayo
       ]
     end)
 
+    # use delayed_job for activerecord queue
+    config.active_job.queue_adapter = :delayed_job 
+
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}')]
 
      # add custom validators path
