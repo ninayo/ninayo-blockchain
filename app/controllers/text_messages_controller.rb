@@ -55,6 +55,7 @@ class TextMessagesController < ApplicationController
     message =  "Asante kwa kutumia NINAYO. Sasa soko bei ya Mahindi katika Iringa zinapatikana katika https://www.ninayo.com/sw/prices/iringa"
 
     recent_users_in_region.each do |u|
+      next if u.phone_number.blank?
       send_sms(u, message)
     end
 
