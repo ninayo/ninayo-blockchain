@@ -70,6 +70,8 @@ gem 'groupdate'
 
 gem 'twilio-ruby'
 
+gem 'delayed_job_active_record'
+
 #gem 'skylight'
 
 group :development do
