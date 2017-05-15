@@ -52,7 +52,7 @@ class TextMessagesController < ApplicationController
                                  .where(region_id: region_id)
                                  .reject{ |a| a.phone_number.blank? }
 
-    message =  "Asante kwa kutumia FACEBOOK. Sasa soko bei ya Mahindi katika Iringa zinapatikana katika https://www.ninayo.com/sw/prices/iringa"
+    message =  "Asante kwa kutumia NINAYO. Sasa soko bei ya Mahindi katika Iringa zinapatikana katika https://www.ninayo.com/sw/prices/iringa"
 
     recent_users_in_region.each do |u|
       send_sms(u, message)
