@@ -1,11 +1,5 @@
 
 sw:
-  textmessage:
-    new_ads_in_location: "Kuna Matangazo (No) Mapya kwenye mtandao wa NINAYO.com kwa mazao ya (crop) Mkoani (Region) Wiki hii. Tafadhali tembelea(kiungo/Link) Ili kufanya Biashara na Wauzaji"
-    new_buyer_in_location: "Kuna mnunuzi mpya wa (Crop) kwenye mtandao wa NINAYO.com kutoka mkoani(Region). Tafadhali tembelea (link) ili kuwasiliana na mnunuzi na mfanye biashara"
-    new_seller_in_location: "Kuna muuzaji mpya wa (Crop) kwenye mtandao wa NINAYO.com kutoka mkoani(Region). Tafadhali tembelea (link) ili kuwasiliana na muuzaji na mfanye biashara"
-    new_message_received: "Umepokea ujumbe mpya kutoka kwa (Name) kupitia mtandao wa NINAYO.com. Tafadhali tembelea (link) kuangalia ujumbe wako na kuujibu"
-    new_comment_received: "Tangazo lako kwenye NINAYO ina maoni mapya. Tafadhali tembelea (Link) kuiona na kujibu"
   mailboxer:
     message_mailer:
       subject_new: "Una ujumbe Mpya"
