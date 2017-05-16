@@ -67,7 +67,7 @@ class TextMessagesController < ApplicationController
                           .sample(100)
 
     users_to_remind.each do |user|
-      if send_sms(user, reminder)
+      send_sms(user, reminder)
     end
   end
   helper_method :harvest_reminder
