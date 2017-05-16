@@ -64,9 +64,10 @@ class TextMessagesController < ApplicationController
     sale_message = "Tani 10,000 za mahindi zinapatikana mkoani Iringa kupitia www.ninayo.com kwa Shs 700 tu Kwa kilo. Tuma ujumbe kupitia 0623999538 Kwa maelezo zaidi"
 
     users_to_text.each do |u|
-      next if u.phone_number.blank?
       send_sms(u, sale_message)
     end
+
+    redirect_to prices_path, flash: { notice: "Texted all relevant users" }
 
   end
 
