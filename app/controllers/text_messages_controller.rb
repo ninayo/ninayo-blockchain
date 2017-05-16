@@ -26,7 +26,7 @@ class TextMessagesController < ApplicationController
     end
 
   end
-  handle_asynchronously :send_sms
+  #handle_asynchronously :send_sms
  
   def find_for_sms_reset
     @u = User.find_by(phone_number: params[:reset_request][:phone_number])
