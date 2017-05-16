@@ -57,7 +57,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable,
          :authentication_keys => { login: true }
-
+         
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
     conditions[:email].downcase! if conditions[:email]
