@@ -17,11 +17,12 @@ class TextMessagesController < ApplicationController
 
   def send_sms(user, message)
     @twilio_number = ENV['TWILIO_NUMBER']
+    @alpha_id = 'NINAYO.COM'
     @outgoing_num = format_number(user.phone_number)
     @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'],
                                        ENV['TWILIO_AUTH_TOKEN'])
 
-    if @client.messages.create(from: @twilio_number, to: @outgoing_num, body: message)
+    if @client.messages.create(from: @alpha_id, to: @outgoing_num, body: message)
       return true
     else
       return false
