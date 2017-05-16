@@ -103,7 +103,8 @@ Rails.application.routes.draw do
 
   patch 'sms_reset/:phone_number' => 'text_messages#find_for_sms_reset', as: :sms_reset
 
-  get 'harvest_reminder' => 'text_messages#harvest_reminder', as: :harvest_reminder 
+  get 'harvest_reminder' => 'text_messages#harvest_reminder', as: :harvest_reminder
+  get 'seller_followup' => 'text_messages#weekly_sms_prices', as: :seller_followup 
 
   get '/.well-known/acme-challenge/-psVTriG2kn-BOKuC52nnPuie6YQ9L8-6yd97DlA78g' => 'splash#letsencrypt_verify'
 

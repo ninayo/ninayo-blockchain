@@ -44,15 +44,28 @@ class TextMessagesController < ApplicationController
     end
   end
 
-  def weekly_sms_prices(region_id = 13)
+  def weekly_sms_prices(region_id = 5)
     # TODO: param for region selection
-    recent_users_in_region = User.where("last_sign_in_at >= ?", 4.weeks.ago)
-                                 .where(region_id: region_id)
-                                 .reject{ |a| a.phone_number.blank? }
+    ads = Ad.where("published_at >= ?", 30.days.ago)
+            .where(:region_id => 5)
+            .where(:crop_type_id => 1)
+            .where(:ad_type => "buy")
+            .where(:volume_unit => "kilo")
 
-    recent_users_in_region.each do |u|
+    users_to_text = []
+
+    ads.each do |ad|
+      next if users_to_text.include?(ad.user)
+      unless ad.user.phone_number.blank?
+        users_to_text << ad.user
+      end
+    end
+
+    sale_message = "Tani 10,000 za mahindi zinapatikana mkoani Iringa kupitia www.ninayo.com kwa Shs 700 tu Kwa kilo. Tuma ujumbe kupitia 0623999538 Kwa maelezo zaidi"
+
+    users_to_text.each do |u|
       next if u.phone_number.blank?
-      send_sms(u, message)
+      send_sms(u, sale_message)
     end
 
   end

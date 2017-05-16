@@ -4,6 +4,7 @@
 	<% if current_user && current_user.admin? %>
 	<%= link_to("Update Prices", new_iringa_price_path, :class => "button is-block") %>
 	<%= link_to("Harvest Reminder", harvest_reminder_path, :class => "button is-block") %>
+	<%= link_to("Seller Reminder", seller_followup_path, :class => "button is-block") %>
 	<% end %>
 </div>
 <div class="tabs-content">
