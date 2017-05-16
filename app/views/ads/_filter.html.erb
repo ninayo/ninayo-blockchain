@@ -33,6 +33,34 @@
 			<input type="submit" value="<%= I18n.locale == :sw ? "Chagua Matangazo" : "Change search options" %>" class="button is-primary is-block"/>
 		<h3 class="filter-heading"><a href="<%=request.path%>" class="filter-reset" style="color: #337AB7;"><%= t "views.ad.filter.reset_filter" %></a></h3>
 		</div>
+		<% if current_user && current_user.admin? %>
+		<div class="field filter-field">
+ 			<h4 class="filter-field-heading"><%= t "views.ad.volume" %></h4>
+ 			<div class="field-row">
+ 				<div class="field-col">
+ 					<label for="volume_min" class="filter-label"><%= t "views.common.min" %></label>
+ 					<%= select_tag "volume_min", options_for_select([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_min), prompt: "-"  %>
+ 				</div>
+ 				<div class="field-col">
+ 					<label for="volume_max" class="filter-label"><%= t "views.common.max" %></label>
+ 					<%= select_tag "volume_max", options_for_select([10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 1000], @volume_max), prompt: "-"  %>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<div class="field filter-field">
+ 			<h4 class="filter-field-heading"><%= t "views.ad.price" %></h4>
+ 			<div class="field-row">
+ 				<div class="field-col">
+ 					<label for="price_min" class="filter-label"><%= t "views.common.min" %></label>
+ 					<%= select_tag "price_min", options_for_select([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 3000000, 4000000, 500000, 1000000], @price_min), prompt: "-" %>
+ 				</div>
+ 				<div class="field-col">
+ 					<label for="price_max" class="filter-label"><%= t "views.common.max" %></label>
+ 					<%= select_tag "price_max", options_for_select([10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 3000000, 4000000, 500000, 1000000], @price_max), prompt: "-"  %>
+ 				</div>
+ 			</div>
+ 		</div>
+ 		<% end %>
 		
 	<%# end %>
 		</div>
