@@ -50,14 +50,27 @@ class TextMessagesController < ApplicationController
                                  .where(region_id: region_id)
                                  .reject{ |a| a.phone_number.blank? }
 
-    message =  "Asante kwa kutumia NINAYO. Sasa soko bei ya Mahindi katika Iringa zinapatikana katika https://www.ninayo.com/sw/prices/iringa"
-
     recent_users_in_region.each do |u|
       next if u.phone_number.blank?
       send_sms(u, message)
     end
 
   end
+
+  def harvest_reminder
+    #random-sample 100 iringa people who haven't been to the site in 90-120 days
+    reminder = "Karibu tena, msimu wa mavuno umekaribia. Jipatie bei nzuri zaidi kwa kutembelea www.NINAYO.com au tuma ujumbe kupitia 0623999538"
+
+    users_to_remind = User.where(:current_sign_in_at => 120.days.ago..90.days.ago)
+                          .where(:region_id => 5)
+                          .reject{ |a| a.phone_number.blank? }
+                          .sample(100)
+
+    users_to_remind.each do |user|
+      if send_sms(user, reminder)
+    end
+  end
+  helper_method :harvest_reminder
 
   def format_number(num)
     unless num[0..3] == "+255"
