@@ -6,13 +6,13 @@ class Ad < ActiveRecord::Base
   before_save :set_published_at
   before_save :set_archived_at
 
-  after_initialize :set_default_status, :if => :new_record?
+  after_initialize :set_default_status, if: :new_record?
 
   # Associations
   belongs_to :user, autosave: true
   accepts_nested_attributes_for :user
 
-  belongs_to :buyer, :class_name => "User", :foreign_key => "buyer_id"
+  belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
   accepts_nested_attributes_for :buyer
 
   belongs_to :crop_type
@@ -28,8 +28,8 @@ class Ad < ActiveRecord::Base
 
   has_many :comments
 
-  has_many :calls, :class_name => "CallLog", :foreign_key => "ad_id"
-  has_many :texts, :class_name => "TextLog", :foreign_key => "ad_id"
+  has_many :calls, class_name: 'CallLog', foreign_key: 'ad_id'
+  has_many :texts, class_name: 'TextLog', foreign_key: 'ad_id'
 
   # Validations
   # validates :lat, :lng, presence: true
@@ -47,14 +47,14 @@ class Ad < ActiveRecord::Base
   validates :crop_type, :price, :volume, :volume_unit, :user, presence: true
   validates :crop_type_id, numericality: { greater_than: 0 }
   validates :price, :volume, numericality: true
-  validates :final_price, presence: true, if: "archived?"
-  validates :other_crop_type, presence: true, if: "crop_type.id == 10"
+  validates :final_price, presence: true, if: 'archived?'
+  validates :other_crop_type, presence: true, if: 'crop_type.id == 10'
 
   validates :buyer_price, presence: true, on: :save_buyer_info
 
   validates :region_id, :district_id, presence: true, on: :create
 
-  validates :other_crop_type, :exclusion => { :in => ["marijuana", "malijuana", "bangi"] }, if: "crop_type.id == 10"
+  validates :other_crop_type, exclusion: { in: ['marijuana', 'malijuana', 'bangi'] }, if: 'crop_type.id == 10'
 
   # Enums
   enum volume_unit: [:bucket, :sack, :kg, :gunia, :trees, :mkungu, :fungu, :tenga, :moja, :debe, :chane, :sado, :tonne, :litre]
@@ -69,7 +69,7 @@ class Ad < ActiveRecord::Base
   scope :price_max, -> (price_max) { where("price < ?", price_max) }
   scope :region_id, -> (region_id) { where region_id: region_id }
 
-  scope :bought, -> { where.not(:buyer_price => nil) }
+  scope :bought, -> { where.not(buyer_price: nil) }
 
   def title
     if self.crop_type.id == 10
@@ -88,8 +88,8 @@ class Ad < ActiveRecord::Base
     end
   end
 
-  def self.bought_ads user
-    self.where(:user => user).where.not(:buyer_price => nil)
+  def self.bought_ads(user)
+    self.where(user: user).where.not(buyer_price: nil)
   end
 
   def crop_type_name
@@ -102,25 +102,27 @@ class Ad < ActiveRecord::Base
 
   def favorite?(user = nil)
     if user
-      self.favorited_by.where(:id => user.id).exists?
+      self.favorited_by.where(id: user.id).exists?
     else
       false
     end
   end
 
   def related_ads
-    if self.ad_type == "sell"
-      return Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
-               .where(:ad_type => 1,
-                      :crop_type_id => self.crop_type_id, 
-                      :volume_unit => Ad.volume_units[self.volume_unit],
-                      :region_id => self.region_id).order("published_at").last(3).reverse
+    if ad_type == 'sell'
+      Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
+        .where(ad_type: 1,
+               crop_type_id: crop_type_id,
+               volume_unit: Ad.volume_units[volume_unit],
+               region_id: region_id).order('published_at')
+        .last(3).reverse
     else
-      return Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
-               .where(:ad_type => 0,
-                      :crop_type_id => self.crop_type_id,
-                      :volume_unit => Ad.volume_units[self.volume_unit],
-                      :region_id => self.region_id).order("published_at").last(3).reverse
+      Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
+        .where(ad_type: 0,
+               crop_type_id: crop_type_id,
+               volume_unit: Ad.volume_units[volume_unit],
+               region_id: region_id).order('published_at')
+        .last(3).reverse
     end
   end
 
@@ -139,10 +141,10 @@ class Ad < ActiveRecord::Base
   end
 
   def contact_count
-    self.calls.count + self.texts.count
+    calls.count + texts.count
   end
 
-protected
+  protected
 
   def adjust_price
     self.price = self.price.sub!(",", ".") if self.price && self.price.kind_of?(String) && self.price.count(",") > 0
