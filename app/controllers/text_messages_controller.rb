@@ -33,9 +33,9 @@ class TextMessagesController < ApplicationController
       new_pw = @u.pin_reset
       message = "NINAYO.COM PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}"
       send_sms(@u, message)
-      redirect_to root_url, notice: (t 'views.common.sms_reset')
+      redirect_to root_url, notice: (t 'common.sms_reset')
     else
-      redirect_to new_user_password_path, alert: (t 'views.common.phone_not_found')
+      redirect_to new_user_password_path, alert: (t 'common.phone_not_found')
     end
   end
 
