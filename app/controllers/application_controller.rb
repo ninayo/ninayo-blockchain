@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  before_action :block_ip_addresses
   before_action :set_locale
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -56,4 +57,12 @@ class ApplicationController < ActionController::Base
     current_user && (current_user.vip? || current_user.admin?)
   end
   helper_method :vip_user?
+
+  def block_ip_addresses
+    head :unauthorized if current_ip_address == "51.255.65.16"
+  end
+
+  def current_ip_address
+    request.env['HTTP_X_REAL_IP'] || request.env['REMOTE_ADDR']
+  end
 end
