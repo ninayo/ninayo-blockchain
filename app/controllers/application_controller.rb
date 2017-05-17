@@ -61,6 +61,7 @@ class ApplicationController < ActionController::Base
   def block_ip_addresses
     suckas_to_ban = ip_range('164.132.161') +
                     ip_range('51.255.65') +
+                    ip_range('51.255.71') +
                     ip_range('217.182.132') +
                     ['177.133.108.96']
 
