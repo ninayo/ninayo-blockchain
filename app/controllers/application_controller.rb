@@ -59,7 +59,10 @@ class ApplicationController < ActionController::Base
   helper_method :vip_user?
 
   def block_ip_addresses
-    head :unauthorized if current_ip_address == "51.255.65.16"
+    suckas_to_ban = ['51.255.65.16',
+                     '164.132.161.89',
+                     '51.255.65.26']
+    head :unauthorized if suckas_to_ban.include?(current_ip_address)
   end
 
   def current_ip_address
