@@ -89,7 +89,7 @@ class TextMessagesController < ApplicationController
     users = []
     ads.each { |ad| users << ad.user unless ad.user.phone_number.blank? }
 
-    users_to_text
+    users
   end
 
   def client
