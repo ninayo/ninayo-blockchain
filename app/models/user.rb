@@ -179,11 +179,8 @@ class User < ActiveRecord::Base
   def pin_reset
     new_pw = new_random_pin
 
-    if self.reset_password(new_pw, new_pw)
-      return new_pw
-    else
-      return false
-    end
+    self.reset_password(new_pw, new_pw)
+    return new_pw
   end
 
   protected
