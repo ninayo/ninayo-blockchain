@@ -60,7 +60,9 @@ class ApplicationController < ActionController::Base
 
   def block_ip_addresses
     suckas_to_ban = (0..255).to_a.map { |suf| '164.132.161.' + suf.to_s } +
-                    (0..255).to_a.map { |suf| '51.255.65.' + suf.to_s }
+                    (0..255).to_a.map { |suf| '51.255.65.' + suf.to_s } +
+                    (0..255).to_a.map { |suf| '217.182.132.' + suf.to_s }
+
     head :unauthorized if suckas_to_ban.include?(current_ip_address)
   end
 
