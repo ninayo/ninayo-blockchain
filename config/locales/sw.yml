@@ -166,6 +166,8 @@ sw:
     call: "Piga simu"
     sms: "Kutuma SMS"
     prices: "Bei ya masoko"
+    sms_reset: "Nywila yako imewekwa upya na kupelekwa kupitia SMS"
+    phone_not_found: "Namba ya Simu haipatikani, tafadhali jaribu tena"
 
     errors:
       zero: "hakuna makosa"
@@ -196,8 +198,7 @@ sw:
       enter_login: "Simu # au barua pepe"
       enter_password: "Chagua nenosiri au PIN"
       confirm_password: "Andike nenosiri/PIN tena"
-
-
+    
     create_account:
       heading: "Tengeneza akaunti"
       heading_2: "Tayari una akaunti?"
