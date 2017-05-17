@@ -63,9 +63,9 @@ class ApplicationController < ActionController::Base
                     ip_range('51.255.65') +
                     ip_range('51.255.71') +
                     ip_range('217.182.132') +
-                    ['177.133.108.96']
+                    ['177.133.108.96', '46.217.121.80', '76.97.196.137']
 
-    head :unauthorized if suckas_to_ban.include?(current_ip_address)
+    head :unauthorized if suckas_to_ban.include?(current_ip_address) || request.env['PATH_INFO' == "/wp-login.php"]
   end
 
   def current_ip_address
