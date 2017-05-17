@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   mount Split::Dashboard, at: 'split'
 
   get "/metabase" => redirect("https://ninayometabase.herokuapp.com"), :as => :metabase
+  get "/wp-login.php" => redirect("http://goatse.ru")
 
   scope "(:locale)", locale: /en|sw/ do
 
