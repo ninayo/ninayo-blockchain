@@ -64,13 +64,14 @@ class ApplicationController < ActionController::Base
                     ip_range('51.255.65') +
                     ip_range('51.255.71') +
                     ip_range('217.182.132') +
+                    ip_range('137.74.207') +
                     ['177.133.108.96', '46.217.121.80', '76.97.196.137']
 
     head :unauthorized if suckas_to_ban.include?(current_ip_address)
   end
 
   def current_ip_address
-    request.env['HTTP_X_REAL_IP'] || request.env['REMOTE_ADDR']
+    request.env['HTTP_X_REAL_IP'] || request.env['REMOTE_ADDR'] || request.ip
   end
 
   def ip_range(first_three)
