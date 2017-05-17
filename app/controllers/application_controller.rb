@@ -59,16 +59,20 @@ class ApplicationController < ActionController::Base
   helper_method :vip_user?
 
   def block_ip_addresses
-    suckas_to_ban = (0..255).to_a.map { |suf| '164.132.161.' + suf.to_s } +
-                    (0..255).to_a.map { |suf| '51.255.65.' + suf.to_s } +
-                    (0..255).to_a.map { |suf| '51.255.71.' + suf.to_s } +
-                    (0..255).to_a.map { |suf| '217.182.132.' + suf.to_s } +
+    suckas_to_ban = ip_range('164.132.161') +
+                    ip_range('51.255.65') +
+                    ip_range('51.255.71') +
+                    ip_range('217.182.132') +
                     ['177.133.108.96', '46.217.121.80', '76.97.196.137']
 
-    head :unauthorized if suckas_to_ban.include?(current_ip_address) || request.env['PATH_INFO' == "/wp-login.php"]
+    head :unauthorized if suckas_to_ban.include?(current_ip_address)
   end
 
   def current_ip_address
     request.env['HTTP_X_REAL_IP'] || request.env['REMOTE_ADDR']
+  end
+
+  def ip_range(first_three)
+    (0..255).to_a.map { |suf| first_three + '.' + suf.to_s }
   end
 end
