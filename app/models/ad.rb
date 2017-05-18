@@ -31,18 +31,6 @@ class Ad < ActiveRecord::Base
   has_many :calls, class_name: 'CallLog', foreign_key: 'ad_id'
   has_many :texts, class_name: 'TextLog', foreign_key: 'ad_id'
 
-  # Validations
-  # validates :lat, :lng, presence: true
-  # validates :region_id, presence: true
-
-  # validate :precence_of_position
-
-  def precence_of_position
-    unless lat.present? && lng.present?
-      errors.add(:location, I18n.t("errors.messages.blank"))
-    end
-  end
-
   validates :ad_type, presence: true
   validates :crop_type, :price, :volume, :volume_unit, :user, presence: true
   validates :crop_type_id, numericality: { greater_than: 0 }
@@ -72,14 +60,12 @@ class Ad < ActiveRecord::Base
   scope :bought, -> { where.not(buyer_price: nil) }
 
   def title
-    if self.crop_type.id == 10
-      crop_type = self.other_crop_type
+    if crop_type.id == 10
+      crop_type = other_crop_type
+    elsif I18n.locale == :sw
+      crop_type = self.crop_type.name_sw
     else
-      if I18n.locale == :sw
-        crop_type = self.crop_type.name_sw
-      else
-        crop_type = self.crop_type.name
-      end
+      crop_type = self.crop_type.name
     end
 
     if self.volume && self.crop_type
