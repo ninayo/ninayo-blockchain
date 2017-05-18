@@ -79,19 +79,11 @@ class Ad < ActiveRecord::Base
   end
 
   def crop_type_name
-    if self.crop_type_id == 10
-      self.other_crop_type
-    else
-      self.crop_type.name
-    end
+    crop_type_id == 10 ? other_crop_type : crop_type.name
   end
 
   def favorite?(user = nil)
-    if user
-      self.favorited_by.where(id: user.id).exists?
-    else
-      false
-    end
+    user ? favorited_by.where(id: user.id).exists? : false
   end
 
   def related_ads
