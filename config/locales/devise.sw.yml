@@ -7,7 +7,7 @@ sw:
       log_in: "Ingia"
       sign_up: "Tengeneza akaunti"
       sign_up_now: "Tengeneza akaunti sasa"
-      forgot_your_password: "Umesahau nenosiri/ password lako?"
+      forgot_your_password: "Umesahau nenosiri/PIN lako?"
       didnt_receive_confirmation_instruction?: "Hujapata maelekezo ya uthibitisho?"
       didnt_receive_unlock_instructions?: "Hujapata maelekezo ya kufungua"
       sign_in_with: "Ingia na"
