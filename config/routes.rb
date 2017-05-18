@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   mount Split::Dashboard, at: 'split'
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
       get 'fb_auth' => 'bot#auth_link'
     end
 
-    namespace "admin" do
+    namespace "analytics" do
       root :to => "analytics#index"
       get 'analytics/index' => 'analytics#index', as: :analytics
       get 'analytics/ads-per-day' => 'analytics#ads_per_day', as: :ads_per_day
