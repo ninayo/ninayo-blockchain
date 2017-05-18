@@ -6,7 +6,7 @@ class AdminUser < ActiveRecord::Base
 
   # setup accessible attributes for parity with normal user model
   #attr_accessible :email, :login, :password,
-                  :password_confirmation, :remember_me
+  #                :password_confirmation, :remember_me
 
   attr_accessor :login
 
