@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
 
   def new
     @comment = Comment.new
@@ -10,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.ad_id = params[:ad_id]
 
     if @comment.save
-      redirect_to :back, notice: "Asante!"
+      redirect_to :back, notice: 'Asante!'
     else
       redirect_to :back, notice: @comment.errors.full_messages
     end
