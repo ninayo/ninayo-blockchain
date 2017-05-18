@@ -14,7 +14,7 @@ class AdsController < ApplicationController
   before_action :get_ads, only: [:index, :map]
   before_action :authenticate_user!, :except => [:new, :create, :index, :map, :show, :infopanel]
 
-  respond_to :html, :json
+  #respond_to :html, :json
 
   def index
     @ads = @ads.includes(:crop_type)
@@ -208,7 +208,10 @@ class AdsController < ApplicationController
       #   @ad.user.save
       # end
       track_new
-      redirect_to ad_url(@ad.id), notice: 'Hongera! Tangazo lako lipo mtandaoni. Sasa, unaweza kuweka tangazo lingine au kuona bei za bidhaa zinazouzwa maeneo ya jirani.'
+      redirect_to ad_url(@ad.id), notice: 'Hongera! Tangazo lako lipo mtandaoni.'\
+                                          ' Sasa, unaweza kuweka tangazo lingine'\
+                                          ' au kuona bei za bidhaa zinazouzwa'\
+                                          ' maeneo ya jirani.'
     else
       track_failure
       @ad.user = current_user
