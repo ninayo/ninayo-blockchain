@@ -122,6 +122,12 @@ class Ad < ActiveRecord::Base
     calls.count + texts.count
   end
 
+  #don't return user object when rendering as json
+  #otherwise we can get phone numbers scraped
+  def as_json(options = {})
+    super(options.merge({ except: [:user] }))
+  end
+
   protected
 
   def adjust_price
