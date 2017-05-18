@@ -5,7 +5,7 @@ class AdminUser < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # setup accessible attributes for parity with normal user model
-  attr_accessible :email, :login, :password,
+  #attr_accessible :email, :login, :password,
                   :password_confirmation, :remember_me
 
   attr_accessor :login
