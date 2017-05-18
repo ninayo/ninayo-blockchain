@@ -46,7 +46,7 @@ class TextMessagesController < ApplicationController
 
     users_to_text = get_idle_recent_sellers(region_id)
 
-    users_to_text.uniq.each { |u| send_sms(u, sale_message) }
+    users_to_text.each { |u| send_sms(u, sale_message) }
 
     redirect_to prices_path, flash: { notice: 'Texted all relevant users' }
   end
@@ -78,7 +78,7 @@ class TextMessagesController < ApplicationController
     users = []
     ads.each { |ad| users << ad.user unless ad.user.phone_number.blank? }
 
-    users
+    users.uniq
   end
 
   def recent_idle_users(region_id)
