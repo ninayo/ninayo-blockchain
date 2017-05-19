@@ -1,7 +1,4 @@
 class HelpRequestsController < ApplicationController
-  validates :request_type, :body, :phone_number, presence: true, on: :create
-  validates :phone_number, numericality: true
-  belongs_to :user
   before_action :authenticate_admin, only: :show
 
   def new
