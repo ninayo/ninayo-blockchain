@@ -1,9 +1,10 @@
 <div class="new-help-request">
 
-	<%= form_for new_help_request_path do |f| %>
-		<%= f.input :phone_number %>
-		<%= f.input :email %>
-		<%= f.radio "Buyer", "Seller" %>
+	<%= form_for @help_request do |f| %>
+		<%= f.text_field :phone_number %>
+		<%= f.text_field :email %>
+		<%= f.radio_button(:request_type, "Seller") %>
+		<%= f.radio_button(:request_type, "Buyer") %>
 		<%= f.text_area :body, placeholder: "Maoni" %><br/>
 		<%= f.submit "#{t "common.save"}", :class => "button is-primary is-block" %>
 	<% end %>

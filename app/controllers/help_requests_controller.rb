@@ -5,6 +5,7 @@ class HelpRequestsController < ApplicationController
 
   def new
     @user = current_user
+    @help_request = HelpRequest.new
   end
 
   def create
