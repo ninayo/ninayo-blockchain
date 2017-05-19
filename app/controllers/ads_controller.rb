@@ -14,7 +14,7 @@ class AdsController < ApplicationController
   before_action :get_ads, only: [:index, :map]
   before_action :authenticate_user!, :except => [:new, :create, :index, :map, :show, :infopanel]
 
-  #respond_to :html, :json
+  respond_to :html, :json
 
   def index
     @ads = @ads.includes(:crop_type)
