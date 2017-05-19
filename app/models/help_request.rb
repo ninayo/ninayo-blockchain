@@ -1,3 +1,4 @@
+# help request model for submissions through the help form
 class HelpRequest < ActiveRecord::Base
   validates :request_type, :body, :phone_number, presence: true, on: :create
   validates :phone_number, numericality: true
