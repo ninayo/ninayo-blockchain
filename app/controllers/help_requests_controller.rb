@@ -1,3 +1,4 @@
+# handle help requests submitted through the 'need help' link
 class HelpRequestsController < ApplicationController
   before_action :authenticate_admin, only: :show
   before_filter { redirect_to root_url unless current_user.admin? }
