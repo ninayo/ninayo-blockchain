@@ -3,10 +3,7 @@ class HelpRequestsController < ApplicationController
   before_action :authenticate_admin, only: :show
   before_filter { redirect_to root_url unless current_user.admin? }
 
-  def new
-    @user = current_user
-    @help_request = HelpRequest.new
-  end
+  def new; end
 
   def create
     @request = HelpRequest.new(help_params)
@@ -19,6 +16,10 @@ class HelpRequestsController < ApplicationController
                   alert: @request.errors.full_messages.to_sentence
     end
   end
+
+  def index; end
+
+  private
 
   def help_params
     params.require(:help_request).permit(:request_type,
