@@ -16,6 +16,12 @@
 			<div class="ads-price" style="font-size: 20px"><%= (request.phone_number) %></div>
 			<div class="ads-price" style="font-size: 20px"><%= (request.email.blank? ? request.email : "No email") %></div>
 			<div class="ads-price" style="font-size: 16px"><%= request.request_type %></div>
+			<h3 class="supheading" style="margin-bottom: 5px;">
+				<%= t("request_type.seller_help") if request.seller_help? %>
+				<%= t("request_type.buyer_help") if request.buyer_help? %>
+				<%= t("request_type.general_help") if request.general_help? %>
+				<%= t("request_type.report_problem") if request.report_problem? %>
+			</h3>
 			<div class="posts-location" style="font-size: 16px">
 				<span>
 					<%= "#{request.body}" %>
