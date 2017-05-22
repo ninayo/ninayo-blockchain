@@ -20,8 +20,8 @@
 	    	<%= f.telephone_field :phone_number %>
 	    	<%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %>
 	    	<%= f.email_field :email, placeholder: "Optional", autofocus: true %><hr>
-	    	<%= f.label :body, value: "Body" %><hr>
-	    	<%= f.text_area :body, placeholder: "Maoni" %>
+	    	<%= f.label :body, value: "Body" %>
+	    	<%= f.text_area :body, placeholder: "Maoni" %><hr>
 
 	    	<%= f.submit 'Kuwaalika', class: "button is-block" %>
 		<% end %>
