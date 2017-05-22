@@ -9,13 +9,13 @@
 		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
 			<strong><%= "What's the problem?" %></strong><br>
 	    	<%= f.label :request_type, value: "Seller problem" %>
-			<%= f.radio_button :request_type, "Seller" %><br>
+			<%= f.radio_button :request_type, 0 %><br>
 	    	<%= f.label :request_type, value: "Buyer problem" %>
-	    	<%= f.radio_button :request_type, "Buyer" %><br>
+	    	<%= f.radio_button :request_type, 1 %><br>
 	    	<%= f.label :request_type, value: "General Help" %>
-	    	<%= f.radio_button :request_type, "General Help" %><br>
+	    	<%= f.radio_button :request_type, 2 %><br>
 	    	<%= f.label :request_type, value: "Report a Problem" %>
-	    	<%= f.radio_button :request_type, "Report Problem" %><br><hr>
+	    	<%= f.radio_button :request_type, 3 %><br><hr>
 			<strong><%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %></strong>
 	    	<%= f.telephone_field :phone_number %>
 	    	<strong><%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %></strong>
