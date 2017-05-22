@@ -9,7 +9,7 @@
 			<%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %>
 	    	<%= f.telephone_field :phone_number %>
 	    	<%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %>
-	    	<%= f.email_field :email, placeholder: "Optional" autofocus: true %>
+	    	<%= f.email_field :email, placeholder: "Optional", autofocus: true %>
 	    	<%= f.radio_button :request_type, "Seller" %>
 	    	<%= f.radio_button :request_type, "Buyer" %>
 	    	<%= f.text_area :body, placeholder: "Maoni" %>
