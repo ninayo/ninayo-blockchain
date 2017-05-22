@@ -1,7 +1,7 @@
 # handle help requests submitted through the 'need help' link
 class HelpRequestsController < ApplicationController
-  before_action :authenticate_admin, only: :show
-  before_action :open_help_requests, only: :index
+  before_action :authenticate_admin, only: [:show, :index, :close_help_request]
+  before_action :open_help_requests, only: [:index]
   before_filter { redirect_to root_url unless current_user.admin? }
 
   def new; end
@@ -18,12 +18,25 @@ class HelpRequestsController < ApplicationController
     end
   end
 
+  def close_help_request
+    request = HelpRequest.find(params[:id])
+    redirect_to root_url if request.nil? || request.closed
+    request.update(closed: true)
+    redirect_to help_request_path, notice: "Help ticket closed"
+  end
+
   def index; end
 
   private
 
   def open_help_requests
-    @help_requests = HelpRequest.all
+    @help_requests = HelpRequest.where(closed: false)
+                                .order('created_at desc')
+  end
+
+  def closed_help_requests
+    @help_requests = HelpRequest.where(closed: true)
+                                .order('created_at desc')
   end
 
   def help_params
