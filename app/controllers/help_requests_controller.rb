@@ -21,7 +21,7 @@ class HelpRequestsController < ApplicationController
     request = HelpRequest.find(params[:id])
     redirect_to root_url if request.nil? || request.closed
     request.update(closed: true)
-    redirect_to help_request_path, notice: "Help ticket closed"
+    redirect_to help_requests_path, notice: "Help ticket closed"
   end
 
   def index; end
