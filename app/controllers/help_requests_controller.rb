@@ -21,6 +21,9 @@ class HelpRequestsController < ApplicationController
   end
 
   def help_params
-    params.require(:helprequest).permit(:request_type, :body, :phone_number, :email)
+    params.require(:help_request).permit(:request_type,
+                                         :body,
+                                         :phone_number,
+                                         :email)
   end
 end
