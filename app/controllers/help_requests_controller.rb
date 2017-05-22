@@ -16,7 +16,7 @@ class HelpRequestsController < ApplicationController
                                     'we will respond as quickly as possible'
     else
       redirect_to new_help_request_path,
-                  alert: @request.errors.full_messages.to_s
+                  errors: @request.errors.full_messages.to_sentence
     end
   end
 

@@ -2,14 +2,14 @@
 
 	<div class="panel-heading">
 		<p><strong>Help Request</strong></p>
-		<p>Submit Thy Help Request to<strong>NINAYO</strong></p>
+		<p>Submit Thy Help Request to <strong>NINAYO</strong></p>
 	</div>
 	<div class="panel-heading">
 		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
-	    	<%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %>
-	    	<%= f.email_field :email, autofocus: true %>
-	    	<%= f.label "#{t "activerecord.attributes.user.phone"}:", class: "field-label" %>
+			<%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %>
 	    	<%= f.telephone_field :phone_number %>
+	    	<%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %>
+	    	<%= f.email_field :email, placeholder: "Optional" autofocus: true %>
 	    	<%= f.radio_button :request_type, "Seller" %>
 	    	<%= f.radio_button :request_type, "Buyer" %>
 	    	<%= f.text_area :body, placeholder: "Maoni" %>
