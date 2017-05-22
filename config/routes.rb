@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
     resources :invites, only: [:index, :create]
 
-    resources :help_requests, only: [:new, :create, :show]
+    resources :help_requests, only: [:new, :create, :show, :index]
 
     #get 'admin_announce' => 'messages#message_all'
 
