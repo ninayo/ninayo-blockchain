@@ -11,18 +11,13 @@
 			<%= f.radio_button :request_type, "seller_help" %>
 	    	<%= f.label "Seller Problem" %><br>
 	    	<%= f.radio_button :request_type, "buyer_help" %>
-	    	<%= f.label "Buyer Problem" %><br>
-	    	<%= f.radio_button :request_type, "general_help" %>
-	    	<%= f.label "General Help" %><br>
-	    	<%= f.radio_button :request_type, "report_problem" %>
-	    	<%= f.label "Report an Issue" %><br><hr>
+	    	<%= f.label "Buyer Problem" %><br><hr>
 			<strong><%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %></strong>
 	    	<%= f.telephone_field :phone_number %>
 	    	<strong><%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %></strong>
 	    	<%= f.email_field :email, placeholder: "Optional", autofocus: true %><hr>
 	    	<strong><%= f.label :body, value: "Body" %></strong>
 	    	<%= f.text_area :body, placeholder: "Maoni" %><hr>
-
 	    	<%= f.submit 'Kuwaalika', class: "button is-block" %>
 		<% end %>
 	</div>
