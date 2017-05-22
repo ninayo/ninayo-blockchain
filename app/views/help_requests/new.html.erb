@@ -7,7 +7,7 @@
 	<hr>
 	<div class="panel-heading">
 		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
-			<strong><%= "What's the problem?" %></strong>
+			<strong><%= "What's the problem?" %></strong><br>
 	    	<%= f.label :request_type, value: "Seller problem" %>
 			<%= f.radio_button :request_type, "Seller" %><br>
 	    	<%= f.label :request_type, value: "Buyer problem" %>
