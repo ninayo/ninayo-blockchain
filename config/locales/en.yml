@@ -98,6 +98,12 @@ en:
     tonne: "tonne"
     litre: "litre"
 
+  request_type:
+    seller_help: "Seller Help"
+    buyer_help: "Buyer Help"
+    general_help: "General Help"
+    report_problem: "Report a Problem"
+
   volume_units:
     tonne:
       zero: "sifuri"
