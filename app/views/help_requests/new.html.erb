@@ -8,13 +8,13 @@
 	<div class="panel-heading">
 		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
 			<strong><%= "What's the problem?" %></strong><br>
-	    	<%= f.label :request_type, value: 0 %>
+	    	<%= f.label "Seller Problem" %>
 			<%= f.radio_button :request_type, 0 %><br>
-	    	<%= f.label :request_type, value: 1 %>
+	    	<%= f.label "Buyer Problem" %>
 	    	<%= f.radio_button :request_type, 1 %><br>
-	    	<%= f.label :request_type, value: 2 %>
+	    	<%= f.label "General Help" %>
 	    	<%= f.radio_button :request_type, 2 %><br>
-	    	<%= f.label :request_type, value: 3 %>
+	    	<%= f.label "Report an Issue" %>
 	    	<%= f.radio_button :request_type, 3 %><br><hr>
 			<strong><%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %></strong>
 	    	<%= f.telephone_field :phone_number %>
