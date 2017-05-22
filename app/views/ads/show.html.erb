@@ -84,7 +84,7 @@
 			<% end %>
 		</div>
 	</div>
-	<% if current_user && current_user.id == @ad.user.id %>
+	<% if !current_user.nil? && current_user.id == @ad.user.id %>
 	<div class="ad-actions">
 	<!-- <a href="" class="button is-block not-implemented">
 		Add to favorites
