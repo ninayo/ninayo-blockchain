@@ -4,22 +4,24 @@
 		<p><strong>Help Request</strong></p>
 		<p>Submit Thy Help Request to <strong>NINAYO</strong></p>
 	</div>
+	<hr>
 	<div class="panel-heading">
 		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
+			<%= "What's the problem?" %>
+	    	<%= f.label :request_type, value: "Seller" %>
+			<%= f.radio_button :request_type, "Seller" %><br>
+	    	<%= f.label :request_type, value: "Buyer" %>
+	    	<%= f.radio_button :request_type, "Buyer" %><br>
+	    	<%= f.label :request_type, value: "General Help" %>
+	    	<%= f.radio_button :request_type, "General Help" %><br>
+	    	<%= f.label :request_type, value: "Report a Problem" %>
+	    	<%= f.radio_button :request_type, "Report Problem" %><br>
 			<%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %>
 	    	<%= f.telephone_field :phone_number %>
 	    	<%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %>
 	    	<%= f.email_field :email, placeholder: "Optional", autofocus: true %>
-	    	<%= f.radio_button :request_type, "Seller" %>
-	    	<%= f.label :request_type, value: "Seller" %>
-	    	<%= f.radio_button :request_type, "Buyer" %>
-	    	<%= f.label :request_type, value: "Buyer" %>
-	    	<%= f.radio_button :request_type, "General Help" %>
-	    	<%= f.label :request_type, value: "General Help" %>
-	    	<%= f.radio_button :request_type, "Report Problem" %>
-	    	<%= f.label :request_type, value: "Report a Problem" %>
-	    	<%= f.text_area :body, placeholder: "Maoni" %>
 	    	<%= f.label :body, value: "Body" %>
+	    	<%= f.text_area :body, placeholder: "Maoni" %>
 
 	    	<%= f.submit 'Kuwaalika', class: "button is-block" %>
 		<% end %>
