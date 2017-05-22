@@ -1,7 +1,7 @@
 # handle help requests submitted through the 'need help' link
 class HelpRequestsController < ApplicationController
   before_action :authenticate_admin, only: :show
-  before_action :get_help_requests, only: :index
+  before_action :open_help_requests, only: :index
   before_filter { redirect_to root_url unless current_user.admin? }
 
   def new; end
