@@ -14,7 +14,7 @@
 				</span>
 			</div>
 			<div class="ads-price" style="font-size: 20px"><%= (request.phone_number) %></div>
-			<div class="ads-price" style="font-size: 20px"><%= (request.email_address || "None") %></div>
+			<div class="ads-price" style="font-size: 20px"><%= (request.email || "No email") %></div>
 			<div class="posts-location" style="font-size: 16px">
 				<span>
 					<%= "#{request.body}" %>
