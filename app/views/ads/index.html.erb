@@ -1,6 +1,5 @@
 <div class="posts-wrapper">
 	<%= render "layouts/alert" %>
-	<%= link_to("#{t "common.prices"}", prices_path, :class => "button primarynav-button is-primary") %>
 	<h4><strong><font color="#4CAF50"><%= (I18n.locale == :sw ? " Bonyeza vitufe vifuatavyo kwa kuanza" : "Click here to begin") %> ⇩</font></strong></h4>
 	<%= render "filter", :ads => @ads %>
 	<%= render "list", :ads => @ads %>
