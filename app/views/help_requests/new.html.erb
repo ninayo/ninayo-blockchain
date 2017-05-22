@@ -1,14 +1,20 @@
 <div class="new-help-request">
 
-	<%= form_for @help_request do |f| %>
-		<%= f.telephone_field :phone_number %>
-		<%= f.text_field :email %>
-		<%= f.radio_button(:request_type, "Seller") %>
-		<%= f.label(:request_type_seller) %>
-		<%= f.radio_button(:request_type, "Buyer") %>
-		<%= f.label(:request_type_buyer) %>
-		<%= f.text_area :body, placeholder: "Maoni" %><br/>
-		<%= f.submit "#{t "common.save"}", :class => "button is-primary is-block" %>
-	<% end %>
+	<div class="panel-heading">
+		<p><strong>Help Request</strong></p>
+		<p>Submit Thy Help Request to<strong>NINAYO</strong></p>
+	</div>
+	<div class="panel-heading">
+		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
+	    	<%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %>
+	    	<%= f.email_field :email, autofocus: true %>
+	    	<%= f.label "#{t "activerecord.attributes.user.phone"}:", class: "field-label" %>
+	    	<%= f.telephone_field :phone_number %>
+	    	<%= f.radio_button :request_type, "Seller" %>
+	    	<%= f.radio_button :request_type, "Buyer" %>
+	    	<%= f.text_area :body, placeholder: "Maoni" %>
 
+	    	<%= f.submit 'Kuwaalika', class: "button is-block" %>
+		<% end %>
+	</div>
 </div>

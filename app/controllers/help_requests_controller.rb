@@ -15,11 +15,12 @@ class HelpRequestsController < ApplicationController
       redirect_to root_url, notice: 'Your help request has been received, '\
                                     'we will respond as quickly as possible'
     else
-      redirect_to new_help_request_path, alert: @request.errors.full_messages.to_s
+      redirect_to new_help_request_path,
+                  alert: @request.errors.full_messages.to_s
     end
   end
 
   def help_params
-    params.require(:request).permit(:request_type, :body, :phone_number, :email)
+    params.require(:helprequest).permit(:request_type, :body, :phone_number, :email)
   end
 end
