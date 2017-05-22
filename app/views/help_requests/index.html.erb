@@ -1,0 +1,29 @@
+<% if @help_requests.length > 0 %>
+<div class="ads">
+	<% @help_requests.each do |request| %>
+		<div class="posts-item">
+			<div class="ads-meta" style="font-size: 16px">
+				<span class="ads-published_at"><%= t "common.published" %> 
+					<%= l(request.created_at, format: :short) %>
+				</span>
+				<span>
+					<%= "(" + time_ago_in_words(request.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+				</span>
+				<span class="rating-user">
+					<%= t "common.by" %> <%= request.user.name.titleize || "Anon User" %>
+				</span>
+			</div>
+			<div class="ads-price" style="font-size: 20px"><%= (request.phone_number) %></div>
+			<div class="ads-price" style="font-size: 20px"><%= (request.email_address || "None") %></div>
+			<div class="posts-location" style="font-size: 16px">
+				<span>
+					<%= "#{request.body}" %>
+				</span>
+			</div>
+		</div>
+	<% end %>
+</div>
+
+<% else %>
+	<h3><%= "None Found" %></h3>
+<% end %>
