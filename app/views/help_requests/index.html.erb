@@ -10,7 +10,7 @@
 					<%= "(" + time_ago_in_words(request.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 				</span>
 				<span class="rating-user">
-					<%= t "common.by" (request.user ? request.user.name.titleize : "Anon User") %>
+					<%= t "common.by" + " " + (request.user ? request.user.name.titleize : "Anon User") %>
 				</span>
 			</div>
 			<div class="ads-price" style="font-size: 16px"><%= (request.phone_number) %></div>
