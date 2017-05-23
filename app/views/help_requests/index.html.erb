@@ -15,7 +15,9 @@
 					<%= t "common.by" + " " + (request.user ? request.user.name.titleize : "Anon User") %>
 				</span>
 			</div>
-			<div class="ads-price" style="font-size: 16px"><a href="tel:+255#{request.phone_number}"><%= request.phone_number %></a></div>
+			<div class="ads-price" style="font-size: 16px">
+				<%= link_to request.phone_number, "tel:+255#{@sample.contact}" %>
+			</div>
 			<span><%= (request.email.blank? ? request.email : "No email") %></span>
 			<h3 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
 				<%= t("request_type.seller_help") if request.seller_help? %>
