@@ -15,7 +15,7 @@
 			<strong><%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %></strong>
 	    	<%= f.telephone_field :phone_number %>
 	    	<strong><%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %></strong>
-	    	<%= f.email_field :email, placeholder: "Hiari", autofocus: true %><hr>
+	    	<%= f.email_field :email, placeholder: "Hiari" %><hr>
 	    	<strong><%= f.label :body, value: "Shida ni nini?" %></strong>
 	    	<%= f.text_area :body, placeholder: "Maoni" %><hr>
 	    	<%= f.submit 'Kuwasilisha', class: "button is-block" %>
