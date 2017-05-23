@@ -57,22 +57,19 @@ class AdsController < ApplicationController
       not_found
     elsif @ad.archived? || @ad.deleted?
       not_found
+    elsif current_user && (current_user.id == @ad.user.id || current_user.admin?)
+      @ad_logs = @ad.ad_logs
+                    .includes(:event_type)
+                    .includes(:user)
     else
-      if current_user && (current_user.id == @ad.user.id || current_user.admin?)
-        @ad_logs = @ad.ad_logs
-                      .includes(:event_type)
-                      .includes(:user)
-      else
-        # TODO: break out into method
-        # note: Potential performance issue
-        ad_log = AdLog.new
-        ad_log.ad = @ad
-        ad_log.user = current_user || nil
-        # TODO: Find a better way to assign event_type (use enum instead?)
-        ad_log.event_type = EventType.first
-        ad_log.save!
-      end
-      #respond_with(@ad)
+      # TODO: break out into method
+      # note: Potential performance issue
+      ad_log = AdLog.new
+      ad_log.ad = @ad
+      ad_log.user = current_user || nil
+      # TODO: Find a better way to assign event_type (use enum instead?)
+      ad_log.event_type = EventType.first
+      ad_log.save!
     end
   end
 
