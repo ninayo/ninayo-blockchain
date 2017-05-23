@@ -3,11 +3,6 @@ class Ad < ActiveRecord::Base
 
   before_validation :adjust_price
 
-  before_save :set_published_at
-  before_save :set_archived_at
-
-  after_initialize :set_default_status, if: :new_record?
-
   # Associations
   belongs_to :user, autosave: true
   accepts_nested_attributes_for :user
@@ -75,7 +70,7 @@ class Ad < ActiveRecord::Base
   end
 
   def self.bought_ads(user)
-    self.where(user: user).where.not(buyer_price: nil)
+    where(user: user).where.not(buyer_price: nil)
   end
 
   def crop_type_name
@@ -87,21 +82,12 @@ class Ad < ActiveRecord::Base
   end
 
   def related_ads
-    if ad_type == 'sell'
-      Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
-        .where(ad_type: 1,
-               crop_type_id: crop_type_id,
-               volume_unit: Ad.volume_units[volume_unit],
-               region_id: region_id).order('published_at')
-        .last(3).reverse
-    else
-      Ad.where("created_at >= ? OR updated_at >= ?", 2.weeks.ago, 2.weeks.ago)
-        .where(ad_type: 0,
-               crop_type_id: crop_type_id,
-               volume_unit: Ad.volume_units[volume_unit],
-               region_id: region_id).order('published_at')
-        .last(3).reverse
-    end
+    Ad.where('created_at >= ? OR updated_at >= ?', 2.weeks.ago, 2.weeks.ago)
+      .where(ad_type: (ad_type == sell? ? 1 : 0),
+             crop_type_id: crop_type_id,
+             volume_unit: Ad.volume_units[volume_unit],
+             region_id: region_id).order('published_at')
+      .last(3).reverse
   end
 
   def self.ads_per_day
@@ -122,31 +108,9 @@ class Ad < ActiveRecord::Base
     calls.count + texts.count
   end
 
-  #don't return user object when rendering as json
-  #otherwise we can get phone numbers scraped
-  def as_json(options = {})
-    super(options.merge({ except: [:user] }))
-  end
-
   protected
 
   def adjust_price
     self.price = self.price.sub!(",", ".") if self.price && self.price.kind_of?(String) && self.price.count(",") > 0
-  end
-
-  def set_default_status
-    self.status ||= :draft
-  end
-
-  def set_published_at
-    if self.published? && !self.published_at
-      self.published_at = Time.new
-    end
-  end
-
-  def set_archived_at
-    if self.archived? && !self.archived_at
-      self.archived_at = Time.new
-    end
   end
 end
