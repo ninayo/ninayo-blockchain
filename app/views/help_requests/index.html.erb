@@ -4,13 +4,13 @@
 <div class="ads">
 	<% @help_requests.each do |request| %>
 		<div class="posts-item">
+			<h2 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
+				<%= t("request_type.seller_help") if request.seller_help? %>
+				<%= t("request_type.buyer_help") if request.buyer_help? %>
+				<%= t("request_type.general_help") if request.general_help? %>
+				<%= t("request_type.report_problem") if request.report_problem? %>
+			</h2>
 			<div class="ads-meta" style="font-size: 16px">
-				<h2 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
-					<%= t("request_type.seller_help") if request.seller_help? %>
-					<%= t("request_type.buyer_help") if request.buyer_help? %>
-					<%= t("request_type.general_help") if request.general_help? %>
-					<%= t("request_type.report_problem") if request.report_problem? %>
-				</h2>
 				<span class="ads-published_at"><%= t "common.published" %> 
 					<%= l(request.created_at, format: :short) %>
 				</span>
