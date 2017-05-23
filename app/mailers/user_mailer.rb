@@ -14,6 +14,7 @@ class UserMailer < ApplicationMailer
 
   def help_request(request)
     @request = request
+    # just add onto this same to string with comma separations
     mail to: 'beck@ninayo.com'
   end
 end
