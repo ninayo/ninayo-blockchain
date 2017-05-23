@@ -16,7 +16,7 @@
 				</span>
 			</div>
 			<div class="ads-price" style="font-size: 16px">
-				<%= link_to request.phone_number, "tel:+255#{@sample.contact}" %>
+				<%= link_to request.phone_number, "tel:+255#{request.phone_number}" %>
 			</div>
 			<span><%= (request.email.blank? ? request.email : "No email") %></span>
 			<h3 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
