@@ -54,7 +54,7 @@ Rails.application.routes.draw do
 
     resources :invites, only: [:index, :create]
 
-    resources :help_requests, only: [:new, :create, :show, :index]
+    resources :help_requests, only: [:new, :create, :index]
     get 'help_requests/close_help_request/:id' => 'help_requests#close_help_request', as: :close_ticket
     get 'help_requests/closed' => 'help_requests#closed_index', as: :closed_request_index
 
