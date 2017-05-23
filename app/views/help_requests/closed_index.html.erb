@@ -8,6 +8,9 @@
 				<span class="ads-published_at"><%= t "common.published" %> 
 					<%= l(request.created_at, format: :short) %>
 				</span>
+				<span class="ads-published_at"><%= "Closed at " %> 
+					<%= l(request.updated_at, format: :short) %>
+				</span>
 				<span>
 					<%= "(" + time_ago_in_words(request.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
 				</span>
