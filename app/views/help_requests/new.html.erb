@@ -13,7 +13,7 @@
 	    	<%= f.radio_button :request_type, "buyer_help" %>
 	    	<%= f.label "Mnunuzi msaada" %><br><hr>
 			<strong><%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %></strong>
-	    	<%= f.telephone_field :phone_number %>
+	    	<%= f.telephone_field :phone_number, placeholder: "Sehemu inayohitajika" %>
 	    	<strong><%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %></strong>
 	    	<%= f.email_field :email, placeholder: "Hiari" %><hr>
 	    	<strong><%= f.label :body, value: "Shida ni nini?" %></strong>
