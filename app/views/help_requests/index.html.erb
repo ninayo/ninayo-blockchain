@@ -5,6 +5,12 @@
 	<% @help_requests.each do |request| %>
 		<div class="posts-item">
 			<div class="ads-meta" style="font-size: 16px">
+				<h3 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
+					<%= t("request_type.seller_help") if request.seller_help? %>
+					<%= t("request_type.buyer_help") if request.buyer_help? %>
+					<%= t("request_type.general_help") if request.general_help? %>
+					<%= t("request_type.report_problem") if request.report_problem? %>
+				</h3>
 				<span class="ads-published_at"><%= t "common.published" %> 
 					<%= l(request.created_at, format: :short) %>
 				</span>
@@ -15,16 +21,8 @@
 					<%= t "common.by" + " " + (request.user ? request.user.name.titleize : "Anon User") %>
 				</span>
 			</div>
-			<div class="ads-price" style="font-size: 16px">
-				<%= link_to request.phone_number, "tel:+255#{request.phone_number}" %>
-			</div>
+			<%= link_to request.phone_number, "tel:+255#{request.phone_number}" %>
 			<span><%= (request.email.blank? ? request.email : "No email") %></span>
-			<h3 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
-				<%= t("request_type.seller_help") if request.seller_help? %>
-				<%= t("request_type.buyer_help") if request.buyer_help? %>
-				<%= t("request_type.general_help") if request.general_help? %>
-				<%= t("request_type.report_problem") if request.report_problem? %>
-			</h3>
 			<div class="posts-location" style="font-size: 16px">
 				<span>
 					<%= "#{request.body}" %>
