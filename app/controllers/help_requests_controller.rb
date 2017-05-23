@@ -1,6 +1,7 @@
 # handle help requests submitted through the 'need help' link
 class HelpRequestsController < ApplicationController
   before_action :open_help_requests, only: [:index]
+  before_action :closed_help_requests, only: [:closed_index]
   before_action :authenticate_admin, only: [:index]
 
   def new; end
@@ -25,6 +26,8 @@ class HelpRequestsController < ApplicationController
   end
 
   def index; end
+
+  def closed_index; end
 
   private
 
