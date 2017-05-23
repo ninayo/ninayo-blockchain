@@ -56,7 +56,7 @@ Rails.application.routes.draw do
 
     resources :help_requests, only: [:new, :create, :show, :index]
     get 'help_requests/close_help_request/:id' => 'help_requests#close_help_request', as: :close_ticket
-    get 'help_requests/closed_index' => 'help_requests#closed_index', as: :closed_request_index
+    get 'help_requests/closed' => 'help_requests#closed_index', as: :closed_request_index
 
     #get 'admin_announce' => 'messages#message_all'
 

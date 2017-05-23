@@ -28,7 +28,7 @@ class HelpRequestsController < ApplicationController
   def index; end
 
   def closed_index
-    render "closed_index"
+    render :closed_index
   end
 
   private
