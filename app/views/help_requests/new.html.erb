@@ -1,24 +1,24 @@
 <div class="new-help-request">
 
 	<div class="panel-heading">
-		<p><strong>Help Request</strong></p>
-		<p>Submit Thy Help Request to <strong>NINAYO</strong></p>
+		<p><strong>Ombi Msaada</strong></p>
+		<p>Kuwasilisha ombi la msaada na NINAYO</strong></p>
 	</div>
 	<hr>
 	<div class="panel-heading">
 		<%= form_for HelpRequest.new, :url => help_requests_path do |f| %>
-			<strong><%= "What's the problem?" %></strong><br>
+			<strong><%= "Jinsi gani tunaweza kukusaidia?" %></strong><br>
 			<%= f.radio_button :request_type, "seller_help" %>
-	    	<%= f.label "Seller Problem" %><br>
+	    	<%= f.label "Muuzaji msaada" %><br>
 	    	<%= f.radio_button :request_type, "buyer_help" %>
-	    	<%= f.label "Buyer Problem" %><br><hr>
+	    	<%= f.label "Mnunuzi msaada" %><br><hr>
 			<strong><%= f.label "#{t "activerecord.attributes.user.phone_number"}:", class: "field-label" %></strong>
 	    	<%= f.telephone_field :phone_number %>
 	    	<strong><%= f.label "#{t "activerecord.attributes.user.email"}:", class: "field-label" %></strong>
-	    	<%= f.email_field :email, placeholder: "Optional", autofocus: true %><hr>
-	    	<strong><%= f.label :body, value: "Body" %></strong>
+	    	<%= f.email_field :email, placeholder: "Hiari", autofocus: true %><hr>
+	    	<strong><%= f.label :body, value: "Shida ni nini?" %></strong>
 	    	<%= f.text_area :body, placeholder: "Maoni" %><hr>
-	    	<%= f.submit 'Kuwaalika', class: "button is-block" %>
+	    	<%= f.submit 'Kuwasilisha', class: "button is-block" %>
 		<% end %>
 	</div>
 </div>

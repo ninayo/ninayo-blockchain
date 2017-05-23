@@ -9,8 +9,8 @@ class HelpRequestsController < ApplicationController
     @request = HelpRequest.new(help_params)
     @request.user_id = current_user.id
     if @request.save
-      redirect_to root_url, notice: 'Your help request has been received, '\
-                                    'we will respond as quickly as possible'
+      redirect_to root_url, notice: 'Ombi lako iliwasilishwa kwa ufanisi.'\
+                                    'Tutawasiliana na wewe hivi karibuni'
     else
       redirect_to new_help_request_path,
                   alert: @request.errors.full_messages.to_sentence
