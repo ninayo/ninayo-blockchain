@@ -27,7 +27,7 @@ ActiveAdmin.register_page "Dashboard" do
         column do
             panel "Recent Ads" do
                 ul do
-                    Ad.recent(5).map do |ad|
+                    Ad.last(5).map do |ad|
                         li link_to(ad.title, ad_path(ad))
                     end
                 end
