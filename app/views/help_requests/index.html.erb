@@ -1,40 +1,40 @@
-<%= link_to "Closed Requests", closed_request_index_path, class: "button is-button" %>
+<%= link_to 'Closed Requests', closed_request_index_path, class: 'button is-button' %>
 
 <% if @help_requests.length > 0 %>
-<div class="ads">
+<div class='ads'>
 	<% @help_requests.each do |request| %>
-		<div class="posts-item">
-			<h2 class="supheading" style="font-size: 16px; margin-bottom: 5px;">
-				<%= t("request_type.seller_help") if request.seller_help? %>
-				<%= t("request_type.buyer_help") if request.buyer_help? %>
-				<%= t("request_type.general_help") if request.general_help? %>
-				<%= t("request_type.report_problem") if request.report_problem? %>
+		<div class='posts-item'>
+			<h2 class='supheading' style='font-size: 16px; margin-bottom: 5px;'>
+				<%= t('request_type.seller_help') if request.seller_help? %>
+				<%= t('request_type.buyer_help') if request.buyer_help? %>
+				<%= t('request_type.general_help') if request.general_help? %>
+				<%= t('request_type.report_problem') if request.report_problem? %>
 			</h2>
-			<div class="ads-meta" style="font-size: 16px">
-				<span class="ads-published_at"><%= t "common.published" %> 
+			<div class='ads-meta' style='font-size: 16px'>
+				<span class='ads-published_at'><%= t 'common.published' %> 
 					<%= l(request.created_at, format: :short) %>
 				</span>
 				<span>
-					<%= "(" + time_ago_in_words(request.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %>
+					<%= '(' + time_ago_in_words(request.created_at).downcase + (I18n.locale == :sw ? '' : ' ago') + ')' %>
 				</span>
-				<span class="rating-user">
-					<%= t "common.by" + " " + (request.user ? request.user.name.titleize : "Anon User") %>
+				<span class='rating-user'>
+					<%= t 'common.by' + ' ' + (request.user ? request.user.name.titleize : 'Anon User') %>
 				</span>
 			</div>
-			<div class="ads-price" style="font-size: 16px">
-				<%= link_to request.phone_number, "tel:+255#{request.phone_number}" %>
-				<span><%= (request.email.blank? ? request.email : "No email") %></span>
+			<div class='ads-price' style='font-size: 16px'>
+				<%= link_to request.phone_number, 'tel:+255#{request.phone_number}' %>
+				<span><%= (request.email.blank? ? request.email : 'No email') %></span>
 			</div>
-			<div class="posts-location" style="font-size: 16px">
+			<div class='posts-location' style='font-size: 16px'>
 				<span>
-					<%= "#{request.body}" %>
+					<%= '#{request.body}' %>
 				</span>
 			</div>
-			<%= link_to "Ombi kutatua", close_ticket_path(request.id), data: { confirm: 'Are you sure you want to close this help request?'}, class: "button is-danger" %>
+			<%= link_to 'Ombi kutatua', close_ticket_path(request.id), data: { confirm: 'Are you sure you want to close this help request?'}, class: 'button is-danger' %>
 		</div>
 	<% end %>
 </div>
 
 <% else %>
-	<h3><%= "No currently open help tickets" %></h3>
+	<h3><%= 'No currently open help tickets' %></h3>
 <% end %>
