@@ -57,19 +57,22 @@ class AdsController < ApplicationController
       not_found
     elsif @ad.archived? || @ad.deleted?
       not_found
-    elsif current_user && (current_user.id == @ad.user.id || current_user.admin?)
-      @ad_logs = @ad.ad_logs
-                    .includes(:event_type)
-                    .includes(:user)
     else
-      # TODO: break out into method
-      # note: Potential performance issue
-      ad_log = AdLog.new
-      ad_log.ad = @ad
-      ad_log.user = current_user || nil
-      # TODO: Find a better way to assign event_type (use enum instead?)
-      ad_log.event_type = EventType.first
-      ad_log.save!
+      if current_user && (current_user.id == @ad.user.id || current_user.admin?)
+        @ad_logs = @ad.ad_logs
+                      .includes(:event_type)
+                      .includes(:user)
+      else
+        # TODO: break out into method
+        # note: Potential performance issue
+        ad_log = AdLog.new
+        ad_log.ad = @ad
+        ad_log.user = current_user || nil
+        # TODO: Find a better way to assign event_type (use enum instead?)
+        ad_log.event_type = EventType.first
+        ad_log.save!
+      end
+      #respond_with(@ad)
     end
   end
 
@@ -312,6 +315,70 @@ class AdsController < ApplicationController
     CropType.find_by_id(id).name_sw
   end
 
+  def track_new
+    # track_event(category, type, action, label)
+    track_event('Engagement & Acquisition',
+                'Post Advert',
+                "new #{@ad.ad_type} ad: #{@ad.region.name}",
+                "NEW #{@ad.ad_type.upcase} AD: #{ga_info}")
+  end
+
+  def track_update
+    track_event('Engagement & Acquisition',
+                'Advert Update',
+                "update #{@ad.ad_type} ad: #{@ad.region.name}",
+                "UPDATE #{@ad.ad_type.upcase} AD: #{ga_info}")
+  end
+
+  def track_archive
+    track_event('Engagement & Acquisition',
+                'Advert Archive',
+                "archive #{@ad.ad_type} ad: #{@ad.region.name}",
+                "ARCHIVE #{@ad.ad_type.upcase} AD: #{ga_info}")
+  end
+
+  def track_contact_reveal
+    track_event('Engagement & Acquisition',
+                'Phone Reveal',
+                "reveal contact details on #{@ad.ad_type} ad: #{@ad.region.name}",
+                "REVEAL #{@ad.ad_type.upcase} AD CONTACT: #{ga_info}")
+  end
+
+  def track_call
+    track_event('Engagement & Acquisition',
+                'Phone Call',
+                "call made on #{@ad.ad_type} ad: #{@ad.region.name}",
+                "CALL #{@ad.ad_type.upcase} AD PHONE")
+  end
+
+  def track_text
+    track_event('Engagement & Acquisition',
+                'Text message',
+                "text sent on #{@ad.ad_type} ad: #{@ad.region.name}",
+                "TEXT #{@ad.ad_type.upcase} AD PHONE")
+  end
+
+  def track_whatsapp
+    track_event('Engagement & Acquisition',
+                'Whatsapp message',
+                "whatsapp sent on #{@ad.ad_type} ad: #{@ad.region.name}",
+                "WHATSAPP #{@ad.ad_type.upcase} AD CONTACT")
+  end
+
+  def track_favorite
+    track_event('Engagement & Acquisition',
+                'Advert Added to Favorite',
+                "favorite #{@ad.ad_type} ad: #{@ad.region.name}",
+                "FAVORITE #{@ad.ad_type.upcase} AD: #{ga_info}")
+  end
+
+  def track_failure
+    track_event('Engagement & Acquisition',
+                'Failed Post Advert Error',
+                'failed to post ad',
+                "FAILED AD: #{ga_info}")
+  end
+
   def update_user_location # assign location if we don't have one
     @ad.user.region_id = @ad.region_id if !@ad.user.region_id && @ad.region_id
     @ad.user.district_id = @ad.district_id if !@ad.user.district_id && @ad.district_id
@@ -363,10 +430,41 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:user, :crop_type_id, :other_crop_type, :description, :price, :volume, :volume_unit, :village, :region_id, :district_id, :ward_id, :position, :status, :negotiable, :lat, :lng, :final_price, :archived_at, :buyer_id, :buyer_price, :rating, :ad_type, :transport_type)
+    params.require(:ad).permit(:user,
+                               :crop_type_id,
+                               :other_crop_type,
+                               :description,
+                               :price,
+                               :volume,
+                               :volume_unit,
+                               :village,
+                               :region_id,
+                               :district_id,
+                               :ward_id,
+                               :position,
+                               :status,
+                               :negotiable,
+                               :lat,
+                               :lng,
+                               :final_price,
+                               :archived_at,
+                               :buyer_id,
+                               :buyer_price,
+                               :rating,
+                               :ad_type,
+                               :transport_type)
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :gender, :phone_number, :whatsapp_id, :region_id, :district_id, :ward_id, :village, :birthday)
+    params.require(:user).permit(:name,
+                                 :email,
+                                 :gender,
+                                 :phone_number,
+                                 :whatsapp_id,
+                                 :region_id,
+                                 :district_id,
+                                 :ward_id,
+                                 :village,
+                                 :birthday)
   end
 end
