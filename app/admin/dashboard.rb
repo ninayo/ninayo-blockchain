@@ -23,6 +23,18 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
 
+    columns do
+        column do
+            panel "Recent Ads" do
+                ul do
+                    Ad.recent(5).map do |ad|
+                        li link_to(ad.title, ad_path(ad))
+                    end
+                end
+            end
+        end
+    end
+
     #   column do
     #     panel "Info" do
     #       para "Welcome to ActiveAdmin."
