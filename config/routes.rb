@@ -24,14 +24,15 @@ Rails.application.routes.draw do
       get 'fb_auth' => 'bot#auth_link'
     end
 
-    namespace "admin" do
-      root :to => "analytics#index"
-      get 'analytics/index' => 'analytics#index', as: :analytics
-      get 'analytics/ads-per-day' => 'analytics#ads_per_day', as: :ads_per_day
-      get 'analytics/logins-per-day' => 'analytics#logins_per_day', as: :logins_per_day
-      get 'analytics/users' => 'analytics#users', as: :analytics_users
-      get 'analytics/all_ads' => 'analytics#all_ads', as: :analytics_all_ads
-    end
+    # old deprecated routes for the former admin panel
+    # namespace "admin" do
+    #   root :to => "analytics#index"
+    #   get 'analytics/index' => 'analytics#index', as: :analytics
+    #   get 'analytics/ads-per-day' => 'analytics#ads_per_day', as: :ads_per_day
+    #   get 'analytics/logins-per-day' => 'analytics#logins_per_day', as: :logins_per_day
+    #   get 'analytics/users' => 'analytics#users', as: :analytics_users
+    #   get 'analytics/all_ads' => 'analytics#all_ads', as: :analytics_all_ads
+    # end
 
     resources :ads do
       put :favorite
