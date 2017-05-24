@@ -1,7 +1,7 @@
 <div class="indexoptions">
 <% ab_test "what-is-ninayo", "text", "button" do |style| %>
 	<% if current_user && current_user.admin? %>
-		<%= link_to("Admin Page (DOWN)", root_path, :class => "button primarynav-button is-primary") %>
+		<%= link_to("Admin Page (IN PROGRESS)", admin_path, :class => "button primarynav-button is-primary") %>
 	<% end %>
 	<div class="splashtext">
 	<% if I18n.locale == :sw %>
