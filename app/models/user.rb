@@ -221,4 +221,8 @@ class User < ActiveRecord::Base
   def subtract_contact_credit
     # self.contact_credits -= 1
   end
+
+  def add_five_credits
+    self.contact_credits += 5
+  end
 end
