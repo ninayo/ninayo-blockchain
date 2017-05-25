@@ -18,11 +18,7 @@
 		<% if current_view == "sold_ads" -%>
 			<th><%= t "views.my_page.list.archived" %></th>
 		<% end -%>
-		<% if current_view != "favorites" && current_view != "bought_ads" -%>
-			<th class="text-right"><%= t "views.my_page.list.displayed" %></th>
-			<th class="text-right"><%= t "views.my_page.list.displayed_contact_info" %></th>
-			<th class="text-right"><%= t "views.my_page.list.favorites" %></th>
-		<% end -%>
+		<th><%= t "views.my_page.list.description" %></th>
 		<% if current_view == "current"  || current_view == "favorites" -%>
 			<th class="is-buttonrow"></th>
 		<% end -%>
@@ -76,31 +72,7 @@
 			<% if current_view == "sold_ads" -%>
 				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
-			<% if current_view != "favorites" && current_view != "bought_ads" -%>
-				<td class="text-right">
-					<% displayed = ad.ad_logs.where(:event_type_id => 1).group(:event_type).count %>
-					<% if displayed.length > 0 %>
-						<% displayed.each do |s| %>
-							<%=  s[1] %>
-						<% end -%>
-					<% else -%>
-						0
-					<% end -%>
-				</td>
-				<td class="text-right">
-					<% contact_displayed = ad.ad_logs.where(:event_type_id => 2).group(:event_type).count %>
-					<% if contact_displayed.length > 0 %>
-						<% contact_displayed.each do |s| %>
-							<%=  s[1] %>
-						<% end -%>
-					<% else -%>
-						0
-					<% end -%>
-				</td>
-				<td class="text-right">
-					<%= ad.favorited_by.count%>
-				</td>
-			<% end -%>
+			<td><%= l(ad.description) %></td>
 			<% if current_view == "current" -%>
 			<td class="text-right is-buttonrow"><%= link_to("#{t "common.archive"}", archive_ad_path(ad), :class => "button is-block ads-table-button ") %></td>
 			<% end -%>
