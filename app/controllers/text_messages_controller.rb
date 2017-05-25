@@ -82,10 +82,9 @@ class TextMessagesController < ApplicationController
   end
 
   def recent_idle_users(region_id)
-    User.where(current_sign_in_at: 120.days.ago..90.days.ago)
-        .where(region_id: region_id)
+    User.where(current_sign_in_at: 120.days.ago..60.days.ago)
         .reject { |a| a.phone_number.blank? }
-        .sample(100)
+        .sample(500)
   end
 
   def client
