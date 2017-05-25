@@ -72,7 +72,7 @@
 			<% if current_view == "sold_ads" -%>
 				<td><%= l(ad.archived_at, format: :short) %></td>
 			<% end -%>
-			<td><%= l(ad.description) %></td>
+			<td><%= ad.description %></td>
 			<% if current_view == "current" -%>
 			<td class="text-right is-buttonrow"><%= link_to("#{t "common.archive"}", archive_ad_path(ad), :class => "button is-block ads-table-button ") %></td>
 			<% end -%>
