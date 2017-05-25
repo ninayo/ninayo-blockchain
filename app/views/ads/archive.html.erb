@@ -21,6 +21,18 @@
 				</div>
 			</div>
 
+			<div class="field">
+				<%= f.label :volume, :value => "#{t "activerecord.attributes.ad.volume"}", :class => "field-label"%>
+				<div class="input-wrapper">
+					<div class="input-field">
+						<%= f.number_field :volume, :class => "is-small", :value => @ad.volume %>
+					</div>
+					<div class="input-label">
+						<span class="input-post"><%= @ad.volume_unit.name %></span>
+					</div>
+				</div>
+			</div>
+
 			<% if @buyers.length > 0 %>
 
 			<div class="field">
