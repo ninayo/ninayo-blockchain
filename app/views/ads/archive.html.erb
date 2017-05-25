@@ -27,6 +27,12 @@
 					<div class="input-field">
 						<%= f.number_field :volume, :class => "is-small", :value => @ad.volume %>
 					</div>
+
+
+					<div class="input-label">
+					<%= f.select :volume_unit, (Ad.volume_units.keys.to_a - ["gunia", "bucket", "sack", "trees", "tenga", "chane", "sado", "debe", "fungu"]).map { |w| [I18n.t("volume_unit.#{w}"), w]}, {}, {:class => "is-inline", :value => @ad.volume_unit} %>
+					</div>
+
 					<div class="input-label">
 						<span class="input-post"><%= @ad.volume_unit %></span>
 					</div>
