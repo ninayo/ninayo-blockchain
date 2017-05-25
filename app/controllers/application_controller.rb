@@ -65,7 +65,7 @@ class ApplicationController < ActionController::Base
                     ip_range('51.255.71') +
                     ip_range('217.182.132') +
                     ip_range('137.74.207') +
-                    ['177.133.108.96', '46.217.121.80', '76.97.196.137', '136.243.36.90']
+                    ['177.133.108.96', '46.217.121.80', '76.97.196.137', '136.243.36.90', '151.80.44.115']
 
     head :unauthorized if suckas_to_ban.include?(current_ip_address)
   end
