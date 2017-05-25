@@ -1,5 +1,5 @@
 	<div class="indexoptions">
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 			<%= link_to("Admin Page", admin_analytics_path, :class => "button primarynav-button is-primary") %>
 		<% end %>
 		<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>

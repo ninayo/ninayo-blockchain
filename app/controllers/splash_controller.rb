@@ -20,7 +20,7 @@ class SplashController < ApplicationController
   end
 
   def congrats
-  	redirect_to root_url unless current_user && current_user.admin?
+  	redirect_to root_url unless admin_user?
   end
 
 end

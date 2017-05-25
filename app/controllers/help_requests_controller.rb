@@ -34,7 +34,7 @@ class HelpRequestsController < ApplicationController
   private
 
   def authenticate_admin
-    redirect_to root_url unless current_user && current_user.admin?
+    redirect_to root_url unless admin_user?
   end
 
   def open_help_requests

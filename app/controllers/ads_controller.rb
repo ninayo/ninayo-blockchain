@@ -239,7 +239,7 @@ class AdsController < ApplicationController
   end
 
   def delete
-    if current_user && current_user.admin?
+    if admin_user?
       @ad.deleted!
       redirect_to root_path
     else
@@ -267,7 +267,7 @@ class AdsController < ApplicationController
   end
 
   def archive
-    if (current_user && (current_user.id == @ad.user_id)) || (current_user && current_user.admin?)
+    if (current_user && (current_user.id == @ad.user_id)) || admin_user?
       if @ad.archived?
         redirect_to root_path, notice: 'This ad is already archived'
       end

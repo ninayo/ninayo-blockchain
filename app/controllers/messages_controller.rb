@@ -21,11 +21,11 @@ class MessagesController < ApplicationController
   #if someone really wants to modify the request they can set their own subject but whatever
 
   def admin_message
-    redirect_to root_path unless current_user && current_user.admin?
+    redirect_to root_path unless admin_user?
   end
 
   # def message_all
-  #   redirect_to root_path unless current_user && current_user.admin?
+  #   redirect_to root_path unless admin_user?
   #   recipients = User.where(:region_id => nil, :created_at => Time.now.last_month.beginning_of_month..Time.now)
 
   #   recipients.each do |recipient|
