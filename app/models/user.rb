@@ -213,4 +213,12 @@ class User < ActiveRecord::Base
   def send_welcome_email
     UserMailer.signup_confirmation(self).deliver
   end
+
+  def contact_credits?
+    # contact_credits >= 1
+  end
+
+  def subtract_contact_credit
+    # self.contact_credits -= 1
+  end
 end
