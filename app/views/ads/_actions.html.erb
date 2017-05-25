@@ -3,7 +3,7 @@
 		Add to favorites
 	</a> -->
 	<%= link_to(t("common.edit"), edit_ad_path(@ad), :class => "button") if current_user && (current_user.id == @ad.user.id || current_user.admin?) %>
-	<%#= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if current_user && current_user.admin? %>
+	<%#= link_to "#{t "common.delete"}", @ad, remote: true, method: :delete,  :class => "button is-block is-danger", data: { confirm: "#{t "views.ad.show.delete_confirmation"}" } if admin_user? %>
 
 	<%= link_to "#{t "common.archive"}", archive_ad_path(@ad), :class => "button is-danger" if @ad.published? && current_user && current_user.id == @ad.user.id %>
 

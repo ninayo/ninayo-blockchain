@@ -4,7 +4,7 @@
 		<th class="text-right"><%= t "views.my_page.list.price" %> (kg):</th>
 		<th class="text-right"><%= "Change" %>:</th>
 		<th class="text-right"><%= I18n.locale == :en ? "Published" : "Tarehe" %>:</th>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 		<th class="text-right"><%= "NINAYO price:" %></th>
 		<% end %>
 		<% if current_view == "dar"  || current_view == "mbeya" || current_view == "iringa" -%>
@@ -26,7 +26,7 @@
 		<td><span class="ads-published_at"><%= l(@nut_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@nut_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Groundnuts"].price, precision: 0) %></td>
 		<% end %>
 	</tr>
@@ -44,7 +44,7 @@
 		<td><span class="ads-published_at"><%= l(@wheat_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@wheat_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Wheat"].price, precision: 0) %></td>
 		<% end %>
 	</tr>
@@ -62,7 +62,7 @@
 		<td><span class="ads-published_at"><%= l(@maize_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@maize_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Maize"].price, precision: 0) %></td>
 		<% end %>
 	</tr>
@@ -80,7 +80,7 @@
 		<td><span class="ads-published_at"><%= l(@bean_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@bean_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Beans"].price, precision: 0) %></td>
 		<% end %>
 	</tr>
@@ -98,7 +98,7 @@
 		<td><span class="ads-published_at"><%= l(@soy_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@soy_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 			<td class="text-right"><%= number_to_currency(@ninayo_prices["Soy"].price, precision: 0) %></td>
 		<% end %>
 	</tr>
@@ -116,7 +116,7 @@
 		<td><span class="ads-published_at"><%= l(@rice_prices.first.created_at, format: :short) %>
 				</span>
 		<span><%= "(" + time_ago_in_words(@rice_prices.first.created_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></span></td>
-		<% if current_user && current_user.admin? %>
+		<% if admin_user? %>
 		<td class="text-right"><%= number_to_currency(@ninayo_prices["Rice"].price, precision: 0) %></td>
 		<% end %>
 	</tr>

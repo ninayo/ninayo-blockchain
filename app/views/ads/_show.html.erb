@@ -22,10 +22,10 @@
 
 		<%= render "actions" unless @preview %>
 
-		<%= render "logs" if current_user && current_user.admin? %>
+		<%= render "logs" if admin_user? %>
 	</div>
 	<div class="post-sidebar">
-		<%= render "stats" if current_user && current_user.admin? %>
+		<%= render "stats" if admin_user? %>
 		<%= render "seller", :user => @ad.user %>
 		<hr>
 		<%= render "facts" %>

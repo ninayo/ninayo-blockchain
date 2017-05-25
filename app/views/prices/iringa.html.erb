@@ -1,7 +1,7 @@
 <% provide(:title, "Current market prices: Iringa") %>
 <%= render "pagenav", :current_view => "iringa" %>
 <div class="update-button" style="display: flex; justify-content: center;">
-	<% if current_user && current_user.admin? %>
+	<% if admin_user? %>
 	<%= link_to("Update Prices", new_iringa_price_path, :class => "button is-block") %>
 	<%= link_to("Harvest Reminder", harvest_reminder_path, :class => "button is-block") %>
 	<%= link_to("Seller Reminder", seller_followup_path, :class => "button is-block") %>
@@ -20,7 +20,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.admin? %>
+<% if admin_user? %>
 <div class="price-matches">
 	<% if !@nut_prices.first.related_ads.empty? %>
 		<% a = @nut_prices.first.related_ads.first %>

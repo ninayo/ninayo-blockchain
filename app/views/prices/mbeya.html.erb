@@ -1,7 +1,7 @@
 <% provide(:title, "Current market prices: Mbeya") %>
 <%= render "pagenav", :current_view => "mbeya" %>
 <div class="update-button" style="display: flex; justify-content: center;">
-	<% if current_user && current_user.admin? %>
+	<% if admin_user? %>
 	<%= link_to("Update Prices", new_mbeya_price_path, :class => "button is-block") %>
 	<% end %>
 </div>
@@ -18,7 +18,7 @@
 	</div>
 <% end %>
 
-<% if current_user && current_user.admin? %>
+<% if admin_user? %>
 <div class="price-matches">
 	<% if !@nut_prices.first.related_ads.empty? %>
 		<% a = @nut_prices.first.related_ads.first %>
