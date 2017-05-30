@@ -12,17 +12,17 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-  
-
   config.per_page = 25
 
-  index pagination_total: false do 
+  index pagination_total: false do
+    column :id
     column :name
     column :phone_number
     column :region
     column :village
     column :gender
     column :sign_in_count
+    column :last_sign_in_at
   end
 
   filter :region, as: :select, collection: proc { Region.all }
@@ -41,5 +41,4 @@ ActiveAdmin.register User do
   remove_filter :whatsapp_id
   remove_filter :birthday
   remove_filter :age_range
-
 end
