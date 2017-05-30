@@ -12,10 +12,12 @@ ActiveAdmin.register Ad do
 #   permitted
 # end
 
-  permit_params :crop_type, :region_id, :district_id, :ward_id, :village, :price, :volume, :volume_unit, :published_at, :archived_at
+  permit_params :crop_type, :region_id, :district_id, :ward_id, :village,
+                :price, :volume, :volume_unit, :published_at, :archived_at
+
   config.per_page = 25
 
-  index do
+  index pagination_total: false do
     column :crop_type
     column :price
     column :volume
@@ -24,4 +26,20 @@ ActiveAdmin.register Ad do
     column :village
     column :published_at
   end
+
+  # Filters
+  filter :crop_type, as: :check_boxes, collection: proc { CropType.all }
+
+  remove_filter :description
+  remove_filter :updated_at
+  remove_filter :status
+  remove_filter :published_at
+  remove_filter :lat
+  remove_filter :lng
+  remove_filter :final_price
+  remove_filter :archived_at
+  remove_filter :buyer_id
+  remove_filter :buyer_price
+  remove_filter :negotiable
+  remove_filter :transport_type
 end
