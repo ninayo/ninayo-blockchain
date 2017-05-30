@@ -21,6 +21,12 @@ ActiveAdmin.register User do
     column :ads_posted do |user|
       user.ads.count
     end
+    column :contacts_made do |user|
+      user.calls_made.count + user.texts_sent.count
+    end
+    column :contacts_received do |user|
+      user.calls_received.count + user.texts_received.count
+    end
     column :region
     column :village
     column :gender
