@@ -18,7 +18,7 @@ ActiveAdmin.register Ad do
     column :crop_type
     column :price
     column :volume
-    volumn :volume_unit
+    column :volume_unit
     column :region
     column :district
     column :village
