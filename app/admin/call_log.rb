@@ -13,9 +13,14 @@ ActiveAdmin.register CallLog do
 # end
 
   index pagination_total: false do
+    column :ad_id
+    column :caller
+    column :receiver
+    column :created_at
   end
-   
-  remove_filter :caller_id
-  remove_filter :receiver_id
-  remove_filter :ad_id
+
+  remove_filter :caller
+  remove_filter :receiver
+  remove_filter :ad
+  remove_filter :updated_at
 end

@@ -13,6 +13,10 @@ ActiveAdmin.register TextLog do
 # end
 
   index pagination_total: false do
+    column :ad_id
+    column :sender
+    column :receiver
+    column :created_at
   end
 
   remove_filter :caller_id
