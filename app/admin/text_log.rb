@@ -12,4 +12,6 @@ ActiveAdmin.register TextLog do
 #   permitted
 # end
 
+  index pagination_total: false do
+  end
 end
