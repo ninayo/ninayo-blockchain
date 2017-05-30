@@ -11,6 +11,8 @@ ActiveAdmin.register CallLog do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+  
+  config.per_page = 25
 
   index pagination_total: false do
     column :ad_id

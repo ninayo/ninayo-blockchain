@@ -12,6 +12,8 @@ ActiveAdmin.register TextLog do
 #   permitted
 # end
 
+  config.per_page = 25
+
   index pagination_total: false do
     column :ad_id
     column :sender
@@ -21,5 +23,6 @@ ActiveAdmin.register TextLog do
 
   remove_filter :caller_id
   remove_filter :receiver_id
+  remove_filter :ad
   remove_filter :ad_id
 end
