@@ -14,4 +14,10 @@ ActiveAdmin.register CallLog do
 
   index pagination_total: false do
   end
+
+  filter :region, as: :select, collection: proc { Region.all }
+  
+  remove_filter :caller_id
+  remove_filter :receiver_id
+  remove_filter :ad_id
 end
