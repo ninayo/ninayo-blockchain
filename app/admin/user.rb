@@ -19,7 +19,7 @@ ActiveAdmin.register User do
     column :name
     column :phone_number
     column :ads_posted do |user|
-      user.ads_posted.count
+      user.ads.count
     end
     column :region
     column :village
