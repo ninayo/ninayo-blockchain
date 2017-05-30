@@ -13,6 +13,7 @@ ActiveAdmin.register Ad do
 # end
 
   permit_params :crop_type, :region_id, :district_id, :ward_id, :village, :price, :volume, :volume_unit, :published_at, :archived_at
+  config.per_page = 25
 
   index do
     column :crop_type
