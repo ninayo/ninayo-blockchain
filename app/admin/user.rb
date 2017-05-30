@@ -25,6 +25,7 @@ ActiveAdmin.register User do
     column :last_sign_in_at
   end
 
+  filter :name_contains
   filter :region, as: :select, collection: proc { Region.all }
 
   remove_filter :encrypted_password
