@@ -19,9 +19,11 @@ ActiveAdmin.register Ad do
 
   index pagination_total: false do
     column :crop_type
+    column :other_crop_type
     column :price
     column :volume
     column :volume_unit
+    column :user
     column :region
     column :village
     column :published_at
@@ -29,6 +31,7 @@ ActiveAdmin.register Ad do
 
   # Filters
   filter :crop_type, as: :check_boxes, collection: proc { CropType.all }
+  filter :region, as: :select, collection: proc { Region.all }
 
   remove_filter :description
   remove_filter :updated_at
