@@ -14,4 +14,14 @@ ActiveAdmin.register Ad do
 
   permit_params :crop_type, :region_id, :district_id, :ward_id, :village, :price, :volume, :volume_unit, :published_at, :archived_at
 
+  index do
+    column :crop_type
+    column :price
+    column :volume
+    volumn :volume_unit
+    column :region
+    column :district
+    column :village
+    column :published_at
+  end
 end
