@@ -33,6 +33,7 @@ ActiveAdmin.register Ad do
 
   # Filters
   filter :crop_type, as: :check_boxes, collection: proc { CropType.all }
+  filter :volume_unit, as: :check_boxes, collection: proc { Ad.volume_units.keys }
   filter :region, as: :select, collection: proc { Region.all }
   filter :published_at, as: :date_range
 
