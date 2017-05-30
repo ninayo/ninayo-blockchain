@@ -18,6 +18,9 @@ ActiveAdmin.register User do
     column :id
     column :name
     column :phone_number
+    column :ads_posted do |user|
+      user.ads_posted.count
+    end
     column :region
     column :village
     column :gender
@@ -27,6 +30,7 @@ ActiveAdmin.register User do
 
   filter :name_contains
   filter :region, as: :select, collection: proc { Region.all }
+  filter :created_at, as: :date_range
 
   remove_filter :encrypted_password
   remove_filter :id
