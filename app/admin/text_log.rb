@@ -21,8 +21,8 @@ ActiveAdmin.register TextLog do
     column :created_at
   end
 
-  remove_filter :caller_id
-  remove_filter :receiver_id
+  remove_filter :sender
+  remove_filter :receiver
   remove_filter :ad
-  remove_filter :ad_id
+  remove_filter :updated_at
 end
