@@ -28,7 +28,7 @@ ActiveAdmin.register Ad do
     column :region
     column :village
     column :published_at
-    default_actions
+    actions
   end
 
   # Filters
