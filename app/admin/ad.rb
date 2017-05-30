@@ -21,7 +21,6 @@ ActiveAdmin.register Ad do
     column :volume
     column :volume_unit
     column :region
-    column :district
     column :village
     column :published_at
   end
