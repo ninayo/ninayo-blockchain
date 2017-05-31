@@ -10,6 +10,7 @@ ActiveAdmin.register CallLog do
   end
 
   filter :region, as: :check_boxes, collection: proc { Region.all }
+  filter :created_at, as: :date_range
 
   remove_filter :caller
   remove_filter :receiver
