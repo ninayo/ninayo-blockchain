@@ -43,9 +43,6 @@ GEM
       ransack (~> 1.3)
       sass-rails
       sprockets (< 4.1)
-    activeadmin-axlsx (2.0.1)
-      activeadmin (>= 0.5.0)
-      axlsx
     activejob (4.2.7.1)
       activesupport (= 4.2.7.1)
       globalid (>= 0.3.0)
@@ -69,10 +66,6 @@ GEM
     arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (6.0.4)
-    axlsx (1.3.6)
-      htmlentities (~> 4.3.1)
-      nokogiri (>= 1.4.1)
-      rubyzip (>= 0.9.5)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -171,7 +164,6 @@ GEM
     hightop (0.1.4)
       activerecord
     hike (1.2.3)
-    htmlentities (4.3.4)
     i18n (0.8.1)
     inherited_resources (1.7.2)
       actionpack (>= 3.2, < 5.2.x)
@@ -369,15 +361,12 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    zip-zip (0.3)
-      rubyzip (>= 1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activeadmin
-  activeadmin-axlsx
   annotate
   bullet
   byebug
@@ -420,7 +409,6 @@ DEPENDENCIES
   twilio-ruby
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-  zip-zip
 
 RUBY VERSION
    ruby 2.2.3p173
