@@ -409,6 +409,7 @@ DEPENDENCIES
   redis-namespace
   responsive_active_admin
   roo
+  rubyzip
   sass-rails (~> 5.0.1)
   sdoc (~> 0.4.0)
   social-share-button
