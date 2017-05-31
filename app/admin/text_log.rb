@@ -9,6 +9,8 @@ ActiveAdmin.register TextLog do
     column :created_at
   end
 
+  filter :region, as: :check_boxes, collection: proc { Region.all }
+
   remove_filter :sender
   remove_filter :receiver
   remove_filter :ad
