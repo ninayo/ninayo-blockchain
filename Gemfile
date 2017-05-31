@@ -76,7 +76,7 @@ gem 'activeadmin'
 gem 'activeadmin-axlsx'
 gem 'responsive_active_admin'
 
-gem 'rubyzip'
+gem 'zip-zip'
 
 #gem 'skylight'
 
