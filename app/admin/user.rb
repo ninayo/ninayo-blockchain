@@ -2,7 +2,6 @@ ActiveAdmin.register User do
   config.per_page = 25
 
   index pagination_total: false do
-    column :id
     column :name
     column :phone_number
     column :ads_posted do |user|

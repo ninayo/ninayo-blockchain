@@ -2,7 +2,6 @@ ActiveAdmin.register TextLog do
   config.per_page = 25
 
   index pagination_total: false do
-    column :id
     column :ad_id
     column :sender
     column :receiver

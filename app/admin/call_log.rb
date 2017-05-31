@@ -2,7 +2,6 @@ ActiveAdmin.register CallLog do
   config.per_page = 25
 
   index pagination_total: false do
-    column :id
     column :ad_id
     column :caller
     column :receiver
