@@ -73,10 +73,10 @@ gem 'twilio-ruby'
 gem 'delayed_job_active_record'
 
 gem 'activeadmin'
-gem 'activeadmin-axlsx'
+# gem 'activeadmin-axlsx'
 gem 'responsive_active_admin'
 
-gem 'zip-zip'
+# gem 'zip-zip'
 
 #gem 'skylight'
 
