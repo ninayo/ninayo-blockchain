@@ -1,3 +1,6 @@
+require 'split/dashboard'
+include Split::Helper
+
 Split.configure do |config|
   config.db_failover = true # handle redis errors gracefully
   config.db_failover_on_db_error = -> (error) { Rails.logger.error(error.message) }
