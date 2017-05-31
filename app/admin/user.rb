@@ -18,6 +18,7 @@ ActiveAdmin.register User do
     column :gender
     column :sign_in_count
     column :last_sign_in_at
+    actions
   end
 
   filter :name_contains

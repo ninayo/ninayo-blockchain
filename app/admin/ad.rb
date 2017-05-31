@@ -25,6 +25,7 @@ ActiveAdmin.register Ad do
   filter :published_at, as: :date_range
   filter :archived_at, as: :date_range
 
+  remove_filter :id
   remove_filter :description
   remove_filter :updated_at
   remove_filter :status
