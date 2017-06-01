@@ -47,5 +47,11 @@ module Ninayo
 
      # add custom validators path
     config.autoload_paths += %W["#{config.root}/app/validators/"]
+
+    # show output when running rake, but not duplicate output during console or server
+    # https://github.com/rails/rails/pull/22933
+    if ENV['RAILS_LOG_TO_STDOUT'] == 'true' && defined?(Rake)
+        config.logger = ActiveSupport::TaggedLogging.new(ActiveSupport::Logger.new(STDOUT))
+    end
   end
 end
