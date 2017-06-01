@@ -108,9 +108,10 @@ class AdsController < ApplicationController
     call_log.receiver_id  = @ad.user.id
     call_log.save
 
-    ab_finished("ad show page")
+    ab_finished('ad show page')
+    number_to_call = @ad.user.phone_number
 
-    redirect_to "tel:#{@ad.user.phone_number}"
+    redirect_to "tel:#{number_to_call}"
   end
 
   def text_contact
@@ -120,9 +121,10 @@ class AdsController < ApplicationController
     text_log.receiver_id = @ad.user.id
     text_log.save
 
-    ab_finished("ad show page")
+    ab_finished('ad show page')
+    number_to_text = @ad.user.phone_number
 
-    redirect_to "sms:#{@ad.user.phone_number}"
+    redirect_to "sms:#{number_to_text}"
   end
 
   # this used to result in a new whatsapp message with the contact number pre-filled,

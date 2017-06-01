@@ -8,7 +8,7 @@ class HelpRequestsController < ApplicationController
 
   def create
     @request = HelpRequest.new(help_params)
-    @request.user_id = current_user.id
+    @request.user_id = (current_user && current_user.id ? current_user.id : nil)
     if @request.save
       redirect_to root_url, notice: 'Ombi lako iliwasilishwa kwa ufanisi.'\
                                     'Tutawasiliana na wewe hivi karibuni'
