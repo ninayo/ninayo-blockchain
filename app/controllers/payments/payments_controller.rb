@@ -50,7 +50,7 @@ class PaymentsController < ApplicationController
       'redirectUri' => 'str_whatever_url_after_payment',
       'callbackUri' => 'str_result_callback_uri_optional',
       'language' => 'three_letter_language_code',
-      'terminalId' => 'str_terminal_id_optional', # dunno what this is
+      'terminalId' => '', # optional, dunno what this is
       'originPayment' => { 'amount' => float_transaction_amount,
                            'currencyCode' => 'TZS',
                            'tax' => float_transaction_tax,
@@ -69,7 +69,7 @@ class PaymentsController < ApplicationController
     @transaction_response = JSON.parse(res)
     @ref_id = @transaction_response['transactionRefId']
     @auth_code = @transaction_response['authCode']
-    
+
     @redirect_url = @transaction_response['redirectUrl']
   end
 
@@ -85,5 +85,29 @@ class PaymentsController < ApplicationController
     res = Net::HTTP.start(uri.hostname, uri.port) { |http| http.request(req) }
 
     @tigo_status = JSON.parse(res)['tigoSecureStatusCode']
+  end
+
+  def validate_mfs_account # check if target number has valid mfs account
+    target_path = 'tigo/mfs/validateMFSAccount'
+    uri = TIGO_PESA_URL + target_path
+    req = Net::HTTP::Post.new(uri)
+    req.set_content_type('application/json')
+    req['accessToken'] = @tigo_access_token
+
+    req.body = {
+      'transactionRefId' => 'str_transaction_ref',
+      'ReceivingSubscriber' => {
+        'account' => 'str_mfs_account_id',
+        'countryCallingCode' => 255,
+        'countryCode' => 'str_three_letter_country_code',
+        'firstName' => 'str_opt_first_name',
+        'lastName' => 'str_opt_last_name'
+      }
+    }
+
+    res = Net::HTTP.start(uri.hostname, uri.post) { |http| http.request(req) }
+    # for some reason tigo returns the t/f as a string
+    account_valid = JSON.parse(res)['validateMFSAccountResponse']['ResponseBody']['validMFSAccount']
+    ActiveRecord::Type::Boolean.new.type_cast_from_database(account_valid)
   end
 end
