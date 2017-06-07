@@ -55,7 +55,7 @@
 			<% end %>
 			<h5 class="ad-seller-name"><%="#{@ad.user.name}" %></h5>
 			<div class="posts-location">
-				<i>Muuzaji mpya</i>
+				<i><%= @ad.sell? ? "Muuzaji mpya" : "Mnunuzi mpya"%></i>
 			</div>
 			</div>
 			<% if current_user && current_user.id %>
