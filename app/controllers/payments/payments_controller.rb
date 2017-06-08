@@ -127,7 +127,7 @@ class PaymentsController < ApplicationController
     @tigo_status = JSON.parse(res)['tigoSecureStatusCode']
   end
 
-  def validate_mfs_account # check if target number has valid mfs account
+  def validate_mfs_account(user) # check if target number has valid mfs account
     target_path = 'tigo/mfs/validateMFSAccount'
     uri = TIGO_PESA_URL + target_path
     req = Net::HTTP::Post.new(uri)
@@ -137,11 +137,11 @@ class PaymentsController < ApplicationController
     req.body = {
       'transactionRefId' => 'str_transaction_ref',
       'ReceivingSubscriber' => {
-        'account' => 'str_mfs_account_id',
+        'account' => user.phone_number,
         'countryCallingCode' => 255,
         'countryCode' => 'str_three_letter_country_code',
-        'firstName' => 'str_opt_first_name',
-        'lastName' => 'str_opt_last_name'
+        'firstName' => user.name,
+        'lastName' => user.name
       }
     }
 
