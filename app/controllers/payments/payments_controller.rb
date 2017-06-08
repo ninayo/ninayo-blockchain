@@ -20,8 +20,48 @@ class PaymentsController < ApplicationController
     @tigo_access_token = JSON.parse(res.body)['accessToken']
   end
 
-  def transfer_money_directly(sender, receiver)
-    # direct transfer between two users
+  # direct transfer between two users
+  # called a deposit remittance in the docs, pg 25
+  def transfer_money_directly(sender, receiver, amount)
+    target_path = 'tigo/mfs/depositRemittance'
+    uri = TIGO_PESA_URL + target_path
+    req = Net::HTTP::Post.new(uri)
+    req.set_content_type('application/json')
+    req['accessToken'] = @tigo_access_token
+
+    request_params = {
+      'transactionRefId' => 'whatever_arbitrary_string',
+      'PaymentAggregator' => { 'account' => 'str_mfs_account_number',
+                               'pin' => 'str_mfs_account_pin',
+                               'id' => 'str_mfs_account_name' },
+
+      'Sender' => { 'firstName' => sender.name,
+                    'lastName' => sender.name,
+                    'msisdn' => sender.phone_number,
+                    'emailAddress' => sender.email },
+
+      'ReceivingSubscriber' => { 'account' => receiver.phone_number,
+                                 'countryCallingCode' => 255,
+                                 'countryCode' => 'str_three_letter_country_code',
+                                 'firstName' => receiver.name,
+                                 'lastName' => receiver.name },
+
+      'OriginPayment' => { 'amount' => amount,
+                           'currencyCode' => 'TZS',
+                           'tax' => 'float_transaction_tax',
+                           'fee' => 'float_transaction_fee' },
+
+      'verificationRequest' => false,
+      'sendTextMessage' => true,
+
+      'LocalPayment' => { 'amount' => amount,
+                          'currencyCode' => 'TZS' }
+    }
+
+    req.body = request_params
+    res = Net::HTTP.start(uri.hostname, uri.post) { |http| http.request(req) }
+
+    @transaction_response = JSON.parse(res)
   end
 
   def payment_auth_redirect # generate redirect to tigo payment auth page
