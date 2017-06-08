@@ -67,7 +67,7 @@ class PaymentsController < ApplicationController
     res = Net::HTTP.start(uri.hostname, uri.post) { |http| http.request(req) }
 
     @transaction_response = JSON.parse(res)
-    @ref_id = @transaction_response['transactionRefId']
+    @ref_id = @transaction_response['transactionRefId'] # should be what we sent
     @auth_code = @transaction_response['authCode']
 
     @redirect_url = @transaction_response['redirectUrl']
