@@ -70,6 +70,7 @@ Rails.application.routes.draw do
     get 'ads/:id/infopanel' => 'ads#infopanel', as: :infopanel
     patch 'ads/:id/save_buy_info' => 'ads#save_buy_info', as: :save_buy_info
     post 'ads/:id/contact-info' => 'ads#contact_info', as: :show_contact_info
+    get 'ads/:id/spam' => 'ads#mark_as_spam', as: :spam_ad
 
     get 'ads/:id/call' => 'ads#call_contact', as: :call_contact
     get 'ads/:id/text' => 'ads#text_contact', as: :text_contact

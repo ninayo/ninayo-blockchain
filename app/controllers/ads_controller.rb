@@ -252,6 +252,12 @@ class AdsController < ApplicationController
     end
   end
 
+  def mark_as_spam
+    if admin_user?
+      @ad.update(status: :spam)
+    end
+  end
+
   # Add and remove favorite recipes
   # for current_user
   def favorite
