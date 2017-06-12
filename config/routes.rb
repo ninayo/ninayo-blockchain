@@ -114,7 +114,7 @@ Rails.application.routes.draw do
   get 'harvest_reminder' => 'text_messages#harvest_reminder', as: :harvest_reminder
   get 'seller_followup' => 'text_messages#weekly_sms_prices', as: :seller_followup 
 
-  get '/.well-known/acme-challenge/-psVTriG2kn-BOKuC52nnPuie6YQ9L8-6yd97DlA78g' => 'splash#letsencrypt_verify'
+  get '/.well-known/acme-challenge/ZfWSZ-8jDoGc8OenfP8JC79QPITHFU6BH9YPvVabGd8' => 'splash#letsencrypt_verify'
 
   get '/:locale' => 'splash#index'
   root 'splash#index'

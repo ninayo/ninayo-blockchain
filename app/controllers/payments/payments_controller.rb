@@ -42,7 +42,7 @@ class PaymentsController < ApplicationController
 
       'ReceivingSubscriber' => { 'account' => receiver.phone_number,
                                  'countryCallingCode' => 255,
-                                 'countryCode' => 'str_three_letter_country_code',
+                                 'countryCode' => 'TZA',
                                  'firstName' => receiver.name,
                                  'lastName' => receiver.name },
 
@@ -82,14 +82,14 @@ class PaymentsController < ApplicationController
 
       'Subscriber' => { 'account' => 'msisdn_to_debit',
                         'countryCode' => '255',
-                        'country' => 'str_three_letter_country_code',
+                        'country' => 'TZA',
                         'firstName' => 'str_first_name',
                         'lastName' => 'str_last_name',
                         'emailId' => 'str_email_addr' },
 
       'redirectUri' => 'str_whatever_url_after_payment',
       'callbackUri' => 'str_result_callback_uri_optional',
-      'language' => 'three_letter_language_code',
+      'language' => 'SWA',
       'terminalId' => '', # optional, dunno what this is
       'originPayment' => { 'amount' => float_transaction_amount,
                            'currencyCode' => 'TZS',
@@ -127,7 +127,7 @@ class PaymentsController < ApplicationController
     @tigo_status = JSON.parse(res)['tigoSecureStatusCode']
   end
 
-  def validate_mfs_account(user) # check if target number has valid mfs account
+  def validate_mfs_account(user) # check if target user has valid mfs account
     target_path = 'tigo/mfs/validateMFSAccount'
     uri = TIGO_PESA_URL + target_path
     req = Net::HTTP::Post.new(uri)
@@ -139,7 +139,7 @@ class PaymentsController < ApplicationController
       'ReceivingSubscriber' => {
         'account' => user.phone_number,
         'countryCallingCode' => 255,
-        'countryCode' => 'str_three_letter_country_code',
+        'countryCode' => 'TZA',
         'firstName' => user.name,
         'lastName' => user.name
       }
