@@ -118,6 +118,11 @@ class Ad < ActiveRecord::Base
       .order("crop_type_id")
   end
 
+  def self.contact_ratio(num)
+    contacts = Ad.last(num).select { |a| a.contact_count >= 1 }.count
+    puts "#{num} ads - #{contacts} non-internal contacts - Total ratio: #{(contacts / num).to_f}"
+  end
+
   def contact_count
     calls.reject { |c| c.caller.phone_number == '0758245054' }.count + texts.reject { |t| t.sender.phone_number == '0758245054' }.count
   end
