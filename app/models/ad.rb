@@ -120,15 +120,16 @@ class Ad < ActiveRecord::Base
 
   def self.contact_ratio(num)
     contacts = Ad.last(num).select { |a| a.contact_count >= 1 }.count
-    return "#{num} ads - #{contacts} non-internal contacts - Total ratio: #{(contacts.to_f / num.to_f)}"
+    "#{num} ads - #{contacts} non-internal contacts - " \
+    "Total ratio: #{(contacts.to_f / num.to_f)}"
   end
 
   def contact_count
     calls.reject { |c| c.caller.phone_number == ('0758245054' || c.receiver.phone_number) }.count + texts.reject { |t| t.sender.phone_number == ('0758245054' || t.receiver.phone_number) }.count
   end
 
-  #don't return user object when rendering as json
-  #otherwise we can get phone numbers scraped
+  # don't return user object when rendering as json
+  # otherwise we can get phone numbers scraped
   def as_json(options = {})
     super(options.merge({ except: [:user] }))
   end
