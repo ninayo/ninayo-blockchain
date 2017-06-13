@@ -120,7 +120,7 @@ class Ad < ActiveRecord::Base
 
   def self.contact_ratio(num)
     contacts = Ad.last(num).select { |a| a.contact_count >= 1 }.count
-    "#{num} ads - #{contacts} non-internal contacts - " \
+    "Last #{num} ads - #{contacts} non-internal contacts - " \
     "Total ratio: #{(contacts.to_f / num.to_f)}"
   end
 
