@@ -119,7 +119,7 @@ class Ad < ActiveRecord::Base
   end
 
   def contact_count
-    calls.count + texts.count
+    calls.reject { |c| c.caller.phone_number == '0758245054' }.count + texts.reject { |t| t.sender.phone_number == '0758245054' }.count
   end
 
   #don't return user object when rendering as json
