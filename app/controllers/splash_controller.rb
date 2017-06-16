@@ -1,5 +1,4 @@
 class SplashController < ApplicationController
-
   respond_to :html
 
   # page for letsencrypt verification
@@ -12,15 +11,14 @@ class SplashController < ApplicationController
   end
 
   def instructions
-    ab_finished("what-is-ninayo")
+    ab_finished('what-is-ninayo')
   end
 
   def get_started
-  	redirect_to root_url if current_user && current_user.id
+    redirect_to root_url if current_user && current_user.id
   end
 
   def congrats
-  	redirect_to root_url unless admin_user?
+    redirect_to root_url unless admin_user?
   end
-
 end
