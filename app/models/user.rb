@@ -183,6 +183,11 @@ class User < ActiveRecord::Base
     return new_pw
   end
 
+  def self.works_for_us? # does the account in question belong to our guys?
+    account_ids_we_employ = [20829, 16891, 20827, 32]
+    account_ids_we_employ.include?(self.id)
+  end
+
   protected
 
   def new_random_pin

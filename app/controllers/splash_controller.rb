@@ -7,7 +7,6 @@ class SplashController < ApplicationController
   end
 
   def index
-    @featured_ad = Ad.last(5).sample
   end
 
   def instructions
