@@ -75,6 +75,39 @@
 	}
 }
 
+.special-posts-item {
+	position: relative;
+	display: block;
+	text-decoration: none;
+	color: $black;
+	padding: $padding $halfPadding;
+	border-bottom: 1px solid #ccc;
+	border: 5px forestgreen solid;
+
+	@include mq($from: medium) {
+		padding: $padding;
+	}
+
+	@include mq($from: wide) {
+		//padding: $padding $doublePadding;
+	}
+
+	&:hover, 
+	&:focus {
+		background-color: rgba(black, .05);
+	}
+
+	&:first-child {
+		border-top: 1px solid #ccc;
+	}
+
+	&.has-actions {
+		.ads-price {
+			right: 100px;
+		}
+	}
+}
+
 .ads-heading {
 	@extend .h4;
 	margin: 0 0 5px;
