@@ -164,18 +164,18 @@ class AdsController < ApplicationController
     end
 
     @ad               = Ad.new(ad_params)
-    @ad.user          = current_user || User.where(:phone_number => params[:ad][:user][:phone_number], :encrypted_password => params[:ad][:user][:password]).first_or_create do |user|
-      user.name       = params[:ad][:user][:name]
-      user.email      = "no_email#{rand(999999)}@ninayo.com"
-      user.whatsapp_id = params[:ad][:user][:whatsapp_id]
-      user.gender     = params[:ad][:user][:gender]
-      user.birthday   = params[:ad][:user][:birthday].to_s
-      user.region_id  = ad_params[:region_id]
-      user.district_id = ad_params[:district_id]
-      user.ward_id    = ad_params[:ward_id]
-      user.village    =  ad_params[:village]
-      user.password   = params[:ad][:user][:password]
-      user.password_confirmation = params[:ad][:user][:password_confirmation]
+    @ad.user          = current_user || User.where(:phone_number => new_ad_user[:phone_number], :encrypted_password => new_ad_user[:password]).first_or_create do |user|
+      user.name                  = new_ad_user[:name]
+      user.email                 = "no_email#{rand(999999)}@ninayo.com"
+      user.whatsapp_id           = new_ad_user[:whatsapp_id]
+      user.gender                = new_ad_user[:gender]
+      user.birthday              = new_ad_user[:birthday].to_s
+      user.region_id             = ad_params[:region_id]
+      user.district_id           = ad_params[:district_id]
+      user.ward_id               = ad_params[:ward_id]
+      user.village               = ad_params[:village]
+      user.password              = new_ad_user[:password]
+      user.password_confirmation = new_ad_user[:password_confirmation]
       user.agreement = true
       if user.save
         user.update(email: nil)
@@ -446,6 +446,10 @@ class AdsController < ApplicationController
     else
       @ads = @ads.sell
     end
+  end
+
+  def new_ad_user
+    params[:ad][:user]
   end
 
   def ad_params
