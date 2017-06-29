@@ -70,7 +70,7 @@ class TextMessagesController < ApplicationController
 
     bart_targets = national_sunflower_sellers + iringa_maize_sellers
 
-    bart_targets.uniq[52..-1].each do |uid|
+    bart_targets.uniq[101..-1].each do |uid|
       user_to_text = User.find_by_id(uid)
       if user_to_text && !user_to_text.phone_number.blank?
         send_sms(user_to_text, bart_message)
