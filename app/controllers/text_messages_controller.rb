@@ -49,7 +49,7 @@ class TextMessagesController < ApplicationController
     users_to_text.each { |u| send_sms(u, sale_message) }
 
     redirect_to prices_path, flash: { notice: 'Texted all relevant users' }
-   
+  end
 
   def harvest_reminder(region_id = 5)
     # random-sample 100 iringa people without login in 90-120 days
