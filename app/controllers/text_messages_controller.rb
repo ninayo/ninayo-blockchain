@@ -22,9 +22,13 @@ class TextMessagesController < ApplicationController
     @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'],
                                        ENV['TWILIO_AUTH_TOKEN'])
 
-    @client.messages.create(from: @alpha_id,
-                            to: @outgoing_num,
-                            body: message)
+    begin
+      @client.messages.create(from: @alpha_id,
+                              to: @outgoing_num,
+                              body: message)
+    rescue Twilio::REST::RequestError => e
+      puts e.message
+    end
   end
   # handle_asynchronously :send_sms
 
