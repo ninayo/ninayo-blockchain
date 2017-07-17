@@ -114,6 +114,10 @@ class TextMessagesController < ApplicationController
     num[0..3] == '+255' ? num : '+255' + num
   end
 
+  def envaya_endpoint
+    head :ok
+  end
+
   private
 
   def get_idle_recent_sellers(region_id)

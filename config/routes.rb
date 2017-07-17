@@ -108,6 +108,8 @@ Rails.application.routes.draw do
 
   end
 
+  post 'envayaportal', to: 'text_messages#envaya_endpoint'
+
   post 'text', to: 'text_messages#create'
 
   patch 'sms_reset/:phone_number' => 'text_messages#find_for_sms_reset', as: :sms_reset
