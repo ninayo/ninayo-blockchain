@@ -154,7 +154,7 @@ class TextMessagesController < ApplicationController
     end
 
     #find the crop type
-    crop_string = best_match(message_contents[0], CropType.all.map(&:name_sw))
+    crop_string = best_match(message_contents[0], CropType.all.map(&:name_sw)).titleize
     new_ad_info[:crop_type_id] = CropType.find_by(name_sw: crop_string).id
 
     #parse the volume and unit
