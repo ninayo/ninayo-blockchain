@@ -137,8 +137,8 @@ class TextMessagesController < ApplicationController
     @new_sms_ad = Ad.new(ad_type: "sell")
 
     incoming_sms = params
-    incoming_user_number = incoming_sms[:from]
-    incoming_message = incoming_sms[:message]
+    incoming_user_number = incoming_sms["from"]
+    incoming_message = incoming_sms["message"]
 
     new_ad_info = { crop_type_id: nil,
                           volume: nil,
@@ -154,7 +154,8 @@ class TextMessagesController < ApplicationController
     end
 
     #find the crop type
-    new_ad_info[:crop_type_id] = CropType.find_by(name_sw: (best_match(message_contents[0], CropType.all.map(&:name_sw)))).id
+    crop_string = best_match(message_contents[0], CropType.all.map(&:name_sw))
+    new_ad_info[:crop_type_id] = CropType.find_by(name_sw: crop_string).id
 
     #parse the volume and unit
     new_ad_info[:volume] = message_contents[1].to_i unless message_contents[1].to_i.zero?
