@@ -136,7 +136,7 @@ class TextMessagesController < ApplicationController
   def parse_incoming_and_validate_params
     @new_sms_ad = Ad.new(ad_type: "sell")
 
-    incoming_sms = params[:incoming]
+    incoming_sms = params
     incoming_user_number = incoming_sms[:from]
     incoming_message = incoming_sms[:message]
 
