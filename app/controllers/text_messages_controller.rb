@@ -205,10 +205,10 @@ class TextMessagesController < ApplicationController
   end
 
   def create_ad_from_sms
-    if @sms_sender.valid?
+    if @sms_sender.save
       @new_sms_ad.user_id = @sms_sender.id
-      if @new_sms_ad.valid?
-        @new_sms_ad.save
+      if @new_sms_ad.save
+        head :ok
       end
     else
       # didn't work
