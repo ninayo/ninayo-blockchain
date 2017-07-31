@@ -167,7 +167,7 @@ class TextMessagesController < ApplicationController
 
     #find the region
 
-    new_ad_info[:region_id] = best_match(message_contents[4], Region.all.map(&:name)).id
+    new_ad_info[:region_id] = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
 
     new_ad_info.keys.each do |key|
       m = "#{key}="
