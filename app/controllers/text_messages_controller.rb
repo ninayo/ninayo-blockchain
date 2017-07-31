@@ -171,7 +171,7 @@ class TextMessagesController < ApplicationController
 
     new_ad_info.keys.each do |key|
       m = "#{key}="
-      @new_sms_ad.send( m, new_ad_info[key] ) if new_sms_ad.respond_to? ( m )
+      @new_sms_ad.send( m, new_ad_info[key] ) if @new_sms_ad.respond_to? ( m )
     end
 
   end
