@@ -282,4 +282,5 @@ class TextMessagesController < ApplicationController
   end
 
   def incoming_sms_params
+  end
 end
