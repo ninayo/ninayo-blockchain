@@ -224,8 +224,8 @@ class TextMessagesController < ApplicationController
   end
 
   def string_similarity(str1, str2)
-    str1.downcase!
-    str2.downcase!
+    str1 = str1.downcase
+    str2 = str2.downcase
 
     pairs1 = (0..str1.length - 2).collect{|i| str1[i, 2]}.reject { |pair| pair.include?(" ") }
     pairs2 = (0..str2.length - 2).collect{|i| str2[i, 2]}.reject { |pair| pair.include?(" ") }
