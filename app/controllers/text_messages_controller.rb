@@ -116,9 +116,141 @@ class TextMessagesController < ApplicationController
 
   def envaya_endpoint
     head :ok
+
+    validate_incoming_phone # validate incoming number, params[action] == "incoming"
+    parse_incoming_and_validate_params # parse message params for info, 
+                                       # validate that it's all doable and set vars
+    find_or_create_new_sms_user # check user for previous registration,
+                                # or register a new one
+
+    create_ad_from_sms # create ad
+    send_twilio_response # send a response through twilio
   end
 
   private
+
+  def validate_incoming_phone
+    sms_error unless (params[:phone_number] == "123456789")
+  end
+
+  def parse_incoming_and_validate_params
+    @new_sms_ad = Ad.new(ad_type: "sell")
+
+    incoming_sms = params[:incoming]
+    incoming_user_number = incoming_sms[:from]
+    incoming_message = incoming_sms[:message]
+
+    new_ad_info = { crop_type_id: nil,
+                          volume: nil,
+                     volume_unit: nil,
+                           price: nil,
+                       region_id: nil }
+
+    message_contents = incoming_message.split(" ")
+    
+    if message_contents.length < 5 # check that the message is split properly, retry or fail
+      message_contents = incoming_message.split(", ")
+      sms_error unless message_contents.length == 5
+    end
+
+    #find the crop type
+    new_ad_info[:crop_type_id] = best_match(message_contents[0], CropType.all.map(&:name_sw)).id
+
+    #parse the volume and unit
+    new_ad_info[:volume] = message_contents[1].to_i unless message_contents[1].to_i.zero?
+    new_ad_info[:volume_unit] = Ad.volume_units[best_match(message_contents[2], Ad.volume_units.keys)] # ugly
+
+    #make sure the price is a number, strip off any characters
+
+    new_ad_info[:price] = message_contents[3].to_i unless message_contents[3].to_i.zero?
+
+    #find the region
+
+    new_ad_info[:region_id] = best_match(message_contents[4], Region.all.map(&:name)).id
+
+    new_ad_info.keys.each do |key|
+      m = "#{key}="
+      @new_sms_ad.send( m, new_ad_info[key] ) if new_sms_ad.respond_to? ( m )
+    end
+
+  end
+
+  # SAMPLE POST REQUEST FROM THE PHONE
+  # Parameters: { 
+  #   "battery"=>"84", - current phone battery
+  #   "from"=>"8312776739", - client phone number
+  #   "log"=>"Server connection OK!\n", - current server log
+  #   "message"=>"Sdfg qwerty", - incoming message
+  #   "message_type"=>"sms", - duh
+  #   "network"=>"WIFI", - currently connected network
+  #   "now"=>"1501529648062", - time of relay (unix)
+  #   "phone_id"=>"", - based on phone setting
+  #   "phone_number"=>"8312776739", - number of OUR phone
+  #   "phone_token"=>"", - also based on phone setting
+  #   "power"=>"0", - is it plugged in or not
+  #   "send_limit"=>"100",
+  #   "settings_version"=>"0", 
+  #   "timestamp"=>"1501529648000", - timestamp on incoming message (unix)
+  #   "version"=>"30" - current envaya version (don't see this changing)
+  # }
+
+  def find_or_create_new_sms_user
+    @sms_sender = User.where(phone_number: params[:from]).first_or_create do |user|
+      user.name = "User-#{rand(1000)}"
+      user.encrypted_password = SecureRandom.urlsafe_base64
+      user.region_id = @new_sms_ad.region_id
+      user.district_id = @new_sms_ad.region.districts.first.id
+    end
+  end
+
+  def create_ad_from_sms
+    if @sms_sender.valid?
+      @new_sms_ad.user_id = @sms_sender.id
+      if @new_sms_ad.valid?
+        @new_sms_ad.save
+      end
+    else
+      # didn't work
+    end
+  end
+
+  def send_twilio_response
+    # send a response through twilio about what happened
+  end
+
+  def sms_error
+    return false
+  end
+
+  def string_similarity(str1, str2)
+    str1.downcase!
+    str2.downcase!
+
+    pairs1 = (0..str1.length - 2).collect{|i| str1[i, 2]}.reject { |pair| pair.include?(" ") }
+    pairs2 = (0..str2.length - 2).collect{|i| str2[i, 2]}.reject { |pair| pair.include?(" ") }
+
+    union = pairs1.size + pairs2.size
+
+    intersection = 0
+
+    pairs1.each do |p1|
+      0.upto(pairs2.size - 1) do |i|
+        if p1 == pairs2[i]
+          intersection += 1
+          pairs2.slice!(i)
+          break
+        end
+      end
+    end
+
+    (2.0 * intersection) / union
+  end
+
+  def best_match(user_input, master_strings)
+    confidence_hash = {}
+    master_strings.each { |candidate| confidence_hash[candidate] = string_similarity(user_input, candidate) }
+    confidence_hash.sort_by(&:last).last[0]
+  end
 
   def get_idle_recent_sellers(region_id)
     ads = Ad.where('published_at >= ?', 30.days.ago)
@@ -148,4 +280,6 @@ class TextMessagesController < ApplicationController
       from: params[:From],
       body: params[:Body] }
   end
+
+  def incoming_sms_params
 end
