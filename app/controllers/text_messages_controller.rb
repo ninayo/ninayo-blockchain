@@ -197,10 +197,11 @@ class TextMessagesController < ApplicationController
 
   def find_or_create_new_sms_user
     @sms_sender = User.where(phone_number: params[:from]).first_or_create do |user|
-      user.name = "User-#{rand(1000)}"
-      user.encrypted_password = SecureRandom.urlsafe_base64
-      user.region_id = @new_sms_ad.region_id
-      user.district_id = @new_sms_ad.region.districts.first.id
+      user.name ||= "User-#{rand(1000)}"
+      user.agreement = true
+      user.password ||= SecureRandom.urlsafe_base64
+      user.region_id ||= @new_sms_ad.region_id
+      user.district_id ||= @new_sms_ad.region.districts.first.id
     end
   end
 
