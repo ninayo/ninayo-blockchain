@@ -203,6 +203,7 @@ class TextMessagesController < ApplicationController
       user.region_id ||= @new_sms_ad.region_id
       user.district_id ||= @new_sms_ad.region.districts.first.id
     end
+    @sms_sender.save!
   end
 
   def create_ad_from_sms
