@@ -140,12 +140,6 @@ class TextMessagesController < ApplicationController
     incoming_user_number = incoming_sms["from"]
     incoming_message = incoming_sms["message"]
 
-    new_ad_info = { crop_type_id: nil,
-                          volume: nil,
-                     volume_unit: nil,
-                           price: nil,
-                       region_id: nil }
-
     message_contents = incoming_message.split(" ")
     
     if message_contents.length < 5 # check that the message is split properly, retry or fail
@@ -155,24 +149,19 @@ class TextMessagesController < ApplicationController
 
     #find the crop type
     crop_string = best_match(message_contents[0], CropType.all.map(&:name_sw)).titleize
-    new_ad_info[:crop_type_id] = CropType.find_by(name_sw: crop_string).id
+    @new_sms_ad.crop_type_id = CropType.find_by(name_sw: crop_string).id
 
     #parse the volume and unit
-    new_ad_info[:volume] = message_contents[1].to_i unless message_contents[1].to_i.zero?
-    new_ad_info[:volume_unit] = Ad.volume_units[best_match(message_contents[2], Ad.volume_units.keys)] # ugly
+    @new_sms_ad.volume = message_contents[1].to_i unless message_contents[1].to_i.zero?
+    @new_sms_ad.volume_unit = Ad.volume_units[best_match(message_contents[2], Ad.volume_units.keys)] # ugly
 
     #make sure the price is a number, strip off any characters
 
-    new_ad_info[:price] = message_contents[3].to_i unless message_contents[3].to_i.zero?
+    @new_sms_ad.price = message_contents[3].to_i unless message_contents[3].to_i.zero?
 
     #find the region
 
-    new_ad_info[:region_id] = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
-
-    new_ad_info.keys.each do |key|
-      m = "#{key}="
-      @new_sms_ad.send( m, new_ad_info[key] ) if @new_sms_ad.respond_to? ( m )
-    end
+    @new_sms_ad.region_id = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
 
   end
 
