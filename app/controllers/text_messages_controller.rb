@@ -162,6 +162,7 @@ class TextMessagesController < ApplicationController
     #find the region
 
     @new_sms_ad.region_id = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
+    @new_sms_ad.district_id = 0
 
   end
 
