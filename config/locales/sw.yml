@@ -15,7 +15,7 @@ sw:
     attributes:
       ad:
         description: "Maelezo (hiari)"
-        price: "Bei ya rejareja"
+        price: "Bei ya jumia"
         volume: "Kiasi kinacho uzwa"
         volume_unit: "Kipimo"
         village: "Kijiji"
@@ -181,7 +181,7 @@ sw:
       other: "Makosa %{count} yamefanyika"
 
     facts: "Ukweli"
-    price: "Bei za rejareja"
+    price: "Bei ya jumia"
     volumne: "Kiasi kinacho uzwa"
     published: "Limechapishwa"
 
