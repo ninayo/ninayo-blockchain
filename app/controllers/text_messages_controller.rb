@@ -102,41 +102,39 @@ class TextMessagesController < ApplicationController
   private
 
   def validate_incoming_phone
-    sms_error unless (params[:phone_number] == "123456789")
+    sms_error unless params[:phone_number] == '123456789'
   end
 
   def parse_incoming_and_validate_params
-    @new_sms_ad = Ad.new(ad_type: "sell")
+    @new_sms_ad = Ad.new(ad_type: 'sell')
 
     incoming_sms = params
-    incoming_user_number = incoming_sms["from"]
-    incoming_message = incoming_sms["message"]
+    incoming_message = incoming_sms['message']
 
-    message_contents = incoming_message.split(" ")
-    
+    message_contents = incoming_message.split(' ')
+
     if message_contents.length < 5 # check that the message is split properly
-      message_contents = incoming_message.split(", ")
+      message_contents = incoming_message.split(', ')
       sms_error unless message_contents.length == 5
     end
 
-    #find the crop type
+    # find the crop type
     crop_string = best_match(message_contents[0], CropType.all.map(&:name_sw)).titleize
     @new_sms_ad.crop_type_id = CropType.find_by(name_sw: crop_string).id
 
-    #parse the volume and unit
+    # parse the volume and unit
     @new_sms_ad.volume = message_contents[1].to_i unless message_contents[1].to_i.zero?
     @new_sms_ad.volume_unit = Ad.volume_units[best_match(message_contents[2], Ad.volume_units.keys)] # ugly
 
-    #make sure the price is a number, strip off any characters
+    # make sure the price is a number, strip off any characters
 
     @new_sms_ad.price = message_contents[3].to_i unless message_contents[3].to_i.zero?
 
-    #find the region
+    # find the region
 
     @new_sms_ad.region_id = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
     @new_sms_ad.district_id = 0 # for now set to zeroth district
     @new_sms_ad.status = 1 # set to active
-
   end
 
   # SAMPLE POST REQUEST FROM THE PHONE
