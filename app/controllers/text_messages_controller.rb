@@ -82,34 +82,6 @@ class TextMessagesController < ApplicationController
   #   end
   # end
 
-  def mtenda_reminder
-    message = 'UJUMBE KUTOKA NINAYO.COM Mtenda anahitaji kununua Mpunga. '\
-              'Wasiliana nae kwa namba 0764-150312 kwa maelewano zaidi ASANTE' 
-
-    targets = [22667,22668,22672,22775,22776,22777,22778,22779,22780,22781,22782,22783,22784,22785,22786,22787,22788,22867,22869,22870,22871,22873,22874,22875,22876,22877,22878,22879,22880,22881,22882,22883,22884,22885,22886,22887,22888,22889,22890,22891,22892,22893,22894,22895,22896,22897,22898,22899,22900,22901,22903,22904,22905,22906,22907,22909,22910,22913,22914,22915,22916,22917,22943,22995,22996,22997,22998,22999,23000,23001,23002,23003,23004,23005,23006,23007,23008,23009,23010,23011,23012,23013,23014,23015,23016,23017,23018,23019,23020,23021,23022,23023,23024,23025,23026,23027,23131,23132,23133,23134,23135,23136,23137,23138,23140,23141,23142,23143,23144,23145,23146,23147,23148,23149,23150,23151,23152,23153,23154,23155,23156,23192,23194,23197,23199,23201,23204,23205,23206,23207,23208,23209,23210,23211,23212,23214,23218,23220,23222,23224,23226,23233,23235,23238,23240,23242,23248,23249,23250,23251,23252,23253,23303,23304,23305,23306,23307,23308,23309,23310,23311,23312,23313,23314,23315,23316,23317,23327,23328,23329,23330,23331,23333,23345,23346,23347,23350,23351,23352,23353,23354,23355,23356,23357,23358,23359,23388,23389,23390,23391,23392,23455,23456,23457,23458,23459,23460,23461,23462,23463,23464,23465,23466,23467,23468,23469,23470,23471,23472,23473,23474,23475,23476,23477,23478,23479,23480,23481,23482,23483,23484,23485,23486,23501,23502,23503,23504,23505,23506,23507,23508,23509,23510,23511,23512,23513,23514,23515,23516,23517,23518,23519,23520,23521,23522,23523,23524,23525,23526,23527,23528,23529,23530,23531,23533,23534,23535,23536,23539,23541,23542,23544,23547,23549].first(128)
-
-    targets.uniq.each do |uid|
-      user_to_text = User.find_by_id(uid)
-      if user_to_text && !user_to_text.phone_number.blank?
-        send_sms(user_to_text, message)
-      end
-    end
-  end
-
-  def eddy_reminder
-    message = 'UJUMBE KUTOKA NINAYO.COM Eddy Sanda anahitaji kununua Mahindi. '\
-              'Wasiliana nae kwa namba 0756-993517 kwa maelewano zaidi ASANTE' 
-
-    targets = [22792,22794,22795,22796,22797,22798,22799,22800,22801,22802,22805,22806,22807,22808,22809,22810,22811,22812,22813,22817,22830,23032,23033,23034,23035,23036,23037,23038,23039,23040,23159,23160,23165,23167,23168,23169,23170,23171,23172,23173,23174,23175,23176,23179,23180,23181,23186,23187,23188,23189,23191,23193,23195,23198,23200,23202,23215,23217,23219,23221,23223,23225,23227,23228,23229,23232,23234,23236,23239,23241,23243,23244,23245,23246,23247,23334,23335,23337,23338,23339,23340,23341,23342,23343,23344,23369,23370,23371,23372,23373,23375,23376,23377,23378,23381,23396,23397,23398,23399,23429,23431,23432,23433,23444,23445,23446,23448,23449,23450]
-
-    targets.uniq.each do |uid|
-      user_to_text = User.find_by_id(uid)
-      if user_to_text && !user_to_text.phone_number.blank?
-        send_sms(user_to_text, message)
-      end
-    end
-  end
-
   def format_number(num)
     num[0..3] == '+255' ? num : '+255' + num
   end
@@ -118,7 +90,7 @@ class TextMessagesController < ApplicationController
     head :ok
 
     validate_incoming_phone # validate incoming number, params[action] == "incoming"
-    parse_incoming_and_validate_params # parse message params for info, 
+    parse_incoming_and_validate_params # parse message params for info,
                                        # validate that it's all doable and set vars
     find_or_create_new_sms_user # check user for previous registration,
                                 # or register a new one
@@ -142,7 +114,7 @@ class TextMessagesController < ApplicationController
 
     message_contents = incoming_message.split(" ")
     
-    if message_contents.length < 5 # check that the message is split properly, retry or fail
+    if message_contents.length < 5 # check that the message is split properly
       message_contents = incoming_message.split(", ")
       sms_error unless message_contents.length == 5
     end
@@ -168,9 +140,9 @@ class TextMessagesController < ApplicationController
   end
 
   # SAMPLE POST REQUEST FROM THE PHONE
-  # Parameters: { 
+  # Parameters: {
   #   "battery"=>"84", - current phone battery
-  #   "from"=>"8312776739", - client phone number
+  #   "from"=>"1234567890", - client phone number
   #   "log"=>"Server connection OK!\n", - current server log
   #   "message"=>"Sdfg qwerty", - incoming message
   #   "message_type"=>"sms", - duh
@@ -181,7 +153,7 @@ class TextMessagesController < ApplicationController
   #   "phone_token"=>"", - also based on phone setting
   #   "power"=>"0", - is it plugged in or not
   #   "send_limit"=>"100",
-  #   "settings_version"=>"0", 
+  #   "settings_version"=>"0",
   #   "timestamp"=>"1501529648000", - timestamp on incoming message (unix)
   #   "version"=>"30" - current envaya version (don't see this changing)
   # }
