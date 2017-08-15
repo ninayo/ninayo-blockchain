@@ -89,11 +89,10 @@ class TextMessagesController < ApplicationController
   def envaya_endpoint
     head :ok
 
-    validate_incoming_phone # validate incoming number, params[action] == "incoming"
+    validate_incoming_phone
     parse_incoming_and_validate_params # parse message params for info,
-                                       # validate that it's all doable and set vars
+
     find_or_create_new_sms_user # check user for previous registration,
-                                # or register a new one
 
     create_ad_from_sms # create ad
     send_twilio_response # send a response through twilio
