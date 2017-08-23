@@ -89,7 +89,7 @@ class TextMessagesController < ApplicationController
   def envaya_endpoint
     head :ok
 
-    #validate_incoming_phone
+    return false unless validate_incoming_phone
     parse_incoming_and_validate_params # parse message params for info,
 
     find_or_create_new_sms_user # check user for previous registration,
@@ -101,7 +101,7 @@ class TextMessagesController < ApplicationController
   private
 
   def validate_incoming_phone
-    sms_error unless params[:phone_number] == '123456789'
+    params[:phone_number] == '0743195645'
   end
 
   def parse_incoming_and_validate_params
