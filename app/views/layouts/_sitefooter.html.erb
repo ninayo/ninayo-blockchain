@@ -2,12 +2,12 @@
 	<div class="sitefooter-inner">
 		<div class="sitefooter-row">
 			<div class="sitefooter-first">
-				<p class="sitefooter-contactinfo">
+				<p class="sitefooter-contactinfo" style="text-align: center;">
+					<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block", :style => "width: 80vw; max-width: 320px; background-color: '9e9e9e';")%>
+					<br>
+					<%= link_to("#{t "views.footer.contact"}", new_help_request_path, :class => "button is-block", :style => "width: 80vw; max-width: 320px; background-color: '9e9e9e';")%>
 					<%= t "views.footer.contact" %>: <a href="mailto:info@ninayo.com">info@ninayo.com</a><br>
-					<%= t "views.footer.report_abuse" %>: <a href="mailto:abuse@ninayo.com">abuse@ninayo.com</a><br>
-					<%= t "views.footer.support" %>: <a href="mailto:support@ninayo.com">support@ninayo.com</a>
 				</p>
-				<%= link_to("Kuwasilisha ombi", new_help_request_path, :class => "button") %>
 			</div>
 		</div>
 		<div class="copy sitefooter-copy">
