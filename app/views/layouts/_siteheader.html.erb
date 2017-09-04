@@ -44,6 +44,16 @@
 			<%= link_to "#{t "views.navigation.login"}", new_user_session_path, :class => "primarynav-item is-secondary" %>
 		<% end %>
 
+		<% if I18n.locale == :sw %>
+			<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
+				<span>EN/SW</span>
+			<% end %>
+		<% elsif I18n.locale == :en %>
+			<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
+				<span>EN/SW</span>
+			<% end %>
+		<% end %>
+
 		<%= render "layouts/primarynav" %>
 	</div>
 	<div class="gold-stripe"></div>
