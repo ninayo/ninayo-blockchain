@@ -1,8 +1,8 @@
 <div class="sitefooter">
 	<div class="sitefooter-inner">
 		<div class="sitefooter-row">
-			<div class="sitefooter-first">
-				<p class="sitefooter-contactinfo" style="text-align: center;">
+			<div class="sitefooter-first" style="text-align: center;">
+				<p class="sitefooter-contactinfo">
 					<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "What is NINAYO?"), splash_instructions_path, :class => "button is-block", :style => "width: 80vw; max-width: 320px; background-color: '9e9e9e';")%>
 					<br>
 					<%= link_to("#{t "views.footer.contact"}", new_help_request_path, :class => "button is-block", :style => "width: 80vw; max-width: 320px; background-color: '9e9e9e';")%>
