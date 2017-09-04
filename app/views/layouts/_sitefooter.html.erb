@@ -9,18 +9,6 @@
 				</p>
 				<%= link_to("Kuwasilisha ombi", new_help_request_path, :class => "button") %>
 			</div>
-			<div class="sitefooter-second">
-
-				<% if I18n.locale == :sw %>
-					<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
-						<span>EN</span>
-					<% end %>
-				<% elsif I18n.locale == :en %>
-					<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
-						<span>SW</span>
-					<% end %>
-				<% end %>
-			</div>
 		</div>
 		<div class="copy sitefooter-copy">
 			&copy; 2016 Ninayo <br>
