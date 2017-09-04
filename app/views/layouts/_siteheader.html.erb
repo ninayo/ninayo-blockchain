@@ -41,14 +41,7 @@
 			<% end %>
 
 		<% else %>
-
-			<%= link_to get_started_path, :class => "primarynav-item is-secondary" do%>
- 				<%if I18n.locale == :en %>
-  					Get Started
-   				<% else %>
- 					Mwanzo
-   				<% end %>
-			<% end %>
+			<%= link_to "#{t "views.navigation.login"}", new_user_session_path, :class => "primarynav-item is-secondary" %>
 		<% end %>
 
 		<%= render "layouts/primarynav" %>
