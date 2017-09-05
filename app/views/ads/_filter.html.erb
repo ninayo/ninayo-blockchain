@@ -7,11 +7,12 @@
 		<div class="filterdiv">
 		<div class="filterrow">
 		<% if I18n.locale == :sw %>
-			<span>Mimi ni </span>
+			<span>Nionyeshe matangazo kutoka</span>
 		<% else %>
-			<span>I am </span>
+			<span>Show me ads from</span>
 		<% end%>
-		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'muuzaji' : 'a seller'), 'buy'], [(I18n.locale == :sw ? 'mnunuzi' : 'a buyer'), 'sell']], @ad_type), style: "width: 135px;" %>
+		<br>
+		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'Vuuzaji wa mazao' : 'Crop Buyers'), 'buy'], [(I18n.locale == :sw ? 'Wauzaji wa mazao' : 'Crop Sellers'), 'sell']], @ad_type), style: "width: 135px;" %>
 		</div>
 		<div class="filterrow">
 		<% if I18n.locale == :sw %>
@@ -19,6 +20,7 @@
 		<% else %>
 			<span> I am looking for </span>
 		<% end %>
+		<br>
 			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), style: "width: 135px;", prompt: "all crops" if I18n.locale == :en %>
 			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name_sw", @crop_type_id), style: "width: 135px;", prompt: "mazao yote" if I18n.locale == :sw %>
 		</div>
@@ -28,6 +30,7 @@
 		<% else %>
 			<span> I am located in </span>
 		<% end %>
+		<br>
 			<%= select_tag "region_id", options_from_collection_for_select(@regions, "id", "name", @region_id), style: "width: 135px;", prompt: (I18n.locale == :sw ? "popote" : "anywhere") %>
 		</div>
 			<input type="submit" value="<%= I18n.locale == :sw ? "Chagua Matangazo" : "Change search options" %>" class="button is-primary is-block"/>
