@@ -48,8 +48,11 @@
 	display: block;
 	text-decoration: none;
 	color: $black;
-	padding: $padding $halfPadding;
 	border-bottom: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+	padding: 24px;
+	margin-bottom: 16px;
+	background-color: aliceblue;
 
 	@include mq($from: medium) {
 		padding: $padding;
