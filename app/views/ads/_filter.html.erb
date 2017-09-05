@@ -14,7 +14,7 @@
 		<% end%>
 		</b>
 		<br>
-		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'Vuuzaji wa mazao' : 'Crop Buyers'), 'buy'], [(I18n.locale == :sw ? 'Wauzaji wa mazao' : 'Crop Sellers'), 'sell']], @ad_type), style: "width: 135px;" %>
+		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'Vuuzaji wa mazao' : 'Crop Buyers'), 'buy'], [(I18n.locale == :sw ? 'Wauzaji wa mazao' : 'Crop Sellers'), 'sell']], @ad_type) %>
 		</div>
 		<div class="filterrow">
 		<b>
@@ -25,8 +25,8 @@
 		<% end %>
 		</b>
 		<br>
-			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), style: "width: 135px;", prompt: "all crops" if I18n.locale == :en %>
-			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name_sw", @crop_type_id), style: "width: 135px;", prompt: "mazao yote" if I18n.locale == :sw %>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), prompt: "all crops" if I18n.locale == :en %>
+			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name_sw", @crop_type_id), prompt: "mazao yote" if I18n.locale == :sw %>
 		</div>
 			<div class="filterrow">
 		<b>
@@ -37,7 +37,7 @@
 		<% end %>
 		</b>
 		<br>
-			<%= select_tag "region_id", options_from_collection_for_select(@regions, "id", "name", @region_id), style: "width: 135px;", prompt: (I18n.locale == :sw ? "popote" : "anywhere") %>
+			<%= select_tag "region_id", options_from_collection_for_select(@regions, "id", "name", @region_id), prompt: (I18n.locale == :sw ? "popote" : "anywhere") %>
 		</div>
 			<input type="submit" value="<%= I18n.locale == :sw ? "Chagua Matangazo" : "Change search options" %>" class="button is-primary is-block"/>
 		<h3 class="filter-heading"><a href="<%=request.path%>" class="filter-reset" style="color: #337AB7;"><%= t "views.ad.filter.reset_filter" %></a></h3>
