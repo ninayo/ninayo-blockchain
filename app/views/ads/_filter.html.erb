@@ -4,7 +4,7 @@
 
 
 		<div class="field filter-field">
-		<div class="filterdiv">
+		<div class="filterdiv" style="padding: 20px;">
 		<div class="filterrow">
 		<b>
 		<% if I18n.locale == :sw %>
@@ -16,6 +16,7 @@
 		<br>
 		<%= select_tag "ad_type", options_for_select([[(I18n.locale == :sw ? 'Vuuzaji wa mazao' : 'Crop Buyers'), 'buy'], [(I18n.locale == :sw ? 'Wauzaji wa mazao' : 'Crop Sellers'), 'sell']], @ad_type) %>
 		</div>
+		<br>
 		<div class="filterrow">
 		<b>
 		<% if I18n.locale == :sw %>
@@ -28,12 +29,13 @@
 			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name", @crop_type_id), prompt: "all crops" if I18n.locale == :en %>
 			<%= select_tag "crop_type_id", options_from_collection_for_select(@crop_types, "id", "name_sw", @crop_type_id), prompt: "mazao yote" if I18n.locale == :sw %>
 		</div>
+		<br>
 			<div class="filterrow">
 		<b>
 		<% if I18n.locale == :sw %>
 			<span> Orodha ya mazao kwa mkoa </span>
 		<% else %>
-			<span> I am located in </span>
+			<span> Show me ads from </span>
 		<% end %>
 		</b>
 		<br>
@@ -42,6 +44,7 @@
 			<input type="submit" value="<%= I18n.locale == :sw ? "Chagua Matangazo" : "Change search options" %>" class="button is-primary is-block"/>
 		<h3 class="filter-heading"><a href="<%=request.path%>" class="filter-reset" style="color: #337AB7;"><%= t "views.ad.filter.reset_filter" %></a></h3>
 		</div>
+		<br>
 		<% if admin_user? %>
 		<div class="field filter-field">
  			<h4 class="filter-field-heading"><%= t "views.ad.volume" %></h4>
