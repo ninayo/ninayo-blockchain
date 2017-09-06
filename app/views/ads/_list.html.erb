@@ -1,11 +1,11 @@
 <% if !@region_name.nil? && !@crop_name.nil? %>
-	<h3 style="font-size: 24px"><%= "#{@crop_name} zinanunuliwa #{@region_name}" %></h3>
+	<h5><%= "#{@crop_name} zinanunuliwa #{@region_name}" %></h5>
 <% elsif !@region_name.nil? && @crop_name.nil? %>
-	<h3 style="font-size: 24px"><%= "Mazao kwa ajili ya kuuza mkoani #{@region_name}" %></h3>
+	<h5><%= "Mazao kwa ajili ya kuuza mkoani #{@region_name}" %></h5>
 <% elsif !@crop_name.nil? && @region_name.nil? %>
-	<h3 style="font-size: 24px"><%= "#{@crop_name} kwa ajili ya kuuza" %></h3>
+	<h5><%= "#{@crop_name} kwa ajili ya kuuza" %></h5>
 <% else %>
-	<h3 style="font-size: 24px"><%= (@ad_type == "sell" ? (t "views.ad.list.for_sale") : (t "views.ad.list.for_buy")) %></h3>
+	<h5><%= (@ad_type == "sell" ? (t "views.ad.list.for_sale") : (t "views.ad.list.for_buy")) %></h5>
 <% end %>
 
 <% if ads.length > 0 %>
