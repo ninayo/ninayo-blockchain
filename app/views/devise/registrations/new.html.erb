@@ -41,6 +41,20 @@
 			<div class="field-actions">
 				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-block" %>
 			</div>
+
+			<h3><%= (I18n.locale == :en ? "Prefer to sign in using Facebook?" : "Je, unapendelea kuingia kwa kutumia Facebook?") %></h3>
+		
+			<p>
+				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
+					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
+						this.src='<%= image_path("icons/facebook.png") %>'">
+					<%if I18n.locale == :en %>
+						Log in with Facebook
+					<% else %>
+						Jisajili na Facebook
+					<% end %>
+				<% end %>
+			</p>
 		<% end %>
 	</div>
 	<div class="login-column">
