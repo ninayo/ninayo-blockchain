@@ -203,7 +203,7 @@ body {
 	&:after {
 		content: "";
   		display: block;
-		height: $siteFooterHeight;
+		height: 64px;
 	}
 
 	@include mq($from: medium) {
