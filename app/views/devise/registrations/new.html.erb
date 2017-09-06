@@ -37,11 +37,11 @@
 					<%= t "views.create_account.agreement_text_1" %>  <%= link_to "#{t "views.create_account.agreement_text_2"}", terms_path, :target => "_BLANK" %>
 				</label>
 			</div>
-			<hr>
+			<br>
 			<div class="field-actions">
 				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-block" %>
 			</div>
-
+			<br>
 			<h5><%= (I18n.locale == :en ? "Prefer to sign in using Facebook?" : "Je, unapendelea kuingia kwa kutumia Facebook?") %></h5>
 		
 			<p>
@@ -58,7 +58,7 @@
 		<% end %>
 	</div>
 	<div class="login-column">
-		<h3><%= t "views.create_account.heading_2" %></h3>
+		<h3 style="text-align: center;"><%= t "views.create_account.heading_2" %></h3>
 		
 		<p>
 			<%= link_to "#{t "devise.phrases.log_in"}", new_session_path(resource_name), :class => "button is-block" %>
