@@ -179,10 +179,12 @@ class TextMessagesController < ApplicationController
 
   def send_twilio_response
     # send a response through twilio about what happened
+    message = "Asante kwa kutuma. Kiungo chako cha tangazo: #{ad_path(@new_sms_ad.id)}"
+    send_sms(@sms_sender, message)
   end
 
   def sms_error
-    return false
+    err_message = "Ujembe wako haujaeleweka, tafadhali tutumie Zao, #Kilo, Bei kwa Kilo"
   end
 
   def string_similarity(str1, str2)
