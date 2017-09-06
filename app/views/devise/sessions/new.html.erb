@@ -1,23 +1,12 @@
 <div class="login">
 	<div class="login-column">
-		<h2><%= t "devise.phrases.log_in" %></h2>
+		<h3><%= t "devise.phrases.log_in" %></h3>
 
 		<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			<p>
-			<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
-					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
-						this.src='<%= image_path("icons/facebook.png") %>'">
-				<%if I18n.locale == :en %>
-					Log in with Facebook
-				<% else %>
-					Jisajili na Facebook
-				<% end %>
-			<% end %>
-			</p>
-			<hr>
+			<%= devise_error_messages! %>
 			<div class="field">
 				<%= f.label (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
- 				<%= f.text_field :login, placeholder: (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Please enter your email or phone number") %>
+ 				<%= f.text_field :login, placeholder: "+255123456789" %>
 			</div>
 
 			<div class="field">
@@ -46,15 +35,8 @@
 
 	</div>
 	<div class="login-column">
-		<h3><%= t "views.create_account.sidebar.heading" %></h3>
-		<p><%= t "views.create_account.sidebar.text" %></p>
-		<ul>
-			<li><%= t "views.create_account.sidebar.benefit_1" %></li>
-			<li><%= t "views.create_account.sidebar.benefit_2" %></li>
-			<li><%= t "views.create_account.sidebar.benefit_3" %></li>
-			<li><%= t "views.create_account.sidebar.benefit_4" %></li>
-		</ul>
-
+		<h3 style="text-align: center;"><%= t "views.create_account.sidebar.heading" %></h3>
+		
 		<p>
 			<%= link_to "#{t "devise.phrases.sign_up_now"}", new_registration_path(resource_name), class: "button is-block" %>
 		</p>
