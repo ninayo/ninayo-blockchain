@@ -42,7 +42,7 @@
 				<%= f.submit "#{t "views.create_account.sign_up"}", class: "button is-block" %>
 			</div>
 
-			<h3><%= (I18n.locale == :en ? "Prefer to sign in using Facebook?" : "Je, unapendelea kuingia kwa kutumia Facebook?") %></h3>
+			<h5><%= (I18n.locale == :en ? "Prefer to sign in using Facebook?" : "Je, unapendelea kuingia kwa kutumia Facebook?") %></h5>
 		
 			<p>
 				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button is-block is-facebook" do%>
