@@ -1,8 +1,10 @@
 <div class="indexoptions">
 	<div class="splashtext">
-		<strong><%= "#{t "common.title_header"}" %></strong>
-		<br>
-		<br>
+		<% unless current_user && current_user.id %>
+			<strong><%= "#{t "common.title_header"}" %></strong>
+			<br>
+			<br>
+		<% end %>
 		<strong><%= "#{t "common.explore_market"}" %></strong>
 		<br>
 		<br>
