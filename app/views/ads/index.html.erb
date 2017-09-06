@@ -1,6 +1,7 @@
 <div class="posts-wrapper">
 	<%= render "layouts/alert" %>
 	<strong><%= (I18n.locale == :sw ? "NINAYO Sokoni" : "The NINAYO Marketplace") %></strong>
+	<br>
 	<%= render "filter", :ads => @ads %>
 	<%= render "list", :ads => @ads %>
 	<%= paginate @ads %>
