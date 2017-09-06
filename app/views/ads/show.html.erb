@@ -3,7 +3,9 @@
 
 <% ab_test "ad show page", "card", "original" do |style| %>
 	<% if style == "card" %>
-	<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %></p>
+	<div class="back-button-div" style="display: flex; align-items: center;">
+		<p><%= link_to((I18n.locale == :sw ? "Rudisha matangazo ya mazao" : "Back to ad listing"), ads_url, :class => "button", :style => "background-color:gray") %></p>
+	</div>
 		<% if current_user && ((current_user.id == @ad.user.id) || current_user.admin?) && @ad.related_ads.length > 0 %>
 			<% if I18n.locale == :sw %>
 				<% if @ad.ad_type == "sell" %>
