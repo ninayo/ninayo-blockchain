@@ -190,7 +190,6 @@ body {
 }
 
 .wrapper {
-	min-height: 100%;
 	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
 	height: 100%;
 	max-width: 1024px;
@@ -203,7 +202,7 @@ body {
 	&:after {
 		content: "";
   		display: block;
-		height: 64px;
+		height: 164px;
 	}
 
 	@include mq($from: medium) {
