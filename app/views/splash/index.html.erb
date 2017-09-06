@@ -17,8 +17,19 @@
 	</div>
 	
 	<div class="fp-buttons">
-		<%= link_to("#{t "common.want_sell"}", new_ad_path, :class => "button primarynav-button is-primary") %>
-		<%= link_to("#{t "common.want_buy"}", ads_path, :class => "button primarynav-button is-primary") %>
+
+		<%= link_to ads_path, :class => "button primarynav-button is-primary" do %>
+			<h3><%= "#{t "common.search_ad"}" %></h3>
+			<p><%= "#{t "common.search_ad_sub"}" %></p>
+		<% end %>
+
+		<%= link_to new_ad_path, :class => "button primarynav-button is-primary" do %>
+			<h3><%= "#{t "common.new_ad"}" %></h3>
+			<p><%= "#{t "common.new_ad_sub"}" %></p>
+		<% end %>
+
+		<%= link_to("#{t "common.new_ad"}", new_ad_path, :class => "button primarynav-button is-primary") %>
+		<%= link_to("#{t "common.search_ad"}", ads_path, :class => "button primarynav-button is-primary") %>
 	</div>
 
 
