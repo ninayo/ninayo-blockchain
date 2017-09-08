@@ -124,6 +124,9 @@ class TextMessagesController < ApplicationController
     # parse the volume and unit
     @new_sms_ad.volume = message_contents[1].to_i unless message_contents[1].to_i.zero?
     @new_sms_ad.volume_unit = Ad.volume_units[best_match(message_contents[2], Ad.volume_units.keys)] # ugly
+    #temp fix, turn chanes to tanis
+    #figure out how to match yml-string translations, maybe hashmap
+    @new_sms_ad.volume_unit = "tonne" if @new_sms_ad.volume_unit = "chane"
 
     # make sure the price is a number, strip off any characters
 
