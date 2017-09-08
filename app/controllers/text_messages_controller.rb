@@ -133,6 +133,9 @@ class TextMessagesController < ApplicationController
 
     @new_sms_ad.region_id = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
     @new_sms_ad.district_id = 0 # for now set to zeroth district
+
+    @new_user_name = message_contents[5..6].join(" ").strip
+
     @new_sms_ad.status = 1
   end
 
@@ -157,7 +160,7 @@ class TextMessagesController < ApplicationController
 
   def find_or_create_new_sms_user
     @sms_sender = User.where(phone_number: params[:from]).first_or_create do |user|
-      user.name ||= "User-#{rand(1000)}"
+      user.name ||= @new_user_name || "User-#{rand(1000)}"
       user.agreement = true
       user.password ||= SecureRandom.urlsafe_base64
       user.region_id ||= @new_sms_ad.region_id
