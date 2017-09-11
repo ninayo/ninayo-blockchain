@@ -135,7 +135,7 @@ class TextMessagesController < ApplicationController
     # find the region
 
     @new_sms_ad.region_id = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
-    @new_sms_ad.district_id = 0 # for now set to zeroth district
+    @new_sms_ad.district_id = @new_sms_ad.region.first # for now set to first district
 
     @new_user_name = message_contents[5..6].join(" ").strip
 
