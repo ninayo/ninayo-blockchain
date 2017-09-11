@@ -95,7 +95,6 @@ class TextMessagesController < ApplicationController
     find_or_create_new_sms_user # check user for previous registration,
 
     create_ad_from_sms # create ad
-    send_twilio_response # send a response through twilio
   end
 
   private
@@ -177,9 +176,12 @@ class TextMessagesController < ApplicationController
       @new_sms_ad.user_id = @sms_sender.id
       if @new_sms_ad.save!
         head :ok
+        send_twilio_response
+      else
+        sms_error
       end
     else
-      # didn't work
+      sms_error
     end
   end
 
