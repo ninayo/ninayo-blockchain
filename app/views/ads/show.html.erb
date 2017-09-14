@@ -36,7 +36,7 @@
 			<strong><%= t "common.price" %>:</strong>
 			<%= number_to_currency(@ad.price, delimiter: ",", precision: 0)%>
 			<div class="posts-location">
-			<i><% unless @ad.village.nil? || @ad.village.blank? %><%= "#{@ad.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.user.district %><%= "#{@ad.user.district.name}, " %> <% end %> <%= @ad.region.name %>
+			<i><% unless @ad.village.nil? || @ad.village.blank? %><%= "#{@ad.village.titleize}, " %><% end %> <%if @ad.user.ward %><%= "#{@ad.user.ward.name}, " %><% end %> <% if @ad.district %><%= "#{@ad.district.name}, " %> <% end %> <%= @ad.region.name %>
 			<p><%= l(@ad.updated_at, format: :short) %> <%= "(" + time_ago_in_words(@ad.updated_at).downcase + (I18n.locale == :sw ? "" : " ago") + ")" %></p>
 			</div></i>
 			<div>
