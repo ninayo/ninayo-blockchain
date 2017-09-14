@@ -168,6 +168,7 @@ class TextMessagesController < ApplicationController
       user.region_id ||= @new_sms_ad.region_id
       user.district_id ||= @new_sms_ad.region.districts.first.id
     end
+    @sms_sender.name = @new_user_name if @new_user_name != @sms_sender.name
     @sms_sender.save!
   end
 
