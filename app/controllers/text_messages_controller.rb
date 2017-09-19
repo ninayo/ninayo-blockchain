@@ -137,6 +137,15 @@ class TextMessagesController < ApplicationController
 
     @new_sms_ad.region_id = Region.find_by(name: best_match(message_contents[4].titleize, Region.all.map(&:name))).id
     
+    # account for dar being a phrase, figureout a better way to do this soon
+
+    if message_contents[4].downcase == "dar"
+      @new_sms_ad.region_id = Region.find_by_name("Dar es Salaam").id
+      if message_contents[5..6].join(" ").downcase == "es salaam"
+        message_contents.slice!(5..6)
+      end
+    end
+
     # find the district
 
     @new_sms_ad.district_id = District.find_by(name: best_match(message_contents[5].titleize, District.all.map(&:name))).id
