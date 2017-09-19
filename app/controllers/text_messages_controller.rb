@@ -148,7 +148,7 @@ class TextMessagesController < ApplicationController
 
     # chop off and reattach mjini/vijijni, do this better too
 
-    if message_contents[6] == ("mjini" || "vijijni")
+    if message_contents[6].downcase == ("mjini" || "vijijni")
       message_contents[5] += (" " + message_contents.slice!(6))
     end
 
