@@ -155,7 +155,7 @@ class TextMessagesController < ApplicationController
 
     # find the district
 
-    @new_sms_ad.district_id = District.find_by(name: best_match(message_contents[5].titleize, District.all.map(&:name))).id
+    @new_sms_ad.district_id = District.find_by(name: best_match(message_contents[5].titleize, @new_sms_ad.region.districts.map(&:name))).id
 
     # get user name
 
