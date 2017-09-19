@@ -146,6 +146,12 @@ class TextMessagesController < ApplicationController
       end
     end
 
+    # chop off and reattach mjini/vijijni, do this better too
+
+    if message_contents[6] == ("mjini" || "vijijni")
+      message_contents[5] += (" " + message_contents.slice!(6))
+    end
+
     # find the district
 
     @new_sms_ad.district_id = District.find_by(name: best_match(message_contents[5].titleize, District.all.map(&:name))).id
