@@ -125,7 +125,9 @@ class TextMessagesController < ApplicationController
     @new_sms_ad.volume_unit = Ad.volume_units[best_match(message_contents[2], Ad.volume_units.keys)] # ugly
     #temp fix, turn chanes to tanis
     #figure out how to match yml-string translations, maybe hashmap
-    @new_sms_ad.volume_unit = "tonne" if @new_sms_ad.volume_unit = "chane"
+    if @new_sms_ad.volume_unit = "chane"
+      @new_sms_ad.volume_unit = "tonne"
+    end
 
     # make sure the price is a number, strip off any characters
 
