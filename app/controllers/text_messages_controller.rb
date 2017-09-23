@@ -109,6 +109,8 @@ class TextMessagesController < ApplicationController
     incoming_sms = params
     incoming_message = incoming_sms['message']
 
+    return if incoming_message.blank?
+
     message_contents = incoming_message.gsub(', ', ' ').split(' ')
 
     if message_contents.length < 5 # check that the message is split properly
