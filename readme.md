@@ -17,9 +17,9 @@
 ## Notes
 - Remember to specify `RAILS_ENV=development` for targetting specific environments (development, test, production)
 
-#TO BUILD:
+# TO BUILD:
 
-###USSD API
+### USSD API
 - [x] - postAd
 - [x] - getAdsForUser
 - [x] - archiveAd
@@ -27,36 +27,36 @@
 - [x] - getCropTypes
 - [x] - getRegions
 
-###ADMIN PANEL
+### ADMIN PANEL
 - [ ] - https://github.com/activeadmin/activeadmin
 - [x] - metabase
 
-###MESSAGES
+### MESSAGES
 - [x] - https://github.com/mailboxer/mailboxer
 
-###CROP TYPES
+### CROP TYPES
 - [x] - Coffee (Kawaha)
 - [x] - Onions (Vitunguu)
 
-###MAP IMPROVEMENTS
+### MAP IMPROVEMENTS
 - [x] - Marker culling (don't draw markers older than 30 days)
 
-###LOGIN/LANDING PAGE
+### LOGIN/LANDING PAGE
 - [x] - User landing prompting login/signup
 - [x] - Facebook oauth login
 
-###POST IMPROVEMENTS
+### POST IMPROVEMENTS
 - [ ] - "Similar ads" carousel somewhere on ad listing
 - [ ] - User alert messages
 
 ---------------------
 
-##TO FIX:
+## TO FIX:
 
 - [x] - Broken images on map (check gh for markerclusterer, new image URI)
 - [x] - Adblocker problem (caused by #ad-wrapper divs)
 
-###SECURITY ISSUES
+### SECURITY ISSUES
 - [x] - SQLi on ad.rb:60
 - [x] - SQLi on ad.rb:61
 - [x] - SQLi on ad_log.rb:11
