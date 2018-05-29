@@ -1,4 +1,23 @@
-##TO BUILD:
+# Development Guide:
+
+## Prerequisites
+- Ruby 2.2.3 (recommended to use `rvm install`)
+- Postgres (use `brew install postgres`)
+- Bundler (see https://bundler.io/)
+
+## Setup
+- `bundle install` (and fix any conflicts/errors)
+- Create postgres user (`createuser --superuser svennerberg`)
+- Create db by running `rake db:create`
+- Migrate db changes from schema by running `rake db:migrate`
+
+## Run
+- `rails s`
+
+## Notes
+- Remember to specify `RAILS_ENV=development` for targetting specific environments (development, test, production)
+
+#TO BUILD:
 
 ###USSD API
 - [x] - postAd
