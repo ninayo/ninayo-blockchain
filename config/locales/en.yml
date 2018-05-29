@@ -198,6 +198,7 @@ en:
     prices: "View market prices"
     sms_reset: "Your PIN has been reset and sent to you via SMS"
     phone_not_found: "Phone number not found, please try again"
+    want_sell: "Want sell"
 
     errors:
       zero: "no errors"

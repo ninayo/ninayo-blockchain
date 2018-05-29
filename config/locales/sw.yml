@@ -178,6 +178,7 @@ sw:
     prices: "Bei ya masoko"
     sms_reset: "Nywila yako imewekwa upya na kupelekwa kupitia SMS"
     phone_not_found: "Namba ya Simu haipatikani, tafadhali jaribu tena"
+    want_sell: "Want sell"
 
     errors:
       zero: "hakuna makosa"
@@ -598,3 +599,11 @@ sw:
       long: "%A, %e. %B %Y, %H:%M:%S"
       short: "%e %b"
     pm: pm
+
+  active_admin:
+      devise:
+        password:
+          title: "Password"
+        login:
+          title: "Username"
+          submit: "Login"
