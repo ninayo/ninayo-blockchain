@@ -4,9 +4,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   after_action :track_update, only: [:update]
 
-  def new
-    super do
-      @token = params[:invite_token]
+  def new    
+    respond_to do |format|
+      format.html { 
+        super do
+          @token = params[:invite_token]
+        end
+      }
+      format.json { render :status => phone_exists ? 200 : 403, :json => { :error => {"phone_exists" => phone_exists} } }
     end
   end
 
@@ -47,6 +52,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
+  def phone_exists
+    return !User.where('phone_number LIKE ?', "%#{params['phone'].strip}").blank?
+  end
 
   def cleanup_temp
     return if @user.phone_number.nil? || @user.phone_number.blank?
