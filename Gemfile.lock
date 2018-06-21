@@ -123,6 +123,10 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (2.4.0)
+    dotenv-rails (2.4.0)
+      dotenv (= 2.4.0)
+      railties (>= 3.2, < 6.0)
     erubis (2.7.0)
     excon (0.45.4)
     execjs (2.6.0)
@@ -377,6 +381,7 @@ DEPENDENCIES
   compass-rails (= 2.0.4)
   delayed_job_active_record
   devise
+  dotenv-rails
   faker
   groupdate
   heroku
@@ -414,4 +419,4 @@ RUBY VERSION
    ruby 2.2.3p173
 
 BUNDLED WITH
-   1.15.0
+   1.16.2
