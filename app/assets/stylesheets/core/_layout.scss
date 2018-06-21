@@ -1,10 +1,13 @@
+* {
+	margin: 0;
+}
+
 *,
 *:before,
 *:after {
 	@include box-sizing(border-box);
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
-
 
 html, body {
 	height: 100%;
@@ -191,18 +194,18 @@ body {
 
 .wrapper {
 	height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
-	height: 100%;
+	min-height: 100%;
 	max-width: 1024px;
 	min-width: $minWidth;
 	padding: 20px 32px;
 	margin: 0 auto;
-	margin-bottom: (-1 * $siteFooterHeight);
+	margin-bottom: (-1 * ($siteFooterHeight + $siteheaderHeight + 12)); //12 pixels makes up the 3 colored lines in header
 	overflow: hidden;
 
 	&:after {
 		content: "";
-  		display: block;
-		height: 164px;
+  	display: block;
+		height: $siteFooterHeight + $siteheaderHeight + 12;
 	}
 
 	@include mq($from: medium) {

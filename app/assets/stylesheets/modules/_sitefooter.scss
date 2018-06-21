@@ -5,6 +5,9 @@
 	font-size: 13px;
 	color: $lightGrey;
 
+	height: $siteFooterHeight;
+	overflow: hidden;
+
 	a {
 		color: $lightGrey;
 		text-decoration: underline;
@@ -40,13 +43,6 @@
 	}
 }
 
-.sitefooter-first {
-	@include mq($from: medium) {
-		float: left;
-		width: 70%;
-	}
-}
-
 .sitefooter-second {
 	@include mq($from: medium) {
 		float: right;
@@ -60,7 +56,7 @@
 
 	@include mq($from: medium) {
 		text-align: right;
-		margin-top: 0;
+		margin-top: $padding;
 	}
 }
 

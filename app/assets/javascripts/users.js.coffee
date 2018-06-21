@@ -24,3 +24,18 @@ jQuery ->
 		else
 			$('#user_ward_id').empty()
 			$('#user_ward_id').parent().hide()
+
+	$('#user_login').change ->
+		val = $(this).val()
+		form = $('#new_user')
+		phoneRegExp = new RegExp(/^(\+[0-9][0-9][0-9]){0,1}[0-9]{8,9}$/);
+		if phoneRegExp.test(val)
+			$.ajax({
+				url: form.attr('action') + '/sign_up.json',
+				type: 'GET',
+				accepts: 'application/json; charset=utf-8',
+				data: {'phone': val},
+				success: (data) ->
+					$('#phone_taken').html($('#phone_taken').html().replace('REPLACEUSERLOGIN', val))
+					$('#phone_taken').show()
+			})

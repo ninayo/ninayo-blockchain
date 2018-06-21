@@ -46,3 +46,64 @@
 @import "modules/siteheader";
 @import "modules/tabs";
 @import "modules/usernav";
+
+// Random extra stuff, clean this up later
+
+// Homepage specific
+body.splash-index {
+	background: image-url('home_back5.jpg') right bottom no-repeat;
+	background-size: cover; 
+
+	@include mq($until: medium) {
+		background: none;
+	}
+}
+
+body.splash-index .whitebox {
+	@include mq($from: medium) {
+		background: rgba(255,255,255,0.5);
+		border-radius: 5px;
+		padding:40px;
+		display: block;
+		margin: 20px auto;
+
+		color: #333;
+	}
+}
+
+body.splash-index .whitebox h1,
+body.splash-index .whitebox h2 {
+	font-size: 1.2em;
+	color: #333;
+} 
+body.splash-index .whitebox h2 {
+	font-size: 1.4em;
+	color: #333;
+}
+
+
+// Material icons
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
