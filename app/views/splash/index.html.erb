@@ -1,24 +1,27 @@
 <div class="indexoptions">
-	<div class="splashtext">
-		<% unless current_user && current_user.id %>
-			<strong><%= "#{t "common.title_header"}" %></strong>
-			<br>
-			<br>
+	<div class="whitebox splashtext">
+		<h2><%= "#{t "common.explore_market"}" %></h2>
+
+		<%= link_to ads_path, :class => "btn orange" do %>
+			<i class="material-icons left">search</i>
+			<span class="center">
+				<h5><%= "#{t "common.search_ad"}" %></h5>
+				<span class="supheading"><%= "#{t "common.search_ad_sub"}" %></span>
+			</span>
 		<% end %>
-		<strong><%= "#{t "common.explore_market"}" %></strong>
-		<br>
-		<br>
-	</div>
-	
-	<div class="fp-buttons">
-		<%= link_to ads_path, :class => "button primarynav-button is-primary", :style => "flex-direction: column; padding-bottom: 6px;" do %>
-			<h5 style="margin: 0px;"><%= "#{t "common.search_ad"}" %></h5>
-			<p style="font-size: 14px; margin: 0px;"><%= "#{t "common.search_ad_sub"}" %></p>
+		<br />
+		<%= link_to new_ad_path, :class => "btn orange" do %>
+			<i class="material-icons left">create</i>
+			<span class="center">
+				<h5><%= "#{t "common.new_ad"}" %></h5>
+				<span class="supheading"><%= "#{t "common.new_ad_sub"}" %></span>
+			</span>
 		<% end %>
 
-		<%= link_to new_ad_path, :class => "button primarynav-button is-primary", :style => "flex-direction: column; padding-bottom: 6px;" do %>
-			<h5 style="margin: 0px;"><%= "#{t "common.new_ad"}" %></h5>
-			<p style="font-size: 14px; margin: 0px;"><%= "#{t "common.new_ad_sub"}" %></p>
+		<% unless current_user && current_user.id %>
+			<div style="margin-top:40px;">
+				<h1><%= "#{t "common.title_header"}" %></h1>
+			</div>
 		<% end %>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-<div class="sitefooter">
+<!-- <div class="sitefooter">
 	<div class="sitefooter-inner">
 		<div class="sitefooter-row">
 			<div class="sitefooter-first" style="display: flex; flex-direction: column; align-items: center;">
@@ -8,8 +8,26 @@
 			</div>
 		</div>
 		<div class="copy sitefooter-copy">
-			<div style="text-align: center;"> Copyright &copy; Ninayo 2017 </div> <br>
-			<div style="text-align: center;"><%= image_tag("free_basics.gif", alt: "NINAYO", style: "max-width: 164px;") %></div>
+			<div style="text-align: center;">Copyright &copy; Ninayo 2018</div> <br>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="sitefooter">
+	<div class="grid wrapper" style="padding:10px 0;">
+		<div class="grid-row">
+			<div class="grid-column-6" style="text-align:center;">
+				<%= link_to((I18n.locale == :sw ? "Wasiliana nasi" : "Contact us"), new_help_request_path, :class => "btn grey is-block", :style => "width: 100%; max-width: 190px; float: right; padding:10px;");%>
+			</div>
+			<div class="grid-column-6" style="text-align:center;">
+				<%= link_to((I18n.locale == :sw ? "NINAYO ni nini?" : "About NINAYO"), splash_instructions_path, :class => "btn grey is-block", :style => "width: 100%; max-width: 190px; float:left; padding:10px;")%>
+			</div>
+		</div>
+		<div class="grid-row" style="clear:both;">
+			<div class="grid-column-12">
+				<div style="text-align: center; margin-top: 50px;">Copyright &copy; Ninayo 2018</div>
+			</div>
 		</div>
 	</div>
 </div>

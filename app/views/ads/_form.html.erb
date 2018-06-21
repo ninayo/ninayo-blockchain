@@ -1,8 +1,6 @@
-<%= form_for @ad, validate: true do |f| %>
+<%= form_for @ad, url: new_ad_path, validate: true do |f| %>
 	<%= render "shared/validation_errors", :model => @ad %>
-
 	<fieldset>
-
 		<div class="field">
 			<strong><%= (I18n.locale == :sw ? "Ninataka " : "I want ") %> <%= f.select :ad_type, options_for_select([[(I18n.locale == :sw ? 'kuuza' : 'to sell'), "sell"], [(I18n.locale == :sw ? 'kununua' : 'to buy'), "buy"]]), style: "width: 135px;" %></strong>
 		</div>
@@ -120,43 +118,39 @@
 			<%= f.hidden_field :lng %>
 		</fieldset>
 
-
-		<fieldset>
+		<!-- <fieldset>
 			<div class="login">
 				<div class="login-column">
 					<h3><%= I18n.locale == :sw ? "Jisajili" : "Sign up" %></h3>
-
 					<%= f.fields_for User.new do |ff| %>
-	  					<div>
-	    					<strong><%= ff.label :phone_number, class: "field-label" %></strong>
-		    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu (lazima)" %>
+  					<div>
+    					<strong><%= ff.label :phone_number, class: "field-label" %></strong>
+	    				<%= ff.text_field :phone_number, validate: true, placeholder: "Ingie namba ya simu (lazima)" %>
 
-		    				<strong><%= ff.label :name, class: "field-label" %></strong>
-		    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
+	    				<strong><%= ff.label :name, class: "field-label" %></strong>
+	    				<%= ff.text_field :name, validate: true, placeholder: "Jina (lazima)" %>
 
-		    				<strong>Mimi ni <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
+	    				<strong><%= I18n.locale == :sw ? "Mimi ni" : "Gender" %> <%= ff.select :gender, options_for_select([['mwanaume', "male"], ['mwanamke', "female"]]), style: "width: 135px;" %></strong>
 
-		    				<strong><%= ff.label "Mwaka wa kuzaliwa", class: "field-label" %></strong>
-		    				<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10), default: 2000 %>
+	    				<strong><%= ff.label I18n.locale == :sw ? "Mwaka wa kuzaliwa" : "Year of birth", class: "field-label" %></strong>
+	    				<%= ff.select :birthday, (Time.zone.now.year - 100)..(Time.zone.now.year - 10), selected: 1980 %>
 
-		    				<strong><%= ff.label :password, class: "field-label" %></strong>
-		    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
-	    					<% if @validatable %>
-	    						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
-	    					<% end %>
+	    				<strong><%= ff.label :password, class: "field-label" %></strong>
+	    				<%= ff.password_field :password, autocomplete: "off", placeholder: "Chague nenosiri" %>
+    					<% if @validatable %>
+    						<span class="field-hint"><%= @minimum_password_length %> <%= t "views.create_account.characters_minimum" %></span>
+    					<% end %>
 
-	    					<strong><%= ff.label "Andika tena nenosiri", class: "field-label" %></strong>
-	    					<%= ff.password_field :password_confirmation, autocomplete: "off" %>
-	    					<br>
-	    					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
-	  					</div>
+    					<strong><%= ff.label I18n.locale == :sw ? "Andika tena nenosiri" : "Confirm password", class: "field-label" %></strong>
+    					<%= ff.password_field :password_confirmation, autocomplete: "off" %>
+    					<br>
+    					<%= link_to((I18n.locale == :sw ? "Akaunti tiyari?" : "Already have an account"), new_user_session_path, :class => "button is-link") %>
+  					</div>
 					<% end %>
 				</div>
 			</div>
-		</fieldset>
+		</fieldset> -->
 	<% end %>
-
-
 
 	<div class="field-actions">
 		<% if @ad.published? %>

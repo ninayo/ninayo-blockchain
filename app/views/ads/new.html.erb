@@ -1,4 +1,15 @@
 <% provide(:title, "New ad") %>
+
+<% if !current_user %>
+	<fieldset>
+		<div class="field">
+			<p>You require an account to continue. Log into an existing account, or create a new one.</p>
+			<%= link_to "#{t "devise.phrases.log_in"}", new_user_session_path(new_ad_path), :class => "button only-block" %>
+			<%= link_to "#{t "devise.phrases.sign_up_now"}", new_user_registration_path, :class => "button only-block" %>
+		</div>
+	</fieldset>
+<% end %>
+
 <h1><%= t "views.ad.new.heading" %></h1>
 
 <div class="newpost">
