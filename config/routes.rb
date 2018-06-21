@@ -90,6 +90,8 @@ Rails.application.routes.draw do
     get 'splash/team' => 'splash#team', as: :team
     get 'splash/congrats' => 'splash#congrats', as: :congrats
 
+    get 'sponsors' => 'sponsor#show', as: :sponsors
+
     #get 'prices' => 'prices#dar', as: :prices
     #get 'prices/new' => 'prices#new', as: :new_price
     #post 'prices' => 'prices#create', as: :create_price

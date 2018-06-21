@@ -199,6 +199,8 @@ en:
     sms_reset: "Your PIN has been reset and sent to you via SMS"
     phone_not_found: "Phone number not found, please try again"
     want_sell: "Want sell"
+    sponsor: "Buy fertalizer"
+    sponsor_details: "Purchase fertilizer at discounted prices"
 
     errors:
       zero: "no errors"

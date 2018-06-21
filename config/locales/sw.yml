@@ -169,7 +169,7 @@ sw:
     search_ad: "Tafuta matangazo"
     search_ad_sub: "Bei ya masoko"
     title_header: "Asante kwa kutembelea NINAYO, mtandao bora unaotumiwa na maelfu ya wakulima."
-    explore_market: "GUNDUA SOKO"
+    explore_market: "CHUNGUZA SOKO"
     about_me: "Jifunze zaidi kuhusu NINAYO"
     invite: "Waalike Wengine"
     message: "Ujumbe"
@@ -179,6 +179,8 @@ sw:
     sms_reset: "Nywila yako imewekwa upya na kupelekwa kupitia SMS"
     phone_not_found: "Namba ya Simu haipatikani, tafadhali jaribu tena"
     want_sell: "Want sell"
+    sponsor: "kununua mbolea"
+    sponsor_details: "Ununuzi wa mbolea kwa bei punguzo"
 
     errors:
       zero: "hakuna makosa"
