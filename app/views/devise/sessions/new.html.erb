@@ -7,7 +7,7 @@
 			<div class="field">
 				<%= f.label (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Phone number or email address") %>
  				<%= f.text_field :login, placeholder: "+255123456789", value: params['user_login'] %>
- 				<div id="phone_taken" style="color:red; display:<%= !params['forgot'].blank? ? 'block' : 'none' %>;"><%= link_to "Send me a temporary password via SMS now.", "/sms_reset/reset_request?reset_request[phone_number]=#{params['user_login'].strip}&locale=#{params['locale']}", :method => :patch %></div>
+ 				<div id="phone_taken" style="color:red; display:<%= !params['forgot'].blank? ? 'block' : 'none' %>;"><%= link_to "#{t "common.sms_password"}", "/sms_reset/reset_request?reset_request[phone_number]=#{URI.encode_www_form_component(params['user_login'].to_s.strip)}&locale=#{params['locale']}", :method => :patch %></div>
 			</div>
 
 			<div class="field">

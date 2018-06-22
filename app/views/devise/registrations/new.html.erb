@@ -9,7 +9,7 @@
 			<div class="field">
 				<%= f.label (I18n.locale == :sw ? "Namba ya simu au barua pepe" : "Phone number or email"), class: "field-label" %>
  				<%= f.text_field :login, placeholder: "+255123456789" %>
- 				<span id="phone_taken" style="color:red; display:none;">Account already exists. <%= link_to "Please log in to continue.", "#{new_session_path(resource_name)}?user_login=REPLACEUSERLOGIN&forgot=1" %></span>
+ 				<span id="phone_taken" style="color:red; display:none;"><%= t "views.create_account.exists" %> <%= link_to "#{t "common.login_to_continue"}", "#{new_session_path(resource_name)}?user_login=REPLACEUSERLOGIN&forgot=1&locale=#{params['locale']}" %></span>
 			</div>
 
 			<div class="field">
