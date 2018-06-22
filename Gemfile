@@ -71,6 +71,7 @@ gem 'groupdate'
 gem 'twilio-ruby'
 
 #gem 'delayed_job', github: "collectiveidea/delayed_job", branch: "master"
+gem 'delayed_job_active_record'
 
 gem 'activeadmin'
 # gem 'activeadmin-axlsx'
