@@ -4,7 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   after_action :track_update, only: [:update]
 
-  def new    
+  def new
     respond_to do |format|
       format.html { 
         super do

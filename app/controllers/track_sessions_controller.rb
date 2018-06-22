@@ -1,5 +1,7 @@
 class TrackSessionsController < Devise::SessionsController
   include Trackable
+  require 'uri'
+  
 	after_filter :after_login, :only => :create
 
 	def after_login

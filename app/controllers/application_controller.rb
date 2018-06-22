@@ -23,7 +23,8 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     redirect = session[:previous_url]
-    return redirect unless redirect.nil?
+    # Make sure redirect isn't to sms reset page, if sign in succesful. Also don't allow nil
+    return redirect unless redirect.nil? || redirect[0..9] == "/sms_reset"
     root_path
   end
 

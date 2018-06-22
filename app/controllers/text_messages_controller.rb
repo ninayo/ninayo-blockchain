@@ -17,8 +17,9 @@ class TextMessagesController < ApplicationController
 
   def send_sms(user, message)
     @twilio_number = ENV['TWILIO_NUMBER']
-    @alpha_id = 'NINAYOCOM'
     @outgoing_num = format_number(user.phone_number)
+    @alpha_id = @outgoing_num[0..1] == "+1" ? ENV['TWILIO_NUMBER'] : 'NINAYOCOM'
+  
     @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'],
                                        ENV['TWILIO_AUTH_TOKEN'])
 
@@ -33,11 +34,15 @@ class TextMessagesController < ApplicationController
   # handle_asynchronously :send_sms
 
   def find_for_sms_reset
+    require 'uri'
+
     if @u = User.find_by(phone_number: params[:reset_request][:phone_number])
       new_pw = @u.pin_reset
       message = "NINAYO.COM PIN yako imekuwa upya. PIN yako mpya ni #{new_pw}"
       send_sms(@u, message)
-      redirect_to root_url, notice: (t 'common.sms_reset')
+      
+      escapedPhone = URI.encode_www_form_component(params[:reset_request][:phone_number].to_s.strip)
+      redirect_to "#{new_user_session_path}?user_login=#{escapedPhone}", notice: (t 'common.sms_reset')
     else
       redirect_to new_user_password_path, alert: (t 'common.phone_not_found')
     end
@@ -83,7 +88,7 @@ class TextMessagesController < ApplicationController
   # end
 
   def format_number(num)
-    num[0..3] == '+255' ? num : '+255' + num
+    num[0..3] == '+255' || num[0] == '+' ? num : '+255' + num
   end
 
   def envaya_endpoint
