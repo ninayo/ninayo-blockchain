@@ -4,6 +4,7 @@
 - Ruby 2.2.3 (recommended to use `rvm install`)
 - Postgres (use `brew install postgres`)
 - Bundler (see https://bundler.io/)
+- openssl (`brew install openssl`)
 
 ## Setup
 - `bundle install` (and fix any conflicts/errors)

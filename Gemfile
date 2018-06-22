@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.5.1'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.2.7.1'
+gem 'rails'
 # Use postgresql as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.21'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.1'
 # gem 'compass-rails'
@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'kaminari'
 gem 'devise'
-gem 'puma'
+gem 'puma', '~> 2.9.1'
 gem 'client_side_validations', github: "DavyJonesLocker/client_side_validations", branch: "4-2-stable"
 
 gem 'heroku_rails_deflate', :group => :production
@@ -70,7 +70,7 @@ gem 'groupdate'
 
 gem 'twilio-ruby'
 
-gem 'delayed_job_active_record'
+#gem 'delayed_job', github: "collectiveidea/delayed_job", branch: "master"
 
 gem 'activeadmin'
 # gem 'activeadmin-axlsx'
@@ -85,6 +85,7 @@ group :development do
   gem 'meta_request'
   gem 'bullet'
   gem 'letter_opener'
+  gem 'rdoc'
 end
 
 group :development, :test do
