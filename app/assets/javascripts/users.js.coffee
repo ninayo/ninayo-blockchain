@@ -36,6 +36,6 @@ jQuery ->
 				accepts: 'application/json; charset=utf-8',
 				data: {'phone': val},
 				success: (data) ->
-					$('#phone_taken').html($('#phone_taken').html().replace('REPLACEUSERLOGIN', val))
+					$('#phone_taken').html($('#phone_taken').html().replace('REPLACEUSERLOGIN', encodeURIComponent(val)))
 					$('#phone_taken').show()
 			})
