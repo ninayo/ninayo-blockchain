@@ -153,6 +153,7 @@ sw:
     archive: "Hifadhi tangazo (kwenye nyaraka)"
     destroy: "haribu"
     you_need_to_login_first: "Unatakiwa kuingia kwanza"
+    login_to_continue: "Bonyeza Ingia kuandelea."
     favorite: "Unachopendelea"
     unfavorite: "Usichopendelea"
     phone: "Simu"
@@ -177,6 +178,7 @@ sw:
     sms: "Kutuma SMS"
     prices: "Bei ya masoko"
     sms_reset: "Nywila yako imewekwa upya na kupelekwa kupitia SMS"
+    sms_password: "Nitumie neno la siri ya Muda kwa ujumbe sasa."
     phone_not_found: "Namba ya Simu haipatikani, tafadhali jaribu tena"
     want_sell: "Want sell"
     sponsor: "kununua mbolea"
@@ -219,6 +221,7 @@ sw:
       characters_minimum: "Kiwango cha chini cha herufi"
       agreement_text_1: "Mimi Nakubaliana"
       agreement_text_2: "Masharti ya Huduma"
+      exists: "Akaunti tayari ipo"
 
       sidebar:
         heading: "Hauna Akaunti?"

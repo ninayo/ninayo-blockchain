@@ -173,6 +173,7 @@ en:
     archive: "Archive"
     destroy: "Destroy"
     you_need_to_login_first: "You need to login first to perform this action"
+    login_to_continue: "Please log in to continue."
     favorite: "Favorite"
     unfavorite: "Unfavorite"
     phone: "Phone"
@@ -197,6 +198,7 @@ en:
     sms: "Send SMS"
     prices: "View market prices"
     sms_reset: "Your PIN has been reset and sent to you via SMS"
+    sms_password: "Send me a temporary password via SMS now."
     phone_not_found: "Phone number not found, please try again"
     want_sell: "Want sell"
     sponsor: "Buy fertalizer"
@@ -243,6 +245,7 @@ en:
       characters_minimum: "characters minimum"
       agreement_text_1: "I agree to Ninayo’s"
       agreement_text_2: "Terms of use"
+      exists: "Account already exists"
 
       sidebar:
         heading: "Don’t have an account?"
