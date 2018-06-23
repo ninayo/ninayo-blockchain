@@ -31,7 +31,7 @@
 				</div>
 			</div>
 			<p>
-				<%= link_to user_omniauth_authorize_path(:facebook), :class => "button only-block is-facebook" do%>
+				<%= link_to user_facebook_omniauth_authorize_path, :class => "button only-block is-facebook" do%>
 					<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 						this.src='<%= image_path("icons/facebook.png") %>'">
 					<%if I18n.locale == :en %>
