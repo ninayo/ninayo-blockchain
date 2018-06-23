@@ -10,8 +10,6 @@
 		</a>
 
 		<% if user_signed_in? %>
-
-
 			<%= link_to "#{t "views.navigation.my_page"}", mypage_path, :class => "primarynav-item is-secondary" %>
 
 			<% if current_user.unread_inbox_count >= 1 %>
@@ -22,7 +20,6 @@
 					<% end %>
 				<% end %>
 			<% end %>
-
 		<% else %>
 			<%= link_to "#{t "views.navigation.login"}", new_user_session_path, :class => "primarynav-item is-secondary" %>
 		<% end %>

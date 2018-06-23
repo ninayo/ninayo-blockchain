@@ -1,12 +1,14 @@
 <div class="primarynav">
 
-	<% if I18n.locale == :sw %>
-		<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
-			<span>EN</span>
+	<% if false %>
+		<% if I18n.locale == :sw %>
+			<%= link_to({locale: "en"}, class: "primarynav-item is-secondary") do %>
+				<span>EN</span>
+				<% end %>
+		<% elsif I18n.locale == :en %>
+			<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
+				<span>SW</span>
 			<% end %>
-	<% elsif I18n.locale == :en %>
-		<%= link_to({locale: "sw"}, class: "primarynav-item is-secondary") do %>
-			<span>SW</span>
 		<% end %>
 	<% end %>
 
