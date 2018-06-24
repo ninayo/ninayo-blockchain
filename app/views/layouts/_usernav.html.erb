@@ -50,7 +50,7 @@
 				<%= t "views.navigation.login" %>
 			<% end %>
 
-			<%= link_to user_omniauth_authorize_path, :class => "usernav-item is-secondary" do%>
+			<%= link_to user_facebook_omniauth_authorize_path, :class => "usernav-item is-secondary" do%>
 				<img src="<%= image_path("icons/facebook.svg") %>" class="usernav-icon" alt="" onerror="this.onerror=null;
 					this.src='<%= image_path("icons/facebook.png") %>'">
 				<%if I18n.locale == :en %>
